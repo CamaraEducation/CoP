@@ -60,7 +60,9 @@ if($leveltype = "Beginner"){}elseif ($leveltype= "Intermediate") {
 <?php 
 $s = getPostTerms($post->ID,'level');
 echo  $s;
-if($s = "Beginner"){}elseif ($s= "Intermediate") {
+if($s = "Beginner"){
+	
+}elseif ($s= "Intermediate") {
 	# code...
 }elseif ($s="Advance" ) {
 	# code...
