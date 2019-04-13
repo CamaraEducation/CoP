@@ -1,25 +1,19 @@
 <?php
 
 function irelandcop_script_enqueue() {
-	//css styles
-	wp_enqueue_style('customstyle',get_template_directory_uri().'/css/irelandcop.css',array(),'1.0.0','all');
-	wp_enqueue_style('custombootstrap',get_template_directory_uri().'/css/bootstrap.css',array(),'1.0.0','all');
 
-		
-    wp_enqueue_style('fontcss',get_template_directory_uri().'/css/font-awesome/css/font-awesome.min.css',array(),'1.0.0','all');
+//css styles
+wp_enqueue_style('customstyle',get_template_directory_uri().'/css/irelandcop.css',array(),'1.0.0','all');
+wp_enqueue_style('custombootstrap',get_template_directory_uri().'/css/bootstrap.css',array(),'1.0.0','all');    
+wp_enqueue_style('fontcss',get_template_directory_uri().'/css/font-awesome/css/font-awesome.min.css',array(),'1.0.0','all');
+        
     
-		
-		
-
 /*
-		wp_enqueue_script('customjs_jquery',get_template_directory_uri().'/js/jquery-3.2.1.min.js',array(),'1.0.0',true);
+    wp_enqueue_script('customjs_jquery',get_template_directory_uri().'/js/jquery-3.2.1.min.js',array(),'1.0.0',true);
 */
-		wp_enqueue_script('customjs_popper',get_template_directory_uri().'/js/popper.min.js',array(),'1.0.0',true);
-
-			wp_enqueue_script('customjs_bootstrap',get_template_directory_uri().'/js/bootstrap.js',array(),'1.0.0',true);
-		
-    //Javascript
-    wp_enqueue_script('feedback',get_template_directory_uri().'/js/feedback.js',array(),'1.0.0',false);	
+wp_enqueue_script('customjs_popper',get_template_directory_uri().'/js/popper.min.js',array(),'1.0.0',true);
+wp_enqueue_script('customjs_bootstrap',get_template_directory_uri().'/js/bootstrap.js',array(),'1.0.0',true);    
+wp_enqueue_script('feedback',get_template_directory_uri().'/js/feedback.js',array(),'1.0.0',false); 
 
 }
 
@@ -57,7 +51,8 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/customizer.php';
 
 
-/** =================================== */
+
+
 
 ///////// If the user is Sad/////////////////
 function userDisliked($userid, $postid)
@@ -94,9 +89,9 @@ function userExcited($userid, $postid)
 }
 
 ///////// End of If the user is Excited/////////////////
-if (isset($_POST['action'])) {
+if (isset($_POST['likeaction'])) {
   
-  $action = $_POST['action'];
+  $action = $_POST['likeaction'];
   $post_id = $_POST['post_id'];
   $user_id = $_POST['user_id'];
   $table_name = $wpdb->prefix . 'feedback';

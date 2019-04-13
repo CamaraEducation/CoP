@@ -435,7 +435,7 @@ action = 'undislike';
 $.ajax({
  type: "POST",
   data: {
-	'action': action,
+	'action': likeaction,
 	'post_id': post_id,
 			'user_id': user_id
 				},
