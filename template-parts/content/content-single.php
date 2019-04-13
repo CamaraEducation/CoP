@@ -20,7 +20,7 @@ return $term_single->name; //do something here
 	<section class="my-5">
 		<div class="container">
 			<nav aria-label="breadcrumb">
-				<ol class="breadcrumb arr-right" style="background-color: #F5F7FA;">
+				<ol class="breadcrumb arr-right" style="background-color: #F0F2F5;">
 					<li class="breadcrumb-item bread-text">Dashboard</li>
 					<li class="breadcrumb-item bread-text"><?php echo getPostTerms($post->ID,'pathway'); ?></li>
 					<li class="breadcrumb-item bread-text"> <?php echo getPostTerms($post->ID,'topic'); ?></li>
@@ -33,7 +33,11 @@ return $term_single->name; //do something here
 
 		<section class="my-5">
 		<div class="container">
-			<h1 class="headtitle">    <?php echo the_title();?></h1>
+		<h1 class="headtitle" style="font-family: Lato; font-style: normal; font-weight: bold; font-size: 38px; line-height: 24px; float: left;"><?php echo the_title();?></h1>
+				
+				<h1 class="badge badge-primary" >
+ 	<?php echo getPostTerms($post->ID,'topic'); ?></h1>
+
 			<hr>
 		</div>
 
@@ -45,11 +49,27 @@ return $term_single->name; //do something here
 				<li class="nav-item">
 				
 <!--LEVEL -->
+<?php $leveltype = getPostTerms($post->ID,'level');
+if($leveltype = "Beginner"){}elseif ($leveltype= "Intermediate") {
+	# code...
+}elseif ($leveltype="Advance" ) {
+	# code...
+} ?>
+<?php echo "$leveltype";?>
 <img src="<?php echo get_template_directory_uri();  ?>/images/level.png" class="img-responsive" with="10px"  alt="COP">
-<?php echo getPostTerms($post->ID,'level'); ?>
+<?php 
+$s = getPostTerms($post->ID,'level');
+echo  $s;
+if($s = "Beginner"){}elseif ($s= "Intermediate") {
+	# code...
+}elseif ($s="Advance" ) {
+	# code...
+} 
+?>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			</a>
 				</li>
+
 				<li class="nav-item">
 	
 	<!--DURATION -->
@@ -81,8 +101,28 @@ return $term_single->name; //do something here
 
 			
 				<div class="col-md-4">
-					<h2 class="euneed pt-3">Everything you need</h2>
-				
+					<h2 class="euneed pt-3" style="font-family: Lato; font-style: normal; font-weight: bold; font-size: 24px;
+line-height: 24px;">Align to Outcomes</h2>
+				<?php if (get_field('logic_model') != "") { ?>
+
+					<div class="card my-3" style="background-color: #fff; border-radius: 10px; height: 78px;">
+						<div class="card-header border-0  d-flex align-items-center" style="background-color: #ffffff; font-family: Lato; font-style: normal; font-weight: bold; font-size: 14px; line-height: 24px; letter-spacing: 0.03em; text-transform: uppercase;">
+							<div>
+							<p><b>SKILLS & COMPETENCIES</b></p>
+					      <ul>
+							<?php
+							$term_list = wp_get_post_terms($post->ID, "skills_and_competencies",array("fields" => "all"));
+							foreach($term_list as $term_single) {
+							echo "<li>" . $term_single->name . "</li>" ;//do something here
+							}
+							?>
+
+					      </ul>
+
+							</div>
+						</div>
+					</div>
+<?php } ?>
 				<?php if (get_field('logic_model') != "") { ?>
 
 					<div class="card my-3" style="background-color: #fff; border-radius: 10px; height: 78px;">
