@@ -2,15 +2,14 @@
 $url="landing";
 if(is_user_logged_in() ) {
        //wp_redirect( $url );
-exit;
+//exit;
         // code
     }
 
 
-
 $url="landing";
 $loginPage = get_site_url() . '/login/';
-$registerget_site_url() . '/registar/';
+$register=get_site_url() . '/registar/';
 $forgotpassword = get_site_url() . '/forgotpassword/';
 
        echo $loginPage ."<br>";
@@ -22,7 +21,6 @@ $forgotpassword = get_site_url() . '/forgotpassword/';
         echo "<br>I am frong page";
         }
   
-
 
 ?>
 <!doctype html>
