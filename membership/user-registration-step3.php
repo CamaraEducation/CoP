@@ -107,8 +107,14 @@ if($new_user_id) {
         <form id="msform" action="" method="POST">
 
 <div class="alert alert-danger display-error" style="display: none"> 
-</div>
 
+</div>
+<div class="container">
+         
+<div style="float:left;" class="column">
+  <img src="<?php echo get_template_directory_uri();  ?>/images/avatar-2.jpg" with="636px" hight="1024px" alt="COP">
+</div>
+<div style="float:right;" class="column">
             <!-- progressbar -->
             <ul id="progressbar">
                 <li class="active"></li>
@@ -119,32 +125,93 @@ if($new_user_id) {
             </ul>
             <!-- fieldsets -->
             <fieldset>
+
                 <h2 class="fs-title">Community Sign up </h2>
                 <h3 class="fs-subtitle">Tell us something more about you</h3>
-                                First Name <input type="text" name="user_username" placeholder="Username"/>
+                
+                               <label style="float: left; width: 92px;
+height: 24px;
+left: 824px;
+top: 339px;
 
-                First Name <input type="text" name="user_fname" placeholder="First Name"/>
+font-family: Lato;
+font-style: normal;
+font-weight: bold;
+font-size: 16px;
+line-height: 24px;
+
+color: #000000;" >User Name</label>  <input type="text" name="user_username" placeholder="Username"/>
+
+                <label style="float: left; width: 92px;
+height: 24px;
+left: 824px;
+top: 339px;
+
+font-family: Lato;
+font-style: normal;
+font-weight: bold;
+font-size: 16px;
+line-height: 24px;
+
+color: #000000;" >First Name</label> <input type="text" name="user_fname" placeholder="First Name"/>
 
         <span class="error">This field is required</span>
 
-                Last Name <input type="text" name="user_lname" placeholder="Last Name"/>
-                Email  <input type="text" name="user_email" placeholder="Email"/>
-               Password  <input type="text" name="user_pass" placeholder="Password"/>
-               Password Confirm  <input type="text" name="user_pass_confirm" placeholder="Confirm Password"/>
-               
-                <input type="submit" name="submit" class="submit signin-button" value="Submit"/>
+                <label style="float: left; width: 92px;
+height: 24px;
+left: 824px;
+top: 339px;
+
+font-family: Lato;
+font-style: normal;
+font-weight: bold;
+font-size: 16px;
+line-height: 24px;
+
+color: #000000;" >Last Name</label><input type="text" name="user_lname" placeholder="Last Name"/>
+                <label style="float: left; width: 92px;
+height: 24px;
+left: 824px;
+top: 339px;
+
+font-family: Lato;
+font-style: normal;
+font-weight: bold;
+font-size: 16px;
+line-height: 24px;
+
+color: #000000;" >Email</label><input type="text" name="user_email" placeholder="Email"/>
+
+<div class="container">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <div class="container" style="float: left;">
+        <div class="form-group name1 col-md-6">
+            <label style="float: left;" >Password</label>
+            <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name="user_pass"placeholder="Password">
+        </div>
+
+        <div class="form-group name2 col-md-6">
+          <label style="float: left;" >Password Confirm</label>  
+            <input style="text-align: left;" type="text" class="form-control" id="name" aria-describedby="emailHelp" name="user_pass_confirm"placeholder="Confirm Password"/>
+        </div>
+      </div>
+    </div>
+                <input type="submit" name="submit" class="submit signin-button" style="width: 421px; height: 48px; left: 826px; top: 683px; background: #EE603B; box-shadow: 0px 5px 15px rgba(25, 70, 93, 0.05); border-radius: 100px; text-decoration-color: #FFFFFF" value="Submit"/>
 </fieldset>
 
 <fieldset>
                 <h2 class="fs-title">More About You</h2>
                 <h3 class="fs-subtitle">Please tell us</h3>
 
-Job Role <input type="text" name="user_jobrole" id="user_jobrole" placeholder="Job Role"/>
-Organization <input type="text" name="user_org" id="user_org" placeholder="Last Name"/>
-             
-             <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-             <input type="button" name="next" class="next action-button" value="Next"/>
-</fieldset>
+        <label style="float: left; width: 92px; height: 24px; left: 507px; top: 349px;
+
+        font-family: Lato; font-style: normal; font-weight: bold; font-size: 16px; line-height: 24px; color: #000000;" >Job Role</label> <input type="text" name="user_jobrole" id="user_jobrole" placeholder="Job Role"/>
+        <label style="float: left; width: 92px; height: 24px; left: 507px; top: 349px; 
+        font-family: Lato; font-style: normal; font-weight: bold; font-size: 16px; line-height: 24px; color: #000000;" >Organization</label> <input type="text" name="user_org" id="user_org" placeholder="Last Name"/>
+                     
+                     <input type="button" name="previous" class="previous action-button-previous"  value="Previous"/>
+                     <input type="button" name="next"  class="next action-button" value="Next"/>
+        </fieldset>
 
 
 <fieldset>
@@ -152,29 +219,32 @@ Organization <input type="text" name="user_org" id="user_org" placeholder="Last 
                 <h3 class="fs-subtitle">Please tell us</h3>
 
 <!-- Default unchecked -->
-<div class="custom-control custom-radio">
+
+<div style="align-items: start;">
+<div  class="custom-control custom-radio" style="float: left; padding-left: 180px">
   <input type="radio" class="custom-control-input" id="Educator" name="user_communityrole">
   <label class="custom-control-label" >Educator</label>
 </div>
-
-<div class="custom-control custom-radio">
+<br>
+<div class="custom-control custom-radio" style="float: left; padding-left: 180px">
   <input type="radio" class="custom-control-input" id="Cluset Coordinator" name="user_communityrole">
   <label class="custom-control-label" >Cluset Coordinator</label>
 </div>
-
-<div class="custom-control custom-radio">
+<br>
+<div class="custom-control custom-radio" style="float: left; padding-left: 180px">
   <input type="radio" class="custom-control-input" id="Youth" name="user_communityrole">
   <label class="custom-control-label" >Digital Youth Specialist</label>
 </div>
 
-
-<div class="custom-control custom-radio">
+<br>
+<div class="custom-control custom-radio" style="float: left; padding-left: 180px">
   <input type="radio" class="custom-control-input" id="Youth Officer" name="user_communityrole">
   <label class="custom-control-label" >Youth Officer</label>
 </div>
-
-             <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-             <input type="button" name="next" class="next action-button" value="Next"/>
+</div>
+          
+             <input type="button"  name="previous" class="previous action-button-previous" value="Previous"/>
+             <input type="button" name="next" class="next action-button"  value="Next"/>
 </fieldset>
 
  
@@ -182,30 +252,26 @@ Organization <input type="text" name="user_org" id="user_org" placeholder="Last 
                 <h2 class="fs-title">I have of will complete the follow trainin in</h2>
                 <h3 class="fs-subtitle">Fill in your credentials</h3>
 
-
-
-
-
-<div class="custom-control custom-radio">
+<div class="custom-control custom-radio" style="float: left; padding-left: 180px">
   <input type="radio" class="custom-control-input" id="user_pathway" name="user_pathway">
   <label class="custom-control-label" >STEM</label>
 </div>
 
-<div class="custom-control custom-radio">
+<div class="custom-control custom-radio" style="float: left; padding-left: 180px">
   <input type="radio" class="custom-control-input" id="user_pathway" name="user_pathway">
   <label class="custom-control-label" >Digital sdsdsf</label>
 </div>
 
 
 
-                
                 <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                 <input type="submit" name="submit" class="submit submitform" value="Submit"/>
             </fieldset>  
         </form>
     </div>
 </div>
-
+</div>
+</div>
 <?php 
 }//end of if
 ?>
