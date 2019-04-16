@@ -1,22 +1,58 @@
 <?php
 
-$url="login";
+global $current_user_name;
+global $org_name;
+global $current_user_communityRole ;
+global $communityRole_name;
+global $memberJobRole_name;
+global $current_user_pathway_name;
+global $current_pathway_color;
 
+$url= get_site_url() . '/login/';
 if(! is_user_logged_in() ) {
-//echo "asdfj;asdf";
-        //wp_redirect( $url );
-//exit;
-        // code
-    }
-/**
- * The header for our theme
- *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
+wp_redirect( $url );
+exit;
+    } else {
+		
+//user is logged in_array
 
- * @package WordPress
- * @subpackage CoP_Members
- * @since 1.0.0
- */
+$current_user = wp_get_current_user();
+$current_user_name= $current_user->display_name;
+$current_user_id = $current_user->ID;
+
+
+//**GET ORGANIZATION
+$current_user_org =get_user_meta( $current_user_id, 'member_organization', true); 
+$org_name = get_term( $current_user_org, 'member_organization' )->name;
+
+//echo $org_name->name;
+
+//**GET COMMUNITY ROLE
+$current_user_communityRole =get_user_meta( $current_user_id, 'member_community_role', true); 
+$communityRole_name = get_term( $current_user_communityRole, 'community_role' )->name;
+
+//echo $communityRole_name->name;
+
+//**GET COMMUNITY ROLE
+$current_user_communityRole =get_user_meta( $current_user_id, 'member_jobrole', true); 
+$memberJobRole_name = $current_user_communityRole;
+
+
+
+//**GET Pathway
+$current_user_pathway =get_user_meta( $current_user_id, 'memberPathway', true); 
+$term = get_term( $current_user_pathway, 'pathway' );
+$current_user_pathway_name = $term->name;
+
+$current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->term_id);
+		
+		
+		
+		
+		
+	}
+	
+
 
 
 /** Set some global variables */

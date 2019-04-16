@@ -6,21 +6,20 @@ if(is_user_logged_in() ) {
         // code
     }
 
-
-$url="landing";
-$loginPage = get_site_url() . '/login/';
-$register=get_site_url() . '/registar/';
+$landingURL="landing";
+$loginPage= get_site_url() . '/login/';
+$registerPage =get_site_url() . '/register/';
 $forgotpassword = get_site_url() . '/forgotpassword/';
+$homeurl = get_home_url();
 
-       echo $loginPage ."<br>";
-       echo get_permalink() . "<br>";
-       //echo get_site_url();
-
-       if(get_permalink()  != $loginPage && !is_user_logged_in()){
-         //   wp_redirect( wp_login_url($redirect) ); exit;
-        echo "<br>I am frong page";
-        }
-  
+       if(is_home() == true && is_user_logged_in()){
+         wp_redirect($landingURL); exit;
+        
+       } else if(strcmp(get_permalink(),$loginPage)==0 && is_user_logged_in()){
+          wp_redirect($landingURL); exit;
+  //}    else if(strcmp(get_permalink(),$registerPage)==0 && is_user_logged_in()){
+    //     wp_redirect($landingURL); exit;
+}
 
 ?>
 <!doctype html>

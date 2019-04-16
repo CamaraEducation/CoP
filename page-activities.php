@@ -11,10 +11,16 @@ return $term_single->name; //do something here
 
 if($_GET['a']){
 	$currentPathway=$_GET['a'];
+}else {
+	$currentPathway= $current_user_pathway_name;
+	
 }
+$term = get_term_by('name',$currentPathway, 'pathway');
+$current_pathway_color=get_field('main_color', $term->taxonomy . '_' . $term->term_id);
+
+//echo $current_pathway_color;
 
 function searchPosts($maxPosts,$search_topic,$search_level,$search_equipment,$search_app,$pathway) {
-
 
 
 $Searcharg=array(
@@ -99,7 +105,7 @@ $posts = get_posts($Searcharg);
 
     <!--  Hero Section -->
     <section id="hero">
-        <div class="hero-container" style="background: #993C9F; height: 295px;">
+        <div class="hero-container" style="background: <?php echo $current_pathway_color?>" height: 295px;">
             <div class="col-xs-6 col-centered">
                 <p class="directory-hero-text"><?php echo $currentPathway; ?> Activities</p>
             </div>
@@ -229,13 +235,16 @@ $appURL = $pageURL . "&fta=" .$tool->name;
                     
 
 <?php } ?>
-           
+
             </div>
         </div>
 
-				
+		<span style="margin-left:45%;font-weight:bold;text-align: middle;"><a href="<?php echo $pageURL;?>">Clear All Filters
+		<img src="<?php echo get_template_directory_uri();  ?>/images/filterClear.png" style="width:20px;">
+		</a>  </span>
 			</div>
 		</div>
+		
 	</section>
 
 
@@ -251,8 +260,6 @@ $search_app= $_GET['fta'];
 //echo empty ($search_level);
 //echo $_SERVER["QUERY_STRING"];
 
-
-
 ?>
 
 <div class="container">
@@ -260,8 +267,6 @@ $search_app= $_GET['fta'];
     
       <?php                         
     
-
-
 
 //show latest psots
 $maxPosts = 22;
@@ -288,12 +293,15 @@ setup_postdata($post); //set up post data for use in the loop (enables the_title
 <div class="card" style="margin-bottom:30px;">   
 <img class="card-img-top cardback" src="<?php the_field('featured_image'); ?>"  width="279" height="129" alt="Card image cap">
 <div class="card-body">
-<h5 class="card-small" style="color:#9AA5B1;"><?php echo getPostTerms($post->ID,'pathway'); ?> </h5>
+<h6 class="card-small" style="color:#9AA5B1;"><?php echo getPostTerms($post->ID,'pathway'); ?> </h6>
 <h5 class="card-big"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
 </a>
-<span class="badge badge-primary"> <?php echo getPostTerms($post->ID,'topic'); ?></span>
-<span class="badge badge-info"> <?php echo getPostTerms($post->ID,'tool'); ?></span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<span class="badge badge-primary" style="background-color:<?php echo $current_pathway_color;?>"> <?php echo getPostTerms($post->ID,'topic'); ?></span>
+
+<span class="badge badge-info" style="outline: 1px solid <?php echo $current_pathway_color;?>;color:<?php echo $current_pathway_color;?>;background-color:#ffffff"> <?php echo getPostTerms($post->ID,'tool'); ?></span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="<?php echo get_template_directory_uri();  ?>/images/level.png" class="img-responsive" with="10px"  alt="COP">
  <?php echo getPostTerms($post->ID,'level'); ?>
 </div>
