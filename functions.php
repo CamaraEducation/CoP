@@ -38,12 +38,26 @@ function onboarding_ajax_request() {
 
 $user_login   = $_POST["user_username"];  
 $user_email   = $_POST["user_email"];
-$user_first   = $_POST["user_fname"];
-$user_last    = $_POST["user_lname"];
-$user_pass    = $_POST["user_pass"];
-$pass_confirm   = $_POST["user_pass_confirm"];
+$user_fname   = $_POST["user_fname"];
+$user_lname    = $_POST["user_lname"];
+$user_password    = $_POST["user_password"];
+$pass_confirm   = $_POST["user_password_confirm"];
+$user_18yearold = $_POST["18yearsyearsold"];
 
-echo $user_login . "asjdfa";
+$errors = array();
+
+  $errors [] = array('user_fname' => $user_fname);
+  $errors [] = array('user_lname' => $user_lname);
+
+
+$return_arr[] = array("id" => $id,
+                    "username" => $username,
+                    "name" => $name,
+                    "email" => $email);
+
+echo json_encode($return_arr);
+
+//echo $user_login . "asjdfa";
 
 }
 

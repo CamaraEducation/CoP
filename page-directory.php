@@ -1,5 +1,9 @@
-<?php get_header();?>
-<!--  Hero Section -->
+
+<?php
+get_header();
+
+?>
+	<!--  Hero Section -->
 	<section id="hero">
 		<div class="hero-container" style="background: #993C9F; height: 295px;">
 			<div class="col-xs-6 col-centered">
@@ -7,27 +11,16 @@
 			</div>
 		</div>
 	</section>
+	<!-- #hero -->
 
-
-<section>
-        <div class="container mt-5">
-            <a href="" class="filter-text">Filter by </a>
-
-
-<?php
-
-$pageURL = get_permalink() . "?".$_SERVER["QUERY_STRING"];
-
-//echo $pageURL;
-
-?>
-
-<div class="btn-group ml-2">
+	<section>
+		<div class="container mt-5">
+			<a href="" class="filter-text">Filter by </a>
+			<div class="btn-group ml-2">
                 <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border: 1px solid #3E4C59;box-sizing: border-box;border-radius: 100px;">
                     Organization
                 </button>
                 <div class="dropdown-menu">
-
 				<?php
 
 				$pathway_organizations = get_terms( 'member_organization', 'orderby=id');
@@ -107,30 +100,47 @@ $pageURL = get_permalink() . "?".$_SERVER["QUERY_STRING"];
 				<?php } ?>
 
                 </div>
-            </div>
-<section class="my-5">
-		<div class="container">
-			
-               <?php
+
+
+		</div>
+	</section>
+
+	<section class="my-5">
+		
+
+ <?php
 				$tax_terms = get_terms('community_role', array('hide_empty' => false,));
 
 				 // var_dump($tax_terms);
-				foreach ( $tax_terms as $term ) {
+
+		foreach ( $tax_terms as $term ) {
 				///loop though the types 
 				
 				$role_id = $term->term_id;
 
+$hasUsers = count(get_users(array('meta_key' => 'member_community_role','meta_value' => $role_id,)));
+
+if($hasUsers > 0){
+
 				?>
-			<h2 class="headtitle"> <?php echo $term->name; ?> </h2>
+
+		<div class="container" style="margin-top: 24px;">
+			<h2 class="headtitle"><?php echo $term->name; ?> </h2>
 			<hr>
 		</div>
-        <div class="container">
+
+		<div class="container">
 			<div class="row">
 				<div class="col-md-3">
-					<p class="pass-desc"><?php echo $term->description;?></p>
+					<p class="pass-desc"> <?php echo $term->descritpion; ?></p>
 				</div>
-				<?php echo "</br"; ?>
-				 <div class="card-deck">
+				<div class="col-md-9">
+					
+
+
+
+					<div class="row">
+
 				<?php
 
 				$copusers = get_users(
@@ -139,19 +149,22 @@ $pageURL = get_permalink() . "?".$_SERVER["QUERY_STRING"];
 									  'meta_value' => $role_id,
 									  )
 									  );
-				$numOfCols = 4;
-				$rowCount = 0;
-				$bootstrapColWidth = 12 / $numOfCols;
+			
+				
+	?>			
 
-				foreach ( $copusers as $users ) {
-				setup_postdata($users);
+				<div class="row">
+<?php
+//we just want to repeat this
+foreach ( $copusers as $users ) {
+
+
+setup_postdata($users);
 				$current_user_name= $users->display_name;
 				$current_user_id = $users->ID;
 				$user_role = $users->role;
 
-				$tax_org = get_terms('member_organization', array('hide_empty' => false,));
-				$org_na = $tax_org->name;
-
+	
 				//**GET ORGANIZATION
 				$current_user_org =get_user_meta( $current_user_id, 'member_organization', true); 
 				$org_name = get_term( $current_user_org, 'member_organization' )->name;
@@ -170,11 +183,15 @@ $pageURL = get_permalink() . "?".$_SERVER["QUERY_STRING"];
 				$current_user_pathway_name = $term->name;
 
 				$current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->term_id);
-				?>
-				<div class="row">
-				<div class="col-md-<?php echo $bootstrapColWidth; ?>">
-						<div class="card ml-2 mt-2" style="width: 17rem; background: #FFFFFF;box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 10px; margin-bottom:30px; float: left;">
-							<img class="card-img-top col-4 mx-auto text-center mt-3" src="<?php echo get_avatar_url($user->ID); ?>" alt="Card image cap" width="82" height="82">
+				
+
+?>
+
+
+
+						<div class="card ml-2 mt-2" style="width: 17rem; background: #FFFFFF;box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 10px;">
+						
+<img class="card-img-top col-4 mx-auto text-center mt-3" src="<?php echo get_avatar_url($user->ID); ?>" alt="Card image cap" width="82" height="82">
 							<div class="card-body">
 								<p class="custom-card-title"><?php echo $current_user_name; ?></p>
 								<p class="custom-card-title"><?php echo $user_role; ?></p>
@@ -183,19 +200,31 @@ $pageURL = get_permalink() . "?".$_SERVER["QUERY_STRING"];
 								<a href="#" class="badge card-badge2"><?php echo $current_user_pathway_name;?></a>
 							</div>
 						</div>
-					</div>
+<?php
+} //end of uses
+}
+?>
 
+
+					</div>	
 				</div>
-				<?php
-				 $rowCount++;
-   				 if($rowCount % $numOfCols == 0) echo '</div><div class="row">';
-					}
-					}
-					?>
-   
-        		</div>
-		    </div>
+			</div>
 		</div>
-    </section>
 
-<?php get_footer();?>
+
+
+<?php 
+}
+ ?>
+
+	</section>
+
+	
+
+	
+
+
+<?php
+get_footer();
+
+?>
