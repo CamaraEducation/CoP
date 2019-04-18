@@ -90,8 +90,8 @@ foreach( $publicationType as $Ptype ):
             setup_postdata($post); //set up post data for use in the loop (enables the_title(), etc without specifying a post ID)
       ?>        
 
-
-                        <div class="card ml-2 mt-2" style="width: 17rem; background: #E6EEF3;border: none;">
+ 
+                        <div class="card ml-2 mt-2" style="width: 200px; background: #E6EEF3;border: none;margin-right: 12px;">
 
                            
 

@@ -1,22 +1,52 @@
 
 <?php
 
+//echo $_POST['user_fname'];
 
 function example_ajax_enqueue() {
-
 // Enqueue javascript on the frontend.
 wp_enqueue_script(
 'example-ajax-script', get_template_directory_uri() . '/js/msform2.js',array('jquery'));
-
 // The wp_localize_script allows us to output the ajax_url path for our script to use.
 wp_localize_script('example-ajax-script','example_ajax_obj',array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ));
+
 }
 
-add_action( 'wp_enqueue_scripts', 'example_ajax_enqueue' );
+//add scripts and set up ajax
+//add_action( 'wp_enqueue_scripts', 'example_ajax_enqueue' );
+//add_action( 'wp_ajax_example_ajax_request', 'example_ajax_request' );
+//add_action( 'wp_ajax_nopriv_example_ajax_request', 'example_ajax_request' );
 
 
-add_action( 'wp_ajax_example_ajax_request', 'example_ajax_request' );
-add_action( 'wp_ajax_nopriv_example_ajax_request', 'example_ajax_request' );
+
+function onboarding_ajax_enqueue() {
+// Enqueue javascript on the frontend.
+wp_enqueue_script(
+'onboarding-ajax-script', get_template_directory_uri() . '/js/onboarding_js.js',array('jquery'));
+// The wp_localize_script allows us to output the ajax_url path for our script to use.
+wp_localize_script('onboarding-ajax-script','onboarding_ajax_obj',array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ));
+}
+
+//add scripts and set up ajax
+add_action( 'wp_enqueue_scripts', 'onboarding_ajax_enqueue' );
+add_action( 'wp_ajax_onboarding_ajax_request', 'onboarding_ajax_request' );
+add_action( 'wp_ajax_nopriv_onboarding_ajax_request', 'onboarding_ajax_request' );
+
+
+function onboarding_ajax_request() {
+
+
+$user_login   = $_POST["user_username"];  
+$user_email   = $_POST["user_email"];
+$user_first   = $_POST["user_fname"];
+$user_last    = $_POST["user_lname"];
+$user_pass    = $_POST["user_pass"];
+$pass_confirm   = $_POST["user_pass_confirm"];
+
+echo $user_login . "asjdfa";
+
+}
+
 
 
 function example_ajax_request() {

@@ -79,8 +79,8 @@ $(".previous").click(function(){
 			current_fs.hide();
 		
 	});
-});
+
 
 $(".submit").click(function(){
-	return true;
+	return false;
 })

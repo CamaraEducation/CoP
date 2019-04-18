@@ -23,7 +23,6 @@ $user_communityrole    = $_POST["user_communityrole"];
 $user_pathway    = $_POST["user_pathway"];
 
 
-
 $new_user_id = wp_insert_user(array(
                     'user_login'        => $user_login,
                     'user_pass'         => $user_pass,
@@ -127,8 +126,8 @@ if($new_user_id) {
 
         <span class="error">This field is required</span>
 
-                Last Name <input type="text" name="user_lname" placeholder="Last Name"/>
-                Email  <input type="text" name="user_email" placeholder="Email"/>
+              Last Name <input type="text" name="user_lname" placeholder="Last Name"/>
+              Email  <input type="text" name="user_email" placeholder="Email"/>
                Password  <input type="text" name="user_pass" placeholder="Password"/>
                Password Confirm  <input type="text" name="user_pass_confirm" placeholder="Confirm Password"/>
                

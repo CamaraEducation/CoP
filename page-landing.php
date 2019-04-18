@@ -13,6 +13,14 @@ return $string;
 }
 
 
+function gettopicImage($topicName){
+ $term = get_term_by('name',$topicName, 'topic'); 
+ 
+ $name = $term->topic_image;
+$imagePath = get_field('topic_image', $term->taxonomy.'_'.$term->term_id);
+return $imagePath;
+}
+
 function getactivity($maxNumb, $pathway){
 /*
 $args = array(
@@ -66,9 +74,9 @@ if ( is_user_logged_in() ) {
 <p class="name-user" align="left"><h3> <?php echo $current_user_name; ?> </h3></p>
 <p class="txt-pos" align="left"><h4><?php  echo $memberJobRole_name . ' @ ' . $org_name; ?> </h4></p>
 <span class="badge badge-success float-left mr-2" style="background-color: #3ECCCB;">
-<?php echo $current_user_pathway_name; ?></span> 
+<?php echo $communityRole_name; ?></span> 
 <span class="badge badge-light float-left" style="background-color: #B4B4B4; opacity: 0.5; color: #1d1d1d;">
-<?php echo $communityRole_name ?></span>
+<?php echo $current_user_pathway_name  ?></span>
 </div>
 
 <?php } else { ?>
@@ -133,10 +141,9 @@ if($current_user_pathway_name == $term->name){
 							<div class="col-md-12 my-2">
 								<div class="card" style="background-color: #ffffff; border-radius: 10px;height: 340px;">
 									<div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
-										<img src="<?php echo get_template_directory_uri(); ?>/images/resource.png" class="rounded-circle align-self-start mr-3" width="100" height="100">
-									
 										
-							<iframe width="500" height="268" src="https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+							<iframe width="600" height="268"  src="https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="margin-left:5%;"></iframe>
 									</div>
 								</div>
 
@@ -191,7 +198,7 @@ if($current_user_pathway_name == $term->name){
                      </div>
                     </div>
 <div class="container">
-            <p class="text-ask">Have you trained in the NYCISTEAM in Youth Work Maker Project? <a href="#" class="text-ask-link">Access further Resources Here ></a></p>
+            <p class="text-ask">Have you trained in the NYCISTEAM in Youth Work Maker Project? <a href="https://www.steminyouthwork.com" target="new" class="text-ask-link">Access further Resources Here </a></p>
         </div>
      </section>
 
@@ -271,7 +278,7 @@ $count++;
 							<div class="col-md-6 my-2">
 								<div class="card" style="background: #FFFFFF;box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 10px;">
 									<div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
-										<img src="<?php echo get_template_directory_uri();  ?>/images/resource.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
+										<img src="<?php echo gettopicImage($term->name); ?>" class="rounded-circle align-self-start mr-3" width="50" height="50">
 										<div>
 											<h4 class="intro-title mb-0" style="color:#9AA5B1;">Activity</h4>
 											<h6 class="intro-steam"><a href="activities/?ft=<?php echo $term->name;?>"><?php echo $term->name;?> </a></h6>

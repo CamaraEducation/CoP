@@ -1,5 +1,4 @@
 
-
 jQuery(document).ready(function($) {
 //alert("asdf");
 var current_fs, next_fs, previous_fs; //fieldsets
@@ -23,12 +22,12 @@ url: example_ajax_obj.ajaxurl, // or example_ajax_obj.ajaxurl if using on fronte
 type: 'POST',
 data: formData,
 success:function(result) {
-alert(result);
+//alert(result);
 if(result != 0){
 
 //there is an error in the page 
-$(".display-error").html("<ul>"+result+"</ul>");
-$(".display-error").css("display","block");
+//$(".display-error").html("<ul>"+result+"</ul>");
+//$(".display-error").css("display","block");
 
 
 }else {
@@ -36,7 +35,7 @@ $(".display-error").css("display","block");
 //no error in the page 
 next_fs.show(); 
 current_fs.hide();
-$(".display-error").css("display","hidden");
+//$(".display-error").css("display","hidden");
 
 //activate next step on progressbar using the index of next_fs
 $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");

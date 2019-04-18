@@ -59,7 +59,7 @@ foreach ( $tax_terms as $term ) {
 			<div class="col-md-3">
 				<div class="row">
 					<div class="container">
-						<h3 class="footer-title">Program Planning</h3>
+						<h3 class="footer-title"><a href="<?php echo home_url(); ?>"/programmeplanning>Programme Planning </a></h3>
 						<ul class="list-unstyled quick-links">
 							<li class="footer-small-texts">Planning</li>
 							<li class="footer-small-texts">Funding</li>
@@ -71,7 +71,7 @@ foreach ( $tax_terms as $term ) {
 					<div class="container">
 						<ul class="list-unstyled quick-links">
 							<h3 class="footer-title">Professional Development</h3>
-							<li class="footer-small-texts">Training</li>
+							<li class="footer-small-texts"><a href="<?php echo home_url(); ?>/training">Training <a/></li>
 						</ul>
 					</div>
 				</div>
@@ -84,7 +84,7 @@ foreach ( $tax_terms as $term ) {
 						<h3 class="footer-title">Help and Support</h3>
 						<ul class="list-unstyled quick-links">
 							<li class="footer-small-texts">Help Centre</li>
-							<li class="footer-small-texts">TechSpace Directory</li>
+							<li class="footer-small-texts"><a href="<?php echo home_url(); ?>/directory">TechSpace Directory</a></li>
 							<li class="footer-small-texts">Community Code of Conduct</li>
 							<li class="footer-small-texts">Contact Us</li>
 						</ul>

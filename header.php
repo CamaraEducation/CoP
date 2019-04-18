@@ -153,68 +153,7 @@ if ( is_user_logged_in() ) {
 					get_currentuserinfo();
 ?>
 				<ul class="nav navbar-nav">
-				<li class="nav-item">
-				<button type="button" class="btn btn-outline-warning" disabled>Community Contributor > 
-				<br>
-
-
-	<?php //echo 'Number of posts published by user: ' . $cash = count_user_posts( $current_user->ID ); 
-					$cash = count_user_posts( $current_user->ID );
-		            // $cash = count_user_posts( $current_user->ID;
-		            
-		            if($cash >=0 && $cash <=5){
-		            	//echo "1 start";
-					?>
-
-						<span class="float-left"><i class="text-warning fa fa-star"></i></span>
-						<span class="float-left"><i class="text-light fa fa-star"></i></span>
-						<span class="float-left"><i class="text-light fa fa-star"></i></span>
-						<span class="float-left"><i class="text-light fa fa-star"></i></span>
-						<span class="float-left"><i class="text-light fa fa-star"></i></span>
-
-<?php 
-}elseif($cash >=6 && $cash <=10){
-		                //echo "2 start";
-				?>
-						<span class="float-left"><i class="text-warning fa fa-star"></i></span>						
-						<span class="float-left"><i class="text-light fa fa-star"></i></span>
-						<span class="float-left"><i class="text-light fa fa-star"></i></span>
-						<span class="float-left"><i class="text-light fa fa-star"></i></span>
-<?php 
-}elseif($cash >=11 && $cash <=15){
-		             //echo "3 start";
-		                ?>
-
-<span class="float-left"><i class="text-warning fa fa-star"></i></span>	
-<span class="float-left"><i class="text-warning fa fa-star"></i></span>	
-<span class="float-left"><i class="text-warning fa fa-star"></i></span>						
-<span class="float-left"><i class="text-light fa fa-star"></i></span>
-						<span class="float-left"><i class="text-light fa fa-star"></i></span>
- <?php
- }elseif($cash >=16 && $cash <=20){
-		               // echo "4 start";
-		                ?>
-		<span class="float-left"><i class="text-warning fa fa-star"></i></span>	
-<span class="float-left"><i class="text-warning fa fa-star"></i></span>	
-<span class="float-left"><i class="text-warning fa fa-star"></i></span>						
-						<span class="float-left"><i class="text-light fa fa-star"></i></span>
-						<span class="float-left"><i class="text-light fa fa-star"></i></span>
-						
-<?php 
-}elseif($cash >=21 && $cash <=25) {
-		               // echo "5 start";  
-		           ?>              	
-<span class="float-left"><i class="text-warning fa fa-star"></i></span>	
-<span class="float-left"><i class="text-warning fa fa-star"></i></span>	
-<span class="float-left"><i class="text-warning fa fa-star"></i></span>						
-<span class="float-left"><i class="text-warning fa fa-star"></i></span>	
-<span class="float-left"><i class="text-warning fa fa-star"></i></span>						
-												
-
-<?php } ?>
-					</button>
-					</li>
-
+				
 						<li class="nav-item avatar dropdown">
 						<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-5" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="true">

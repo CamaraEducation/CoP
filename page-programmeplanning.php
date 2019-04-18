@@ -64,6 +64,7 @@ foreach( $programmePlanningType as $Ptype ):
                     </p>
                 </div>
                 <div class="col-md-9">
+
                     <div class="row">
 
 
@@ -90,11 +91,10 @@ foreach( $programmePlanningType as $Ptype ):
       ?>        
 
 
-                        <div class="card ml-2 mt-2" style="width: 17rem; background: #E6EEF3;border: none;">
+                        <div class="card ml-2 mt-2" style="width:200px; background: #E6EEF3;border: none; margin-right: 12px;">
 
                            
-
-                            <img class="card-img-top" src="<?php the_field('programme_cover'); ?>" alt="Card image cap">
+                           <img class="card-img-top" src="<?php the_field('programme_cover'); ?>" alt="Card image cap">
                             <div class="card-body">
                                 <p class="program-title"><?php the_title() ?></p>
                                 <a href="<?php the_field('document_link'); ?>" class="download-card" target="new">Download PDF +</a><br>

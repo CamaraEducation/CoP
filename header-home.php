@@ -13,10 +13,10 @@ $forgotpassword = get_site_url() . '/forgotpassword/';
 $homeurl = get_home_url();
 
        if(is_home() == true && is_user_logged_in()){
-         wp_redirect($landingURL); exit;
+         //wp_redirect($landingURL); exit;
         
        } else if(strcmp(get_permalink(),$loginPage)==0 && is_user_logged_in()){
-          wp_redirect($landingURL); exit;
+          //wp_redirect($landingURL); exit;
   //}    else if(strcmp(get_permalink(),$registerPage)==0 && is_user_logged_in()){
     //     wp_redirect($landingURL); exit;
 }
