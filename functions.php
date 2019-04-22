@@ -191,7 +191,19 @@ require get_template_directory() . '/inc/template-tags.php';
 */
 require get_template_directory() . '/inc/customizer.php';
 
-
+/**
+ * Adds a custom "Read more" link to post excerpts of custom post types.
+ * Replaces "[...]" (appended to automatically generated excerpts) with an ellipsis and "Read more".
+ */
+function isa_cpt_excerpt_more( $more ) {
+    global $post;
+    $anchor_text = 'Read more';
+    if ( 'YOUR_POST_TYPE' == $post->activity ) {
+        $more = ' &hellip; <a href="'. esc_url( get_permalink() ) . '">' . $anchor_text . '</a>';
+    }
+    return $more;
+}
+add_filter('excerpt_more', 'isa_cpt_excerpt_more');
 
 
 
@@ -312,7 +324,42 @@ $rating = [
 return json_encode($rating);
 }
 
+////////////////////////////////Satsfaction get ////////////////////////////
 
+function getsatone($postid)
+{
+global $wpdb;
+//$valu = $wpdb->get_var( "SELECT sum(level = 1) FROM ".$wpdb->prefix."feedback WHERE post_id = '".$postid."'" );
+
+$valu=$wpdb->get_var( "SELECT sum(satsfaction = 1) FROM ".$wpdb->prefix."feedback WHERE post_id = $postid " );
+
+return json_encode($valu, JSON_NUMERIC_CHECK);
+
+}
+function getsattwo($postid)
+{
+global $wpdb;
+//$valu = $wpdb->get_var( "SELECT sum(level = 1) FROM ".$wpdb->prefix."feedback WHERE post_id = '".$postid."'" );
+
+$valu=$wpdb->get_var( "SELECT sum(satsfaction = 2) FROM ".$wpdb->prefix."feedback WHERE post_id = $postid " );
+
+return json_encode($valu, JSON_NUMERIC_CHECK);
+
+}
+function getsatthr($postid)
+{
+global $wpdb;
+//$valu = $wpdb->get_var( "SELECT sum(level = 1) FROM ".$wpdb->prefix."feedback WHERE post_id = '".$postid."'" );
+
+$valu=$wpdb->get_var( "SELECT sum(satsfaction = 3) FROM ".$wpdb->prefix."feedback WHERE post_id = $postid " );
+
+return json_encode($valu, JSON_NUMERIC_CHECK);
+
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////// END OF SATSFACTION ///////////////////////////////////////////////////////////
 ////////////////////////////////////////////// LEVEL ///////////////////////////////////////////////////////////
