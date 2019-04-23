@@ -330,9 +330,14 @@ $excited = $wpdb->get_var( "SELECT sum(satsfaction = 3) FROM ".$wpdb->prefix."fe
 								 ?>
 
 <!-- if user sad post, style button differently -->
-<i style="font-size: 2em; color: Red"<?php if (userDisliked($userid, $postid)): ?> class="fas fa-frown dislike-btn" <?php else: ?> class="far fa-frown dislike-btn"<?php endif ?> data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>"></i>
-&nbsp;&nbsp;&nbsp;&nbsp;
-	 <span class="dislikes"><?php echo $sad; ?></span>
+					<i style="font-size: 2em; color: Red"<?php if (userDisliked($userid, $postid)): ?> class="fas fa-frown dislike-btn" <?php else: ?> class="far fa-frown dislike-btn"<?php endif ?> data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>"></i>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+	 					<span class="dislikes"><?php 
+	 					$aa = getsatone($postid);
+			          if($aa="null"){
+			          	echo "0";
+			          }else{echo $aa;}
+	 					?></span>
 
 					          &nbsp;&nbsp;&nbsp;&nbsp;
 		<i style="font-size: 2em; color: Orange"<?php if (userLiked($userid, $postid)): ?>
@@ -342,7 +347,10 @@ $excited = $wpdb->get_var( "SELECT sum(satsfaction = 3) FROM ".$wpdb->prefix."fe
 					      	  <?php endif ?>
 					      	 data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>"></i>
 					    &nbsp;&nbsp;&nbsp;&nbsp;
-					      	<span class="likes"><?php echo $happy; ?></span>
+					      	<span class="likes"><?php $bb = getsattwo($postid);
+					          if($bb="null"){
+					          	echo "0";
+					          }else{echo $bb;} ?></span>
 					          &nbsp;&nbsp;&nbsp;&nbsp;
 
 					          <i style="font-size: 2em; color: Green"<?php if (userExcited($userid, $postid)): ?>
@@ -352,7 +360,10 @@ $excited = $wpdb->get_var( "SELECT sum(satsfaction = 3) FROM ".$wpdb->prefix."fe
 					          <?php endif ?>
 					          data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>"></i>
 					          &nbsp;&nbsp;&nbsp;&nbsp;
-							<span class="excites"><?php echo $excited; ?></span>
+							<span class="excites"><?php $cc = getsatthr($postid);
+			          if($mm="null"){
+			          	echo "0";
+			          }else{echo $mm;} ?></span>
 						</div>
 <hr>
 <p><b>LEVEL</b></p>
@@ -366,7 +377,12 @@ $excited = $wpdb->get_var( "SELECT sum(satsfaction = 3) FROM ".$wpdb->prefix."fe
 	       <?php endif ?>
           data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">
       beginner</i>
-	          <span class="biggners btn alert-success disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">><?php echo getBiggner($postid); ?></span>
+	          <span class="biggners btn alert-success disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php 
+	          $cc = getBiggner($postid);
+	          if($cc="null"){
+	          	echo "0";
+	          }else{echo $cc;}
+				?></span>
 
 &nbsp;&nbsp;&nbsp;
 	          <i <?php if (userInter($userid, $postid)): ?>
@@ -375,7 +391,12 @@ $excited = $wpdb->get_var( "SELECT sum(satsfaction = 3) FROM ".$wpdb->prefix."fe
 	      		  class="btn btn-default inter-btn btn-sm"
 	      	  <?php endif ?>
 	      	 data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">intermidiate</i>
-	      	<span class="inters btn alert-warning disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">><?php echo getInter($postid); ?></span>
+	      	<span class="inters btn alert-warning disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php
+	      	$dd = getInter($postid);
+	          if($dd="null"){
+	          	echo "0";
+	          }else{echo $dd;}
+	      	?></span>
 	          
 &nbsp;&nbsp;&nbsp;
 	          <i <?php if (userAdvance($userid, $postid)): ?>
@@ -384,7 +405,12 @@ $excited = $wpdb->get_var( "SELECT sum(satsfaction = 3) FROM ".$wpdb->prefix."fe
 	            class="btn btn-default advance-btn btn-sm"
 	          <?php endif ?>
 	          data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">advanced</i>
-			<span class="advances btn alert-danger disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php echo getAdvance($postid); ?></span>
+			<span class="advances btn alert-danger disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php   
+			$ee = getAdvance($postid);
+	          if($ee="null"){
+	          	echo "0";
+	          }else{echo $ee;}
+			?></span>
 		</div>
 					
 <hr>
@@ -398,7 +424,12 @@ $excited = $wpdb->get_var( "SELECT sum(satsfaction = 3) FROM ".$wpdb->prefix."fe
 	          <?php endif ?>
 	          data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">
 	          < 1 hour</i>
-	          <span class="lessone btn alert-success disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php  echo getLessOne($postid); ?></span>
+	          <span class="lessone btn alert-success disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php  
+	          $ff = getLessOne($postid); 
+	          if($ff="null"){
+	          	echo "0";
+	          }else{echo $ff;}
+	          ?></span>
 
 &nbsp;&nbsp;&nbsp;
 	          <i <?php if (userOneToTwo($userid, $postid)): ?>
@@ -407,7 +438,12 @@ $excited = $wpdb->get_var( "SELECT sum(satsfaction = 3) FROM ".$wpdb->prefix."fe
 	      		  class="btn btn-default onetotwo-btn btn-sm"
 	      	  <?php endif ?>
 	      	 data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">1 - 2 hours</i>
-	      	<span class="onetotwo btn alert-warning disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php echo getOneToTwo($postid); ?></span>
+	      	<span class="onetotwo btn alert-warning disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php 
+	      	   $gg = getOneToTwo($postid); 
+	          if($gg="null"){
+	          	echo "0";
+	          }else{echo $gg;}
+	      	?></span>
 	          
 &nbsp;&nbsp;&nbsp;
 	          <i <?php if (userMoreTwo($userid, $postid)): ?>
@@ -416,7 +452,12 @@ $excited = $wpdb->get_var( "SELECT sum(satsfaction = 3) FROM ".$wpdb->prefix."fe
 	            class="btn btn-default moretwo-btn btn-sm"
 	          <?php endif ?>
 	          data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"> >2 hours</i>
-			<span class="moretwo btn alert-danger disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php echo getMoreTwo($postid); ?></span>
+			<span class="moretwo btn alert-danger disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php 
+			$hh = getMoreTwo($postid); 
+	          if($hh="null"){
+	          	echo "0";
+	          }else{echo $hh;}
+			?></span>
 		</div> 
 
 <hr>
@@ -430,7 +471,12 @@ $excited = $wpdb->get_var( "SELECT sum(satsfaction = 3) FROM ".$wpdb->prefix."fe
 	            class="btn btn-default agebignner-btn btn-sm"
 	          <?php endif ?>
 	          data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">Beginner</i>
-	          <span class="agebiggner btn alert-success disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php  echo getBiggnerAge($postid); ?></span>
+	          <span class="agebiggner btn alert-success disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php
+	          $jj = getBiggnerAge($postid);
+	          if($jj="null"){
+	          	echo "0";
+	          }else{echo $jj;}
+	          ?></span>
 &nbsp;&nbsp;&nbsp;
 	          <i <?php if (userInterAge($userid, $postid)): ?>
 	      		  class="btn btn-warning ageinter-btn btn-sm"
@@ -438,7 +484,12 @@ $excited = $wpdb->get_var( "SELECT sum(satsfaction = 3) FROM ".$wpdb->prefix."fe
 	      		  class="btn btn-default ageinter-btn btn-sm"
 	      	  <?php endif ?>
 	      	 data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">Intermediate</i>
-	      	<span class="ageinter btn alert-warning disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php echo getInterAge($postid); ?></span>
+	      	<span class="ageinter btn alert-warning disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php
+	      	 $kk = getInterAge($postid); 
+	          if($kk="null"){
+	          	echo "0";
+	          }else{echo $kk;}
+	      	?></span>
 	          
 &nbsp;&nbsp;&nbsp;
 	          <i <?php if (userAdvanceAge($userid, $postid)): ?>
@@ -447,7 +498,12 @@ $excited = $wpdb->get_var( "SELECT sum(satsfaction = 3) FROM ".$wpdb->prefix."fe
 	            class="btn btn-default ageadvance-btn btn-sm"
 	          <?php endif ?>
 	          data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">Advanced</i>
-			<span class="ageadvance btn alert-danger disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php echo getAdvanceAge($postid); ?></span>
+			<span class="ageadvance btn alert-danger disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php  
+			$ll = getAdvanceAge($postid); 
+	          if($ll="null"){
+	          	echo "0";
+	          }else{echo $ll;}
+			?></span>
 		</div>
 
 
