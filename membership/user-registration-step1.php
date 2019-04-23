@@ -1,10 +1,14 @@
 
 <?php
 
-if(isset($_POST['submit'])){
-	
+//var_dump($_POST);
 
-//    get_template_part( 'membership/user-registration-step2', 'page' );
+if(count($_POST)){
+	
+//
+	//var_dump($_POST);
+
+get_template_part( 'membership/user-registration-step2', 'page' );
 
 
 }else {
@@ -25,10 +29,13 @@ if(isset($_POST['submit'])){
 						<div class="card-body">
 							<h5 class="signup-title-txt">Sign Up to the Online TechSpace Network</h5>
 							
-							<form id="onboardingformstep1" method="POST" name="onboardingformstep1" action=''>
+							<form id="onboardingformstep" method="POST" name="onboardingformstep" action='<?php the_permalink(); ?>'>
 							
+ <input type="hidden" id="formstep" name="formstep" value="step1">
+
+
 							<div class="form-group">
-									<label for="exampleInputEmail" class="signup-small-txt">Username</label>
+									<label for="user_username" class="signup-small-txt">Username</label>
 									<input type="email" class="form-control" id="user_username" name="user_username">
 								</div>
 
@@ -77,7 +84,9 @@ if(isset($_POST['submit'])){
 								</div>
 							
 								<div class="text-center">
-								<button type="submit" name="submit" class="land-btn land-btn-txt mt-4 onboarding-submit submit">Sign Up to Network</button> 
+								
+<input type="submit" value="Sign Up to Network" />
+
 								</div>
 							</form>
 						</div>

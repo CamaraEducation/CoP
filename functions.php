@@ -33,10 +33,13 @@ add_action( 'wp_ajax_onboarding_ajax_request', 'onboarding_ajax_request' );
 add_action( 'wp_ajax_nopriv_onboarding_ajax_request', 'onboarding_ajax_request' );
 
 
+
 function onboarding_ajax_request() {
 
+//session_start();
 
-$user_login   = $_POST["user_username"];  
+if(isset($_POST)){
+$user_username   = $_POST["user_username"];  
 $user_email   = $_POST["user_email"];
 $user_fname   = $_POST["user_fname"];
 $user_lname    = $_POST["user_lname"];
@@ -44,22 +47,54 @@ $user_password    = $_POST["user_password"];
 $pass_confirm   = $_POST["user_password_confirm"];
 $user_18yearold = $_POST["18yearsyearsold"];
 
-$errors = array();
-
-  $errors [] = array('user_fname' => $user_fname);
-  $errors [] = array('user_lname' => $user_lname);
 
 
-$return_arr[] = array("id" => $id,
-                    "username" => $username,
-                    "name" => $name,
-                    "email" => $email);
 
-echo json_encode($return_arr);
+$errors=[];
 
-//echo $user_login . "asjdfa";
+
+if($_POST['formstep']=='step1'){
+
+if (empty($user_username)) {
+  $errors = array('user_username'  => 'Usrname name is missin');
+}
+
+}else { //form step 2
+
+$user_jobrole =  $_POST["user_jobrole"];
+
+if (empty($user_jobrole)) {
+  $errors = array('user_jobrole'  => 'What is your user name?');
+}
+
 
 }
+//var_dump($errors);
+
+if(count($errors) > 0){
+//This is for ajax requests:
+if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&  strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+echo json_encode($errors);
+exit;
+}
+//This is when Javascript is turned off:
+echo "ul>";
+foreach($errors as $key => $value){
+echo "<li>" . $value . "</li>";
+}
+echo "</ul>";exit;
+
+}else {
+
+  //process form 
+  //return true;
+ // get_template_part( 'membership/user-registration-step2', 'page' );
+//return true;
+}
+}
+}
+
+
 
 
 
