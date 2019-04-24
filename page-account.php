@@ -1,9 +1,10 @@
-<?php get_header();?>
+<?php get_header();
 
-    <section>
-        <div class="container mt-5">
-          <?php echo do_shortcode("[ultimatemember_account]"); ?>
-      </div>
-  </section>
+ 
+    get_template_part( 'membership/user-account', 'page' );
 
-<?php get_footer();?>
+
+
+get_footer();
+
+?>

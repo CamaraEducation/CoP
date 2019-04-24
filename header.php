@@ -10,7 +10,7 @@ global $current_pathway_color;
 
 $url= get_site_url() . '/login/';
 if(! is_user_logged_in() ) {
-wp_redirect( $url );
+//wp_redirect( $url );
 exit;
     } else {
 		

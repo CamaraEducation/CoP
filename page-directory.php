@@ -189,7 +189,7 @@ setup_postdata($users);
 
 
 
-						<div class="card ml-2 mt-2" style="width: 17rem; background: #FFFFFF;box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 10px;">
+						<div class="card ml-2 mt-2" style="width: 280px; background: #FFFFFF;box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 10px;border-bottom:30px;">
 						
 <img class="card-img-top col-4 mx-auto text-center mt-3" src="<?php echo get_avatar_url($user->ID); ?>" alt="Card image cap" width="82" height="82">
 							<div class="card-body">
@@ -197,7 +197,7 @@ setup_postdata($users);
 								<p class="custom-card-title"><?php echo $user_role; ?></p>
 								<p class="cutsom-card-body"><?php echo $communityRole_name; ?> <br>@ <?php echo $org_name; ?></p>
 								<a href="#" class="badge card-badge1 ml-4">Education Officer</a>
-								<a href="#" class="badge card-badge2"><?php echo $current_user_pathway_name;?></a>
+								<a href="#" class="badge card-badge2" style="background-color:<?php echo $current_pathway_color ;?>;border-color: <?php echo $current_pathway_color ;?>"><?php echo $current_user_pathway_name;?></a>
 							</div>
 						</div>
 <?php
