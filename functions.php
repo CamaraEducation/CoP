@@ -1,5 +1,14 @@
 
+
 <?php
+
+
+function add_cors_http_header(){
+    header("Access-Control-Allow-Origin: *");
+}
+
+add_action('init','add_cors_http_header');
+
 
 //echo $_POST['user_fname'];
 
@@ -23,6 +32,7 @@ function onboarding_ajax_enqueue() {
 // Enqueue javascript on the frontend.
 wp_enqueue_script(
 'onboarding-ajax-script', get_template_directory_uri() . '/js/onboarding_js.js',array('jquery'));
+
 // The wp_localize_script allows us to output the ajax_url path for our script to use.
 wp_localize_script('onboarding-ajax-script','onboarding_ajax_obj',array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ));
 }
@@ -34,41 +44,113 @@ add_action( 'wp_ajax_nopriv_onboarding_ajax_request', 'onboarding_ajax_request' 
 
 
 
+
+
+session_start();
 function onboarding_ajax_request() {
 
 //session_start();
 
 if(isset($_POST)){
+
+
+
 $user_username   = $_POST["user_username"];  
 $user_email   = $_POST["user_email"];
 $user_fname   = $_POST["user_fname"];
 $user_lname    = $_POST["user_lname"];
 $user_password    = $_POST["user_password"];
-$pass_confirm   = $_POST["user_password_confirm"];
-$user_18yearold = $_POST["18yearsyearsold"];
+$user_password_confirm   = $_POST["user_password_confirm"];
+$user_18yearsold = $_POST["user_18yearsold"];
 
 
+/**
+//Adding to session to keep it until the end of the multiple step registration 
+$_SESSION["user_username"]  = $user_username;
+$_SESSION["user_email"] = $user_email;
+$_SESSION["user_fname"] = $user_fname;
+$_SESSION["user_lname"] = $user_lname;
+$_SESSION["user_password"] = $user_password;
+$_SESSION["user_passworld_confirm"] = $user_password_confirm;
+$_SESSION["user_18yearsold"] = $user_18yearsold;
+*/
 
-
+//array of errors to keep track of 
 $errors=[];
 
+// this is required for username checks
+    require_once(ABSPATH . WPINC . '/registration.php');
 
-if($_POST['formstep']=='step1'){
 
+
+    ////////////////////PASSWORD
+if($user_password == '') {
+      // password is empoity
+          $errors = array('user_password'  => 'Please enter a password');
+    }
+    
+if($user_password != $user_password_confirm) {
+      // passwords do not match
+$errors = array('user_password_confirm'  => 'Passwords do not match.');
+}
+    
+
+
+///////////////////////EMAIL 
+if(!is_email($user_email)) {
+      //invalid email
+  $errors = array('user_email'  => 'Invalid email.');
+  }
+  
+if(email_exists($user_email)) {
+      //Email address already registered
+  $errors = array('user_email'  => 'Email is already registered.');
+}
+
+ 
+
+
+        ////////////////////PASSWORD
+if($user_lname == '') {
+      // password is empoity
+          $errors = array('user_lname'  => 'Please enter your last name.');
+    }
+    
+    ////////////////////PASSWORD
+if($user_fname == '') {
+      // password is empoity
+          $errors = array('user_fname'  => 'Please enter your first name.');
+    }
+    
+
+
+
+////////////////USER NAME
 if (empty($user_username)) {
-  $errors = array('user_username'  => 'Usrname name is missin');
+  //username is empity 
+  $errors = array('user_username'  => 'Please enter a username.');
 }
 
-}else { //form step 2
-
-$user_jobrole =  $_POST["user_jobrole"];
-
-if (empty($user_jobrole)) {
-  $errors = array('user_jobrole'  => 'What is your user name?');
+if(username_exists($user_username)) {
+      // Username already registered
+  $errors = array('user_username'  => 'Username is already taken.');
 }
 
 
+if(!validate_username($user_username)) {
+      // invalid username
+  $errors = array('user_username'  => 'Invalid username.');
 }
+
+
+
+if(empty($user_18yearsold)) {
+      // invalid username
+  $errors = array('user_18yearsold'  => 'Please confirm your age.');
+}
+
+
+
 //var_dump($errors);
 
 if(count($errors) > 0){
@@ -78,11 +160,8 @@ echo json_encode($errors);
 exit;
 }
 //This is when Javascript is turned off:
-echo "ul>";
-foreach($errors as $key => $value){
-echo "<li>" . $value . "</li>";
-}
-echo "</ul>";exit;
+echo json_encode($errors);
+exit;
 
 }else {
 
@@ -108,22 +187,18 @@ $user_pass    = $_POST["user_pass"];
 $pass_confirm   = $_POST["user_pass_confirm"];
 
 
-// this is required for username checks
-    require_once(ABSPATH . WPINC . '/registration.php');
- 
-    if(username_exists($user_login)) {
-      // Username already registered
-      pippin_errors()->add('username_unavailable', __('Username already taken'));
-    }
+
  
 if(!validate_username($user_login)) {
       // invalid username
       pippin_errors()->add('username_invalid', __('Invalid username'));
     }
+
     if($user_login == '') {
       // empty username
       pippin_errors()->add('username_empty', __('Please enter a username'));
     }
+
     if(!is_email($user_email)) {
       //invalid email
       pippin_errors()->add('email_invalid', __('Invalid email'));
@@ -132,6 +207,7 @@ if(!validate_username($user_login)) {
       //Email address already registered
       pippin_errors()->add('email_used', __('Email already registered'));
     }
+
     if($user_pass == '') {
       // passwords do not match
       pippin_errors()->add('password_empty', __('Please enter a password'));
@@ -184,12 +260,18 @@ wp_enqueue_style('fontcss',get_template_directory_uri().'/css/font-awesome/css/f
 
 
 
-wp_enqueue_script('customjs_jquery',get_template_directory_uri().'/js/jquery-3.2.1.min.js',array(),'1.0.0',true);
+wp_enqueue_script('jquery-214-script', get_template_directory_uri() . '/js/jquery-2.13-min.js',array('jquery'));
 
-wp_enqueue_script('customjs_popper',get_template_directory_uri().'/js/popper.min.js',array(),'1.0.0',true);
-wp_enqueue_script('customjs_bootstrap',get_template_directory_uri().'/js/bootstrap.js',array(),'1.0.0',true);    
-//wp_enqueue_script('custom_jsdsignform',get_template_directory_uri().'/js/msform2.js',array(),'1.0.0',false); 
-/**/
+
+//wp_enqueue_script('customjs_jquery_old',get_template_directory_uri().'/js/jquery-2.13-min.js',array(),'1.0.0',true);
+
+//wp_enqueue_script('customjs_jquery',get_template_directory_uri().'/js/',array(),'1.0.0',true);
+
+//wp_enqueue_script('customjs_popper',get_template_directory_uri().'/js/popper.min.js',array(),'1.0.0',true);
+//wp_enqueue_script('customjs_bootstrap',get_template_directory_uri().'/js/bootstrap.js',array(),'1.0.0',true);    
+
+    //wp_enqueue_script('customjs', get_template_directory_uri() . '/js/jquery-2.13-min.js', array(), '1.0.0', 'true' );
+
 
 }
 

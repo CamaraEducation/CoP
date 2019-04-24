@@ -926,7 +926,7 @@ color: #000000;
     color: white;
     text-transform: uppercase;
     font-size: 9px;
-    width: 10.33%;
+    width: 30.33%;
     float: left;
     position: relative;
     letter-spacing: 1px;
@@ -966,7 +966,7 @@ color: #000000;
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
 #progressbar li.active:before, #progressbar li.active:after {
-    background: #ee0979;
+    background: #993C9F;
     color: white;
 }
 
@@ -977,7 +977,7 @@ color: #000000;
     text-align: center;
 }
 .dme_link a {
-    background: #FFF;
+    background: #993C9F;
     font-weight: bold;
     color: #ee0979;
     border: 0 none;
@@ -987,3 +987,16 @@ color: #000000;
     font-size: 12px;
 }
 
+
+/** error messages */
+.error {
+   color: #ff0000;
+   font-size: 12px;
+   margin-top: 5px;
+   margin-bottom: 0;
+}
+ 
+.inputTxtError {
+   border: 1px solid #ff0000;
+   color: #0e0e0e;
+}

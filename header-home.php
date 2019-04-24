@@ -29,7 +29,7 @@ $homeurl = get_home_url();
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="profile" href="https://gmpg.org/xfn/11" />
 	
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='<?php echo get_template_directory_uri();?>/js/jquery-2.13-min.js'></script>
 
 	<?php wp_head(); ?>
 
