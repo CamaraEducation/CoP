@@ -47,9 +47,6 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 			<hr>
 		</div>
 
-
-
-
 		<div class="container mb-3">
 			<ul class="nav">
 				<li class="nav-item">
