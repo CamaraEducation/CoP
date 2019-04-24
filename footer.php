@@ -68,10 +68,10 @@
 				<div class="row">
 					<div class="container">
 						<ul class="list-unstyled quick-links">
-							<li class="list-inline-item"><a href="https://www.facebook.com/TechSpace-Creative-Learning-for-Young-People-131308256937561/"><i class="fa fa-facebook fa-lg social-color"></i></a></li>
-							<li class="list-inline-item"><a href="https://twitter.com/TechSpaceTweets"><i class="fa fa-twitter social-color"></i></a></li>
-							<li class="list-inline-item"><a href="https://www.instagram.com/techspacemedia/?hl=en"><i class="fa fa-instagram social-color"></i></a></li>
-							<li class="list-inline-item"><a href="https://www.youtube.com/user/TechSpaceMedia/videos"><i class="fa fa-youtube social-color"></i></a></li>
+							<li class="list-inline-item"><a href="https://www.facebook.com/TechSpace-Creative-Learning-for-Young-People-131308256937561/"><i class="fab fa-facebook social-color"></i></a></li>
+							<li class="list-inline-item"><a href="https://twitter.com/TechSpaceTweets"><i class="fab fa-twitter-square social-color"></i></a></li>
+							<li class="list-inline-item"><a href="https://www.instagram.com/techspacemedia/?hl=en"><i class="fab fa-instagram social-color"></i></a></li>
+							<li class="list-inline-item"><a href="https://www.youtube.com/user/TechSpaceMedia/videos"><i class="fab fa-youtube social-color"></i></a></li>
 						</ul>
 					</div>
 				</div>
