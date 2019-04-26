@@ -30,9 +30,9 @@ $discussion = twentynineteen_get_discussion_data();
 		<?php
 		if ( comments_open() ) {
 			if ( have_comments() ) {
-				_e( 'Join the Conversation', 'twentynineteen' );
+				//_e( 'Join the Conversation', 'twentynineteen' );
 			} else {
-				_e( 'Leave a comment', 'twentynineteen' );
+				//_e( 'Leave a comment', 'twentynineteen' );
 			}
 		} else {
 			if ( '1' == $discussion->responses ) {
@@ -121,7 +121,7 @@ $discussion = twentynineteen_get_discussion_data();
 	else :
 
 		// Show comment form.
-		twentynineteen_comment_form( true );
+		//twentynineteen_comment_form( true );
 
 	endif; // if have_comments();
 	?>

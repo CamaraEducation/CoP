@@ -5,14 +5,18 @@ global $org_name;
 global $current_user_communityRole ;
 global $communityRole_name;
 global $memberJobRole_name;
+global $memberlocation;
+global $member_projectgroup;
 global $current_user_pathway_name;
 global $current_pathway_color;
 
+
 $url= get_site_url() . '/login/';
 if(! is_user_logged_in() ) {
-//wp_redirect( $url );
+wp_redirect( $url );
 exit;
-    } else {
+    } 
+
 		
 //user is logged in_array
 
@@ -39,6 +43,16 @@ $memberJobRole_name = $current_user_communityRole;
 
 
 
+//**GET LOCATION 
+$current_user_location =get_user_meta( $current_user_id, 'member__community_location', true); 
+$memberlocation = get_term( $current_user_location, 'member_location' )->name;
+
+
+
+//**GET project group 
+$current_user_projectgroup =get_user_meta( $current_user_id, 'member_projectgroup', true); 
+$member_projectgroup = $current_user_projectgroup;
+
 //**GET Pathway
 $current_user_pathway =get_user_meta( $current_user_id, 'memberPathway', true); 
 $term = get_term( $current_user_pathway, 'pathway' );
@@ -50,7 +64,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 		
 		
 		
-	}
+	
 	
 
 
@@ -101,19 +115,18 @@ return $imagePath;
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="profile" href="https://gmpg.org/xfn/11" />
 
+	<script src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+
 <?php wp_head(); ?>
 
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 	
-      <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
-	
+
 </head>
 
 <body <?php body_class(); ?>>
-
-
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
 
@@ -160,8 +173,8 @@ if ( is_user_logged_in() ) {
 						<img src="<?php echo get_avatar_url($current_user->ID); ?>" class="rounded-circle z-depth-0 md-avatar" alt="avatar image">
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-5">
-						<a class="dropdown-item" href="account">Account</a>
-						<a class="dropdown-item" href="logout">Logout </a>
+						<a class="dropdown-item" href="<?php echo home_url(); ?>/account">Account</a>
+						<a class="dropdown-item" href="<?php echo wp_logout_url(home_url());?>">Logout </a>
 
 					</div>
 				</li>

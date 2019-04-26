@@ -46,7 +46,144 @@ add_action( 'wp_ajax_nopriv_onboarding_ajax_request', 'onboarding_ajax_request' 
 
 
 
-session_start();
+function login_ajax_enqueue() {
+// Enqueue javascript on the frontend.
+wp_enqueue_script(
+'login-ajax-script', get_template_directory_uri() . '/js/login_js.js',array('jquery'));
+
+// The wp_localize_script allows us to output the ajax_url path for our script to use.
+wp_localize_script('login-ajax-script','login_ajax_obj',array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ));
+}
+
+//add scripts and set up ajax
+add_action( 'wp_enqueue_scripts', 'login_ajax_enqueue' );
+add_action( 'wp_ajax_login_ajax_request', 'login_ajax_request' );
+add_action( 'wp_ajax_nopriv_login_ajax_request', 'login_ajax_request' );
+
+
+
+function activity_ajax_enqueue() {
+// Enqueue javascript on the frontend.
+wp_enqueue_script(
+'activity-ajax-script', get_template_directory_uri() . '/js/activity_js.js',array('jquery'));
+
+// The wp_localize_script allows us to output the ajax_url path for our script to use.
+wp_localize_script('activity-ajax-script','activity_ajax_obj',array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ));
+}
+
+//add scripts and set up ajax
+add_action( 'wp_enqueue_scripts', 'activity_ajax_enqueue' );
+add_action( 'wp_ajax_activity_ajax_request', 'activity_ajax_request' );
+add_action( 'wp_ajax_nopriv_activity_ajax_request', 'activity_ajax_request' );
+
+
+
+function login_ajax_request() {
+
+if(isset($_POST['member_login'])){
+
+$errors=[];
+
+$login_member_username   = $_POST["login_member_username"];  
+$login_member_password   = $_POST["login_member_password"];  
+
+
+//=================START OF LOGIN ============
+ //$hash = wp_hash_password( $login_member_password );
+ $user = get_user_by( 'login', $login_member_username );
+
+// check the user's login with their password
+    if(!wp_check_password($login_member_password, $user->user_pass, $user->ID)) {
+      // if the password is incorrect for the specified user
+      $errors = array('login_member_password'  => 'Invalid password. Please enter the correct password.');
+    }
+
+if(!username_exists($login_member_username)) {
+      // Username already registered
+  $errors = array('login_member_username'  => 'Username does not exist. Please enter a correct username.');
+}
+
+}//end of issets 
+//================================END OF LOGIN ===================
+
+
+if(isset($_POST['change_password'])){
+$current_user = wp_get_current_user();
+$user_current_password   = $_POST["user_current_password"];  
+$login_member_password_new   = $_POST["user_new_password"];  
+$login_member_password_new_confirm   = $_POST["user_new_password_confirm"];  
+
+    if(!wp_check_password($user_current_password, $current_user->user_pass, $current_user->ID)) {
+      // if the password is incorrect for the specified user
+      $errors = array('user_current_password'  => 'Invalid password. Please enter your correct password.');
+    }
+
+
+    
+if($login_member_password_new != $login_member_password_new_confirm) {
+      // passwords do not match
+$errors = array('user_new_password_confirm'  => 'Passwords do not match. Please try again.');
+}
+
+if($login_member_password_new == $user_current_password) {
+      // passwords do not match
+$errors = array('user_new_password_confirm'  => 'You new password cannot be the same as the current password.');
+}
+
+
+}//end of change passworld 
+
+//update email
+if(isset($_POST['update_email'])){
+
+
+$user_email_new   = $_POST["user_email_new"];  
+
+if($user_email_new == '') {
+      // passwords do not match
+$errors = array('user_email_new'  => 'Please enter a valid email address.');
+}
+
+if(email_exists($user_email_new)) {
+      //Email address already registered
+  $errors = array('user_email_new'  => 'Email is already registered. Please enter another email.');
+}
+
+
+}//end of update email
+
+
+if(count($errors) > 0){
+//This is for ajax requests:
+if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&  strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+echo json_encode($errors);
+exit;
+}
+//This is when Javascript is turned off:
+echo json_encode($errors);
+exit;
+
+}else {
+
+
+if(isset($_POST['change_password'])){
+wp_set_password($_POST["user_email_new"],$current_user->ID);
+}
+
+
+if(isset($_POST['change_email'])){
+$user_id = wp_update_user( array( 'ID' => $user_id, 'user_url' => $website ) );
+
+}
+
+  //no errors; 
+}//else
+//}//if issets
+
+} //function 
+
+
+
 function onboarding_ajax_request() {
 
 //session_start();
@@ -267,8 +404,8 @@ wp_enqueue_script('jquery-214-script', get_template_directory_uri() . '/js/jquer
 
 //wp_enqueue_script('customjs_jquery',get_template_directory_uri().'/js/',array(),'1.0.0',true);
 
-//wp_enqueue_script('customjs_popper',get_template_directory_uri().'/js/popper.min.js',array(),'1.0.0',true);
-//wp_enqueue_script('customjs_bootstrap',get_template_directory_uri().'/js/bootstrap.js',array(),'1.0.0',true);    
+wp_enqueue_script('customjs_popper',get_template_directory_uri().'/js/popper.min.js',array(),'1.0.0',true);
+wp_enqueue_script('customjs_bootstrap',get_template_directory_uri().'/js/bootstrap.js',array(),'1.0.0',true);    
 
     //wp_enqueue_script('customjs', get_template_directory_uri() . '/js/jquery-2.13-min.js', array(), '1.0.0', 'true' );
 
@@ -889,3 +1026,19 @@ $rating = [
 return json_encode($rating);
 }
 
+
+
+//create a exceprt 
+function custom_field_excerpt() {
+    global $post;
+    $text = get_field('step_by_step_guide', $post->ID);
+    if ( '' != $text ) {
+        $text = strip_shortcodes( $text );
+        $text = apply_filters('the_content', $text);
+        $text = str_replace(']]>', ']]>', $text);
+        $excerpt_length = 50; // 20 words
+        $excerpt_more = apply_filters('excerpt_more', ' ' . '[...]');
+        $text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
+    }
+    return apply_filters('the_excerpt', $text);
+}

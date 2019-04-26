@@ -38,29 +38,31 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 
 <section class="my-5">
 	<div class="container">
-		<h1 class="headtitle" style="font-family: Lato; font-style: normal; font-weight: bold; font-size: 38px; line-height: 24px; float: left;"><?php echo the_title();?></h1>
+		<h1 class="headtitle" style="font-weight: bold; font-size: 38px; line-height: 24px; float: left;"><?php echo the_title();?></h1>
 
 
 		<span class="badge badge-info" style="padding-left:10px;padding-right:10px;padding-top:5px;padding-bottom:5px;border-radius: 24px!important;margin-left: 20px;font-size:34;border: 1px solid <?php echo $current_pathway_color;?>;color:<?php echo $current_pathway_color;?>;background-color:#ffffff"> 
-			<?php echo getPostTerms($post->ID,'topic'); ?></span>
+			 <?php echo strtoupper(getPostTerms($post->ID,'topic')); ?></span>
 
 			<hr>
 		</div>
 
 		<div class="container mb-3">
-			<ul class="nav">
+			<ul class="nav"  style="padding-top:6px;padding-bottom: 6px;">
 				<li class="nav-item">
 
 					<!--LEVEL -->
 					<?php 
 					$s = getPostTerms($post->ID,'level');
 					
-					if($s == "Beginner"){?>
-						<a><i class="fa fa-battery-1" style="font-size:24px; color:red"></i></a>
-					<?php  }elseif ($s== "Intermidate") { ?>
-						<a><i class="fa fa-battery-2" style="font-size:24px;color:orange"></i></a>
-						<?php }elseif ($s=="Advance" ) { ?>
-							<a><i class="fa fa-battery-4" style="font-size:24px;color:green"></i></a>
+					if($s == "Easy"){?>
+							<img src="<?php echo get_template_directory_uri();  ?>/images/level_Easy.png">
+					<?php  }elseif ($s== "Intermediate") { ?>
+						
+						<img src="<?php echo get_template_directory_uri();  ?>/images/level_Intermediate.png">
+						<?php }elseif ($s=="Advanced" ) { ?>
+							<img src="<?php echo get_template_directory_uri();  ?>/images/level_Advanced.png">
+						
 						<?php } 
 						?>
 						&nbsp;
@@ -90,92 +92,69 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8">
-
 				<img src="<?php the_field('featured_image'); ?>" alt="" class="img-fluid" style="width:691px;height:440px;">
-
-
-				
 			</div>
-
-
 			
 			<div class="col-md-4">
 
-				<div class="card my-3" style="background-color: #fff; border-radius: 10px; height: 138px;padding:25px;">
-					<H6> SKILLS & COMPETENCIES </H6> 
+	<h2 class="headtitle">Align to Outcomes</h2>
+<hr>
+				<div class="card my-3" style="background-color: #fff; border-radius: 10px; min-height:138px;padding:30px;">
+					<H2 class="headtitle" style="font-size:14px;"> SKILLS & COMPETENCIES </H2> 
 
-
+	<ul style="list-style:none;">
 					<?php
 					$term_list = wp_get_post_terms($post->ID, "skills_and_competencies",array("fields" => "all"));
+
+	
+
 					foreach($term_list as $term_single) {
-							echo "<li>" . $term_single->name . "</li>" ;//do something here
+							?>
+<li style="float:left;margin-right:6px;">
+<span class="badge badge-pill badge-light" style="padding:10px;font-size:14px;border: 1px solid #3ECCCB;
+box-sizing: border-box;
+border-radius: 8px;"><?php echo  $term_single->name;?></span>
+</li>
+<?php
 						}
 						?>
-
-
+</ul>
 
 					</div>
 
 					<?php if (get_field('logic_model') != "") { ?>
 
-						<div class="card my-3" style="background-color: #fff; border-radius: 10px; height: 78px;">
-							<div class="card-header border-0  d-flex align-items-center" style="background-color: #ffffff;">
-								<img src="<?php echo get_template_directory_uri(); ?>/images/logicModel.png" class="rounded-circle align-self-start mr-3" width="39" height="39">
-								<div>
-									<h6 class="intro-steam"> 
-										<a href="<?php the_field('logic_model'); ?>" target="new">	Logic Model </a>
-									</h6>
-								</div>
-							</div>
+						<div class="card my-3" style="background-color: #fff; border-radius: 10px; height: 78px;padding: 25px;">
+						
+
+								<h7 class="headtitle" style="font-size:14px;">
+										<a href="<?php the_field('logic_model'); ?>" target="new">	
+										<img src="<?php echo get_template_directory_uri(); ?>/images/logicModel.png" style="margin-right:12px;width:36px;"> Logic Model </a> 
+										<span class="float-right" style="margin-right:2px;"> > </span>
+									</h7>
 						</div>
 					<?php } ?>
 
-					<?php if (get_field('equipment_list')) { ?>
-						<div class="card my-3" style="background-color: #fff; border-radius: 10px; height: 78px;">
-							<div class="card-header border-0  d-flex align-items-center" style="background-color: #ffffff;">
-								<img src="<?php echo get_template_directory_uri(); ?>/images/equipmentList.png" class="rounded-circle align-self-start mr-3" width="39" height="39">
-								<div>
-									<h6 class="intro-steam">
-										<a href="<?php the_field('equipment_list'); ?>" target="new">
-											Buy Equipment
-										</a>
-									</h6>
-								</div>
-							</div>
-						</div>
-					<?php } ?>
 
 					<?php if (get_field('sample_session_plan')) { ?>
-						<div class="card my-3" style="background-color: #fff; border-radius: 10px; height: 78px;">
-							<div class="card-header border-0  d-flex align-items-center" style="background-color: #ffffff;">
-								<img src="<?php echo get_template_directory_uri(); ?>/images/sampleSession.png" class="rounded-circle align-self-start mr-3" width="39" height="39">
-								<div>
-									<h6 class="intro-steam">
+
+						<div class="card my-3" style="background-color: #fff; border-radius: 10px; height: 78px;padding: 25px;">
+							
+
+									<h7 class="headtitle" style="font-size:14px;">
 										<a href="<?php the_field('sample_session_plan'); ?>" target="new">
-											Sample Session Plan
-										</a>
-									</h6>
-								</div>
-							</div>
+											
+											<img src="<?php echo get_template_directory_uri(); ?>/images/sessionPlan.png"style="margin-right:12px;width:36px;">
+															Sample Session Plan
+																</a>
+											<span class="float-right" style="margin-right:2px;"> > </span>
+									</h7>
+							
 						</div>
 					<?php } ?>
 
-					<?php if (get_field('further_learning_resources')) { ?>
-						<div class="card my-3" style="background-color: #fff; border-radius: 10px; height: 78px;">
-							<div class="card-header border-0  d-flex align-items-center" style="background-color: #ffffff;">
-								<img src="<?php echo get_template_directory_uri(); ?>/images/furtherReading.png" class="rounded-circle align-self-start mr-3" width="39" height="39">
-								<div>
-									<h6 class="intro-steam">
-										<a href="<?php the_field('further_learning_resources'); ?>" target="new">
-											Further Learning Resources
-										</a>
-									</h6>
-								</div>
-							</div>
-						</div>
 
-					<?php } ?>
-				</div>
+
 			</div>
 		</div>
 	</section>
@@ -204,24 +183,25 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 								<h4 class="intro-title mb-0" style="color:#9AA5B1;">
 									<?php echo strtoupper(get_post_meta($post->ID, 'instructor', true)); ?> 
 								</h4>
-								<h6 class="intro-steam"> 
+							
 									<?php echo get_post_meta($post->ID, 'instructor_name', true); ?>
 									@ 
 									<?php //echo get_post_meta($post->ID,'instructor_organization',true); ?>
 									<?php echo get_term_by('id', get_post_meta($post->ID,'instructor_organization',true), 'member_organization')->name; ?>
 									&nbsp;&nbsp;
-									<span class="badge badge-primary">
-										<?php //echho get_post_meta($post->ID, 'instructor_role', true); ?>
-										<?php echo get_term_by('id', get_post_meta($post->ID,'instructor_role',true), 'community_role')->name; ?>
-									</span></h6>
+									<span class="communityrole">
+					
+						<?php echo get_term_by('id', get_post_meta($post->ID,'instructor_role',true), 'community_role')->name; ?>
+						
+									</span>
 								</div>
 
 							</div>
 
 
 							<div class="container">
-								<hr>
-								<p><b>ACTIVITY OVERVIEW</b></p>
+								<hr style="margin-bottom:24px;">
+								<p style="font-size:14px;"><b>ACTIVITY OVERVIEW</b></p>
 
 
 								<p>
@@ -232,9 +212,10 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 							</div>
 
 						</div>
+
 						<div class="col-md-11" style="background-color: white; border-radius: 10px;padding:36px;margin-top:15px;">
 
-							<p><b>ACTIVITY LEARNING OUTCOMES </b></p>
+							<p style="font-size:14px;"><b>ACTIVITY LEARNING OUTCOMES </b></p>
 
 							<?php echo get_post_meta($post->ID, 'learning_outcomes', true); ?>
 
@@ -245,48 +226,39 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 						<div class="col-md-11" style="background-color: white; border-radius: 10px;padding:36px;margin-top:15px;">
 
 
-							<b>Materials Needed</b></p>
-							<?php echo get_post_meta($post->ID, 'materials_needed', true); ?>
-							<div class="readmore">
-								Lorem ipsum dolor <span class="ellipsis">...</span> <span class="moreText">sit amet, consectetur adipisicing elit, sed do eiusmod
-									tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-									consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-									cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-								proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span><a class="more" href="#">show more</a>
+							<p style="font-size:14px;"><b>MATERIALS & EQUIPMENT NEEDED</b></p>
 
-							</div>
-							<script type="text/javascript">
-								$(function(){
-									$('.readmore a.more').on('click', function(){
-										var $parent = $(this).parent();
-										if($parent.data('visible')) {
-											$parent.data('visible', false).find('.ellipsis').show()
-											.end().find('.moreText').hide()
-											.end().find('a.more').text('show more');
-										} else {
-											$parent.data('visible', true).find('.ellipsis').hide()
-											.end().find('.moreText').show()
-											.end().find('a.more').text('show less');
-										}
-									});77
-							</script>
+
+							<?php echo get_post_meta($post->ID, 'materials_needed', true); ?>
 
 						</div>
 
 						<div class="col-md-11" style="background-color: white; border-radius: 10px;padding:36px;margin-top:15px;">
-							<p><br><b>STEP-BY-STEP Instructions Instructions </b><br></p>
+							<p style="font-size:14px;"><b>STEP-BY-STEP INSTRUCTIONS </b><br></p>
 
 
 							<?php 
-							$sal = get_post_meta($post->ID, 'step_by_step_guide', true);
-							echo custom_field_excerpt($sal); ?>
+							//GET STEP BY STEP TEXT
+							$stepbystep = get_post_meta($post->ID, 'step_by_step_guide', true);
+							?>
+
+<span class="step-by-step-excerpt" style="">
+<?php echo custom_field_excerpt($stepbystep); ?>
+<button type="button" class="btn btn-link readMorelink" style="color: #EE603B;font-size:16px;font-weight: bold;">Expand more instructions + </button>
+</span>
+
+<span class="step-by-step-full" style="visibility:hidden;display:none;">
+	<!--- print the whole text when clicked done by Jqeury-->
+<?php echo $stepbystep; ?>
+</span>
 
 
 						</div>
 
 						<div class="col-md-11" style="background-color: white; border-radius: 10px;padding:36px;margin-top:15px;">
-							<p><br><b>FURTHER RESOURCES & INSTRUCTIONS </b><br></p>
+							<p style="font-size:14px;"><b>FURTHER RESOURCES & INSTRUCTIONS </b></p>
+
+							<?php echo get_post_meta($post->ID, 'further_learning_resources', true); ?>
 
 
 						</div>
@@ -295,30 +267,32 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 						<!--- new sectin -->
 					</div>
 					<div class="col-md-4 my-2">
-						<p class="desc-text">A step-by-step PDF guide for your group to follow</p>
+
+							<h2 class="headtitle">Support & Community</h2>
+<hr>
+	
+						<p class="desc-text" style="font-size:14px;color:#52606D">A step-by-step PDF guide for your group to follow</p>
 						<a href="<?php the_field('step_by_step_guide_doc'); ?>">
-							<button type="button" class="btn btn-outline-warning my-2"  style="border: 2px solid #EE603B;box-sizing: border-box;box-shadow: 0px 5px 15px rgba(25, 70, 93, 0.05);border-radius: 100px;font-family: Lato;font-style: normal;font-weight: bold font-size: 12px;line-height: 24px;color: #EE603B;">Download Guide</button>
+							<button type="button" class="btn btn-outline-warning my-2" dis  style="background: #EE603B;border: 2px solid #EE603B;box-sizing: border-box;box-shadow: 0px 5px 15px rgba(25, 70, 93, 0.05);border-radius: 100px;color:#FFFFFF">Download Guide</button>
 						</a>
 						<hr>
-						<div class="card" style="background: #F5F7FA;border: 1px solid rgba(0, 0, 0, 0.1);box-sizing: border-box;border-radius: 10px;">
+						<div class="card" style="background:#F5F7FA;border: 1px solid rgba(0, 0, 0, 0.1);box-sizing: border-box;border-radius: 10px;">
 							<div class="card-body">
-								<h6 class="box-text12 mb-2 text-muted">Support</h6>
+								<h6 class="box-text12 mb-2 text-muted" style="font-size:14px;">SUPPORT</h6>
 								<p class="box-text12">TechSpace project officers are here to help with all your queries with the activities. Have a question?No problem! Reach out and we will help you.</p>
 								<hr>
 								<p class="box-text-link">
-									<img src="<?php echo get_template_directory_uri();  ?>/images/askExpert.png" class="rounded-circle z-depth-0 md-avatar" alt="Start a Chat Session">
-									Ask an Expert (Start a Chat Session)
+								Ask an Expert (Start a Chat Session) <img src="<?php echo get_template_directory_uri();  ?>/images/askExpert.png" class="rounded-circle z-depth-0 md-avatar" alt="Start a Chat Session">
 								</p>
 							</div>
 						</div>
 						<hr>
 						<div class="card">
-							<div class="card-header" style="background-color: white;height:70px;">
-								<br>
-								<b class="box-text12" style="font-weight:bold;">Activity Feedback for the Community</b>
-
+							<div class="card-header" style="background-color:#FFFFFF;">
+								<b class="box-text12" style="font-weight:bold;text-transform:uppercase;"> Feedback for the Community</b>
 							</div>
-							<div style="padding:25px">
+
+							<div style="padding:25px;background-color:#F5F7FA;">
 
 								<p><b>SATISFACTION</b></p>
 								<p>How did you find this activity with the young people?</p>
@@ -330,10 +304,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 								$postid = get_the_ID();
 								$username = $current_user->user_login;
 								$userid = $current_user->ID;
-                                                  //echo $postid;
-                                                  //echo $userid;
-                                                  //echo $username;
-
+          
 								?>
 
 
@@ -1049,20 +1020,28 @@ $('.ageadvance-btn').on('click', function(){
 </div>
 
 
-<hr>
+
+	<?php 
+	$next_post = get_next_post(); ?>
+	<?php
+		
+		if (!empty( $next_post )): ?>
+			?>
+			<hr>
 <div class="card-header border-0 py-3 d-flex align-items-center my-3">
-	<img src="<?php echo get_template_directory_uri();  ?>/images/activity.png" class="align-self-start mr-3">
+
+	<img src="<?php echo get_field('featured_image', $next_post->ID); ?> " style="width:64px;" class="align-self-start mr-3">
 	<div>
 		<h4 class="intro-title mb-0" style="color:#9AA5B1;">Next activity</h4>
 		<h6 class="intro-steam"></h6>
 
-		<?php
-		$next_post = get_next_post();
-		if (!empty( $next_post )): ?>
-			<a href="<?php echo esc_url( get_permalink( $next_post->ID ) ); ?>"><?php echo esc_attr( $next_post->post_title ); ?></a>
-		<?php endif; ?>
-	</h6>			</div>
+		
 
+			<a href="<?php echo esc_url( get_permalink( $next_post->ID ) ); ?>"
+				"><?php echo esc_attr( $next_post->post_title ); ?></a>
+		
+	</h6>			</div>
+<?php endif; ?>
 </div>
 <hr>
 
@@ -1079,27 +1058,42 @@ $('.ageadvance-btn').on('click', function(){
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8">
+	<div class="card" style="background: #FFFFFF;box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 10px;">
+
+
+<div class="card-body">
 
 
 
-				<div class="card" style="background: #FFFFFF;box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 10px;">
-					<div class="card-body">
-						<div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
-							<img src="<?php echo get_avatar_url($current_user->ID); ?>" class="rounded-circle align-self-start mr-3">
-							<div>
 
-								<?php
+<?php
 // If comments are open or we have at least one comment, load up the comment template.
 								if ( comments_open() || get_comments_number() ) {
-									comments_template();
-								}
-								?>
-							</div>
+									?>
+									<div style="overflow-y: scroll; height:300px;">
+									<?php comments_template(); ?>
+								</div>
+							<?php	} ?>
+			
+								
+<div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
+<img src="<?php echo get_avatar_url($current_user->ID); ?>" class="rounded-circle align-self-start mr-3" style="width:40px;">
+<div>
+<div class="form-group green-border-focus">
+<textarea class="form-control col-xs-12" id="exampleFormControlTextarea5"  rows="7" cols="80" style="color:#7B8794">
+What went well or or did't go well for me with this activity was...
+</textarea>
 
-						</div>
-					</div>
-				</div>
+<button type="button" class="btn btn-outline-warning my-3" style="background: #EE603B;box-shadow: 0px 5px 15px rgba(25, 70, 93, 0.05);border-radius: 100px;font-family: Lato;font-style: normal;font-weight: bold font-size: 12px;line-height: 24px;color: #fff;">Add Comment</button>
+										</div>
+									</div>
+
+								</div>
+							</div>
+	</div>
 			</div>
+
+
 			<div class="col-md-4">
 				<h2 class="euneed pt-3">Community Contributor ....</h2>
 				<p class="desc-text">Become a contributor and let the community know what worked or didn't work for you for you pre, post, or during this activity with the young people.</p>

@@ -171,7 +171,11 @@ if($current_user_pathway_name == $term->name){
                                 // var_dump($copusers);
                   
                                 ?>
-                            <p class="meet-company-text" ><a href="" style="font-family: Lato; font-style: normal; font-weight: bold; font-size: 24px; line-height: 16px; color: #7B8794;"><?php echo count($copusers);?></a> &nbsp;  &nbsp; <a href="" style="font-family: Lato; font-style: normal; font-weight: bold; font-size: 12px; line-height: 16px; text-align: center; color: #993C9F; border-radius: 4px; "><?php echo $term->name;?></a>&nbsp;<a href="#" class="badge badge-primary">officer</a></p>
+                            <p class="meet-company-text" ><a href="<?php echo home_url()?>/directory/?group=" style="text-transform:capitalize;font-family: Lato; font-style: normal; font-weight: bold; font-size: 24px; line-height: 16px; color: #7B8794;"><?php echo count($copusers);?></a>
+
+                             &nbsp;  &nbsp; 
+
+                            	<a href="<?php echo home_url()?>/directory/?group=" style="font-family: Lato; font-style: normal; font-weight: bold; font-size: 12px; line-height: 16px; text-align: center; color: #993C9F; border-radius: 4px; "><?php echo $term->name;?></a> <span class="float-right"> > </span> </p> 
                            <?php
                             }
                             ?>
@@ -267,7 +271,7 @@ if($current_user_pathway_name == $term->name){
 		 wp_reset_postdata();
 		 
 		}else {
-			echo "nothong";
+			echo "Nothing to show for now - No Activities! ";
 		}
 		?>				
 		</div>
@@ -286,24 +290,36 @@ if($current_user_pathway_name == $term->name){
 						<div class="row">
 						
 							<?php
-							$tax_terms = get_terms( 'topic', 'orderby=id',array('number' => 2));
-							//var_dump($tax_terms);
-							$count=0;
-							foreach ( $tax_terms as $term ) {
+			
 
-							if($count==2) {break;};
-							$count++;
+				//			$tax_terms = get_terms( 'topic', 'orderby=id',array('number' => 2,'pathway' =>$currentPathway));
+	
+if(strcasecmp(strtoupper ($current_user_pathway_name), strtoupper ("Digital Creativity"))==0) {
+	$topics = array("MOJO","Graphic Design","Video Production","Animation","Audio Production","Photography");
+
+}else {
+	$topics = array("Maker","Computer Science");
+}
+
+$arrlength = count($topics);
+
+//		echo $arrlength;
+
+for($x = 0; $x < $arrlength; $x++) {
+
 							?>
 							<div class="col-md-6 my-2">
-								<div class="card" style="background: #FFFFFF;box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 10px;">
+								
 									<div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
-										<img src="<?php echo gettopicImage($term->name); ?>" class="rounded-circle align-self-start mr-3" width="50" height="50">
+										<img src="<?php echo gettopicImage($topics[$x]); ?>" class="rounded-circle align-self-start mr-3" width="50" height="50">
 										<div>
-											<h4 class="intro-title mb-0" style="color:#9AA5B1;">Activity</h4>
-											<h6 class="intro-steam"><a href="activities/?ft=<?php echo $term->name;?>"><?php echo $term->name;?> </a></h6>
+										
+											<h6 class="intro-steam"><a href="activities/?ft=<?php echo $topics[$x] ;?>">
+<?php echo $topics[$x]; ?>
+												Activities  </a></h6>
 										</div>
 									</div>
-								</div>
+								
 							</div>
 
 						<?php 

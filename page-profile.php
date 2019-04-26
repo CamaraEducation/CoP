@@ -39,20 +39,27 @@ get_header();?>
 		<section class="my-5">
 
 			<div class="container" style="margin-top: 24px;">
-				<h2 class="headtitle">Email Preference </h2>
+				<h2 class="headtitle"><?php  echo $current_user_name;?> </h2>
 				<hr>
 			</div>
 			<div class="container">
 				<div class="row">
 					<div class="col-md-3">
-						<div class="card ml-2 mt-2" style=" width: 280px; background: #FFFFFF;box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 10px;border-bottom:30px;">
+						<div class="card ml-2 mt-2" style=" width: 240px; background: #FFFFFF;box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 10px;border-bottom:30px;">
+
 							<div class="card-body">
 								<p class="custom-card-title">About You</p>
 								<p class="custom-card-title"><?php echo $user_role; ?></p>
 								<p class="cutsom-card-body"><?php echo $communityRole_name; ?> <br>@ <?php echo $org_name; ?></p>
-								<a href="#" class="badge card-badge1 ml-4">Education Officer</a>
-								<a href="#" class="badge card-badge2" style="background-color:<?php echo $current_pathway_color ;?>;border-color: <?php echo $current_pathway_color ;?>"><?php echo $current_user_pathway_name;?></a>
-								<button style="background: #EE603B; color: white; border: 1px solid #EE603B; box-sizing: border-box; box-shadow: 0px 5px 15px rgba(25, 70, 93, 0.05); border-radius: 100px; width: 174px; height: 40px;left: 581px; top: 1565px;">Edit Profile</button>
+								
+								
+							<img src="<?php echo get_template_directory_uri();  ?>/images/location.png"> &nbsp;	<?php echo $memberlocation;?>
+ 
+								<button style="margin-top:14px;background: #EE603B; color: white; border: 1px solid #EE603B; box-sizing: border-box; box-shadow: 0px 5px 15px rgba(25, 70, 93, 0.05); border-radius: 100px; width: 174px; height: 40px;left: 581px; top: 1565px;">
+
+							<a href="account" style="color:#FFFFFF;">Edit Profile </a>
+
+							</button>
 							</div>
 						</div>
 					</div>
@@ -75,23 +82,13 @@ get_header();?>
 							</div>
 						</div>
 					</div>
-					<h2 style="width: 348px; height: 36px; left: 432px; top: 1120px; font-family: Lato; font-style: normal; font-weight: bold; font-size: 24px; line-height: 36px; color: #323F4B;">Community Contributor Archive</h2>
-					<hr>
-					<div class= "row">
-						<div class="card ml-2 mt-2" style="width: 280px; background: #FFFFFF;box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 10px;border-bottom:30px;">   
-							<img class="card-img-top cardback" src="../images/cardImage.png"  width="279" height="129" alt="Card image cap">
-							<div class="card-body">
-								<h6 class="card-small" style="color:#9AA5B1;">STEAM</h6>
-								<h5 class="card-big"><a href="<?php the_permalink(); ?>">Scribble Bots</a></h5>
-							</a>
-							<span class="badge badge-primary" style="background-color:<?php echo $current_pathway_color;?>"> Circuits</span>
 
-							<span class="badge badge-info" style="outline: 1px solid <?php echo $current_pathway_color;?>;color:<?php echo $current_pathway_color;?>;background-color:#ffffff"> TOOL</span>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<img src="<?php echo get_template_directory_uri();  ?>/images/level.png" class="img-responsive" with="10px"  alt="COP">
-							<?php //echo getPostTerms($post->ID,'level'); ?>
-						</div>
-					</div>	 
+
+<div style="margin-top:25px;">
+
+					<h2 style="width: 348px; height: 36px; left: 432px; top: 1120px; font-family: Lato; font-style: normal; font-weight: bold; font-size: 24px; line-height: 36px; color: #323F4B;">Community Contributor Archive</h2>
+				
+					
 				</div>
 			</div>
 		</div>

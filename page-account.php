@@ -1,4 +1,4 @@
-<?php get_header();
+R<?php get_header();
 ?>
 
 
@@ -55,10 +55,9 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-3">
-						<p class="pass-desc"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						</p>
+						<p class="pass-desc"> 
+
+							Always choose a password you can remember. Passwords must contain at least 8 characters. You can change your password here at any time.
 					</div>
 					<div class="col-md-9">
 						<div class="row">
@@ -67,12 +66,30 @@
 
 								<div class="card ml-2 mt-2" style="width: 700px; background: #FFFFFF;box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 10px;border-bottom:30px;">
 									<div class="card-body">
-										<label style="font-family: Lato; font-style: normal; font-weight: normal; font-size: 16px; line-height: 16px; color: #7B8794;">Current Password</label></br>
-										<input type="" name="" style="width: 576px; height: 56px; left: 584px; top: 827px;"></br>
-										<label style="font-family: Lato; font-style: normal; font-weight: normal; font-size: 16px; line-height: 16px; color: #7B8794;">New Password</label></br>
-										<input type="" name="" style="width: 576px; height: 56px; left: 584px; top: 827px;"></br>
-										<button style="background: #EE603B; color: white; border: 1px solid #EE603B; box-sizing: border-box; box-shadow: 0px 5px 15px rgba(25, 70, 93, 0.05); border-radius: 100px; width: 174px;height: 40px;left: 581px;top: 1565px;">Update Password</button>
-									</div>
+		<form name="change-password-form" id="change-password-form" method="POST">
+
+<input type="hidden" id="change_password" name="change_password" value="YES">
+
+	<div class="form-group">
+	<label for="user_current_password" class="signup-small-txt">Current Password</label>
+	<input type="password" class="form-control" id="user_current_password" name="user_current_password">
+	</div>
+
+										
+	<div class="form-group">
+	<label for="user_new_password" class="signup-small-txt">New Password</label>
+	<input type="password" class="form-control" id="user_new_password" name="user_new_password">
+	</div>
+
+	<div class="form-group">
+	<label for="user_new_password_confirm" class="signup-small-txt">Confirm Password</label>
+	<input type="password" class="form-control" id="user_new_password_confirm" name="user_new_password_confirm">
+	</div>
+
+<button tyype="submit" name="update-password" id="update-password" style="background: #EE603B; color: white; border: 1px solid #EE603B; box-sizing: border-box; box-shadow: 0px 5px 15px rgba(25, 70, 93, 0.05); border-radius: 100px; width: 174px;height: 40px;left: 581px;top: 1565px;">Update Password</button>
+	</div>
+</form>
+
 								</div>
 
 							</div>	
@@ -81,6 +98,9 @@
 				</div>
 
 		</section>
+
+		<!---
+
 		<section class="my-5">
 
 			<div class="container" style="margin-top: 24px;">
@@ -119,6 +139,8 @@
 				</div>
 
 		</section>
+
+		--->
 				<section class="my-5">
 
 			<div class="container" style="margin-top: 24px;">
@@ -129,9 +151,9 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-3">
-						<p class="pass-desc"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. 
-						</p>
+						<p class="pass-desc"> 
+
+							To change your acccount email. Please contact a TechSpace project officer.
 					</div>
 					<div class="col-md-9">
 						<div class="row">
@@ -140,11 +162,42 @@
 
 								<div class="card ml-2 mt-2" style="width: 700px; background: #FFFFFF;box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 10px;border-bottom:30px;">
 									<div class="card-body">
-										<label style="font-family: Lato; font-style: normal; font-weight: normal; font-size: 16px; line-height: 16px; color: #7B8794;">Your Email</label></br>
-										<input type="" name="" style="width: 576px; height: 56px; left: 584px; top: 827px;"></br>
-										<input type="checkbox" name="" value="" style=""><label style="width: 479px; height: 48px; left: 621px; top: 1995px; font-family: Lato; font-style: normal; font-weight: normal; font-size: 16px; line-height: 24px; color: #3E4C59; border-radius:">Recive email notification when new content has been added to the community of practice</label><br/>
-										<button style="background: #EE603B; color: white; border: 1px solid #EE603B; box-sizing: border-box; box-shadow: 0px 5px 15px rgba(25, 70, 93, 0.05); border-radius: 100px; width: 174px; height: 40px;left: 581px; top: 1565px;">Update Password</button>
+									
+
+						<form name="update-email-form" id="update-email-form" method="POST">
+
+<input type="hidden" id="update_email" name="update_email" value="YES">				
+
+
+
+
+	<div class="form-group">
+	<label for="user_email_new" class="signup-small-txt">Your email</label>
+	<input type="email" class="form-control" id="user_email_new" name="user_email_new">
+	</div>
+
+<div class="form-check">
+									<input type="checkbox" class="form-check-input" id="member_emailNotifications" name="user_18yearsold" value="YES">
+										Receive email notification when new content has been added to the Community of Practice. 
+										<label class="form-check-label tick-text" for="member_emailNotifications"> </label>
+								</div>
+
+
+	<div class="form-check" style="margin-top:10px;">
+
+		<span class="confirm" id="confirm" name="confirm" style="visibility: hidden;display:hidden;text-align: center;"> <h3> You email address is udpated. </h3></span>
+
+										<button type=sussbmit" name="update-email" id="update-email" style="background: #EE603B; color: white; border: 1px solid #EE603B; box-sizing: border-box; box-shadow: 0px 5px 15px rgba(25, 70, 93, 0.05); border-radius: 100px; width: 174px; height: 40px;left: 581px; top: 1565px;">SAVE PREFERENCES</button>
+
+
+</div>
+</form>
+
+
 									</div>
+
+
+
 								</div>
 
 							</div>	

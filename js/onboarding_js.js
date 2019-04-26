@@ -1,8 +1,6 @@
 var data = {};
 $(document).ready(function() {
 
-
-
 $('input[type="submit"]').on('click', function() {
 resetErrors();
 
@@ -188,8 +186,6 @@ $(".previous").click(function(){
 			current_fs.hide();
 		
 	});
-
-
 
 
 

@@ -1,10 +1,12 @@
 <?php
-$url="landing";
+
+$url= get_home_url() ."/landing";
 if(is_user_logged_in() ) {
-       //wp_redirect( $url );
-//exit;
+       wp_redirect( $url );
+exit;
         // code
     }
+/**
 
 $landingURL="landing";
 $loginPage= get_site_url() . '/login/';
@@ -20,8 +22,9 @@ $homeurl = get_home_url();
   //}    else if(strcmp(get_permalink(),$registerPage)==0 && is_user_logged_in()){
     //     wp_redirect($landingURL); exit;
 }
-
+*/
 ?>
+
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -29,7 +32,7 @@ $homeurl = get_home_url();
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="profile" href="https://gmpg.org/xfn/11" />
 	
-<script src='<?php echo get_template_directory_uri();?>/js/jquery-2.13-min.js'></script>
+<script src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
 
 	<?php wp_head(); ?>
 

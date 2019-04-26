@@ -1,3 +1,34 @@
+html,body, form, fieldset, tr, td, img {
+ font-family: Lato;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 24px;
+}
+
+
+
+h1,h2,h3,h4,h5,h6{
+font-family: Lato;
+font-style: normal;
+}
+
+
+
+
+.communityrole {
+padding:5px;
+font-size:12px;
+background-color:rgba(153,60,159,0.1);
+text-align: center;
+font-weight:bold;
+color:#993C9F;
+font-style: normal;
+line-height: 16px;
+}
+
+
+
 /*Menu Start*/
 .menu-text{
   font-family: Lato;
@@ -216,7 +247,7 @@
 
 /*Start Footer*/
 #footer {
-  background: #E6EEF3 !important;
+  background: #FFFFFF !important;
 }
 #footer h5{
   padding-left: 10px;

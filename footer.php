@@ -1,16 +1,7 @@
 <?php
-/**
- * The template for displaying the footer
- *
- * Contains the closing of the #content div and all content after.
- **
- * @package WordPress
- * @subpackage CoP_Members
- * @since 1.0.0
- */
 
 ?>
-<section id="footer">
+<section id="footer" style="background-color: #FFFFFF">
 	<div class="container" style="background-color: #FFFFFF">
 		<hr>
 		<div class="row text-center text-xs-center text-sm-left text-md-left">
