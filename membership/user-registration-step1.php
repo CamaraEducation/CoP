@@ -84,7 +84,7 @@ get_template_part( 'membership/user-registration-step2', 'page' );
 								</div>
 							
 								<div class="text-center">
-<input type="submit" class="land-btn land-btn-txt mt-4" value="SIGN UP ">
+<input type="submit" class="land-btn land-btn-txt mt-4 register-submit" value="SIGN UP ">
 								</div>
 							</form>
 						</div>

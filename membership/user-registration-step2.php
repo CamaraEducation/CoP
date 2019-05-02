@@ -5,8 +5,6 @@
 <?php
 
 
-//var_dump($_POST);
-
 if(isset($_POST['user_pathway'])){
 
 //1
@@ -281,14 +279,17 @@ echo "</div>";
 
 <fieldset>								
 								
-										<h5 class="signup-title-txt" align="center">I have or will complete training in...</h5>
-										<p class="small tick-text" align="center" style="margin-bottom: 23px;">If you have completed training in both areas please select your most recent</p>
-									
+<h5 class="signup-title-txt" align="center">I have or will complete training in...</h5>
+<p class="small tick-text" align="center" style="margin-bottom: 30px;">If you have completed training in both areas please select your most recent</p>
+				   <div style="width:100%;align-content: center;margin-left:10%;">
+                  <div class="row">
+
 
 							<?php
 $terms = get_terms( array(
     'taxonomy' => 'pathway',
     'hide_empty' => false,
+    'orderby'=> 'id',
 ) );
 
  foreach ( $terms as $term ) {
@@ -297,19 +298,32 @@ $terms = get_terms( array(
 
 ?>
 			
-										<button type="submit" name="user_pathway" value="<?php echo $term->term_id ?>">
-										<img src="<?php echo get_template_directory_uri(); ?>/images/introcard3.png" class="rounded-circle align-self-start mr-3" style="width: 50px;">
-										</button>
 														
-										<h5 class="intro-title mb-0" style="display:inline;color:black;"><?php echo $term->name ?></h5>
-															
+<div class="col-md-5">
+    <?php
+$imagePath = get_field('pathway_image', $term->taxonomy.'_'.$term->term_id);
+    ?>
+<img src="<?php echo $imagePath;?>" style="margin-top:12px;margin-bottom:12px;width:90px;">
+<p>
+<button type="submit" name="user_pathway"  class="btn btn-link user_pathway-training" value="<?php echo $term->term_id ?>" style="font-weight:bold;font-size:16px;" onMouseOver="this.style.color='<?php echo $_SESSION[$term->name];?>'"   onMouseOut="this.style.color=''">
+<?php echo $term->name ?>    
+</button>
+</p>
+ </div>
+
+
+
+
+                     
+
+
 													
 <?php
 }
 
 ?>
-									
-							
+	</div>								
+		</div>					
 <br>
 <span class="back-link float-left mt-2 previous action-button-previous" style="margin-top:48px;display:block;">< Back</span>
 								

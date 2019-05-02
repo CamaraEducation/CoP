@@ -27,10 +27,12 @@ get_header();?>
 				<div class="container">
 					<ul class="nav mx-4" id="myTab">
 						<li class="nav-item mx-4 tab-text1">
-							<a class="nav-link <?php echo ($currentPathway == $term->name  ? active : none); ?>" id="home-tab" href="activities/?a=<?php echo $term->name; ?>" role="tab"  style="height: 24px;left: 144px;top: 412px;color: #c71585; background: #F097C8;border-radius: 100px;font-family: Lato;font-style: normal;font-weight: bold;font-size: 16px;line-height: 24px;text-align: center;">My Profile</a>
+					
+								<a href="<?php echo get_site_url();?>/profile" class="nav-link" style="text-transform:capitalize;color: #c71585; background: #F097C8;	border-radius: 100px;">My Profile </a>
+
 						</li>
 						<li class="nav-item mx-4 tab-text1">
-							<a class="nav-link <?php echo ($currentPathway == $term->name  ? active : none); ?>" id="home-tab" href="activities/?a=<?php echo $term->name; ?>" role="tab"  style="height: 24px;left: 271px;top: 412px;font-family: Helvetica Neue;font-size: 16px;line-height: 24px;text-align: center;text-transform: capitalize;color: #323F4B;">Account Details</a>
+					<a href="<?php echo get_site_url();?>/account" class="nav-link" style="text-transform:capitalize;">Account Details</a>
 						</li>
 					</ul>
 				</div>

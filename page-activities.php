@@ -2,6 +2,19 @@
 
 
 <?php
+
+
+$search_topic=  $_GET['ft'];
+$search_level=  $_GET['fl'];
+$search_equipment= $_GET['fe'];
+$search_app= $_GET['fta'];
+
+//convert current 
+$hex = $current_pathway_color;
+list($r, $g, $b) = sscanf($hex, "#%02x%02x%02x");
+
+
+
 function getPostTerms($id,$tax){
 $term_list = wp_get_post_terms($id, $tax, array("fields" => "all"));
 foreach($term_list as $term_single) {
@@ -105,7 +118,7 @@ $posts = get_posts($Searcharg);
 
     <!--  Hero Section -->
     <section id="hero">
-        <div class="hero-container" style="background: <?php echo $current_pathway_color?>" height: 295px;">
+        <div class="hero-container" style="background: <?php echo $current_pathway_color?> ;height:295px;">
             <div class="col-xs-6 col-centered">
                 <p class="directory-hero-text"><?php echo $currentPathway; ?> Activities</p>
             </div>
@@ -117,7 +130,7 @@ $posts = get_posts($Searcharg);
 
 <!-- Start Tab -->
     <section>
-        <div class="container-fluid" style="background: #fff;">
+        <div class="container-fluid" style="background: #fff;height:48px;">
             <div class="container">
             <ul class="nav mx-4" id="myTab">
                 
@@ -127,7 +140,7 @@ $tax_terms = get_terms( 'pathway', 'orderby=id');
 foreach ( $tax_terms as $term ) {
 ?>
     <li class="nav-item mx-4 tab-text1">
-<a class="nav-link <?php echo ($currentPathway == $term->name  ? active : none); ?>" id="home-tab" href="activities/?a=<?php echo $term->name; ?>" role="tab"  style="color: #<?php echo ($currentPathway == $term->name  ? 333333 : none);?>"><?php echo $term->name; ?></a>
+<a class="nav-link <?php echo ($currentPathway == $term->name  ? active : none); ?>" id="home-tab" href="activities/?a=<?php echo $term->name; ?>" role="tab""><?php echo $term->name; ?></a>
                 </li>
 <?php
 }
@@ -149,12 +162,17 @@ $pageURL = get_permalink() . "?".$_SERVER["QUERY_STRING"];
 
 //echo $pageURL;
 
+
 ?>
 
+
+
 <div class="btn-group ml-2">
-                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border: 1px solid #3E4C59;box-sizing: border-box;border-radius: 100px;">
+  
+                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_topic) ? 'rgba('.$r.','.$g.','.$b.',0.1)':'';?> ">
                     Topic
                 </button>
+   
                 <div class="dropdown-menu">
 
 <?php
@@ -174,7 +192,7 @@ $topicURL = $pageURL . "&ft=" .$topic->name;
             </div>
 
             <div class="btn-group ml-2">
-                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border: 1px solid #3E4C59;box-sizing: border-box;border-radius: 100px;">
+           <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_level) ? 'rgba('.$r.','.$g.','.$b.',0.1)':'';?> ">
                     Level
                 </button>
                 <div class="dropdown-menu">
@@ -197,7 +215,7 @@ $levelURL = $pageURL . "&fl=" .$level->name;
             </div>
 
             <div class="btn-group ml-2">
-                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border: 1px solid #3E4C59;box-sizing: border-box;border-radius: 100px;">
+                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_equipment) ? 'rgba('.$r.','.$g.','.$b.',0.1)':'';?> ">
                   Equipment 
                 </button>
                 <div class="dropdown-menu">
@@ -218,7 +236,8 @@ $equipmentURL = $pageURL . "&fe=" .$equipment->name;
             </div>
 
             <div class="btn-group ml-2">
-                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border: 1px solid #3E4C59;box-sizing: border-box;border-radius: 100px;">
+
+                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_app) ? 'rgba('.$r.','.$g.','.$b.',0.1)':'';?> ">
                     App
                 </button>
                 <div class="dropdown-menu">
@@ -239,9 +258,11 @@ $appURL = $pageURL . "&fta=" .$tool->name;
             </div>
         </div>
 
-		<span style="margin-left:45%;font-weight:bold;text-align: middle;"><a href="<?php echo $pageURL;?>">Clear All Filters
+		<span style="margin-left:45%;font-weight:bold;text-align: middle;"><a href="<?php echo get_permalink();?>">Clear All Filters
 		<img src="<?php echo get_template_directory_uri();  ?>/images/filterClear.png" style="width:20px;">
-		</a>  </span>
+		</a>  
+    </span>
+
 			</div>
 		</div>
 		
@@ -250,10 +271,7 @@ $appURL = $pageURL . "&fta=" .$tool->name;
 
 <?php // Output all Taxonomies names with their respective items
 
-$search_topic=  $_GET['ft'];
-$search_level=  $_GET['fl'];
-$search_equipment= $_GET['fe'];
-$search_app= $_GET['fta'];
+
 
 //echo $search_topic;
 //echo $search_level;
@@ -283,7 +301,7 @@ $Searchposts=searchPosts($newMax,$search_topic,$search_level,$search_equipment,$
 }
 
 ?>
-                <div class="card-deck">
+                <div class="card-deck" style="height:400px;">
 <?php
 $count=0;
 foreach($Searchposts as $post): // begin cycle through posts of this taxonmy
@@ -291,7 +309,7 @@ setup_postdata($post); //set up post data for use in the loop (enables the_title
       ?>        
 
 <div class="card" style="margin-bottom:30px;">   
-<img class="card-img-top cardback" src="<?php the_field('featured_image'); ?>"  width="279" height="129" alt="Card image cap">
+<img class="card-img-top cardback" src="<?php the_field('featured_image'); ?>"  width="279" height="251" alt="Card image cap">
 <div class="card-body">
 <h6 class="card-small" style="color:#9AA5B1;"><?php echo getPostTerms($post->ID,'pathway'); ?> </h6>
 <h5 class="card-big"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
@@ -301,8 +319,30 @@ setup_postdata($post); //set up post data for use in the loop (enables the_title
 
 <span class="badge badge-info" style="outline: 1px solid <?php echo $current_pathway_color;?>;color:<?php echo $current_pathway_color;?>;background-color:#ffffff"> <?php echo getPostTerms($post->ID,'tool'); ?></span>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="<?php echo get_template_directory_uri();  ?>/images/level.png" class="img-responsive" with="10px"  alt="COP">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+<!--LEVEL -->
+                    <?php 
+                    $s = getPostTerms($post->ID,'level');
+                    
+                    if($s == "Easy"){?>
+                            <img src="<?php echo get_template_directory_uri();  ?>/images/level_Easy.png">
+
+                    <?php } elseif($s == "Beginner"){?>
+                            <img src="<?php echo get_template_directory_uri();  ?>/images/level_Easy.png">
+                            
+
+                    <?php  }elseif ($s== "Intermediate") { ?>
+                        
+                        <img src="<?php echo get_template_directory_uri();  ?>/images/level_Intermediate.png">
+                        <?php }elseif ($s=="Advanced" ) { ?>
+                            <img src="<?php echo get_template_directory_uri();  ?>/images/level_Advanced.png">
+                        
+                        <?php } 
+                        ?>
+    &nbsp;
  <?php echo getPostTerms($post->ID,'level'); ?>
 </div>
 </div>

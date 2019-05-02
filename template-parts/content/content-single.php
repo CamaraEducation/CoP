@@ -107,13 +107,16 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 					$term_list = wp_get_post_terms($post->ID, "skills_and_competencies",array("fields" => "all"));
 
 	
+//convert current 
+$hex = $current_pathway_color;
+list($r, $g, $b) = sscanf($hex, "#%02x%02x%02x");
+
+
 
 					foreach($term_list as $term_single) {
 							?>
 <li style="float:left;margin-right:6px;">
-<span class="badge badge-pill badge-light" style="padding:10px;font-size:14px;border: 1px solid #3ECCCB;
-box-sizing: border-box;
-border-radius: 8px;"><?php echo  $term_single->name;?></span>
+<span class="badge badge-pill badge-light" style="padding:5px;font-size:12px;background-color:rgba(<?php echo "$r,$g,$b"?>,0.1);box-sizing: border-box; border-radius: 8px;height: 24px;vertical-align: middle;"><?php echo  $term_single->name;?></span>
 </li>
 <?php
 						}

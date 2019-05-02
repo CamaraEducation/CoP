@@ -34,12 +34,13 @@ R<?php get_header();
 		<section>
 			<div class="container-fluid" style="background: #fff;">
 				<div class="container">
-					<ul class="nav mx-4" id="myTab">
+					<ul class="nav mx-4">
 						<li class="nav-item mx-4 tab-text1">
-							<a class="nav-link <?php echo ($currentPathway == $term->name  ? active : none); ?>" id="home-tab" href="activities/?a=<?php echo $term->name; ?>" role="tab"  style="color: #<?php echo ($currentPathway == $term->name  ? 333333 : none);?>">My profile</a>
+							<a href="<?php echo get_site_url();?>/profile" class="nav-link" style="text-transform:capitalize;">My profile</a>
 						</li>
 						<li class="nav-item mx-4 tab-text1">
-							<a class="nav-link <?php echo ($currentPathway == $term->name  ? active : none); ?>" id="home-tab" href="activities/?a=<?php echo $term->name; ?>" role="tab"  style="color: #c71585; background: #F097C8;	border-radius: 100px;<?php echo ($currentPathway == $term->name  ? 333333 : none);?>">Account Details</a>
+							
+								<a href="<?php echo get_site_url();?>/account" class="nav-link" style="text-transform:capitalize;color: #c71585; background: #F097C8;	border-radius: 100px;">Account Details </a>
 						</li>
 					</ul>
 				</div>

@@ -95,7 +95,7 @@ $login_member_password   = $_POST["login_member_password"];
 // check the user's login with their password
     if(!wp_check_password($login_member_password, $user->user_pass, $user->ID)) {
       // if the password is incorrect for the specified user
-      $errors = array('login_member_password'  => 'Invalid password. Please enter the correct password.');
+      
     }
 
 if(!username_exists($login_member_username)) {
@@ -1042,3 +1042,4 @@ function custom_field_excerpt() {
     }
     return apply_filters('the_excerpt', $text);
 }
+

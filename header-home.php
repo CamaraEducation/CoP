@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 
 $url= get_home_url() ."/landing";
 if(is_user_logged_in() ) {
@@ -6,23 +8,31 @@ if(is_user_logged_in() ) {
 exit;
         // code
     }
-/**
 
-$landingURL="landing";
-$loginPage= get_site_url() . '/login/';
-$registerPage =get_site_url() . '/register/';
-$forgotpassword = get_site_url() . '/forgotpassword/';
-$homeurl = get_home_url();
 
-       if(is_home() == true && is_user_logged_in()){
-         //wp_redirect($landingURL); exit;
-        
-       } else if(strcmp(get_permalink(),$loginPage)==0 && is_user_logged_in()){
-          //wp_redirect($landingURL); exit;
-  //}    else if(strcmp(get_permalink(),$registerPage)==0 && is_user_logged_in()){
-    //     wp_redirect($landingURL); exit;
+             
+
+/*** get all Pathways */
+$pathwayterms = get_terms( array(
+    'taxonomy' => 'pathway',
+    'hide_empty' => false,
+    'orderby'=> 'id',
+) );
+
+global $allPathways;
+ $allPathways= [];
+
+ foreach ( $pathwayterms as $term ) {
+//echo "<option value=". $terms->terms .">" . $term->name . "</option>";
+           // echo '<option value="'.$term->term_id .'">'.$term->name .'</option>';
+//$allPathways = array('pname'  => $term->name);
+$thecolor=  get_field('main_color', $term->taxonomy.'_'.$term->term_id);
+$allPathways = array($term->name  => $thecolor);
+
+$_SESSION[$term->name] =  $thecolor;
 }
-*/
+
+
 ?>
 
 <!doctype html>
