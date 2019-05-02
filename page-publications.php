@@ -1,57 +1,53 @@
 <?php get_header();?>
 
-
-
 <!--  Hero Section -->
-    <section id="hero">
-        <div class="hero-container" style="background: #993C9F; height: 295px;">
-            <div class="col-xs-6 col-centered">
-                <p class="directory-hero-text">Publications</p>
-            </div>
+<section id="hero">
+    <div class="hero-container" style="background: #993C9F; height: 295px;">
+        <div class="col-xs-6 col-centered">
+            <p class="directory-hero-text">Publications</p>
         </div>
-    </section>
-    <!-- #hero -->
+    </div>
+</section>
+<!-- #hero -->
 
-    <section>
-        <div class="container mt-5">
-            <a href="" class="filter-text">Filter by </a>
+<section>
+    <div class="container mt-5">
+        <a href="" class="filter-text">Filter by </a>
 
 
-               <?php
-$tax_terms = get_terms( 'publication_type', 'orderby=id');
+        <?php
+        $tax_terms = get_terms( 'publication_type', 'orderby=id');
 //var_dump($tax_terms);
-foreach ( $tax_terms as $term ) {
+        foreach ( $tax_terms as $term ) {
 ///loop though the types 
     //var_dump($term)
-?>
- 
+            ?>
+
             <div class="btn-group ml-2">
-      <a href="#<?php echo  $term->name; ?>">        
-        <button type="button" class="btn" style="border: 1px solid #3E4C59;box-sizing: border-box;border-radius: 100px;">
+              <a href="#<?php echo  $term->name; ?>">        
+                <button type="button" class="btn" style="border: 1px solid #3E4C59;box-sizing: border-box;border-radius: 100px;">
                     <?php echo $term->name; ?>
                 </button>
-                </a>
-            </div>
-<?php
-}
-?>
- 
-            
+            </a>
         </div>
-    </section>
+        <?php
+    }
+    ?>
+</div>
+</section>
 
- 
+
 <?php // Output all Taxonomies names with their respective items
 $publicationType = get_terms('publication_type');
 
 
 foreach( $publicationType as $Ptype ):
-?>            
+    ?>            
 
-  <a name="<?php echo $Ptype->name ?>"></a>
+    <a name="<?php echo $Ptype->name ?>"></a>
     <section class="my-5">
         <div class="container">
-              
+
             <h2 class="headtitle"><?php echo $Ptype->name ?></h2>
             <hr>
         </div>
@@ -60,7 +56,7 @@ foreach( $publicationType as $Ptype ):
             <div class="row">
                 <div class="col-md-3">
                     <p class="pass-desc">
-<?php echo $Ptype->description; ?>
+                        <?php echo $Ptype->description; ?>
 
                     </p>
                 </div>
@@ -68,50 +64,41 @@ foreach( $publicationType as $Ptype ):
                     <div class="row">
 
 
-<?php                         
-          $posts = get_posts(array(
-            'post_type' => 'publication',
-            
-'tax_query' => array(
-            'relation' => 'AND',
-            array(
-                'taxonomy' => 'publication_type',
-                'field' => 'name',
-                'terms' => array($Ptype->name )
-            )
-        ),
+                        <?php                         
+                        $posts = get_posts(array(
+                            'post_type' => 'publication',
+
+                            'tax_query' => array(
+                                'relation' => 'AND',
+                                array(
+                                    'taxonomy' => 'publication_type',
+                                    'field' => 'name',
+                                    'terms' => array($Ptype->name )
+                                )
+                            ),
 
             'numberposts' => 6, // to show all posts in this taxonomy, could also use 'numberposts' => -1 instead
-          ));
-
-      
-
+        ));
           foreach($posts as $post): // begin cycle through posts of this taxonmy
             setup_postdata($post); //set up post data for use in the loop (enables the_title(), etc without specifying a post ID)
-      ?>        
+            $dan = get_field('document_pathway', $Ptype->taxonomy.'_'.$Ptype->term_id);
+            ?>        
 
- 
-                        <div class="card ml-2 mt-2" style="width: 200px; background: #E6EEF3;border: none;margin-right: 12px;">
+            <div class="card ml-2 mt-2" style="width: 200px; background: #E6EEF3;border: none;margin-right: 12px;">
 
-                           
+                <img class="card-img-top" src="<?php the_field('programme_cover'); ?>" alt="Card image cap">
+                <div class="card-body">
+                    <p class="program-title"><?php the_title(); //var_dump($tax_terms);?></p>
+                    <a href="<?php the_field('document_link'); ?>" class="download-card" target="new">Download PDF +</a><br>
+                    <div class="badge card-badge1 mt-2"><?php echo $Ptype->name;?></div>
+                    <span class="badge badge-primary" style="background-color:<?php echo $current_pathway_color;?>"> <?php echo $dan; ?></span>
+                </div>
+            </div>
 
-                            <img class="card-img-top" src="<?php the_field('programme_cover'); ?>" alt="Card image cap">
-                            <div class="card-body">
-                                <p class="program-title"><?php the_title() ?></p>
-                                <a href="<?php the_field('document_link'); ?>" class="download-card" target="new">Download PDF +</a><br>
-                                <div class="badge card-badge1 mt-2"><?php echo $Ptype->name;?></div>
-                            </div>
-                        </div>
-                        
-        
-
-                         <?php endforeach; ?>
-                      </div>
+        <?php endforeach; ?>
+    </div>
 </div>                
 </section>
 
 <?php endforeach; ?>
-
-
-          
 <?php get_footer();?>
