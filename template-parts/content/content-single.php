@@ -271,7 +271,6 @@ $user = get_user_by( 'id', $instructor );
 </span>
 
 
-
 <span class="step-by-step-full" style="visibility:hidden;display:none;">
 	<!--- print the whole text when clicked done by Jqeury-->
 <?php echo $stepbystep; ?>
