@@ -1,7 +1,8 @@
 var data = {};
 $(document).ready(function() {
 
-$('input[type="submit"]').on('click', function() {
+$('.register-submit').on('click', function() {
+
 resetErrors();
 
 var formData = {'action':'onboarding_ajax_request'};

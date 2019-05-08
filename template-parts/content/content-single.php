@@ -26,8 +26,15 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 	<div class="container">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb arr-right" style="background-color: #F0F2F5;">
-				<li class="breadcrumb-item bread-text">Dashboard</li>
-				<li class="breadcrumb-item bread-text"><?php echo getPostTerms($post->ID,'pathway'); ?></li>
+				<li class="breadcrumb-item bread-text">
+				<a href="<?php echo get_site_url();?>/landing"> Dashboard </a>
+				
+				</li>
+				<li class="breadcrumb-item bread-text">
+				<a href="<?php echo get_site_url();?>/activities/?a=<?php echo getPostTerms($post->ID,'pathway'); ?>">
+				<?php echo getPostTerms($post->ID,'pathway'); ?>
+				</a>
+				</li>
 				<li class="breadcrumb-item bread-text"> <?php echo getPostTerms($post->ID,'topic'); ?></li>
 				<li class="breadcrumb-item bread-text active" aria-current="page"><a href="">    <?php echo the_title();?></a></li>
 			</ol>
@@ -38,7 +45,11 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 
 <section class="my-5">
 	<div class="container">
-		<h1 class="headtitle" style="font-weight: bold; font-size: 38px; line-height: 24px; float: left;"><?php echo the_title();?></h1>
+		<h1 class="headtitle" style="font-weight: bold; font-size: 38px; line-height: 24px; float: left;">
+		
+		<?php echo the_title();?>
+		
+		</h1>
 
 
 		<span class="badge badge-info" style="padding-left:10px;padding-right:10px;padding-top:5px;padding-bottom:5px;border-radius: 24px!important;margin-left: 20px;font-size:34;border: 1px solid <?php echo $current_pathway_color;?>;color:<?php echo $current_pathway_color;?>;background-color:#ffffff"> 
@@ -49,7 +60,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 
 		<div class="container mb-3">
 			<ul class="nav"  style="padding-top:6px;padding-bottom: 6px;">
-				<li class="nav-item">
+				<li class="nav-item" style="margin-right:64px;">
 
 					<!--LEVEL -->
 					<?php 
@@ -67,22 +78,23 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 						?>
 						&nbsp;
 						<?php echo  $s; ?></li>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					
 				</a>
 			</li>
 
-			<li class="nav-item">
+			<li class="nav-item" style="margin-right:64px;">
 
 				<!--DURATION -->
 				<img src="<?php echo get_template_directory_uri();  ?>/images/duration.png" class="img-responsive" with="10px"  alt="COP">
 				<?php echo get_post_meta($post->ID, 'duration', true); ?>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				
 			</li>
-			<li class="nav-item">
+			
+			<li class="nav-item" style="margin-right:64px;">
 				<!--AGE GROUP -->
 				<img src="<?php echo get_template_directory_uri();  ?>/images/age_range.png" class="img-responsive" with="10px"  alt="COP">
 				<?php echo getPostTerms($post->ID,'age_range'); ?>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			
 			</li>
 
 		</ul>
@@ -92,12 +104,12 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8">
-				<img src="<?php the_field('featured_image'); ?>" alt="" class="img-fluid" style="width:691px;height:440px;">
+				<img src="<?php the_field('featured_image'); ?>" alt="" class="img-fluid" style="width:691px;height:440px;margin-bottom:72px;">
 			</div>
 			
-			<div class="col-md-4">
+			<div class="col-md-4" style="align:center;">
 
-	<h2 class="headtitle">Align to Outcomes</h2>
+	<h2 class="headtitle" style="margin-bottom:24px;align:center;margin-left:15%;">Align to Outcomes</h2>
 <hr>
 				<div class="card my-3" style="background-color: #fff; border-radius: 10px; min-height:138px;padding:30px;">
 					<H2 class="headtitle" style="font-size:14px;"> SKILLS & COMPETENCIES </H2> 
@@ -181,13 +193,21 @@ list($r, $g, $b) = sscanf($hex, "#%02x%02x%02x");
 				<div class="col-md-8">
 					<div class="col-md-11" style="background-color: white; border-radius: 10px;padding:36px;">
 						<div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
-							<img src="<?php echo get_avatar_url($current_user->ID); ?>" class="rounded-circle align-self-start mr-3">
+<?php
+$instructor = get_post_meta($post->ID, 'instructor_name', true);
+$user = get_user_by( 'id', $instructor );
+?>
+
+							<img src="<?php echo get_avatar_url($instructor); ?>" class="rounded-circle align-self-start mr-3" width="60" style="margin-top:40px;margin-left:40px;">
+						
+
+
 							<div>
 								<h4 class="intro-title mb-0" style="color:#9AA5B1;">
 									<?php echo strtoupper(get_post_meta($post->ID, 'instructor', true)); ?> 
 								</h4>
 							
-									<?php echo get_post_meta($post->ID, 'instructor_name', true); ?>
+									<?php echo $user->display_name; ?>
 									@ 
 									<?php //echo get_post_meta($post->ID,'instructor_organization',true); ?>
 									<?php echo get_term_by('id', get_post_meta($post->ID,'instructor_organization',true), 'member_organization')->name; ?>
@@ -216,7 +236,7 @@ list($r, $g, $b) = sscanf($hex, "#%02x%02x%02x");
 
 						</div>
 
-						<div class="col-md-11" style="background-color: white; border-radius: 10px;padding:36px;margin-top:15px;">
+						<div class="col-md-11" style="background-color: white; border-radius: 10px;padding:36px;margin-top:24px;">
 
 							<p style="font-size:14px;"><b>ACTIVITY LEARNING OUTCOMES </b></p>
 
@@ -226,7 +246,7 @@ list($r, $g, $b) = sscanf($hex, "#%02x%02x%02x");
 						</div>
 
 
-						<div class="col-md-11" style="background-color: white; border-radius: 10px;padding:36px;margin-top:15px;">
+						<div class="col-md-11" style="background-color: white; border-radius: 10px;padding:36px;margin-top:24px;">
 
 
 							<p style="font-size:14px;"><b>MATERIALS & EQUIPMENT NEEDED</b></p>
@@ -236,7 +256,7 @@ list($r, $g, $b) = sscanf($hex, "#%02x%02x%02x");
 
 						</div>
 
-						<div class="col-md-11" style="background-color: white; border-radius: 10px;padding:36px;margin-top:15px;">
+						<div class="col-md-11" style="background-color: white; border-radius: 10px;padding:36px;margin-top:24px;">
 							<p style="font-size:14px;"><b>STEP-BY-STEP INSTRUCTIONS </b><br></p>
 
 
@@ -245,14 +265,21 @@ list($r, $g, $b) = sscanf($hex, "#%02x%02x%02x");
 							$stepbystep = get_post_meta($post->ID, 'step_by_step_guide', true);
 							?>
 
-<span class="step-by-step-excerpt" style="">
+<span class="step-by-step-excerpt" style="visibility:visible;display:block;">
 <?php echo custom_field_excerpt($stepbystep); ?>
 <button type="button" class="btn btn-link readMorelink" style="color: #EE603B;font-size:16px;font-weight: bold;">Expand more instructions + </button>
 </span>
 
+
+
 <span class="step-by-step-full" style="visibility:hidden;display:none;">
 	<!--- print the whole text when clicked done by Jqeury-->
 <?php echo $stepbystep; ?>
+</span>
+
+<span class="step-by-step-close" style="visibility:hidden;display:none;">
+
+<button type="button" class="btn btn-link closeMorelink" style="color: #EE603B;font-size:16px;font-weight: bold;">Close Step-by-step  </button>
 </span>
 
 

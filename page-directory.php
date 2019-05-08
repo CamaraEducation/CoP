@@ -194,7 +194,8 @@ return $wp_user_query->get_results();
 		</div>
 
                 </div>
-		<span style="margin-left:25%;font-weight:bold;text-align: middle;"><a href="<?php echo get_permalink(); ?>">Clear All Filters
+		<span style="margin-left:25%;font-weight:none;text-align: middle;">
+		<a href="<?php echo get_permalink(); ?>" style="color:black;">Clear All Filters
 		<img src="<?php echo get_template_directory_uri();  ?>/images/filterClear.png" style="width:20px;">
 		</a>  
     </span>
@@ -293,33 +294,35 @@ setup_postdata($users);
 
 
 				
-				
 
 ?>
 
+<a href="<?php echo get_site_url();?>/profile/?user=<?php echo 	$current_user_id;?>">
 
-
-						<div class="card ml-2 mt-2" style="width: 280px; background: #FFFFFF;box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 10px;border-bottom:30px;padding: 12px;align-content: center;">
+<div class="card ml-2 mt-2 border-0" style="width: 280px; height:342px; background: #FFFFFF;box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 10px;border-bottom:30px;padding: 12px;align-content: center;">
 						
 
-<img src="<?php echo get_avatar_url($current_user_id); ?>" class="img-responsive rounded-circle" width="60" height="60" alt="User Profile photo" style="align-self: center;">
+<img src="<?php echo get_avatar_url($current_user_id); ?>" class="img-responsive rounded-circle" alt="User Profile photo" style="align-self: center;margin-top:40px;width:80px;height:80px;">
 
 
 							<div class="card-body" style="text-align:center;">
-								<p class="custom-card-title" style="font-size:24px;"><?php echo $current_user_name; ?></p>
-								<p class="cutsom-card-title" style="font-size:16px;"><?php echo $communityRole_name; ?> <br>@ <?php echo $org_name; ?></p>
+								<p class="custom-card-title" style="margin-top:0px;font-size:24px;margin-bottom:0px;"><?php echo $current_user_name; ?></p>
+								
+								<p class="cutsom-card-title" style="margin-top:0px;font-size:16px;font-weight:none;color:#7B8794;"><?php echo $communityRole_name; ?> <br>@ <?php echo $org_name; ?></p>
 
 								<span style="display:block;margin-bottom:14px;color:#7B8794">
 <img src="<?php echo get_template_directory_uri(); ?>/images/location.png"> <?php echo $current_community_user_location; ?>
 </span>
-							<span class="badge communityrole" style="font-size:12px">Education Officer</span>
+							<span class="badge communityrole" style="vertical-align: middle;font-size:12px;line-height:24px;">
+							<?php echo $communityRole_name;?>
+							</span>
 
-								<span class="badge card-badge2" style="font-size:12px;background-color:<?php echo $current_pathway_color ;?>;border-color: <?php echo $current_pathway_color ;?>"><?php echo $current_user_pathway_name;?></span>
+								<span class="badge card-badge2" style="vertical-align: middle;line-height:24px;font-size:12px;background-color:<?php echo $current_pathway_color ;?>;border-color: <?php echo $current_pathway_color ;?>"><?php echo $current_user_pathway_name;?></span>
 
 							</div>
 						</div>
 
-
+</a>
 
 <?php
 } //end of uses

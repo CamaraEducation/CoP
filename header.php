@@ -9,6 +9,7 @@ global $memberlocation;
 global $member_projectgroup;
 global $current_user_pathway_name;
 global $current_pathway_color;
+global $current_user_pathway_id;
 
 
 $url= get_site_url() . '/login/';
@@ -57,6 +58,8 @@ $member_projectgroup = $current_user_projectgroup;
 $current_user_pathway =get_user_meta( $current_user_id, 'memberPathway', true); 
 $term = get_term( $current_user_pathway, 'pathway' );
 $current_user_pathway_name = $term->name;
+$current_user_pathway_id = $term->term_id;
+
 
 $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->term_id);
 		
@@ -128,7 +131,7 @@ return $imagePath;
 
 <body <?php body_class(); ?>>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
+<nav class="navbar navbar-expand-lg navbar-light bg-white" style="box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 8px;">
 
 <a class="navbar-brand" href="#"><img src="<?php echo get_template_directory_uri();  ?>/images/techspacelogo.png" class="img-responsive md-avatar size-2" alt="COP"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

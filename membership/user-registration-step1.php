@@ -21,7 +21,9 @@ get_template_part( 'membership/user-registration-step2', 'page' );
 					<img src="<?php echo get_template_directory_uri(); ?>/images/login_image.png" class="img-fluid" alt="" width="500" height="600">
 				
 			<div class="col-md-5">
+				<a href="<?php echo get_site_url();?>">
 					<img src="<?php echo get_template_directory_uri(); ?>/images/clogo.svg" alt="" class="img-fluid">
+</a>
 
 <div class="card" style="background: #FFFFFF;box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 8px;margin-top:15%;margin-left:15%;">
 
@@ -79,7 +81,8 @@ get_template_part( 'membership/user-registration-step2', 'page' );
 
 								<div class="form-check">
 									<input type="checkbox" class="form-check-input" id="user_18yearsold" name="user_18yearsold" value="YES">
-										By ticking this box you are confirming you are over 18 years of age.
+										By ticking this box you are confirming you are over 18 years of age and you have read and agree to the terms and conditions.
+
 										<label class="form-check-label tick-text" for="user_18yearsold"> </label>
 								</div>
 							
@@ -90,10 +93,14 @@ get_template_part( 'membership/user-registration-step2', 'page' );
 						</div>
 					</div>
 				</div> 
+				
+
+
 			</div>
 	
 	</section>
 
+	
 	
 	
 	

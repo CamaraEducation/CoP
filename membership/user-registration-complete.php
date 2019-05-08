@@ -14,7 +14,7 @@ if($_SESSION['account_created'] =="YES"){
 
 <div class="row">
 
-<div class="col-md-3" style="align-items:center;">
+<div class="col-md-4" style="align-items:center;">
 
 <img src="<?php echo get_template_directory_uri(); ?>/images/EmergingTechnologies.png"> 
 
@@ -23,7 +23,7 @@ if($_SESSION['account_created'] =="YES"){
 
 <div class="col-md-6" style="align-items:center;margin-left:10px;">
 
-<h4> Thank you for Signing up for the Online TechSpace Network </h4>
+<h4 style="font-size:24px;"> Thank you for Signing up for the Online TechSpace Network </h4>
 <p style="margin-top:12px;">
 	Your account is pending review. Your will receive an email when it is activated. 
  </p>

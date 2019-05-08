@@ -60,7 +60,7 @@
 <div class="card-deck">
 <div class="card">
 <div class="col-md-3 mt-4">
-<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/images/outcome.png" alt="Card image cap" width="67" height="67">
+<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/images/outcome.png" alt="Card image cap">
 </div>
 <div class="card-body">
 <h5 class="card-title land-h1">Outcome focused resources</h5>
@@ -91,8 +91,8 @@
 </div>
 
 <!-- FULL-WIDTH IMAGE --> 
-<div class="container-fluid mt-3">
-<img src="<?php echo get_template_directory_uri(); ?>/images/banner.png" alt="" class="img-fluid w-100 h-75" style="width: 100%;">
+<div class="container">
+<img src="<?php echo get_template_directory_uri(); ?>/images/banner.png" alt="" style="height:782px;width:100%;margin-top:20px;">
 </div>
 
 

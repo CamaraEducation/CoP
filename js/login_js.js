@@ -33,7 +33,6 @@ data: formData,
 success: function(resp) {
 
 
-
 if (Object.keys(resp).length ==0) {
 //	alert("am here here?");
 //successful validation
@@ -68,11 +67,9 @@ return false;
 
 
 
-
-
-$("#update-password").click(function(){
+$("#passwordreset-submit").click(function(){
 	
-	
+	//alert("asdfasdfasdfasdfas");
 
 		
 resetErrors();
@@ -80,7 +77,7 @@ resetErrors();
 
 
 var formData = {'action':'login_ajax_request'};
-var x = $('#change-password-form').serializeArray();
+var x = $('#reset_password_form_verifyuser').serializeArray();
 
 
 jQuery.each(x, function(i, field){
@@ -105,8 +102,93 @@ if (Object.keys(resp).length ==0) {
 //	alert("am here here?");
 //successful validation
 
+$('.username-capture-form').css("display","none");
+  $(".username-capture-form").css("visibility", "hidden");
 
-$('form').submit();
+$('.username-capture-confirmation').css("display","block");
+  $(".username-capture-confirmation").css("visibility", "visible");
+
+
+
+
+//$('form').submit();
+
+
+return false;
+
+} else {
+
+$.each(resp, function(i, v) {
+console.log(i + " => " + v); // view in console for error messages
+var msg = '<label class="error" for="'+i+'">'+v+'</label>';
+$('input[name="' + i + '"], select[name="' + i + '"]').addClass('inputTxtError').after(msg);
+});
+
+var keys = Object.keys(resp);
+$('input[name="'+keys[0]+'"]').focus();
+}
+return false;
+},
+error: function(data, errorThrown) {
+	alert('request failed :'+errorThrown);
+console.log('there was a problem checking the fields');
+}
+});
+return false;
+
+
+	});
+
+
+
+
+
+
+$("#passwordreset-change-submit").click(function(){
+	
+	//alert("ZIMB ARAS");
+
+		
+resetErrors();
+//alert("login submit email");
+
+
+var formData = {'action':'login_ajax_request'};
+var x = $('#reset_password_form_changepassword').serializeArray();
+
+
+jQuery.each(x, function(i, field){
+    formData[field.name]=  field.value;
+//alert(field.name + " --" +field.value);
+  });
+
+
+
+$.ajax({
+url: login_ajax_obj.ajaxurl, // or example_ajax_obj.ajaxurl if using on frontend
+type: 'POST',
+cache: false,
+dataType: 'JSON',
+data: formData,
+
+success: function(resp) {
+
+
+
+if (Object.keys(resp).length ==0) {
+//	alert("am here here?");
+//successful validation
+
+$('.password-change-form').css("display","none");
+  $(".password-change-form").css("visibility", "hidden");
+
+$('.password-change-confirmation').css("display","block");
+  $(".password-change-confirmation").css("visibility", "visible");
+
+
+
+
+//$('form').submit();
 
 
 return false;
@@ -178,6 +260,7 @@ if (Object.keys(resp).length ==0) {
 
 $('.confirm').css("display","block");
   $(".confirm").css("visibility", "visible");
+
 
 
 } else {

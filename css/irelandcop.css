@@ -6,11 +6,28 @@ font-size: 16px;
 line-height: 24px;
 }
 
+body a:hover{
+underline:none;
 
+}
+
+.card-custom {
+background: #FFFFFF;
+border: 1px solid #FFFFFF;
+box-sizing: border-box;
+box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);
+border-radius: 8px;	
+}
 
 h1,h2,h3,h4,h5,h6{
 font-family: Lato;
 font-style: normal;
+}
+
+
+body hr {
+margin-bottom: 40px;
+margin-top: 24px;
 }
 
 
@@ -30,6 +47,14 @@ border-radius: 100px;
 color:#EE603B;
 }
 
+/* nav bar */
+.container-fluid{
+height: 48px;
+ackground: #FFFFFF;
+/* Small drop shadow */
+box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);
+font-size:12px;
+}
 
 
 .communityrole {
@@ -43,16 +68,19 @@ line-height: 16px;
 border-radius: 4px;
 line-height:24px;
 padding: 8, 4, 8, 4 ;
+font-weight:bold;
+color:#993C9F;
 }
 
 .communityrole a{
-
 font-size:12px;
 text-align: center;
 font-weight:bold;
 color:#993C9F;
 font-style: normal;
 text-transform:capitalize;
+line-height: 24px;
+padding: 8, 4, 8, 4 ;
 }
 
 .dropdown-filter{
@@ -690,6 +718,10 @@ font-size:16px;
   text-align: center;
   color: #FFFFFF;
 }
+
+
+
+
 .btm-txt{
   font-family: Lato;
   font-style: normal;
@@ -698,16 +730,26 @@ font-size:16px;
   line-height: 24px;
   color: #323F4B;
 }
+.download-card :hover{
+
+  color: #323F4B;
+  opacity: 0.6;
+  text-decoration:no-underline;
+}
+
 .download-card{
   font-family: Lato;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
   line-height: 16px;
-  text-align: center;
-  color: #323F4B;
-  opacity: 0.6;
+  text-align: left;
+  
+  
 }
+
+
+
 .program-title{
   font-family: Lato;
   font-style: normal;
