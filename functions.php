@@ -4,7 +4,6 @@
 
 /*** INCLUDE/REQUIRE FILES */
 
-//Feedback logis */
 
 require_once ('inc/activity-functions.php');
 require_once ('inc/login-functions.php');
