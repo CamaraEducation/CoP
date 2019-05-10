@@ -209,4 +209,58 @@ if(count($errors) > 0){
 //}//if issets
 
 } //function 
+
+function resetPasswordemail ($useraccountinput){
+
+//echo "the email is sen<br>";
+
+if (filter_var($useraccountinput, FILTER_VALIDATE_EMAIL)){ 
+$member_email= trim($useraccountinput);
+$member_account=get_user_by('email',$member_email);
+}else {//its a userna
+$member_username= trim($useraccountinput);
+$member_account=get_user_by('login',$member_username);
+}
+
+
+//echo $member_account->ID;
+//echo $member_account->user_email;
+$user_login = $member_account->user_login;
+$user_email = $member_account->user_email;
+
+$adt_rp_key = get_password_reset_key( $member_account );
+
+
+$rp_link =network_site_url("password-reset/?action=rp&key=$adt_rp_key&login=" . rawurlencode($user_login), 'login') ;
+
+
+
+//$_SESSION['drere_url']= $rp_link +$member_account->login ;
+
+
+$emailMessage =" You have requested for your password to be reset to login to the Techspace Network. To confirm, please click on the link below, or copy and paste the entire link to your browser. " . "\r\n\r\n";
+
+$emailMessage .= $rp_link . "\r\n\r\n";
+
+$emailMessage .="Please note that this confirmation is temporary and may require your immediate attention if you wish to access your online account in the future." . "\r\n";
+
+
+$emailMessage .=  "\r\n\r\n" . get_bloginfo( 'name' );
+$emailMessage .=  "\r\n" . get_site_url();
+
+//echo $emailMessage;
+$admin_email =  get_bloginfo( 'admin_email' );
+$to= $user_email;
+$site_title =  get_bloginfo( 'name' );
+$subject = "Password Reset Instructions";
+//$emailMessage="esting";
+
+$headers[] = 'From: '.$site_title .'<'.$admin_email .'>';
+
+//send the email
+wp_mail( $to, $subject, $emailMessage, $headers );
+
+
+}
+
 ?>

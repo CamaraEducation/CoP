@@ -366,7 +366,7 @@ $user = get_user_by( 'id', $instructor );
 									data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>"></i>
 									&nbsp;&nbsp;&nbsp;&nbsp;
 									<span class="likes"><?php $bb = getsattwo($postid);
-									if($bb==NULL){
+									if($bb="null"){
 										echo "0";
 									}else{echo $bb;} ?></span>
 									&nbsp;&nbsp;&nbsp;&nbsp;
@@ -378,12 +378,10 @@ $user = get_user_by( 'id', $instructor );
 									<?php endif ?>
 									data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>"></i>
 									&nbsp;&nbsp;&nbsp;&nbsp;
-
-									<span class="excites">
-									<?php $cc = getsatthr($postid);
-									if($cc==NULL){
+									<span class="excites"><?php $cc = getsatthr($postid);
+									if($mm="null"){
 										echo "0";
-									}else{echo $cc;} ?></span>
+									}else{echo $mm;} ?></span>
 								</div>
 								<hr>
 								<p><b>LEVEL</b></p>
@@ -399,7 +397,7 @@ $user = get_user_by( 'id', $instructor );
 								beginner</i>
 								<span class="biggners btn alert-success disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php 
 								$cc = getBiggner($postid);
-								if($cc==NULL){
+								if($cc="null"){
 									echo "0";
 								}else{echo $cc;}
 								?></span>
@@ -413,7 +411,7 @@ $user = get_user_by( 'id', $instructor );
 								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">intermidiate</i>
 								<span class="inters btn alert-warning disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php
 								$dd = getInter($postid);
-								if($dd==NULL){
+								if($dd="null"){
 									echo "0";
 								}else{echo $dd;}
 								?></span>
@@ -427,7 +425,7 @@ $user = get_user_by( 'id', $instructor );
 								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">advanced</i>
 								<span class="advances btn alert-danger disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php   
 								$ee = getAdvance($postid);
-								if($ee==NULL){
+								if($ee="null"){
 									echo "0";
 								}else{echo $ee;}
 								?></span>
@@ -446,7 +444,7 @@ $user = get_user_by( 'id', $instructor );
 								< 1 hour</i>
 								<span class="lessone btn alert-success disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php  
 								$ff = getLessOne($postid); 
-								if($ff==NULL){
+								if($ff="null"){
 									echo "0";
 								}else{echo $ff;}
 								?></span>
@@ -460,7 +458,7 @@ $user = get_user_by( 'id', $instructor );
 								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">1 - 2 hours</i>
 								<span class="onetotwo btn alert-warning disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php 
 								$gg = getOneToTwo($postid); 
-								if($gg==NULL){
+								if($gg="null"){
 									echo "0";
 								}else{echo $gg;}
 								?></span>
@@ -474,7 +472,7 @@ $user = get_user_by( 'id', $instructor );
 								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"> >2 hours</i>
 								<span class="moretwo btn alert-danger disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php 
 								$hh = getMoreTwo($postid); 
-								if($hh==NULL){
+								if($hh="null"){
 									echo "0";
 								}else{echo $hh;}
 								?></span>
@@ -493,12 +491,9 @@ $user = get_user_by( 'id', $instructor );
 								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">Beginner</i>
 								<span class="agebiggner btn alert-success disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php
 								$jj = getBiggnerAge($postid);
-								//var_dump($jj);
-
-								if(empty($jj)){
+								if($jj="null"){
 									echo "0";
 								}else{echo $jj;}
-
 								?></span>
 								&nbsp;&nbsp;&nbsp;
 								<i <?php if (userInterAge($userid, $postid)): ?>
@@ -508,8 +503,8 @@ $user = get_user_by( 'id', $instructor );
 								<?php endif ?>
 								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">Intermediate</i>
 								<span class="ageinter btn alert-warning disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php
-								$kk == getInterAge($postid); 
-								if(empty($kk)){
+								$kk = getInterAge($postid); 
+								if($kk="null"){
 									echo "0";
 								}else{echo $kk;}
 								?></span>
@@ -522,10 +517,8 @@ $user = get_user_by( 'id', $instructor );
 								<?php endif ?>
 								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">Advanced</i>
 								<span class="ageadvance btn alert-danger disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php  
-								$ll == getAdvanceAge($postid); 
-							//var_dump($ll);
-
-								if(empty($ll)){
+								$ll = getAdvanceAge($postid); 
+								if($ll="null"){
 									echo "0";
 								}else{echo $ll;}
 								?></span>
@@ -534,7 +527,524 @@ $user = get_user_by( 'id', $instructor );
 
 						</div>
 
-						
+						<script>
+							$(document).ready(function(){
+
+								/**1============DISLIKE========================*/
+								$(".dislike-btn").click(function() {	
+									var user_id = $(this).data('userid');
+									var post_id = $(this).data('postid');
+									$clicked_btn = $(this);								 
+
+									if ($clicked_btn.hasClass('far')) {
+										action = 'dislike';
+//alert("dislike" + post_id + user_id);
+} else if($clicked_btn.hasClass('fas')){
+	action = 'undislike';
+//alert(action + post_id + user_id);
+}
+
+
+$.ajax({
+	type: "POST",
+	data: {
+		'action': likeaction,
+		'post_id': post_id,
+		'user_id': user_id
+	},
+	success: function(data) {
+//alert("I am here");
+res = JSON.parse(data);
+if (action == 'dislike') {
+	$clicked_btn.removeClass('far');
+	$clicked_btn.addClass('fas');
+} else if(action == 'undislike') {
+//		alert("I am here eek0"+action);
+$clicked_btn.removeClass('fas');
+$clicked_btn.addClass('far');
+}
+
+//alert(res.dislikes);
+	// display the number of likes and dislikes
+	$clicked_btn.siblings('span.dislikes').text(res.dislikes);
+	$clicked_btn.siblings('span.likes').text(res.likes);
+	$clicked_btn.siblings('span.excites').text(res.excites);
+
+// change button styling of the other button if user is reacting the second time to post
+$clicked_btn.siblings('i.fa-meh').removeClass('fas fa-meh').addClass('far fa-meh');
+$clicked_btn.siblings('i.fa-smile').removeClass('fas fa-smile').addClass('far fa-smile');
+
+//alert("I just passed");
+}//end of suess 
+});
+});//end if Dislike button
+
+
+								/**1============LIKE========================*/
+								$(".like-btn").click(function() {	
+									var user_id = $(this).data('userid');
+									var post_id = $(this).data('postid');
+									$clicked_btn = $(this);								 
+
+									if ($clicked_btn.hasClass('far')) {
+										action = 'like';
+//alert("dislike" + post_id + user_id);
+} else if($clicked_btn.hasClass('fas')){
+	action = 'unlike';
+//alert(action + post_id + user_id);
+}
+
+
+$.ajax({
+	type: "POST",
+	data: {
+		'action': action,
+		'post_id': post_id,
+		'user_id': user_id
+	},
+	success: function(data) {
+//alert("I am here");
+res = JSON.parse(data);
+if (action == "like") {
+	$clicked_btn.removeClass('far');
+	$clicked_btn.addClass('fas');
+} else if(action == "unlike") {
+	$clicked_btn.removeClass('fas');
+	$clicked_btn.addClass('far');
+}
+
+// display the number of likes and dislikes
+$clicked_btn.siblings('span.likes').text(res.likes);
+$clicked_btn.siblings('span.dislikes').text(res.dislikes);
+$clicked_btn.siblings('span.excites').text(res.excites);
+ 		// change button styling of the other button if user is reacting the second time to post
+ 		$clicked_btn.siblings('i.fa-frown').removeClass('fas').addClass('far');
+ 		$clicked_btn.siblings('i.fa-smile').removeClass('fas').addClass('far');
+
+//alert("I just passed");
+}//end of suess 
+});
+});//end if Dislike button
+
+
+								/**1============EXCITE========================*/
+								$(".excite-btn").click(function() {	
+									var user_id = $(this).data('userid');
+									var post_id = $(this).data('postid');
+									$clicked_btn = $(this);								 
+
+									if ($clicked_btn.hasClass('far')) {
+										action = 'excited';
+//alert(action+ post_id + user_id);
+} else if($clicked_btn.hasClass('fas')){
+	action = 'unexcited';
+//alert(action + post_id + user_id);
+}
+
+
+$.ajax({
+	type: "POST",
+	data: {
+		'action': action,
+		'post_id': post_id,
+		'user_id': user_id
+	},
+	success: function(data) {
+//alert("I am here");
+res = JSON.parse(data);
+if (action == "excited") {
+	$clicked_btn.removeClass('far');
+	$clicked_btn.addClass('fas');
+} else if(action == "unexcited") {
+	$clicked_btn.removeClass('fas');
+	$clicked_btn.addClass('far');
+}
+
+// display the number of likes and dislikes
+$clicked_btn.siblings('span.likes').text(res.likes);
+$clicked_btn.siblings('span.dislikes').text(res.dislikes);
+$clicked_btn.siblings('span.excites').text(res.excites);
+		// change button styling of the other button if user is reacting the second time to post
+		$clicked_btn.siblings('i.fa-frown').removeClass('fas').addClass('far');
+		$clicked_btn.siblings('i.fa-meh').removeClass('fas').addClass('far');
+
+//alert("I just passed");
+}//end of suess 
+});
+});//end if Dislike button
+
+
+								/******************LEVEL ================================================= */
+								$(".biggner-btn").click(function() {	
+									var user_id = $(this).data('userid');
+									var post_id = $(this).data('postid');
+				  //alert(post_id + user_id);
+				  $clicked_btn = $(this);
+				  if ($clicked_btn.hasClass('btn-default')) {
+				  	levelaction = 'biggner';
+				  	//alert(post_id + user_id);
+				  } else if($clicked_btn.hasClass('btn-success')){
+				  	levelaction = 'unbiggner';
+				  }
+				  $.ajax({
+				  	//url: 'single-activity.php',
+				  	type: 'post',
+				  	data: {
+				  		'levelaction': levelaction,
+				  		'post_id': post_id,
+				  		'user_id': user_id
+				  	},
+				  	success: function(data){
+				  		res = JSON.parse(data);
+				  		if (levelaction == "biggner") {
+				  			$clicked_btn.removeClass('btn-default');
+				  			$clicked_btn.addClass('btn-success');
+				  		} else if(levelaction == "unbiggner") {
+				  			$clicked_btn.removeClass('btn-success');
+				  			$clicked_btn.addClass('btn-default');
+				  		}
+				  		// display the number of likes and dislikes
+				  		$clicked_btn.siblings('span.biggners').text(res.biggners);
+				  		$clicked_btn.siblings('span.inters').text(res.inters);
+				  		$clicked_btn.siblings('span.advances').text(res.advances);
+
+				  		// change button styling of the other button if user is reacting the second time to post
+				  		$clicked_btn.siblings('i.btn-warning').removeClass('btn-warning').addClass('btn-default');
+				  		$clicked_btn.siblings('i.btn-danger').removeClass('btn-danger').addClass('btn-default');
+				  	} //succc
+				  });//ajax
+});//end pf beggg
+
+
+								$('.inter-btn').on('click', function(){
+									var user_id = $(this).data('userid');
+									var post_id = $(this).data('postid');
+									$clicked_btn = $(this);
+									if ($clicked_btn.hasClass('btn-default')) {
+										levelaction = 'inter';
+									} else if($clicked_btn.hasClass('btn-warning')){
+										levelaction = 'uninter';
+									}
+									$.ajax({
+					  	//url: 'index.php',
+					  	type: 'post',
+					  	data: {
+					  		'levelaction': levelaction,
+					  		'post_id': post_id,
+					  		'user_id': user_id
+					  	},
+					  	success: function(data){
+					  		res = JSON.parse(data);
+					  		if (levelaction == "inter") {
+					  			$clicked_btn.removeClass('btn-default');
+					  			$clicked_btn.addClass('btn-warning');
+					  		} else if(levelaction == "uninter") {
+					  			$clicked_btn.removeClass('btn-warning');
+					  			$clicked_btn.addClass('btn-default');
+					  		}
+					  		// display the number of likes and dislikes
+					  		$clicked_btn.siblings('span.biggners').text(res.biggners);
+					  		$clicked_btn.siblings('span.inters').text(res.inters);
+					  		$clicked_btn.siblings('span.advances').text(res.advances);
+
+					  		// change button styling of the other button if user is reacting the second time to post
+					  		$clicked_btn.siblings('i.btn-success').removeClass('btn-success').addClass('btn-default');
+					  		$clicked_btn.siblings('i.btn-danger').removeClass('btn-danger').addClass('btn-default');
+					  	}
+					  });
+
+								});
+
+								$('.advance-btn').on('click', function(){
+									var user_id = $(this).data('userid');
+									var post_id = $(this).data('postid');
+									$clicked_btn = $(this);
+									if ($clicked_btn.hasClass('btn-default')) {
+										levelaction = 'advance';
+									} else if($clicked_btn.hasClass('btn-danger')){
+										levelaction = 'unadvance';
+									}
+									$.ajax({
+					    //url: 'index.php',
+					    type: 'post',
+					    data: {
+					    	'levelaction': levelaction,
+					    	'post_id': post_id,
+					    	'user_id': user_id
+					    },
+					    success: function(data){
+					    	res = JSON.parse(data);
+					    	if (levelaction == "advance") {
+					    		$clicked_btn.removeClass('btn-default');
+					    		$clicked_btn.addClass('btn-danger');
+					    	} else if(levelaction == "unadvance") {
+					    		$clicked_btn.removeClass('btn-danger');
+					    		$clicked_btn.addClass('btn-default');
+					    	}
+					      // display the number of likes and dislikes
+					      $clicked_btn.siblings('span.biggners').text(res.biggners);
+					      $clicked_btn.siblings('span.inters').text(res.inters);
+					      $clicked_btn.siblings('span.advances').text(res.advances);
+
+					      // change button styling of the other button if user is reacting the second time to post
+					      $clicked_btn.siblings('i.btn-success').removeClass('btn-success').addClass('btn-default');
+					      $clicked_btn.siblings('i.btn-warning').removeClass('btn-warning').addClass('btn-default');
+					  }
+					});
+
+								});
+
+
+								/****************** TIME */
+
+// ifless than one hour
+$('.lessone-btn').on('click', function(){
+					//alert("sdfa");
+					var user_id = $(this).data('userid');
+					var post_id = $(this).data('postid');
+				  //alert(post_id + user_id);
+				  $clicked_btn = $(this);
+				  
+				  if ($clicked_btn.hasClass('btn-default')) {
+				  	timeaction = 'biggner';
+				  	//alert(post_id + user_id);
+				  } else if($clicked_btn.hasClass('btn-success')){
+				  	timeaction = 'unbiggner';
+				  }
+				  
+//alert(timeaction);
+$.ajax({
+				  	//url: 'single-activity.php',
+				  	type: 'post',
+				  	data: {
+				  		'timeaction': timeaction,
+				  		'post_id': post_id,
+				  		'user_id': user_id
+				  	},
+				  	success: function(data){
+				  		res = JSON.parse(data);
+				  		if (timeaction == "biggner") {
+				  			$clicked_btn.removeClass('btn-default');
+				  			$clicked_btn.addClass('btn-success');
+				  		} else if(timeaction == "unbiggner") {
+				  			$clicked_btn.removeClass('btn-success');
+				  			$clicked_btn.addClass('btn-default');
+				  		}
+				  		// display the number of likes and dislikes
+				  		$clicked_btn.siblings('span.lessone').text(res.lessone);
+				  		$clicked_btn.siblings('span.onetotwo').text(res.onetotwo);
+				  		$clicked_btn.siblings('span.moretwo').text(res.moretwo);
+
+				  		// change button styling of the other button if user is reacting the second time to post
+				  		$clicked_btn.siblings('i.btn-warning').removeClass('btn-warning').addClass('btn-default');
+				  		$clicked_btn.siblings('i.btn-danger').removeClass('btn-danger').addClass('btn-default');
+				  	}
+				  });
+});
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+$('.onetotwo-btn').on('click', function(){
+	var user_id = $(this).data('userid');
+	var post_id = $(this).data('postid');
+	$clicked_btn = $(this);
+	if ($clicked_btn.hasClass('btn-default')) {
+		timeaction = 'inter';
+	} else if($clicked_btn.hasClass('btn-warning')){
+		timeaction = 'uninter';
+	}
+	$.ajax({
+					  	//url: 'index.php',
+					  	type: 'post',
+					  	data: {
+					  		'timeaction': timeaction,
+					  		'post_id': post_id,
+					  		'user_id': user_id
+					  	},
+					  	success: function(data){
+					  		res = JSON.parse(data);
+					  		if (timeaction == "inter") {
+					  			$clicked_btn.removeClass('btn-default');
+					  			$clicked_btn.addClass('btn-warning');
+					  		} else if(timeaction == "uninter") {
+					  			$clicked_btn.removeClass('btn-warning');
+					  			$clicked_btn.addClass('btn-default');
+					  		}
+					  		// display the number of likes and dislikes
+					  		$clicked_btn.siblings('span.lessone').text(res.lessone);
+					  		$clicked_btn.siblings('span.onetotwo').text(res.onetotwo);
+					  		$clicked_btn.siblings('span.moretwo').text(res.moretwo);
+
+					  		// change button styling of the other button if user is reacting the second time to post
+					  		$clicked_btn.siblings('i.btn-success').removeClass('btn-success').addClass('btn-default');
+					  		$clicked_btn.siblings('i.btn-danger').removeClass('btn-danger').addClass('btn-default');
+					  	}
+					  });
+
+});
+//////////////////////////////////////////////////////////////////////////////////////////////////
+$('.moretwo-btn').on('click', function(){
+					//alert("I am");
+					var user_id = $(this).data('userid');
+					var post_id = $(this).data('postid');
+					$clicked_btn = $(this);
+					if ($clicked_btn.hasClass('btn-default')) {
+						timeaction = 'advance';
+					} else if($clicked_btn.hasClass('btn-danger')){
+						timeaction = 'unadvance';
+					}
+					$.ajax({
+					    //url: 'index.php',
+					    type: 'post',
+					    data: {
+					    	'timeaction': timeaction,
+					    	'post_id': post_id,
+					    	'user_id': user_id
+					    },
+					    success: function(data){
+					    	res = JSON.parse(data);
+					    	if (timeaction == "advance") {
+					    		$clicked_btn.removeClass('btn-default');
+					    		$clicked_btn.addClass('btn-danger');
+					    	} else if(timeaction == "unadvance") {
+					    		$clicked_btn.removeClass('btn-danger');
+					    		$clicked_btn.addClass('btn-default');
+					    	}
+					      // display the number of likes and dislikes
+					      $clicked_btn.siblings('span.lessone').text(res.lessone);
+					      $clicked_btn.siblings('span.onetotwo').text(res.onetotwo);
+					      $clicked_btn.siblings('span.moretwo').text(res.moretwo);
+
+					      // change button styling of the other button if user is reacting the second time to post
+					      $clicked_btn.siblings('i.btn-success').removeClass('btn-success').addClass('btn-default');
+					      $clicked_btn.siblings('i.btn-warning').removeClass('btn-warning').addClass('btn-default');
+					  }
+					});
+
+				});
+
+
+
+$('.agebignner-btn').on('click', function(){
+	var user_id = $(this).data('userid');
+	var post_id = $(this).data('postid');
+				  //alert(post_id + user_id);
+				  $clicked_btn = $(this);
+				  if ($clicked_btn.hasClass('btn-default')) {
+				  	ageaction = 'biggner';
+				  	//alert(post_id + user_id);
+				  } else if($clicked_btn.hasClass('btn-success')){
+				  	ageaction = 'unbiggner';
+				  }
+				  $.ajax({
+				  	//url: 'single-activity.php',
+				  	type: 'post',
+				  	data: {
+				  		'ageaction': ageaction,
+				  		'post_id': post_id,
+				  		'user_id': user_id
+				  	},
+				  	success: function(data){
+				  		res = JSON.parse(data);
+				  		if (ageaction == "biggner") {
+				  			$clicked_btn.removeClass('btn-default');
+				  			$clicked_btn.addClass('btn-success');
+				  		} else if(ageaction == "unbiggner") {
+				  			$clicked_btn.removeClass('btn-success');
+				  			$clicked_btn.addClass('btn-default');
+				  		}
+				  		// display the number of likes and dislikes
+				  		$clicked_btn.siblings('span.agebiggner').text(res.agebiggner);
+				  		$clicked_btn.siblings('span.ageinter').text(res.ageinter);
+				  		$clicked_btn.siblings('span.ageadvance').text(res.ageadvance);
+
+				  		// change button styling of the other button if user is reacting the second time to post
+				  		$clicked_btn.siblings('i.btn-warning').removeClass('btn-warning').addClass('btn-default');
+				  		$clicked_btn.siblings('i.btn-danger').removeClass('btn-danger').addClass('btn-default');
+				  	}
+				  });
+				});
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+$('.ageinter-btn').on('click', function(){
+	var user_id = $(this).data('userid');
+	var post_id = $(this).data('postid');
+	$clicked_btn = $(this);
+	if ($clicked_btn.hasClass('btn-default')) {
+		ageaction = 'inter';
+	} else if($clicked_btn.hasClass('btn-warning')){
+		ageaction = 'uninter';
+	}
+	$.ajax({
+					  	//url: 'index.php',
+					  	type: 'post',
+					  	data: {
+					  		'ageaction': ageaction,
+					  		'post_id': post_id,
+					  		'user_id': user_id
+					  	},
+					  	success: function(data){
+					  		res = JSON.parse(data);
+					  		if (ageaction == "inter") {
+					  			$clicked_btn.removeClass('btn-default');
+					  			$clicked_btn.addClass('btn-warning');
+					  		} else if(ageaction == "uninter") {
+					  			$clicked_btn.removeClass('btn-warning');
+					  			$clicked_btn.addClass('btn-default');
+					  		}
+					  		// display the number of likes and dislikes
+					  		$clicked_btn.siblings('span.agebiggner').text(res.agebiggner);
+					  		$clicked_btn.siblings('span.ageinter').text(res.ageinter);
+					  		$clicked_btn.siblings('span.ageadvance').text(res.ageadvance);
+
+					  		// change button styling of the other button if user is reacting the second time to post
+					  		$clicked_btn.siblings('i.btn-success').removeClass('btn-success').addClass('btn-default');
+					  		$clicked_btn.siblings('i.btn-danger').removeClass('btn-danger').addClass('btn-default');
+					  	}
+					  });
+
+});
+//////////////////////////////////////////////////////////////////////////////////////////////////
+$('.ageadvance-btn').on('click', function(){
+	var user_id = $(this).data('userid');
+	var post_id = $(this).data('postid');
+	$clicked_btn = $(this);
+	if ($clicked_btn.hasClass('btn-default')) {
+		ageaction = 'advance';
+	} else if($clicked_btn.hasClass('btn-danger')){
+		ageaction = 'unadvance';
+	}
+	$.ajax({
+					    //url: 'index.php',
+					    type: 'post',
+					    data: {
+					    	'ageaction': ageaction,
+					    	'post_id': post_id,
+					    	'user_id': user_id
+					    },
+					    success: function(data){
+					    	res = JSON.parse(data);
+					    	if (ageaction == "advance") {
+					    		$clicked_btn.removeClass('btn-default');
+					    		$clicked_btn.addClass('btn-danger');
+					    	} else if(ageaction == "unadvance") {
+					    		$clicked_btn.removeClass('btn-danger');
+					    		$clicked_btn.addClass('btn-default');
+					    	}
+					      // display the number of likes and dislikes
+					      $clicked_btn.siblings('span.agebiggner').text(res.agebiggner);
+					      $clicked_btn.siblings('span.ageinter').text(res.ageinter);
+					      $clicked_btn.siblings('span.ageadvance').text(res.ageadvance);
+
+					      // change button styling of the other button if user is reacting the second time to post
+					      $clicked_btn.siblings('i.btn-success').removeClass('btn-success').addClass('btn-default');
+					      $clicked_btn.siblings('i.btn-warning').removeClass('btn-warning').addClass('btn-default');
+					  }
+					});
+
+});
+
+
+});						</script>
 
 </div>
 
@@ -542,11 +1052,10 @@ $user = get_user_by( 'id', $instructor );
 
 	<?php 
 	$next_post = get_next_post(); ?>
-
 	<?php
 		
 		if (!empty( $next_post )): ?>
-			
+			?>
 			<hr>
 <div class="card-header border-0 py-3 d-flex align-items-center my-3">
 

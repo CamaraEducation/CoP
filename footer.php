@@ -1,9 +1,8 @@
 <?php
 
 ?>
-<section id="footer" style="background-color: #FFFFFF">
-	<div class="container" style="background-color: #FFFFFF;margin-bottom:48px;" >
-		<hr>
+<section id="footer" class="container-fluid bg-white footerst">
+	<div class="container pt-5 bg-white">
 		<div class="row text-center text-xs-center text-sm-left text-md-left">
 			<div class="col-md-3 mx-auto">
 				<img src="<?php echo get_template_directory_uri(); ?>/images/camaralogo.png" alt="Camara Education Ireland" class="img-responsive">
@@ -70,7 +69,6 @@
 
 			</div>
 		</div>
-		<hr>
 	</div>
 
 

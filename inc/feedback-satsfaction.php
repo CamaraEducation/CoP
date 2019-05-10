@@ -2,100 +2,6 @@
 
 
 
-
-
-
-// if (isset($_POST['likeaction'])) {
-global $wpdb;
-$action = "undislike";
-$post_id = 95;
-$user_id = 1;
-$table_name = $wpdb->prefix . 'feedback';
-$row = $wpdb->get_var( "SELECT * FROM $table_name WHERE user_id = '".$user_id."' && post_id = '".$post_id."'" );
-$ml  = $wpdb->get_var( "SELECT satsfaction FROM $table_name WHERE user_id = '".$user_id."' && post_id = '".$post_id."'" );
-
-switch ($action) {
-case 'dislike':
-if (empty($row)){
-$data_array = array(
-'user_id' => $user_id,
-'post_id' => $post_id,
-'satsfaction' => 1, 
-'level' => 0,
-'time_taken' => 0,
-'age_group' => 0 );
-$sql=$wpdb->insert($table_name, $data_array, $format=NULL);
-
-}elseif($ml == 0 || $ml == 2 || $ml == 3){
-$wpdb->query($wpdb->prepare("UPDATE $table_name SET satsfaction = 1 WHERE user_id=%1$s && post_id = %2$s", $user_id, $post_id));
-}
-break;
-
-
-
-case 'undislike':
-$wpdb->query($wpdb->prepare("UPDATE '$table_name' SET satsfaction = 0 WHERE 'user_id'=%1$s AND 'post_id' = %2$s", $user_id, $post_id));
-break;
-
-
-
-case 'like':
-if (empty($row)){
-$data_array = array(
-'user_id' => $user_id,
-'post_id' => $post_id,
-'satsfaction' => 2,
-'level' => 0,
-'time_taken' => 0,
-'age_group' => 0 );
-$sql=$wpdb->insert($table_name, $data_array, $format=NULL);
-}elseif($ml == 0 || $ml == 1 || $ml == 3){
-$wpdb->query($wpdb->prepare("UPDATE $table_name SET satsfaction = 2 WHERE user_id=$'".$user_id."' && post_id = '".$post_id."'"));
-}
-break;
-
-
-case 'unlike':
-$wpdb->query($wpdb->prepare("UPDATE $table_name SET satsfaction = 0 WHERE user_id=$user_id && post_id = $post_id"));
-break;
-
-
-case 'excited':
-if (empty($row)){
-$data_array = array(
-'user_id' => $user_id,
-'post_id' => $post_id,
-'satsfaction' => 3,
-'level' => 0,
-'time_taken' => 0,
-'age_group' => 0 );
-$sql=$wpdb->insert($table_name, $data_array, $format=NULL);
-}elseif($ml == 0 || $ml == 1 || $ml == 2){
-$wpdb->query($wpdb->prepare("UPDATE $table_name SET satsfaction = 3 WHERE user_id=$user_id && post_id = $post_id"));
-}
-break;
-
-
-case 'unexcited':
-$wpdb->query($wpdb->prepare("UPDATE $table_name SET satsfaction = 0 WHERE user_id=$user_id && post_id = $post_id"));
-default:
-break;
-
-}
-echo getRating($post_id);
-// }
-
-
-
-
-
-
-
-
-
-
-
-
 function satsfaction_ajax_enqueue() {
 // Enqueue javascript on the frontend.
 	wp_enqueue_script(
@@ -142,15 +48,29 @@ $data_array = array(
 'post_id' => $post_id,
 'satsfaction' => 1, 
 'level' => 0,
-'time_taken' => 0,
+'taken_time' => 0, //fixed this bug ----this was saying time_takens
 'age_group' => 0 );
 $sql=$wpdb->insert($table_name, $data_array, $format=NULL);
 }elseif($ml == 0 || $ml == 2 || $ml == 3){
-$wpdb->query($wpdb->prepare("UPDATE $table_name SET satsfaction = 1 WHERE 'user_id'=%1$s AND 'post_id' = %2$s", $user_id, $post_id));
+
+
+$update_query=$wpdb->prepare("UPDATE $table_name SET satsfaction = 1 WHERE user_id=%d && post_id = %d", $user_id, $post_id);
+$wpdb->query($update_query);
+
+//echo $update_query;
+//echo $v;
+
 }
 break;
 case "undislike":
-$wpdb->query($wpdb->prepare("UPDATE $table_name SET satsfaction = 0 WHERE 'user_id'=%1$s AND 'post_id' = %2$s", $user_id, $post_id));
+
+$update_query=$wpdb->prepare("UPDATE $table_name SET satsfaction = 0 WHERE user_id=%d && post_id = %d", $user_id, $post_id);
+$wpdb->query($update_query);
+
+//echo $update_query;
+//echo $v;
+
+
 break;
 case "like":
 if (empty($row)){
@@ -159,15 +79,27 @@ $data_array = array(
 'post_id' => $post_id,
 'satsfaction' => 2,
 'level' => 0,
-'time_taken' => 0,
+'taken_time' => 0, //bug 2 - this was time_taken
 'age_group' => 0 );
 $sql=$wpdb->insert($table_name, $data_array, $format=NULL);
 }elseif($ml == 0 || $ml == 1 || $ml == 3){
-$wpdb->query($wpdb->prepare("UPDATE $table_name SET satsfaction = 2 WHERE 'user_id'=%1$s AND 'post_id' = %2$s", $user_id, $post_id));
+
+$update_query=$wpdb->prepare("UPDATE $table_name SET satsfaction = 2 WHERE user_id=%d && post_id = %d", $user_id, $post_id);
+$wpdb->query($update_query);
+
+//echo $update_query;
+//echo $v;
+
 }
 break;
 case "unlike":
-$wpdb->query($wpdb->prepare("UPDATE $table_name SET satsfaction = 0 WHERE 'user_id'=%1$s AND 'post_id' = %2$s", $user_id, $post_id));
+
+$update_query=$wpdb->prepare("UPDATE $table_name SET satsfaction = 0 WHERE user_id=%d && post_id = %d", $user_id, $post_id);
+$wpdb->query($update_query);
+
+//echo $update_query;
+//echo $v;
+
 break;
 case "excited":
 if (empty($row)){
@@ -180,11 +112,25 @@ $data_array = array(
 'age_group' => 0 );
 $sql=$wpdb->insert($table_name, $data_array, $format=NULL);
 }elseif($ml == 0 || $ml == 1 || $ml == 2){
-$wpdb->query($wpdb->prepare("UPDATE $table_name SET satsfaction = 3 WHERE 'user_id'=%1$s AND 'post_id' = %2$s", $user_id, $post_id));
+
+
+$update_query=$wpdb->prepare("UPDATE $table_name SET satsfaction = 3 WHERE user_id=%d && post_id = %d", $user_id, $post_id);
+$wpdb->query($update_query);
+
+//echo $update_query;
+//echo $v;
+
+
 }
 break;
 case "unexcited":
-$wpdb->query($wpdb->prepare("UPDATE $table_name SET satsfaction = 0 WHERE 'user_id'=%1$s AND 'post_id' = %2$s", $user_id, $post_id));
+
+$update_query=$wpdb->prepare("UPDATE $table_name SET satsfaction = 0 WHERE user_id=%d && post_id = %d", $user_id, $post_id);
+$wpdb->query($update_query);
+
+//echo $update_query;
+//echo $v;
+
 default:
 break;
 }
@@ -243,5 +189,46 @@ return true;
 return false;
 }
 }
+
+
+
+////////////////////////////////Satsfaction get ////////////////////////////
+
+function getsatone($postid)
+{
+global $wpdb;
+//$valu = $wpdb->get_var( "SELECT sum(level = 1) FROM ".$wpdb->prefix."feedback WHERE post_id = '".$postid."'" );
+
+$valu=$wpdb->get_var( "SELECT sum(satsfaction = 1) FROM ".$wpdb->prefix."feedback WHERE post_id = $postid " );
+
+//return json_encode($valu, JSON_NUMERIC_CHECK);
+return $valu;
+
+}
+function getsattwo($postid)
+{
+global $wpdb;
+//$valu = $wpdb->get_var( "SELECT sum(level = 1) FROM ".$wpdb->prefix."feedback WHERE post_id = '".$postid."'" );
+
+$valu=$wpdb->get_var( "SELECT sum(satsfaction = 2) FROM ".$wpdb->prefix."feedback WHERE post_id = $postid " );
+
+//return json_encode($valu, JSON_NUMERIC_CHECK);
+
+return $valu;
+
+}
+function getsatthr($postid)
+{
+global $wpdb;
+//$valu = $wpdb->get_var( "SELECT sum(level = 1) FROM ".$wpdb->prefix."feedback WHERE post_id = '".$postid."'" );
+
+$valu=$wpdb->get_var( "SELECT sum(satsfaction = 3) FROM ".$wpdb->prefix."feedback WHERE post_id = $postid " );
+
+//return json_encode($valu, JSON_NUMERIC_CHECK);
+return $valu;
+
+}
+
+
 
 ?>

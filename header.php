@@ -139,7 +139,7 @@ return $imagePath;
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item menu-text active">
+				<li class="nav-item menu-text active-custom">
 					<a class="nav-link" href="landing">Home
 						<span class="sr-only">(current)</span>
 					</a>
