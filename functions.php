@@ -5,9 +5,9 @@
 /*** INCLUDE/REQUIRE FILES */
 
 //Feedback logis */
-require_once('/inc/feedback-functions.php');
-require_once ('/inc/activity-functions.php');
-require_once ('/inc/login-functions.php');
+// require_once('/inc/feedback-functions.php');
+// require_once ('/inc/activity-functions.php');
+// require_once ('/inc/login-functions.php');
 
 
 /** END OF INCLUDE/REQUIRE */

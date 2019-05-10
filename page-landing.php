@@ -67,9 +67,9 @@ if ( is_user_logged_in() ) {
 
 <div class="col-xs-6" style="align-content: left;">
 
-<h3 style="font-size:24px;margin-bottom: 8px;"> <?php echo $current_user_name; ?> </h3>
+<h3 class="prof-name"> <?php echo $current_user_name; ?> </h3>
 
-	<h4 style="font-size:14px;font-weight: normal;color:#3E4C59;margin-bottom: 16px;"><?php  echo $memberJobRole_name . ' @ ' . $org_name; ?> </h4>
+<h4 class="prof-role"><?php  echo $memberJobRole_name . ' @ ' . $org_name; ?> </h4>
 
 <span class="badge badge-light float-left" style="line-height:16px;background-color: <?php echo $current_pathway_color;?>;color:#FFFFFF;">
 <?php echo $current_user_pathway_name  ?></span>
@@ -107,7 +107,7 @@ if($current_user_pathway_name == $term->name){
 ?>
 
 <li class="nav-item mx-4 tab-text1">
-<a class="nav-link <?php echo ($currentPathway == $term->name ? "active" : "")?>" id="<?php echo $term->slug; ?>-tab" data-toggle="tab" href="#<?php echo $term->slug; ?>" role="tab" aria-controls="<?php echo $term->slug;?>" aria-selected="<?php echo ($currentPathway == $term->name ? "true" : "false")?>" style="    border-bottom: 2px solid #EE603B;color: #EE603B;font-weight: bold;font-size:16px;"> <?php echo $term->name; ?>  
+<a class="nav-link menu-color-shadow <?php echo ($currentPathway == $term->name ? "active" : "")?>" id="<?php echo $term->slug; ?>-tab" data-toggle="tab" href="#<?php echo $term->slug; ?>" role="tab" aria-controls="<?php echo $term->slug;?>" aria-selected="<?php echo ($currentPathway == $term->name ? "true" : "false")?>"> <?php echo $term->name; ?>  
 </a>
 
 </li>
@@ -138,14 +138,14 @@ if($current_user_pathway_name == $term->name){
 <div class="col-md-8">
 <div class="row">
 <div class="col-md-12 my-2">
-<div class="card" style="background-color: #ffffff; border-radius: 10px;height: 340px;">
+<div class="card vid-shadow">
 
 
-<div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 8px;">
+<div class="card-header border-0 py-3 d-flex align-items-center my-3 bg-white">
 
 
 
-<iframe width="620" height="268" <iframe width="560" height="315" src="https://www.youtube.com/embed/eO4vh9QOquw?controls=0&amp;start=11" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"  style="margin-left:5%;"></iframe>
+<iframe class="vids" width="620" height="268" src="https://www.youtube.com/embed/eO4vh9QOquw?controls=0&amp;start=11" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
 
 </div>
 </div>
@@ -157,12 +157,7 @@ if($current_user_pathway_name == $term->name){
 <div class="col-md-4 my-3">
 <div class="card-custom">
 <div class="card-body">
-<p class="meet-company-title" style="font-family: Lato;
-font-style: normal;
-font-weight: bold;
-font-size: 14px;
-line-height: 24px;
-text-transform: uppercase;">Meet the online techspace network </p>
+<p class="meet-company-title meettxt">Meet the online techspace network </p>
 <?php
 $tax_terms = get_terms('community_role', array('hide_empty' => false,));
 
@@ -236,18 +231,16 @@ echo  sprintf("%02d", $num);
 <div class="row">
 
 
-<div class="col-md-4">
-<div class="card" style="box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 8px;height: 168px;padding-top:5%;">
+<div class="col-md-4 mt-2">
+<div class="card secborder" style="">
 
-
-
-<div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color:#fff">
-<img src="<?php echo get_template_directory_uri(); ?>/images/knowledge.png" class="align-self-start mr-3" style="margin-left:12px;margin-right:12px;">
+<div class="card-header border-0 py-3 d-flex align-items-center my-3 bg-white">
+<img src="<?php echo get_template_directory_uri(); ?>/images/knowledge.png" class="align-self-start mr-3">
 
 <a href="programmeplanning/#Logic Models"> 
 <div>
-	<h4 style="color:#9AA5B1;font-size:12px;">PROGRAMME PLANNING</h4>
-	<h6 class="intro-steam" style="font-size:18px;font-weight:bold;">Logic Models</h6>
+<h4 style="color:#9AA5B1;font-size:12px;">PROGRAMME PLANNING</h4>
+<h6 class="intro-steam" style="font-size:18px;font-weight:bold;">Logic Models</h6>
 </div>
 </a>
 
@@ -255,17 +248,17 @@ echo  sprintf("%02d", $num);
 </div>
 </div>
 
-<div class="col-md-4">
-<div class="card" style="box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 8px;height: 168px;padding-top:5%;">
+<div class="col-md-4 mt-2">
+<div class="card secborder">
 
 
 <div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color:#fff">
-<img src="<?php echo get_template_directory_uri(); ?>/images/SessionPlans.png" class="align-self-start mr-3" style="margin-left:12px;margin-right:12px;">
+<img src="<?php echo get_template_directory_uri(); ?>/images/SessionPlans.png" class="align-self-start mr-3">
 
 <a href="programmeplanning/#Session Plans"> 
 <div>
-	<h4 style="color:#9AA5B1;font-size:12px;">PROGRAMME PLANNING</h4>
-	<h6 class="intro-steam" style="font-size:18px;font-weight:bold;">Session Plans</h6>
+<h4 style="color:#9AA5B1;font-size:12px;">PROGRAMME PLANNING</h4>
+<h6 class="intro-steam" style="font-size:18px;font-weight:bold;">Session Plans</h6>
 </div>
 </a>
 
@@ -274,17 +267,17 @@ echo  sprintf("%02d", $num);
 
 </div>
 
-<div class="col-md-4">
+<div class="col-md-4 mt-2">
 
-<div class="card border-0" style="box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 8px;height: 168px;padding-top:5%;">
+<div class="card border-0 secborder">
 
 <div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color:#fff">
-<img src="<?php echo get_template_directory_uri(); ?>/images/CodeofConduct.png" class="align-self-start mr-3" style="margin-left:12px;margin-right:12px;">
+<img src="<?php echo get_template_directory_uri(); ?>/images/CodeofConduct.png" class="align-self-start mr-3">
 
 <a href="<?php echo get_template_directory_uri(); ?>/docs/CoPCodeofConduct.pdf" target="new"> 
 <div>
-	<h4 style="color:#9AA5B1;font-size:12px;">PROGRAMME PLANNING</h4>
-	<h6 class="intro-steam" style="font-size:18px;font-weight:bold;">Code of Conduct</h6>
+<h4 style="color:#9AA5B1;font-size:12px;">PROGRAMME PLANNING</h4>
+<h6 class="intro-steam" style="font-size:18px;font-weight:bold;">Code of Conduct</h6>
 </div>
 </a>
 </div>
@@ -320,23 +313,19 @@ if ( $latestActivities ) {
 
 foreach ( $latestActivities as $post ) :
 ?>
-
-<div class="card" style="box-shadow: 8px 8px 8spx rgba(25, 70, 93, 0.05);border:none;"> 
+<div class="col-md-4">
+<div class="card scard1"> 
 <img class="card-img-top cardback" src="<?php the_field('featured_image'); ?>"  width="279px" height="251px" alt="Card image cap">
 
 
-<div class="card-body" style="margin-left:24px;margin-bottom:32px;min-height:140px;">
+<div class="card-body cbody">
 
-<h6 class="card-small" style="color:#9FA6AC; font-size:12px, text-transform: uppercase,margin-top: 24px, margin-left: 24px, margin-bottom: 8px"><?php echo getPostTerms($post->ID,'pathway'); ?> </h6>
+<h6 class="card-small acttext"><?php echo getPostTerms($post->ID,'pathway'); ?> </h6>
 
-<h5 class="card-big" style="font-size:16px, margin-left: 24px, margin-bottom: 32px;line-height:24px;">
+<h5 class="card-big act-head">
 
-<a href="<?php the_permalink(); ?>">
-<!---make the hold card a link" -->
-<?php the_title(); ?></h5>
-
-</a> <!---make the hold card a link" -->
-
+<a class="act-head" href="<?php the_permalink(); ?>">
+<?php the_title(); ?> </a></h5>
 
 <span class="badge badge-primary" style="background-color:<?php echo $current_pathway_color;?>"> <?php echo getPostTerms($post->ID,'topic'); ?></span>
 
@@ -347,27 +336,27 @@ foreach ( $latestActivities as $post ) :
 
 <span class="float-right"> 
 <!--LEVEL -->
-                    <?php 
-                    $s = getPostTerms($post->ID,'level');
-                    
-                    if($s == "Easy"){?>
-                            <img src="<?php echo get_template_directory_uri();  ?>/images/level_Easy.png">
+<?php 
+$s = getPostTerms($post->ID,'level');
 
-                    <?php } elseif($s == "Beginner"){?>
-                            <img src="<?php echo get_template_directory_uri();  ?>/images/level_Easy.png">
-                            
+if($s == "Easy"){?>
+<img src="<?php echo get_template_directory_uri();  ?>/images/level_Easy.png">
 
-                    <?php  }elseif ($s== "Intermediate") { ?>
-                        
-                        <img src="<?php echo get_template_directory_uri();  ?>/images/level_Intermediate.png">
-                        <?php }elseif ($s=="Advanced" ) { ?>
-                            <img src="<?php echo get_template_directory_uri();  ?>/images/level_Advanced.png">
-                        
-                        <?php } 
-                        ?>
- </span>
+<?php } elseif($s == "Beginner"){?>
+<img src="<?php echo get_template_directory_uri();  ?>/images/level_Easy.png">
 
 
+<?php  }elseif ($s== "Intermediate") { ?>
+
+<img src="<?php echo get_template_directory_uri();  ?>/images/level_Intermediate.png">
+<?php }elseif ($s=="Advanced" ) { ?>
+<img src="<?php echo get_template_directory_uri();  ?>/images/level_Advanced.png">
+
+<?php } 
+?>
+</span>
+
+</div>
 </div>
 </div>
 
@@ -406,26 +395,22 @@ $topics = array("Maker","Computer Science");
 }
 
 $arrlength = count($topics);
-
 //		echo $arrlength;
-
 for($x = 0; $x < $arrlength; $x++) {
 
 ?>
 <div class="col-md-6 my-2">
 
-<div class="card-custom" style="height:96px;margin-bottom:16px;padding-left:0px; align-items:center;padding-top:8%;">
+<div class="card-custom lastcc">
 <img src="<?php echo gettopicImage($topics[$x]); ?>" width="36" style="margin-left:40px;">
 
 <span class="intro-steam" style="margin-left:16px;">
-<a href="activities/?ft=<?php echo $topics[$x] ;?>">
+<a class="lastcc-txt" href="activities/?ft=<?php echo $topics[$x] ;?>">
 <?php echo $topics[$x]; ?>
 Activities  </a>
 </span>
 </div>
 </div>
-
-
 
 <?php 
 }//end each 
