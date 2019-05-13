@@ -131,7 +131,7 @@ return $imagePath;
 
 <body <?php body_class(); ?>>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white" style="box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 8px;">
+<nav class="navbar navbar-expand-lg navbar-light bg-white menu-back">
 
 <a class="navbar-brand" href="#"><img src="<?php echo get_template_directory_uri();  ?>/images/techspacelogo.png" class="img-responsive md-avatar size-2" alt="COP"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

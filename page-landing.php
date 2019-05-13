@@ -91,10 +91,10 @@ if ( is_user_logged_in() ) {
 
 <!-- Start Tab -->
 <section>
-<div class="container-fluid" style="background-color: #ffffff;">
+<div class="container-fluid bg-white navsty">
 <div class="container">
 
-<ul class="nav" id="myTab" role="tablist>
+<ul class="nav" id="myTab" role="tablist">
 
 <?php
 
