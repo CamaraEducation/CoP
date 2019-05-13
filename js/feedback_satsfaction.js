@@ -1,55 +1,41 @@
 $(document).ready(function() {
-	// alert("this is alert1");
 
 	$(".dislike-btn").click(function() {	
 
 		var user_id = $(this).data('userid');
 		var post_id = $(this).data('postid');
-//alert(post_id + user_id);
-$clicked_btn = $(this);
+
+		$clicked_btn = $(this);
 
 
-if ($clicked_btn.hasClass('far')) {
-	action = 'dislike';
-//alert(post_id + user_id);
-} else if($clicked_btn.hasClass('fas')){
-	action = 'undislike';
-}
-alert(action+post_id);
+		if ($clicked_btn.hasClass('far')) {
+			action = 'dislike';
 
+		} else if($clicked_btn.hasClass('fas')){
+			action = 'undislike';
+		}
 
-var formData = {'action':'satsfaction_ajax_request'};
-formData['likeaction']=  action;
-formData['user_id']=  user_id;
-formData['post_id']=  post_id;
+		var formData = {'action':'satsfaction_ajax_request'};
+		formData['likeaction']=  action;
+		formData['user_id']=  user_id;
+		formData['post_id']=  post_id;
 
-
-// jQuery.each(x, function(i, field){
-//     formData[field.name]=  field.value;
-// //alert(field.name + " --" +field.value);
-//   });
-
-$.ajax({
-url: satsfaction_ajax_obj.ajaxurl, //  using on frontend
-type: 'POST',
-cache: false,
-dataType: 'JSON',
-data: formData,
+		$.ajax({
+		url: satsfaction_ajax_obj.ajaxurl, //  using on frontend
+		type: 'POST',
+		cache: false,
+		dataType: 'JSON',
+		data: formData,
 
 success:function(data) {
-//alert(data);
-alert("hear is!"+data);
 
-//res = JSON.parse(data);
-alert(data.dislikes);
-alert(data.likes);
-if (action == "dislike") {
-	$clicked_btn.removeClass('far');
-	$clicked_btn.addClass('fas');
-} else if(action == "undislike") {
-	$clicked_btn.removeClass('fas');
-	$clicked_btn.addClass('far');
-}
+	if (action == "dislike") {
+		$clicked_btn.removeClass('far');
+		$clicked_btn.addClass('fas');
+	} else if(action == "undislike") {
+		$clicked_btn.removeClass('fas');
+		$clicked_btn.addClass('far');
+	}
 // display the number of likes and dislikes
 $clicked_btn.siblings('span.likes').text(data.likes);
 $clicked_btn.siblings('span.dislikes').text(data.dislikes);
@@ -67,36 +53,28 @@ error: function(data, errorThrown) {
 
 });
 
-alert("this is alert2");
-});
-
-
-
-
+	});
 
 ///////////////////////LIKE BUTTON////////////////////////////////////////
 
 
 $(".like-btn").click(function() {	
-	alert("Like Button clicked");
 	var user_id = $(this).data('userid');
 	var post_id = $(this).data('postid');
 	$clicked_btn = $(this);								 
 
 	if ($clicked_btn.hasClass('far')) {
 		action = 'like';
-	//alert("dislike" + post_id + user_id);
-} else if($clicked_btn.hasClass('fas')){
-	action = 'unlike';
-	//alert(action + post_id + user_id);
-}
+	} else if($clicked_btn.hasClass('fas')){
+		action = 'unlike';
+	}
 
-var formData = {'action':'satsfaction_ajax_request'};
-formData['likeaction']=  action;
-formData['user_id']=  user_id;
-formData['post_id']=  post_id;
+	var formData = {'action':'satsfaction_ajax_request'};
+	formData['likeaction']=  action;
+	formData['user_id']=  user_id;
+	formData['post_id']=  post_id;
 
-$.ajax({
+	$.ajax({
 	url: satsfaction_ajax_obj.ajaxurl, //  using on frontend
 	type: 'POST',
 	cache: false,
@@ -104,7 +82,6 @@ $.ajax({
 	data: formData,
 	
 	success:function(data) {
-	//alert("I am here");
 	// res = JSON.parse(data);
 	if (action == "like") {
 		$clicked_btn.removeClass('far');
@@ -131,7 +108,6 @@ $.ajax({
 
 	 });
 
-// alert("this is alert2");
 });
 
 
@@ -139,33 +115,28 @@ $.ajax({
 
 
 $(".excite-btn").click(function() {	
-	alert("excited Button clicked");
-
 	var user_id = $(this).data('userid');
 	var post_id = $(this).data('postid');
 	$clicked_btn = $(this);								 
 
 	if ($clicked_btn.hasClass('far')) {
 		action = 'excited';
-			//alert(action+ post_id + user_id);
-		} else if($clicked_btn.hasClass('fas')){
-			action = 'unexcited';
-	//alert(action + post_id + user_id);
-}
+	} else if($clicked_btn.hasClass('fas')){
+		action = 'unexcited';
+	}
 
 
-var formData = {'action':'satsfaction_ajax_request'};
-formData['likeaction']=  action;
-formData['user_id']=  user_id;
-formData['post_id']=  post_id;
-$.ajax({
+	var formData = {'action':'satsfaction_ajax_request'};
+	formData['likeaction']=  action;
+	formData['user_id']=  user_id;
+	formData['post_id']=  post_id;
+	$.ajax({
 url: satsfaction_ajax_obj.ajaxurl, //  using on frontend
 type: 'POST',
 cache: false,
 dataType: 'JSON',
 data: formData,
 success: function(data) {
-//alert("I am here");
 // res = JSON.parse(data);
 if (action == "excited") {
 	$clicked_btn.removeClass('far');
@@ -192,37 +163,6 @@ $clicked_btn.siblings('span.excites').text(data.excites);
 
 });
 
-// alert("this is alert2");
 });
-
-
-
-////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 });//closing function

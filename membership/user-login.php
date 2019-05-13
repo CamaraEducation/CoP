@@ -76,7 +76,7 @@ if ( is_wp_error( $user ) ) {
 
 
 							<div class="form-groups">
-									<label for="login_member_password" class="signup-small-txt" style="display:inline">Username</label>
+									<label for="login_member_password" class="signup-small-txt" style="display:inline">Password</label>
 									<input type="password" class="form-control" id="login_member_password" name="login_member_password">
 								</div>	
 
