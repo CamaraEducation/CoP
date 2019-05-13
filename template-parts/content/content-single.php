@@ -1,25 +1,19 @@
-
 <?php
-
 function getPostTerms($id,$tax){
 	$term_list = wp_get_post_terms($id, $tax, array("fields" => "all"));
 	foreach($term_list as $term_single) {
 return $term_single->name; //do something here
 }
 }
-
 function getPostTermsid($id,$tax){
 	$term_list = wp_get_post_terms($id, $tax, array("fields" => "all"));
 	foreach($term_list as $term_single) {
 return $term_single; //do something here
 }
 }
-
 //get term color
 $term=getPostTermsid($post->ID, 'pathway' );
 $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->term_id);
-
-
 ?>
 
 <section class="my-5">
@@ -44,7 +38,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 	</section>
 
 
-	<section class="my-5">
+<section class="my-5">
 		<div class="container">
 			<h1 class="actt1">
 
@@ -59,7 +53,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 				<hr>
 			</div>
 
-			<div class="container mb-3">
+		<div class="container mb-3">
 				<ul class="nav">
 					<li class="nav-item leveltx" style="margin-right:64px;">
 
@@ -102,7 +96,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 		</div>
 
 
-		<div class="container">
+	<div class="container">
 			<div class="row">
 				<div class="col-md-8">
 					<img src="<?php the_field('featured_image'); ?>" alt="" class="img-fluid" style="width:691px;height:440px;margin-bottom:72px;">
@@ -175,7 +169,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 				</div>
 			</section>
 
-			<section class="my-5">
+	<section class="my-5">
 				<div class="container">
 					<h2 class="headtitle">Step-by-step guide</h2>
 					<hr>
@@ -308,7 +302,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 								</div>
 							</div>
 							<hr>
-							<div class="card">
+						<div class="card">
 								<div class="card-header" style="background-color:#FFFFFF;">
 									<b class="box-text12" style="font-weight:bold;text-transform:uppercase;"> Feedback for the Community</b>
 								</div>
@@ -319,191 +313,242 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 									<p class="feedtxt">How did you find this activity with the young people?</p>
 
 
-									<?php
-									global $current_user;
-									get_currentuserinfo();
-									$postid = get_the_ID();
-									$username = $current_user->user_login;
-									$userid = $current_user->ID;
+								<?php
+								global $current_user;
+								get_currentuserinfo();
+								$postid = get_the_ID();
+								$username = $current_user->user_login;
+								$userid = $current_user->ID;
+          
+								?>
 
+
+								<div class="btn-group">
+									<?php
+									$valu = $wpdb->get_var( "SELECT satsfaction FROM ".$wpdb->prefix."feedback WHERE user_id = '".$userid."' && post_id = '".$postid."'" );
+									$sad = $wpdb->get_var( "SELECT sum(satsfaction = 1) FROM ".$wpdb->prefix."feedback WHERE post_id = $postid " );
+									$happy = $wpdb->get_var( "SELECT sum(satsfaction = 2) FROM ".$wpdb->prefix."feedback WHERE post_id = $postid " );
+									$excited = $wpdb->get_var( "SELECT sum(satsfaction = 3) FROM ".$wpdb->prefix."feedback WHERE post_id = $postid " );
 									?>
 
-
-									<div class="btn-group">
-										<?php
-										$valu = $wpdb->get_var( "SELECT satsfaction FROM ".$wpdb->prefix."feedback WHERE user_id = '".$userid."' && post_id = '".$postid."'" );
-
-										$sad = $wpdb->get_var( "SELECT sum(satsfaction = 1) FROM ".$wpdb->prefix."feedback WHERE post_id = $postid " );
-										$happy = $wpdb->get_var( "SELECT sum(satsfaction = 2) FROM ".$wpdb->prefix."feedback WHERE post_id = $postid " );
-										$excited = $wpdb->get_var( "SELECT sum(satsfaction = 3) FROM ".$wpdb->prefix."feedback WHERE post_id = $postid " );
-										?>
-
-										<!-- if user sad post, style button differently -->
-										<i style="font-size: 2em; color: Red"<?php if (userDisliked($userid, $postid)): ?> class="fas fa-frown dislike-btn" <?php else: ?> 
-										class="far fa-frown dislike-btn"<?php endif ?> data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>"></i>
-										&nbsp;&nbsp;&nbsp;&nbsp;
-										<span class="dislikes"><?php 
-										$aa = getsatone($postid);
-										if($aa="null"){
-											echo "0";
-										}else{echo $aa;}
-										?></span>
-
-										&nbsp;&nbsp;&nbsp;&nbsp;
-										<i style="font-size: 2em; color: Orange"<?php if (userLiked($userid, $postid)): ?>
-										class="fas fa-meh like-btn" 
-										<?php else: ?>
-											class="far fa-meh like-btn"
-										<?php endif ?>
-										data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>"></i>
-										&nbsp;&nbsp;&nbsp;&nbsp;
-										<span class="likes"><?php $bb = getsattwo($postid);
-										if($bb="null"){
-											echo "0";
-										}else{echo $bb;} ?></span>
-										&nbsp;&nbsp;&nbsp;&nbsp;
-
-										<i style="font-size: 2em; color: Green"<?php if (userExcited($userid, $postid)): ?>
-										class="fas fa-smile excite-btn"
-										<?php else: ?>
-											class="far fa-smile excite-btn"
-										<?php endif ?>
-										data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>"></i>
-										&nbsp;&nbsp;&nbsp;&nbsp;
-										<span class="excites"><?php $cc = getsatthr($postid);
-										if($mm="null"){
-											echo "0";
-										}else{echo $mm;} ?></span>
-									</div>
-									<hr>
-									<p class="feedtxt"><b>LEVEL</b></p>
-									<p class="feedtxt">How would you rate the level of this activity?</p>
-
-									<div class="btn-group">
-										<i class="beginnertxt" <?php if (userBiggner($userid, $postid)): ?>	
-										class="btn btn-success biggner-btn btn-sm"
-										<?php else: ?>
-											class="btn btn-default biggner-btn btn-sm"
-										<?php endif ?>
-										data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">
-									beginner</i>
-									<span class="biggners btn alert-success disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php 
-									$cc = getBiggner($postid);
-									if($cc="null"){
+									<!-- if user sad post, style button differently -->
+									<i style="font-size: 2em; color: Red"<?php if (userDisliked($userid, $postid)): ?> class="fas fa-frown dislike-btn" <?php else: ?> 
+									class="far fa-frown dislike-btn"<?php endif ?> data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>"></i>
+									&nbsp;&nbsp;&nbsp;&nbsp;
+									<span class="dislikes"><?php 
+									$aa = getsatone($postid);
+									if($aa="null"){
 										echo "0";
-									}else{echo $cc;}
+									}else{echo $aa;}
 									?></span>
 
-									&nbsp;&nbsp;&nbsp;
-									<i class="beginnertxt" <?php if (userInter($userid, $postid)): ?>
-									class="btn btn-warning inter-btn btn-sm"
+									&nbsp;&nbsp;&nbsp;&nbsp;
+									<i style="font-size: 2em; color: Orange"<?php if (userLiked($userid, $postid)): ?>
+									class="fas fa-meh like-btn" 
 									<?php else: ?>
-										class="btn btn-default inter-btn btn-sm"
+										class="far fa-meh like-btn"
 									<?php endif ?>
-
+									data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>"></i>
+									&nbsp;&nbsp;&nbsp;&nbsp;
+									<span class="likes"><?php $bb = getsattwo($postid);
+									if($bb==NULL){
 										echo "0";
-									}else{echo $dd;}
-									?></span>
+									}else{echo $bb;} ?></span>
+									&nbsp;&nbsp;&nbsp;&nbsp;
 
-									&nbsp;&nbsp;&nbsp;
-									<i class="beginnertxt" <?php if (userAdvance($userid, $postid)): ?>
-									class="btn btn-danger advance-btn btn-sm"
+									<i style="font-size: 2em; color: Green"<?php if (userExcited($userid, $postid)): ?>
+									class="fas fa-smile excite-btn"
 									<?php else: ?>
-										class="btn btn-default advance-btn btn-sm"
+										class="far fa-smile excite-btn"
 									<?php endif ?>
+									data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>"></i>
+									&nbsp;&nbsp;&nbsp;&nbsp;
 
+									<span class="excites">
+									<?php $cc = getsatthr($postid);
+									if($cc==NULL){
 										echo "0";
-
+									}else{echo $cc;} ?></span>
 								</div>
-
 								<hr>
-								<p class="feedtxt"><b>TIME</b></p>
-								<p class="feedtxt">How long did this activity take with your group?</p>
+								<p class="feedtxt"><b>LEVEL</b></p>
+								<p class="feedtxt">How would you rate the level of this activity?</p>
+
 								<div class="btn-group">
-									<i class="beginnertxt" <?php if (userLessOne($userid, $postid)): ?>
-									class="btn btn-success lessone-btn btn-sm"
+									<i class="beginnertxt" <?php if (userBiggner($userid, $postid)): ?>	
+									class="btn btn-success biggner-btn btn-sm"
 									<?php else: ?>
-										class="btn btn-default lessone-btn btn-sm"
+										class="btn btn-default biggner-btn btn-sm"
 									<?php endif ?>
 									data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">
+								beginner</i>
+								<span class="biggners btn alert-success disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php 
+								$cc = getBiggner($postid);
+								if($cc==NULL){
+									echo "0";
+								}else{echo $cc;}
+								?></span>
 
+								&nbsp;&nbsp;&nbsp;
+								<i class="beginnertxt" <?php if (userInter($userid, $postid)): ?>
+								class="btn btn-warning inter-btn btn-sm"
+								<?php else: ?>
+									class="btn btn-default inter-btn btn-sm"
+								<?php endif ?>
+								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">intermidiate</i>
+								<span class="inters btn alert-warning disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php
+								$dd = getInter($postid);
+								if($dd==NULL){
+									echo "0";
+								}else{echo $dd;}
+								?></span>
 
+								&nbsp;&nbsp;&nbsp;
+								<i class="beginnertxt" <?php if (userAdvance($userid, $postid)): ?>
+								class="btn btn-danger advance-btn btn-sm"
+								<?php else: ?>
+									class="btn btn-default advance-btn btn-sm"
+								<?php endif ?>
+								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">advanced</i>
+								<span class="advances btn alert-danger disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php   
+								$ee = getAdvance($postid);
+								if($ee==NULL){
+									echo "0";
+								}else{echo $ee;}
+								?></span>
+							</div>
 
+							<hr>
+							<p class="feedtxt"><b>TIME</b></p>
+							<p class="feedtxt">How long did this activity take with your group?</p>
+							<div class="btn-group">
+								<i class="beginnertxt" <?php if (userLessOne($userid, $postid)): ?>
+								class="btn btn-success lessone-btn btn-sm"
+								<?php else: ?>
+									class="btn btn-default lessone-btn btn-sm"
+								<?php endif ?>
+								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">
+								< 1 hour</i>
+								<span class="lessone btn alert-success disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php  
+								$ff = getLessOne($postid); 
+								if($ff==NULL){
+									echo "0";
+								}else{echo $ff;}
+								?></span>
 
+								&nbsp;&nbsp;&nbsp;
+								<i class="beginnertxt" <?php if (userOneToTwo($userid, $postid)): ?>
+								class="btn btn-warning onetotwo-btn btn-sm"
+								<?php else: ?>
+									class="btn btn-default onetotwo-btn btn-sm"
+								<?php endif ?>
+								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">1 - 2 hours</i>
+								<span class="onetotwo btn alert-warning disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php 
+								$gg = getOneToTwo($postid); 
+								if($gg==NULL){
+									echo "0";
+								}else{echo $gg;}
+								?></span>
 
+								&nbsp;&nbsp;&nbsp;
+								<i class="beginnertxt" <?php if (userMoreTwo($userid, $postid)): ?>
+								class="btn btn-danger moretwo-btn btn-sm"
+								<?php else: ?>
+									class="btn btn-default moretwo-btn btn-sm"
+								<?php endif ?>
+								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"> >2 hours</i>
+								<span class="moretwo btn alert-danger disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php 
+								$hh = getMoreTwo($postid); 
+								if($hh==NULL){
+									echo "0";
+								}else{echo $hh;}
+								?></span>
+							</div> 
 
-								<hr>
-								<p class="feedtxt"><b>AGE GROUP</b></p>
-								<p class="feedtxt">What age range group did you work with?</p>
+							<hr>
+							<p class="feedtxt"><b>AGE GROUP</b></p>
+							<p class="feedtxt">What age range group did you work with?</p>
 
-								<div class="btn-group">
-									<i class="beginnertxt" <?php if (userBiggnerAge($userid, $postid)): ?>
-									class="btn btn-success agebignner-btn btn-sm"
-									<?php else: ?>
-										class="btn btn-default agebignner-btn btn-sm"
-									<?php endif ?>
-									data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">Beginner</i>
-									<span class="agebiggner btn alert-success disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php
-									$jj = getBiggnerAge($postid);
-									if($jj="null"){
-										echo "0";
-									}else{echo $jj;}
-									?></span>
-									&nbsp;&nbsp;&nbsp;
-									<i class="beginnertxt" <?php if (userInterAge($userid, $postid)): ?>
-									class="btn btn-warning ageinter-btn btn-sm"
-									<?php else: ?>
-										class="btn btn-default ageinter-btn btn-sm"
-									<?php endif ?>
-									data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">Intermediate</i>
-									<span class="ageinter btn alert-warning disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php
-									$kk = getInterAge($postid); 
-									if($kk="null"){
-										echo "0";
-									}else{echo $kk;}
-									?></span>
+							<div class="btn-group">
+								<i class="beginnertxt"<?php if (userBiggnerAge($userid, $postid)): ?>
+								class="btn btn-success agebignner-btn btn-sm"
+								<?php else: ?>
+									class="btn btn-default agebignner-btn btn-sm"
+								<?php endif ?>
+								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">Beginner</i>
+								<span class="agebiggner btn alert-success disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php
+								$jj = getBiggnerAge($postid);
+								//var_dump($jj);
+								if(empty($jj)){
+									echo "0";
+								}else{echo $jj;}
+								?></span>
+								&nbsp;&nbsp;&nbsp;
+								<i class="beginnertxt"<?php if (userInterAge($userid, $postid)): ?>
+								class="btn btn-warning ageinter-btn btn-sm"
+								<?php else: ?>
+									class="btn btn-default ageinter-btn btn-sm"
+								<?php endif ?>
+								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">Intermediate</i>
+								<span class="ageinter btn alert-warning disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php
+								$kk == getInterAge($postid); 
+								if(empty($kk)){
+									echo "0";
+								}else{echo $kk;}
+								?></span>
 
-									&nbsp;&nbsp;&nbsp;
-									<i class="beginnertxt" <?php if (userAdvanceAge($userid, $postid)): ?>
-									class="btn btn-danger ageadvance-btn btn-sm"
-									<?php else: ?>
-										class="btn btn-default ageadvance-btn btn-sm"
-									<?php endif ?>
-									data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">Advanced</i>
-									<span class="ageadvance btn alert-danger disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php  
-									$ll = getAdvanceAge($postid); 
-									if($ll="null"){
-										echo "0";
-									}else{echo $ll;}
-									?></span>
-								</div>
-
-
+								&nbsp;&nbsp;&nbsp;
+								<i class="beginnertxt"<?php if (userAdvanceAge($userid, $postid)): ?>
+								class="btn btn-danger ageadvance-btn btn-sm"
+								<?php else: ?>
+									class="btn btn-default ageadvance-btn btn-sm"
+								<?php endif ?>
+								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">Advanced</i>
+								<span class="ageadvance btn alert-danger disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php  
+								$ll == getAdvanceAge($postid); 
+							//var_dump($ll);
+								if(empty($ll)){
+									echo "0";
+								}else{echo $ll;}
+								?></span>
 							</div>
 
 
+						</div>
+
+						
 
 </div>
 
 
 
+	<?php 
+	$next_post = get_next_post(); ?>
 
+	<?php
+		
+		if (!empty( $next_post )): ?>
+			
+			<hr>
+<div class="card-header border-0 py-3 d-flex align-items-center my-3">
 
+	<img src="<?php echo get_field('featured_image', $next_post->ID); ?> " style="width:64px;" class="align-self-start mr-3">
+	<div>
+		<h4 class="intro-title mb-0" style="color:#9AA5B1;">Next activity</h4>
+		<h6 class="intro-steam"></h6>
 
+		
 
-			<a href="<?php echo esc_url( get_permalink( $next_post->ID ) ); ?>"
-				"><?php echo esc_attr( $next_post->post_title ); ?></a>
-
-			</h6>			</div>
-		<?php endif; ?>
-	</div>
-	<hr>
-
+			<a href="<?php echo esc_url( get_permalink( $next_post->ID ) ); ?>"><?php echo esc_attr( $next_post->post_title ); ?></a>
+		
+	</h6>			</div>
+<?php endif; ?>
+</div>
+<hr>
 </div>
 </div>
 </div>
 </section>
-
 <section class="my-5">
 	<div class="container">
 		<h2 class="headtitle">Activity Tried & Tested</h2>
@@ -512,42 +557,32 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8">
-				<div class="card" style="background: #FFFFFF;box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 10px;">
-
-
-					<div class="card-body">
-
-
-
-
-						<?php
+	<div class="card" style="background: #FFFFFF;box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 10px;">
+<div class="card-body">
+<?php
 // If comments are open or we have at least one comment, load up the comment template.
-						if ( comments_open() || get_comments_number() ) {
-							?>
-							<div style="overflow-y: scroll; height:300px;">
-								<?php comments_template(); ?>
-							</div>
-						<?php	} ?>
-
-
-						<div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
-							<img src="<?php echo get_avatar_url($current_user->ID); ?>" class="rounded-circle align-self-start mr-3" style="width:40px;">
-							<div>
-								<div class="form-group green-border-focus">
-									<textarea class="form-control col-xs-12" id="exampleFormControlTextarea5"  rows="7" cols="80" style="color:#7B8794">
-										What went well or or did't go well for me with this activity was...
-									</textarea>
-
-									<button type="button" class="btn btn-outline-warning my-3" style="background: #EE603B;box-shadow: 0px 5px 15px rgba(25, 70, 93, 0.05);border-radius: 100px;font-family: Lato;font-style: normal;font-weight: bold font-size: 12px;line-height: 24px;color: #fff;">Add Comment</button>
+								if ( comments_open() || get_comments_number() ) {
+									?>
+									<div style="overflow-y: scroll; height:300px;">
+									<?php comments_template(); ?>
+								</div>
+							<?php	} ?>
+			
+								
+<div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
+<img src="<?php echo get_avatar_url($current_user->ID); ?>" class="rounded-circle align-self-start mr-3" style="width:40px;">
+<div>
+<div class="form-group green-border-focus">
+<textarea class="form-control col-xs-12" id="exampleFormControlTextarea5"  rows="7" cols="80" style="color:#7B8794">
+What went well or or did't go well for me with this activity was...
+</textarea>
+<button type="button" class="btn btn-outline-warning my-3" style="background: #EE603B;box-shadow: 0px 5px 15px rgba(25, 70, 93, 0.05);border-radius: 100px;font-family: Lato;font-style: normal;font-weight: bold font-size: 12px;line-height: 24px;color: #fff;">Add Comment</button>
+										</div>
+									</div>
 								</div>
 							</div>
-
-						</div>
-					</div>
-				</div>
+	</div>
 			</div>
-
-
 			<div class="col-md-4">
 				<h2 class="euneed pt-3">Community Contributor ....</h2>
 				<p class="desc-text">Become a contributor and let the community know what worked or didn't work for you for you pre, post, or during this activity with the young people.</p>
@@ -556,10 +591,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 					<li class="desc-text"><i class="fa-li fa fa-check-square"></i>What Worked well for your group?</li>
 					<li class="desc-text"><i class="fa-li fa fa-check-square"></i>Did you make any accessiblity adjustments?</li>
 					<li class="desc-text"><i class="fa-li fa fa-check-square"></i>Points of frustration you overcame?</li>
-
-
 				</div>
 			</div>
 		</div>
 	</section>
-
