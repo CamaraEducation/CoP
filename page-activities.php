@@ -312,7 +312,7 @@ function searchPosts($maxPosts,$search_topic,$search_level,$search_tools,$search
     }
 
     ?>
-    <div class="card-deck" style="min-height:400px;">
+    <div class="card-deck">
         <?php
         $count=0;
 foreach($Searchposts as $post): // begin cycle through posts of this taxonmy
@@ -321,7 +321,7 @@ setup_postdata($post); //set up post data for use in the loop (enables the_title
 
 <div class="col-md-4">
 
-    <div class="card border-0" style="margin-bottom:30px;box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);">   
+    <div class="card border-0" style="margin-bottom:30px;box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05); width: 23rem;">   
         <img class="card-img-top cardback" src="<?php the_field('featured_image'); ?>"  width="279px" height="251px" alt="Card image cap">
 
 

@@ -314,7 +314,7 @@ if ( $latestActivities ) {
 foreach ( $latestActivities as $post ) :
 ?>
 <div class="col-md-4">
-<div class="card scard1"> 
+<div class="card scard1" style="width: 23rem;"> 
 <img class="card-img-top cardback" src="<?php the_field('featured_image'); ?>"  width="279px" height="251px" alt="Card image cap">
 
 
