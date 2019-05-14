@@ -375,10 +375,10 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 								<p class="feedtxt">How would you rate the level of this activity?</p>
 
 								<div class="btn-group">
-									<i class="beginnertxt" <?php if (userBiggner($userid, $postid)): ?>	
-									class="btn btn-success biggner-btn btn-sm"
+									<i<?php if (userBiggner($userid, $postid)): ?>	
+									class="btn btn-success biggner-btn btn-sm beginnertxt"
 									<?php else: ?>
-										class="btn btn-default biggner-btn btn-sm"
+										class="btn btn-default biggner-btn btn-sm beginnertxt"
 									<?php endif ?>
 									data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">
 								beginner</i>
@@ -390,10 +390,10 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 								?></span>
 
 								&nbsp;&nbsp;&nbsp;
-								<i class="beginnertxt" <?php if (userInter($userid, $postid)): ?>
-								class="btn btn-warning inter-btn btn-sm"
+								<i<?php if (userInter($userid, $postid)): ?>
+								class="btn btn-warning inter-btn btn-sm beginnertxt"
 								<?php else: ?>
-									class="btn btn-default inter-btn btn-sm"
+									class="btn btn-default inter-btn btn-sm beginnertxt"
 								<?php endif ?>
 								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">intermidiate</i>
 								<span class="inters btn alert-warning disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php
@@ -404,10 +404,10 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 								?></span>
 
 								&nbsp;&nbsp;&nbsp;
-								<i class="beginnertxt" <?php if (userAdvance($userid, $postid)): ?>
-								class="btn btn-danger advance-btn btn-sm"
+								<i <?php if (userAdvance($userid, $postid)): ?>
+								class="btn btn-danger advance-btn btn-sm beginnertxt"
 								<?php else: ?>
-									class="btn btn-default advance-btn btn-sm"
+									class="btn btn-default advance-btn btn-sm beginnertxt"
 								<?php endif ?>
 								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">advanced</i>
 								<span class="advances btn alert-danger disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php   
@@ -422,10 +422,10 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 							<p class="feedtxt"><b>TIME</b></p>
 							<p class="feedtxt">How long did this activity take with your group?</p>
 							<div class="btn-group">
-								<i class="beginnertxt" <?php if (userLessOne($userid, $postid)): ?>
-								class="btn btn-success lessone-btn btn-sm"
+								<i <?php if (userLessOne($userid, $postid)): ?>
+								class="btn btn-success lessone-btn btn-sm beginnertxt"
 								<?php else: ?>
-									class="btn btn-default lessone-btn btn-sm"
+									class="btn btn-default lessone-btn btn-sm beginnertxt"
 								<?php endif ?>
 								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">
 								< 1 hour</i>
@@ -437,10 +437,10 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 								?></span>
 
 								&nbsp;&nbsp;&nbsp;
-								<i class="beginnertxt" <?php if (userOneToTwo($userid, $postid)): ?>
-								class="btn btn-warning onetotwo-btn btn-sm"
+								<i <?php if (userOneToTwo($userid, $postid)): ?>
+								class="btn btn-warning onetotwo-btn btn-sm beginnertxt"
 								<?php else: ?>
-									class="btn btn-default onetotwo-btn btn-sm"
+									class="btn btn-default onetotwo-btn btn-sm beginnertxt"
 								<?php endif ?>
 								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">1 - 2 hours</i>
 								<span class="onetotwo btn alert-warning disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php 
@@ -451,10 +451,10 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 								?></span>
 
 								&nbsp;&nbsp;&nbsp;
-								<i class="beginnertxt" <?php if (userMoreTwo($userid, $postid)): ?>
-								class="btn btn-danger moretwo-btn btn-sm"
+								<i <?php if (userMoreTwo($userid, $postid)): ?>
+								class="btn btn-danger moretwo-btn btn-sm beginnertxt"
 								<?php else: ?>
-									class="btn btn-default moretwo-btn btn-sm"
+									class="btn btn-default moretwo-btn btn-sm beginnertxt"
 								<?php endif ?>
 								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"> >2 hours</i>
 								<span class="moretwo btn alert-danger disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php 
@@ -470,10 +470,10 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 							<p class="feedtxt">What age range group did you work with?</p>
 
 							<div class="btn-group">
-								<i class="beginnertxt"<?php if (userBiggnerAge($userid, $postid)): ?>
-								class="btn btn-success agebignner-btn btn-sm"
+								<i<?php if (userBiggnerAge($userid, $postid)): ?>
+								class="btn btn-success agebignner-btn btn-sm beginnertxt"
 								<?php else: ?>
-									class="btn btn-default agebignner-btn btn-sm"
+									class="btn btn-default agebignner-btn btn-sm beginnertxt"
 								<?php endif ?>
 								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">Beginner</i>
 								<span class="agebiggner btn alert-success disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php
@@ -484,10 +484,10 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 								}else{echo $jj;}
 								?></span>
 								&nbsp;&nbsp;&nbsp;
-								<i class="beginnertxt"<?php if (userInterAge($userid, $postid)): ?>
-								class="btn btn-warning ageinter-btn btn-sm"
+								<i <?php if (userInterAge($userid, $postid)): ?>
+								class="btn btn-warning ageinter-btn btn-sm beginnertxt"
 								<?php else: ?>
-									class="btn btn-default ageinter-btn btn-sm"
+									class="btn btn-default ageinter-btn btn-sm beginnertxt"
 								<?php endif ?>
 								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">Intermediate</i>
 								<span class="ageinter btn alert-warning disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php
@@ -498,10 +498,10 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 								?></span>
 
 								&nbsp;&nbsp;&nbsp;
-								<i class="beginnertxt"<?php if (userAdvanceAge($userid, $postid)): ?>
-								class="btn btn-danger ageadvance-btn btn-sm"
+								<i<?php if (userAdvanceAge($userid, $postid)): ?>
+								class="btn btn-danger ageadvance-btn btn-sm beginnertxt"
 								<?php else: ?>
-									class="btn btn-default ageadvance-btn btn-sm"
+									class="btn btn-default ageadvance-btn btn-sm beginnertxt"
 								<?php endif ?>
 								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">Advanced</i>
 								<span class="ageadvance btn alert-danger disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php  

@@ -1344,7 +1344,7 @@ text-transform: uppercase;
 color: #3E4C59;
 }
 .beginnertxt{
-font-family: Lato;
+font-family: Lato !important;
 font-style: normal;
 font-weight: normal;
 font-size: 12px;
@@ -1352,7 +1352,6 @@ line-height: 16px;
 /* identical to box height, or 133% */
 text-align: center;
 text-transform: lowercase;
-color: #7B8794;
 }
 .activtitle{
 font-family: Lato;
