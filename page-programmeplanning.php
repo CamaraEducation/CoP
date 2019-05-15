@@ -21,10 +21,10 @@
 ///loop though the types 
 
             ?>
- 
+
             <div class="btn-group ml-2">
               <a href="#<?php echo  $term->name; ?>">        
-                <button type="button" class="btn" style="border: 1px solid #3E4C59;box-sizing: border-box;border-radius: 100px;">
+                <button type="button" class="btn ppfilter" style="border: 1px solid #3E4C59;box-sizing: border-box;border-radius: 100px;">
                     <?php echo $term->name; ?>
                 </button>
                 
@@ -43,15 +43,15 @@ $programmePlanningType = get_terms('programme_planning_type');
 
 foreach( $programmePlanningType as $Ptype ):
     ?>            
- 
 
-  <a name="<?php echo $Ptype->name ?>"></a>
-  
+
+    <a name="<?php echo $Ptype->name ?>"></a>
+
 
     <section class="my-5">
         <div class="container">
 
-            <h2 class="headtitle"><?php echo $Ptype->name ?></h2>
+            <h2 class="pptitle"><?php echo $Ptype->name ?></h2>
             <hr>
 
         </div>
@@ -66,20 +66,21 @@ foreach( $programmePlanningType as $Ptype ):
                 </div>
                 <div class="col-md-10">
 
-                    <div class="row">
+                    <div class="container">
+                        <div class="card-deck">
 
-                        <?php                         
-                        $posts = get_posts(array(
-                            'post_type' => 'programme_planning',
+                            <?php                         
+                            $posts = get_posts(array(
+                                'post_type' => 'programme_planning',
 
-                            'tax_query' => array(
-                                'relation' => 'AND',
-                                array(
-                                    'taxonomy' => 'programme_planning_type',
-                                    'field' => 'name',
-                                    'terms' => array($Ptype->name )
-                                )
-                            ),
+                                'tax_query' => array(
+                                    'relation' => 'AND',
+                                    array(
+                                        'taxonomy' => 'programme_planning_type',
+                                        'field' => 'name',
+                                        'terms' => array($Ptype->name )
+                                    )
+                                ),
 
             'numberposts' => 6, // to show all posts in this taxonomy, could also use 'numberposts' => -1 instead
         ));
@@ -90,26 +91,32 @@ foreach( $programmePlanningType as $Ptype ):
 
             $docPathway = get_term_by( 'id', (int) $docPathway_id, 'pathway');
 
-       
-            ?>        
-  <a href="<?php the_field('document_link'); ?>" class="download-card" target="new">
-            <div class="card ml-2 mt-2" style="width:280px;border: none; margin-right: 12px;">
-             <img class="card-img-top" src="<?php the_field('programme_cover'); ?>" alt="Card image cap" style="width:280px; height:368px;">
-			 
-             <div class="card-body">
-                <p class="program-title" style="font-size:16px;"><?php the_title() ?></p>
-              Download PDF +<br>
-                <div class="badge card-badge1 mt-2" style="line-height:24px;"><?php echo $Ptype->name;?></div>
-				
-                <span class="badge badge-primary" style="line-height:24px;background-color:<?php echo $current_pathway_color;?>"> <?php echo $docPathway->name; ?></span>
-            </div>
-              
-        </div>
-</a>
-    <?php endforeach; ?>
-</div>
-</div>          
 
+            ?>        
+            
+            <div class="col-md-4">
+                <a href="<?php the_field('document_link'); ?>" class="download-card" target="new">
+                    <div class="card ppcard mb-3">
+                        <img class="card-img-top" src="<?php the_field('programme_cover'); ?>" alt="Card image cap" style="height:368px;">
+
+                        <div class="card-body">
+                            <p class="ppbig"><?php the_title() ?></p>
+                            <p class="ppsmall">Download PDF +</p>
+                            <div class="badge card-badge1 mt-2" style="min-height: 30px; line-height:24px;"><?php echo $Ptype->name;?></div>
+
+                            <span class="badge badge-primary" style="min-height: 30px; line-height:24px;background-color:<?php echo $current_pathway_color;?>"> <?php echo $docPathway->name; ?></span>
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+
+        <?php endforeach; ?>
+    </div>
+</div>          
+</div>
+</div>
+</div>
 </section>
 
 <?php endforeach; ?>

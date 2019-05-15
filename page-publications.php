@@ -1,5 +1,4 @@
 <?php get_header();?>
-
 <!--  Hero Section -->
 <section id="hero">
     <div class="hero-container" style="background: #993C9F; height: 295px;">
@@ -25,9 +24,10 @@
 
             <div class="btn-group ml-2">
               <a href="#<?php echo  $term->name; ?>">        
-                <button type="button" class="btn" style="border: 1px solid #3E4C59;box-sizing: border-box;border-radius: 100px;">
+                <button type="button" class="btn ppfilter" style="border: 1px solid #3E4C59;box-sizing: border-box;border-radius: 100px;">
                     <?php echo $term->name; ?>
                 </button>
+                
             </a>
         </div>
         <?php
@@ -42,17 +42,17 @@ $publicationType = get_terms('publication_type');
 
 
 
-  
+
 foreach( $publicationType as $Ptype ):
     ?>            
 
-<a name="<?php echo $Ptype->name ?>"></a>
-  
+    <a name="<?php echo $Ptype->name ?>"></a>
+
 
     <section class="my-5">
         <div class="container">
 
-            <h2 class="headtitle"><?php echo $Ptype->name ?></h2>
+            <h2 class="pptitle"><?php echo $Ptype->name ?></h2>
 
             <hr>
         </div>
@@ -66,21 +66,22 @@ foreach( $publicationType as $Ptype ):
                     </p>
                 </div>
                 <div class="col-md-10">
-                    <div class="row">
 
+                    <div class="container">
+                        <div class="card-deck">
 
-                        <?php                         
-                        $posts = get_posts(array(
-                            'post_type' => 'publication',
+                            <?php                         
+                            $posts = get_posts(array(
+                                'post_type' => 'publication',
 
-                            'tax_query' => array(
-                                'relation' => 'AND',
-                                array(
-                                    'taxonomy' => 'publication_type',
-                                    'field' => 'name',
-                                    'terms' => array($Ptype->name )
-                                )
-                            ),
+                                'tax_query' => array(
+                                    'relation' => 'AND',
+                                    array(
+                                        'taxonomy' => 'publication_type',
+                                        'field' => 'name',
+                                        'terms' => array($Ptype->name )
+                                    )
+                                ),
 
             'numberposts' => 6, // to show all posts in this taxonomy, could also use 'numberposts' => -1 instead
         ));
@@ -88,30 +89,36 @@ foreach( $publicationType as $Ptype ):
             setup_postdata($post); //set up post data for use in the loop (enables the_title(), etc without specifying a post ID)
             //$dan = get_field('document_pathway', $Ptype->taxonomy.'_'.$Ptype->term_id);
 
-              $docPathway_id = get_field('document_pathway');
+            $docPathway_id = get_field('document_pathway');
 
             $docPathway = get_term_by( 'id', (int) $docPathway_id, 'pathway');
 
             ?>        
- <a href="<?php the_field('document_link'); ?>" class="download-card" target="new">
-            <div class="card ml-2 mt-2" style="width: 280px;border: none;margin-right: 12px;">
+            <div class="col-md-4">
+                <a href="<?php the_field('document_link'); ?>" class="download-card" target="new">
+                    <div class="card ppcard mb-3">
+                        <img class="card-img-top" src="<?php the_field('programme_cover'); ?>" alt="Card image cap" style="height:368px;">
 
-                <img class="card-img-top" src="<?php the_field('programme_cover'); ?>" alt="Card image cap" style="width:280px;height:368px;">
-				
-                <div class="card-body">
+                        <div class="card-body">
 
-                    <p class="program-title"><?php the_title(); //var_dump($tax_terms);?></p>
-                   Download PDF +<br>
-                    <div class="badge card-badge1 mt-2" style="line-height:24px;"><?php echo $Ptype->name;?></div>
-                    <span class="badge badge-primary" style="line-height:24px;background-color:<?php echo $current_pathway_color;?>"> <?php echo $docPathway; ?></span>
-                </div>
+                            <p class="ppbig"><?php the_title() ?></p>
+                            <p class="ppsmall">Download PDF +</p>
+                            <div class="badge card-badge1 mt-2" style="min-height: 30px;line-height:24px;"><?php echo $Ptype->name;?></div>
+                            <span class="badge badge-primary" style="min-height: 30px;line-height:24px;background-color:<?php echo $current_pathway_color;?>"> <?php echo $docPathway; ?></span>
+                        </div>
+
+                    </div>
+                </a>
             </div>
-</a>
+
         <?php endforeach; ?>
     </div>
-</div>                
-   
+</div>          
+</div>
+</div>
+</div>
 </section>
 
 <?php endforeach; ?>
+
 <?php get_footer();?>
