@@ -337,7 +337,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 									&nbsp;&nbsp;&nbsp;&nbsp;
 									<span class="dislikes"><?php 
 									$aa = getsatone($postid);
-									if($aa="null"){
+									if($aa==NULL){
 										echo "0";
 									}else{echo $aa;}
 									?></span>
@@ -458,7 +458,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 								<?php endif ?>
 								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"> >2 hours</i>
 								<span class="moretwo btn alert-danger disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php 
-								$hh = getMoreTwo($postid); 
+								$hh = getMoreTwo($postid);
 								if($hh==NULL){
 									echo "0";
 								}else{echo $hh;}
@@ -478,8 +478,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">Beginner</i>
 								<span class="agebiggner btn alert-success disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php
 								$jj = getBiggnerAge($postid);
-								//var_dump($jj);
-								if(empty($jj)){
+								if($jj==NULL){
 									echo "0";
 								}else{echo $jj;}
 								?></span>
@@ -491,23 +490,22 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 								<?php endif ?>
 								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">Intermediate</i>
 								<span class="ageinter btn alert-warning disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php
-								$kk == getInterAge($postid); 
-								if(empty($kk)){
+								$kk = getInterAge($postid); 
+								if($kk==NULL){
 									echo "0";
 								}else{echo $kk;}
 								?></span>
 
 								&nbsp;&nbsp;&nbsp;
 								<i<?php if (userAdvanceAge($userid, $postid)): ?>
-								class="btn btn-danger ageadvance-btn btn-sm beginnertxt"
+								class="btn  btn-danger ageadvance-btn btn-sm beginnertxt"
 								<?php else: ?>
 									class="btn btn-default ageadvance-btn btn-sm beginnertxt"
 								<?php endif ?>
 								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">Advanced</i>
 								<span class="ageadvance btn alert-danger disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php  
-								$ll == getAdvanceAge($postid); 
-							//var_dump($ll);
-								if(empty($ll)){
+								$ll = getAdvanceAge($postid); 
+								if($ll==NULL){
 									echo "0";
 								}else{echo $ll;}
 								?></span>
