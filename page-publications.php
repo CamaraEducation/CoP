@@ -104,7 +104,7 @@ foreach( $publicationType as $Ptype ):
                             <p class="ppbig"><?php the_title() ?></p>
                             <p class="ppsmall">Download PDF +</p>
                             <div class="badge card-badge1 mt-2" style="min-height: 30px;line-height:24px;"><?php echo $Ptype->name;?></div>
-                            <span class="badge badge-primary" style="min-height: 30px;line-height:24px;background-color:<?php echo $current_pathway_color;?>"> <?php echo $docPathway; ?></span>
+                            <span class="badge badge-primary" style="min-height: 30px;line-height:24px;background-color:<?php echo $current_pathway_color;?>"> <?php echo $docPathway->name; ?></span>
                         </div>
 
                     </div>
