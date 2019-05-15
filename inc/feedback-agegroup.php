@@ -111,21 +111,6 @@ function agegroup_ajax_request(){
 	}
 } //end of function 
 
-function getRatingAge($id)
-{
-	global $wpdb;
-	$rating = array();
-	$agebiggner = $wpdb->get_var( "SELECT sum(age_group = 1) FROM ".$wpdb->prefix."feedback WHERE post_id = '".$id."'" );
-	$ageinter = $wpdb->get_var( "SELECT sum(age_group = 2) FROM ".$wpdb->prefix."feedback WHERE post_id = '".$id."'" );
-	$ageadvance = $wpdb->get_var( "SELECT sum(age_group = 3) FROM ".$wpdb->prefix."feedback WHERE post_id = '".$id."'" );
-	$rating = [
-		'agebiggner' => $agebiggner[0],
-		'ageinter' => $ageinter[0],
-		'ageadvance' => $ageadvance[0]
-	];
-	return json_encode($rating);
-}
-
 function userBiggnerAge($userid, $postid)
 {
 	global $wpdb;
@@ -141,7 +126,7 @@ function getBiggnerAge($postid)
 	global $wpdb;
 	$valu = $wpdb->get_var( "SELECT sum(age_group = 1) FROM ".$wpdb->prefix."feedback WHERE post_id = '".$postid."'" );
 //return json_encode($valu, JSON_NUMERIC_CHECK);
-	return $value;
+	return $valu;
 
 }
 ///////// End of If the user is Sad/////////////////
@@ -180,8 +165,21 @@ function getAdvanceAge($postid)
 	global $wpdb;
 	$valu = $wpdb->get_var( "SELECT sum(age_group = 3) FROM ".$wpdb->prefix."feedback WHERE post_id = '".$postid."'" );
 //return json_encode($valu, JSON_NUMERIC_CHECK);
-	return $value;
+	return $valu;
 
 }
-
+function getRatingAge($id)
+{
+	global $wpdb;
+	$rating = array();
+	$agebiggner = $wpdb->get_var( "SELECT sum(age_group = 1) FROM ".$wpdb->prefix."feedback WHERE post_id = '".$id."'" );
+	$ageinter = $wpdb->get_var( "SELECT sum(age_group = 2) FROM ".$wpdb->prefix."feedback WHERE post_id = '".$id."'" );
+	$ageadvance = $wpdb->get_var( "SELECT sum(age_group = 3) FROM ".$wpdb->prefix."feedback WHERE post_id = '".$id."'" );
+	$rating = [
+		'agebiggner' => $agebiggner[0],
+		'ageinter' => $ageinter[0],
+		'ageadvance' => $ageadvance[0]
+	];
+	return json_encode($rating);
+}
 ?>

@@ -186,14 +186,14 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 				<div class="container">
 					<div class="row" >
 						<div class="col-md-8">
-							<div class="col-md-11 bg-white actcardw">
+							<div class="col-md-11 bg-white actcardw" style="padding-top: 5px;box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 8px;">
 								<div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
 									<?php
 									$instructor = get_post_meta($post->ID, 'instructor_name', true);
-									$user = get_user_by( 'id', $instructor );
+									$user = get_user_by( 'id', $instructor);
 									?>
 
-									<img src="<?php echo get_avatar_url($instructor); ?>" class="rounded-circle align-self-start mr-3" width="60" style="margin-top:40px;margin-left:40px;">
+									<img src="<?php echo get_avatar_url($instructor); ?>" class="rounded-circle align-self-start mr-3" width="60" style="margin-top:0px;margin-left:0px;">
 
 
 
@@ -221,14 +221,15 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 									<div class="activpar"><?php the_content(); ?></div>
 								</div>
 							</div>
-							<div class="col-md-11 bg-white actcardw">
+							<div class="col-md-11 bg-white actcardw"  style="box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 8px;">
 								<div class="container">
 									<p class="activtitle"><b>ACTIVITY LEARNING OUTCOMES </b></p>
 
 									<div class="activpar"><?php echo get_post_meta($post->ID, 'learning_outcomes', true); ?></div>
 								</div>
 							</div>
-							<div class="col-md-11 bg-white actcardw">
+							<div class="col-md-11 bg-white actcardw" style="padding-top: 5px;box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 8px;">
+								
 								<div class="container">
 
 									<p class="activtitle"><b>MATERIALS & EQUIPMENT NEEDED</b></p>
@@ -337,7 +338,9 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 									&nbsp;&nbsp;&nbsp;&nbsp;
 									<span class="dislikes"><?php 
 									$aa = getsatone($postid);
-									if($aa=="null"){
+
+									if($aa==NULL){
+
 										echo "0";
 									}else{echo $aa;}
 									?></span>
@@ -459,7 +462,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 								<?php endif ?>
 								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"> >2 hours</i>
 								<span class="moretwo btn alert-danger disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php 
-								$hh = getMoreTwo($postid); 
+								$hh = getMoreTwo($postid);
 								if($hh==NULL){
 									echo "0";
 								}else{echo $hh;}
@@ -479,8 +482,8 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">Beginner</i>
 								<span class="agebiggner btn alert-success disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php
 								$jj = getBiggnerAge($postid);
-								//var_dump($jj);
-								if($jj == NULL){
+
+								if($jj==NULL){
 									echo "0";
 								}else{echo $jj;}
 								?></span>
@@ -492,25 +495,26 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 								<?php endif ?>
 								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">Intermediate</i>
 								<span class="ageinter btn alert-warning disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php
-								$kk == getInterAge($postid); 
-								echo $kk;
-								
-								if($kk == NULL){
+
+								$kk = getInterAge($postid); 
+								if($kk==NULL){
+
 									echo "0";
 								}else{echo $kk;}
 								?></span>
 
 								&nbsp;&nbsp;&nbsp;
 								<i<?php if (userAdvanceAge($userid, $postid)): ?>
-								class="btn btn-danger ageadvance-btn btn-sm beginnertxt"
+								class="btn  btn-danger ageadvance-btn btn-sm beginnertxt"
 								<?php else: ?>
 									class="btn btn-default ageadvance-btn btn-sm beginnertxt"
 								<?php endif ?>
 								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">Advanced</i>
 								<span class="ageadvance btn alert-danger disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php  
-								$ll == getAdvanceAge($postid); 
-							var_dump($ll);
-								if($ll == NULL){
+
+								$ll = getAdvanceAge($postid); 
+								if($ll==NULL){
+
 									echo "0";
 								}else{echo $ll;}
 								?></span>
