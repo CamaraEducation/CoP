@@ -337,7 +337,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 									&nbsp;&nbsp;&nbsp;&nbsp;
 									<span class="dislikes"><?php 
 									$aa = getsatone($postid);
-									if($aa="null"){
+									if($aa=="null"){
 										echo "0";
 									}else{echo $aa;}
 									?></span>
@@ -350,7 +350,8 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 									<?php endif ?>
 									data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>"></i>
 									&nbsp;&nbsp;&nbsp;&nbsp;
-									<span class="likes"><?php $bb = getsattwo($postid);
+									<span class="likes">
+										<?php $bb = getsattwo($postid);
 									if($bb==NULL){
 										echo "0";
 									}else{echo $bb;} ?></span>
@@ -479,7 +480,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 								<span class="agebiggner btn alert-success disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php
 								$jj = getBiggnerAge($postid);
 								//var_dump($jj);
-								if(empty($jj)){
+								if($jj == NULL){
 									echo "0";
 								}else{echo $jj;}
 								?></span>
@@ -492,7 +493,9 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">Intermediate</i>
 								<span class="ageinter btn alert-warning disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php
 								$kk == getInterAge($postid); 
-								if(empty($kk)){
+								echo $kk;
+								
+								if($kk == NULL){
 									echo "0";
 								}else{echo $kk;}
 								?></span>
@@ -506,8 +509,8 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 								data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">Advanced</i>
 								<span class="ageadvance btn alert-danger disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php  
 								$ll == getAdvanceAge($postid); 
-							//var_dump($ll);
-								if(empty($ll)){
+							var_dump($ll);
+								if($ll == NULL){
 									echo "0";
 								}else{echo $ll;}
 								?></span>
