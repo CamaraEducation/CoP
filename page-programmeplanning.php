@@ -97,7 +97,7 @@ foreach( $programmePlanningType as $Ptype ):
             <div class="col-md-4">
                 <a href="<?php the_field('document_link'); ?>" class="download-card" target="new">
                     <div class="card ppcard mb-3">
-                        <img class="card-img-top" src="<?php the_field('programme_cover'); ?>" alt="Card image cap" style="height:368px;">
+                        <img class="card-img-top" src="<?php the_field('programme_cover'); ?>" alt="Card image cap" style="max-height:368px; min-height: 368px;">
 
                         <div class="card-body">
                             <p class="ppbig"><?php the_title() ?></p>
