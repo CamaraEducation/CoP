@@ -303,7 +303,7 @@ return $term_single->name; //do something here
 }
 ?>
 <div class="container">
-<div class="card-deck">
+<div class="card-deck" style="margin-bottom: 80px !important;">
 <?php
 //show latest psots
 $maxPosts = 3;
@@ -402,7 +402,7 @@ for($x = 0; $x < $arrlength; $x++) {
 <div class="col-md-6 my-2">
 
 <div class="card-custom lastcc">
-<img src="<?php echo gettopicImage($topics[$x]); ?>" width="36" style="margin-left:40px;">
+<img src="<?php echo gettopicImage($topics[$x]); ?>" width="36" style="padding-left:40px;">
 
 <span class="intro-steam" style="margin-left:16px;">
 <a class="lastcc-txt" href="activities/?ft=<?php echo $topics[$x] ;?>">
@@ -418,8 +418,8 @@ Activities  </a>
 </div>
 </div>
 
-<div class="col-md-4 my-2">
-<div class="card" style="background-color: #E6EEF3;opacity: 0.78;border: 1px solid #CACCCE;box-sizing: border-box;border-radius: 4px;">
+<div class="col-md-4 my-2" style="margin-bottom: 48px !important;">
+<div class="card ccont">
 <div class="card-body">
 <h3 class="text-on-card toc-text">Community Contributor</h3>
 <p class="cc-title">Create an activity guide</p>

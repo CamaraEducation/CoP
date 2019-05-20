@@ -513,6 +513,7 @@ body hr {
   font-size: 24px;
   line-height: 24px;
   color: #323F4B;
+  margin-bottom: 24px;
 }
 .meet-company-text{
   font-family: Lato;
@@ -555,6 +556,7 @@ body hr {
   font-size: 14px;
   line-height: 16px;
   color: #4F4F4F;
+  margin-bottom: 80px;
 }
 .text-ask-link{
   font-family: Lato;
@@ -926,12 +928,13 @@ body hr {
 .land-login{
   font-family: Lato;
   font-style: normal;
-  font-weight: normal;
-  font-size: 10px;
+  font-weight: bold;
+  font-size: 12px;
   line-height: 14px;
   letter-spacing: 0.03em;
   color: #EE603B;
   border-radius: 10px;
+  text-decoration: underline !important;
 }
 .land-title-page{
   font-family: Lato;
@@ -944,25 +947,36 @@ body hr {
 .land-h1{
   font-family: Lato;
   font-style: normal;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 24px;
   line-height: 36px;
   color: #102A43;
 }
 .land-card{
-  background: #F5F7FA !important;
+  background: #FFFFFF !important;
   border: 1px solid rgba(153, 60, 159, 0.2) !important;
   box-sizing: border-box !important;
   border-radius: 8px !important;
+  margin-left:12px !important;
+  margin-right: 12px !important;
+  height: 266px !important;
+  width: 284px !important;
 }
 .land-card2{
-  width: 282px !important;
-  min-width: 282px !important;
   background: #FFFFFF !important;
   box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05) !important;
   border-radius: 10px !important;
   border: 0px solid rgba(0, 0, 0, 0.125) !important;
-
+}
+.landwidth{
+  width: 282px !important;
+  max-width: 282px !important;
+  height: 96px !important;
+  max-height: 96px !important;
+}
+.landheight{
+  height: 96px !important;
+  max-height: 96px !important;
 }
 .landing-h1{
   font-family: Lato;
@@ -972,6 +986,14 @@ body hr {
   line-height: 36px;
   letter-spacing: 0.03em;
   color: #102A43;
+}
+.landmar{
+  margin-top: 24px !important;
+}
+.landimg{
+  margin-top: 40px;
+  margin-left: 32px;
+  margin-bottom: 32px;
 }
 .act-txt{
   font-family: Lato;
@@ -986,7 +1008,7 @@ body hr {
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
-  line-height: 34px;
+  line-height: 24px;
   letter-spacing: 0.03em;
   color: #323F4B;
 }
@@ -998,6 +1020,7 @@ body hr {
   /* Drop shadow */
   box-shadow: 0px 4px 10px rgba(196, 196, 196, 0.52);
   border-radius: 8px;
+  border: 0px solid rgba(0, 0, 0, 0.125) !important;
   width: 588px;
   height: 288px;
 }
@@ -1264,8 +1287,16 @@ a, a:hover,a:visited, a:focus {
 }
 .cbody{
   margin-left:24px;
-  margin-bottom:32px;
-  min-height:140px;
+  /*margin-bottom:32px;
+  min-height:140px;*/
+}
+.ccont{
+  height:96px;
+  background-color: #F0F2F5;
+  opacity: 0.78;
+  border: 1px solid #CACCCE;
+  box-sizing: border-box;
+  border-radius: 4px;
 }
 .lastcc{
   height:96px;
@@ -1337,6 +1368,7 @@ a, a:hover,a:visited, a:focus {
   /* identical to box height, or 63% */
   color: #243741;
   float: left;
+  margin-bottom:24px;
 }
 .leveltx{
   font-family: Lato;
@@ -1475,21 +1507,21 @@ a, a:hover,a:visited, a:focus {
  width: 18.5rem;
 }
 .ppbig{
-font-family: Lato;
-font-style: normal;
-font-weight: bold;
-font-size: 18px;
-line-height: 18px;
-/* or 100% */
-color: #323F4B;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 18px;
+  /* or 100% */
+  color: #323F4B;
 }
 .ppsmall{
-font-family: Lato;
-font-style: normal;
-font-weight: normal;
-font-size: 16px;
-line-height: 16px;
-/* identical to box height, or 100% */
-text-align: left;
-color: #808991;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
+  /* identical to box height, or 100% */
+  text-align: left;
+  color: #808991;
 }

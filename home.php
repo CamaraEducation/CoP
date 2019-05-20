@@ -24,7 +24,7 @@
 <div class="container mt-5">
 <div class="row h-45">
 <div class="col-md-6 my-auto">
-<h1 class="landing-title">Be inspired.Stay relevant</h1>
+<h1 class="landing-title">Be inspired. Stay Confident</h1>
 <p class="landing-txt">Advance your digital youth work knowledge & skillset with the support of the TechSpace Online Network.</p>
 <div class="row">
 <div class="col-md-5">
@@ -32,7 +32,7 @@
 
 <a href="register" style="color:#ffffff">	SIGN UP TO NETWORK </a>
 </button> 
-<div class="row justify-content-center mt-2">
+<div class="row justify-content-center mt-2 pr-3">
 <a href="login" class="land-login">Login</a>
 </div>
 </div>
@@ -44,23 +44,23 @@
 </div>
 </div>
 
-<div class="col-md-6">
+<div class="col-md-6" style="margin-bottom: 88px;">
 <img src="<?php echo get_template_directory_uri(); ?>/images/landpage.png" alt="" class="img-fluid mx-auto d-block">
 </div>
 
 </div>
 </div>
 
-<div class="container mt-5">
+<div class="container" style="margin-top: 48px;">
 <h1 class="land-h1" align="center">The <b>only online network</b> for youth workers</h1>
 <p class="land-title-page" align="center">The TechSpace Online Network helps youth workers expand and extend their <br>digital youth work knowledge & skillset through the following</p>
 </div>
 
-<div class="container">
+<div class="container" style="margin-top: 48px;">
 <div class="card-deck">
 <div class="card home-box-shadow">
 <div class="col-md-3 mt-4">
-<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/images/outcome.png" alt="Card image cap">
+<img class="img-fluid landimg" src="<?php echo get_template_directory_uri(); ?>/images/outcome.png" alt="Card image cap">
 </div>
 <div class="card-body">
 <h5 class="card-title land-h1">Outcome focused resources</h5>
@@ -69,7 +69,7 @@
 </div>
 <div class="card home-box-shadow">
 <div class="col-md-3 mt-4">
-<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/images/subject.png" alt="Card image cap" width="67" height="67">
+<img class="img-fluid landimg" src="<?php echo get_template_directory_uri(); ?>/images/subject.png" alt="Card image cap" width="67" height="67">
 </div>
 
 <div class="card-body">
@@ -79,7 +79,7 @@
 </div>
 <div class="card home-box-shadow">
 <div class="col-md-3 mt-4">
-<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/images/learn1.png" alt="Card image cap" width="67" height="67">
+<img class="img-fluid landimg" src="<?php echo get_template_directory_uri(); ?>/images/learn1.png" alt="Card image cap" width="67" height="67">
 </div>
 
 <div class="card-body">
@@ -145,7 +145,7 @@
 <div class="col-md-9">
 <div class="card-deck">
 <div class="card land-card">
-<div class="col-md-3 mt-4 fle">
+<div class="col-md-3 mt-4">
 <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/images/landcircleb.png" alt="Card image cap" width="35" height="35">
 </div>
 <div class="card-body">
@@ -224,9 +224,9 @@
 <div class="container" style="margin-top: 80px;">
 <h1 class="landing-h1">Find Resources in Your Area of Interest</h1>
 <div class="row pt-3">
-<div class="col-md-3 mt-3">
-<div class="card land-card2">
-<div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
+<div class="col-md-3 mt-3 landwidth">
+<div class="card land-card2 landheight">
+<div class="card-header border-0 py-3 d-flex align-items-center my-3 bg-white">
 <img src="<?php echo get_template_directory_uri(); ?>/images/actimage1.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
 <div>
 <h4 class="intro-title mb-0" style="color:#9AA5B1;">STEAM</h4>
@@ -236,8 +236,8 @@
 </div>
 </div>
 
-<div class="col-md-3 mt-3">
-<div class="card land-card2">
+<div class="col-md-3 mt-3 landwidth">
+<div class="card land-card2 landheight">
 <div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
 <img src="<?php echo get_template_directory_uri(); ?>/images/actimage1.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
 <div>
@@ -248,8 +248,8 @@
 </div>
 </div>
 
-<div class="col-md-3 mt-3">
-<div class="card land-card2">
+<div class="col-md-3 mt-3 landwidth">
+<div class="card land-card2 landheight">
 <div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
 <img src="<?php echo get_template_directory_uri(); ?>/images/actimage1.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
 <div>
@@ -260,8 +260,8 @@
 </div>
 </div>
 
-<div class="col-md-3 mt-3">
-<div class="card land-card2">
+<div class="col-md-3 mt-3 landwidth">
+<div class="card land-card2 landheight">
 <div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
 <img src="<?php echo get_template_directory_uri(); ?>/images/actimage1.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
 <div>
@@ -274,8 +274,8 @@
 </div>
 
 <div class="row pt-3">
-<div class="col-md-3 mt-3">
-<div class="card land-card2">
+<div class="col-md-3 mt-3 landwidth">
+<div class="card land-card2 landheight">
 <div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
 <img src="<?php echo get_template_directory_uri(); ?>/images/actimage1.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
 <div>
@@ -286,8 +286,8 @@
 </div>
 </div>
 
-<div class="col-md-3 mt-3">
-<div class="card land-card2">
+<div class="col-md-3 mt-3 landwidth">
+<div class="card land-card2 landheight">
 <div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
 <img src="<?php echo get_template_directory_uri(); ?>/images/actimage1.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
 <div>
@@ -298,8 +298,8 @@
 </div>
 </div>
 
-<div class="col-md-3 mt-3">
-<div class="card land-card2">
+<div class="col-md-3 mt-3 landwidth">
+<div class="card land-card2 landheight">
 <div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
 <img src="<?php echo get_template_directory_uri(); ?>/images/actimage1.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
 <div>
@@ -310,8 +310,8 @@
 </div>
 </div>
 
-<div class="col-md-3 mt-3">
-<div class="card land-card2">
+<div class="col-md-3 mt-3 landwidth">
+<div class="card land-card2 landheight">
 <div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
 <img src="<?php echo get_template_directory_uri(); ?>/images/actimage1.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
 <div>
@@ -326,9 +326,9 @@
 </div>
 
 
-<div class="container" style="margin-top: 150px;">
+<div class="container" style="margin-top: 150px; height: 353px; background-image: url(<?php echo get_template_directory_uri(); ?>/images/dotback.png);">
 <div class="row justify-content-center">
-<div class="card act-card-st">
+<div class="card act-card-st mt-5">
 <div class="card-body">
 <h1 class="landing-h1 pt-5" align="center">
 Sign up to the Online TechSpace Network</h1>
