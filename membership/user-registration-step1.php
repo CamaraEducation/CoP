@@ -81,7 +81,7 @@ get_template_part( 'membership/user-registration-step2', 'page' );
 
 								<div class="form-check">
 									<input type="checkbox" class="form-check-input" id="user_18yearsold" name="user_18yearsold" value="YES">
-										By ticking this box you are confirming you are over 18 years of age and you have read and agree to the terms and conditions.
+										By ticking this box you are confirming you are over 18 years of age and you have read and agree to the conditions <a href="" data-toggle="modal" data-target="#termagreementModalLong" style="color:#0000EE;font-weight: bold;">TechSpace Online Network Membership terms and conditions</a>.
 
 										<label class="form-check-label tick-text" for="user_18yearsold"> </label>
 								</div>
@@ -98,11 +98,42 @@ get_template_part( 'membership/user-registration-step2', 'page' );
 
 			</div>
 	
+
+<!-- Modal -->
+<div class="modal fade" id="termagreementModalLong" tabindex="-1" role="dialog" aria-labelledby="termagreementModalLongTitle" aria-hidden="true">
+ 
+ <div class="modal-dialog modal-lg">
+
+<div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">TechSpace Online Network Membership</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        	
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <?php cn_include_content(343); ?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+</div>
+</div>
+
 	</section>
 
 	
 	
 	
+<?php wp_footer();?>
+
+
+<!-- ./Footer -->
+<!-- Bootstrap core JS -->
+
 	
   <?php
 }

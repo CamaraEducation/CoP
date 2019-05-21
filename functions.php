@@ -20,6 +20,15 @@ require_once('inc/feedback-agegroup.php');
 
 
 
+function cn_include_content($pid) {
+	$thepageinquestion = get_post($pid);
+	$content = $thepageinquestion->post_content;
+	$content = apply_filters('the_content', $content);
+	echo $content;
+}
+
+
+
 
 function add_cors_http_header(){
     header("Access-Control-Allow-Origin: *");

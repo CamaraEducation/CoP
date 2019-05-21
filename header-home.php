@@ -38,13 +38,14 @@ $_SESSION[$term->name] =  $thecolor;
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="profile" href="https://gmpg.org/xfn/11" />
-  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-	
-<script src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
 
+<meta charset="<?php bloginfo( 'charset' ); ?>" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="profile" href="https://gmpg.org/xfn/11" />
+
+  <script src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 
 	<?php wp_head(); ?>
 

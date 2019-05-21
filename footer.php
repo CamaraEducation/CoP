@@ -51,7 +51,7 @@
 						<ul class="list-unstyled quick-links">
 							<li class="footer-small-texts"><a href="<?php echo get_site_url(); ?>/directory">TechSpace Directory</a></li>
 							<li class="footer-small-texts"><a href="<?php echo get_template_directory_uri(); ?>/docs/CoPCodeofConduct.pdf" target="new">Community Code of Conduct </a></li>
-							<li class="footer-small-texts"><a data-toggle="modal" data-target="#exampleModal">Contact Us </a></li>
+							<li class="footer-small-texts"><a data-toggle="modal" data-target="#contactModal">Contact Us </a></li>
 						</ul>
 					</div>
 				</div>
@@ -72,8 +72,11 @@
 	</div>
 
 
+
+<!---------------------------///////////////////// CONTACT US FORM ------------------------------------------------>
+
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModallLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered role="document">
 
     <div class="modal-content">
