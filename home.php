@@ -39,7 +39,7 @@
 
 
 <div class="col-md-7 mt-4">
-<p class="land-num">485+ <span class="land-num-txt">Community of educators</span></p>			
+<p class="land-num">600+ <span class="land-num-txt">Community of educators</span></p>			
 </div>
 </div>
 </div>
@@ -52,8 +52,8 @@
 </div>
 
 <div class="container" style="margin-top: 48px;">
-<h1 class="land-h1" align="center">The <b>only online network</b> for youth workers</h1>
-<p class="land-title-page" align="center">The TechSpace Online Network helps youth workers expand and extend their <br>digital youth work knowledge & skillset through the following</p>
+<h1 class="land-h1" align="center">Dedicated to educators designing & delivering digital <br>creativity and STEAM programmes for young people.</h1>
+<p class="land-title-page" align="center">We support educators to help young people to unlock their potential by providing: </p>
 </div>
 
 <div class="container" style="margin-top: 48px;">
