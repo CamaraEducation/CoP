@@ -132,6 +132,20 @@ return $imagePath;
 
 <body <?php body_class(); ?>>
 
+<?php 
+function showCurrentPage ($name){
+$page=basename(get_permalink()); 
+
+if($name == $page) {
+	return "active-custom";
+}else {
+	return "";
+}
+}
+
+?>
+
+
 <nav class="navbar navbar-expand-lg navbar-light bg-white menu-back">
 
 <a class="navbar-brand" href="#"><img src="<?php echo get_template_directory_uri();  ?>/images/techspacelogo.png" class="img-responsive md-avatar size-2" alt="COP"></a>
@@ -140,23 +154,27 @@ return $imagePath;
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item menu-text active-custom">
+				<li class="nav-item menu-text <?php echo showCurrentPage('landing');?>">
 					<a class="nav-link" href="landing">Home
-						<span class="sr-only">(current)</span>
+
+
+
+					
 					</a>
+
 				</li>
-				<li class="nav-item menu-text">
+				<li class="nav-item menu-text <?php echo showCurrentPage('activities'); ?>">
 					<a class="nav-link text-menu" href="<?php echo home_url(); ?>/activities">Activities </a>
 				</li>
-				<li class="nav-item menu-text">
+				<li class="nav-item menu-text <?php echo showCurrentPage('programmeplanning');?>">
 					<a class="nav-link text-menu" href="<?php echo home_url(); ?>/programmeplanning">Programme Planning </a>
 				</li>
 
-				<li class="nav-item menu-text">
+				<li class="nav-item menu-text <?php echo showCurrentPage('training');?>">
 				<a class="nav-link text-menu" href="<?php echo home_url(); ?>/training">Training </a>
 				</li>
 
-				<li class="nav-item menu-text">
+				<li class="nav-item menu-text <?php echo showCurrentPage('publications');?>">
 				<a class="nav-link text-menu" href="<?php echo home_url(); ?>/publications">Publications </a>
 				</li>
 			</ul>
