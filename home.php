@@ -30,7 +30,7 @@
 <div class="col-md-5">
 <button class="land-btn land-btn-txt mt-4">
 
-<a href="register" style="color:#ffffff">	SIGN UP TO NETWORK </a>
+<a href="register" style="color:#ffffff">	 BECOME A MEMBER </a>
 </button> 
 <div class="row justify-content-center mt-2 pr-3">
 <a href="login" class="land-login">Login</a>
@@ -44,14 +44,14 @@
 </div>
 </div>
 
-<div class="col-md-6" style="margin-bottom: 88px;">
+<div class="col-md-6" style="margin-bottom: 0px;">
 <img src="<?php echo get_template_directory_uri(); ?>/images/landpage.png" alt="" class="img-fluid mx-auto d-block">
 </div>
 
 </div>
 </div>
 
-<div class="container" style="margin-top: 48px;">
+<div class="container" style="margin-top: 72px;">
 <h1 class="land-h1" align="center">Dedicated to educators designing & delivering digital <br>creativity and STEAM programmes for young people.</h1>
 <p class="land-title-page" align="center">We support educators to help young people to unlock their potential by providing: </p>
 </div>
@@ -60,8 +60,11 @@
 <div class="card-deck">
 <div class="card home-box-shadow">
 <div class="col-md-3 mt-4">
+
 <img class="img-fluid landimg" src="<?php echo get_template_directory_uri(); ?>/images/outcome.png" alt="Card image cap">
+
 </div>
+
 <div class="card-body">
 <h5 class="card-title land-h1">Outcome focused resources</h5>
 <p class="card-text land-title-page">An exclusive library of TechSpace created resources and curated content to suit your needs and the needs of the young people.</p>
@@ -109,7 +112,14 @@
 </div>
 <div class="card-body">
 <h5 class="card-title act-txt">Activity Guide</h5>
-<p class="card-text act-p">Step-by-step activity guides Easily downloadable Accompanying images.</p>
+<ul>
+
+<li> Step-by-step activity guides </li>
+
+<li>Easily downloadable </li>
+
+<li>Accompanying images </li>
+</ul>
 </div>
 </div>
 <div class="card land-card">
@@ -119,7 +129,12 @@
 
 <div class="card-body">
 <h5 class="card-title act-txt">Programme Planning</h5>
-<p class="card-text act-p">Downloadable templates Session plans Logic Models.</p>
+<ul>
+<li>Downloadable templates </li>
+<li>Session plans </li>
+<li>Logic Models</li>
+
+</ul>
 </div>
 </div>
 <div class="card land-card">
@@ -335,7 +350,7 @@ Sign up to the Online TechSpace Network</h1>
 <div class="row justify-content-center">
 <button class="land-btn land-btn-txt mt-4">
 
-<a href="register" style="color:#ffffff">	SIGN UP TO NETWORK </a>
+<a href="register" style="color:#ffffff">	BECOME A MEMBER </a>
 </button>
 
 </div>
