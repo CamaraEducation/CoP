@@ -62,7 +62,7 @@
 <div class="col-md-3 mt-4">
 <img class="img-fluid landimg" src="<?php echo get_template_directory_uri(); ?>/images/outcome.png" alt="Card image cap">
 </div>
-<div class="card-body">
+<div class="card-body" style="margin-left: 32px !important;">
 <h5 class="card-title land-h1">Outcome focused resources</h5>
 <p class="card-text land-title-page">An exclusive library of TechSpace created resources and curated content to suit your needs and the needs of the young people.</p>
 </div>
