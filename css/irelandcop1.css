@@ -16,7 +16,7 @@ body a:hover{
   border: 1px solid #FFFFFF;
   box-sizing: border-box;
   box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);
-  border-radius: 8px; 
+  border-radius: 8px;	
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -421,7 +421,7 @@ padding-bottom: 0px;
   margin-top: -35px;
   border: 1px solid #337ab7;
   background: #F8EBC3;
-  border-radius: 8px;
+  border-radius: 4px;
   height: 25px;
 }
 .toc-text{
@@ -767,38 +767,26 @@ padding-bottom: 0px;
   font-size: 16px;
   line-height: 24px;
   color: #323F4B;
-
 }
-#downloadhover:hover{
-  background-color:#993C9F;
+.download-card :hover{
+
+  color: #993C9F;
   opacity: 0.8;
+  text-decoration:no-underline;
 }
-
-#downloadhover {
-   
-max-height:368px; 
-min-height: 368px;
-}
-
 
 .download-card{
-max-height:368px; 
-min-height: 368px;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
+  text-align: left;
+  position: relative; 
+  z-index: 1;
+  
 }
 
-.downloadview{
-visibility: hidden;
-}
-
-.downloadhover h2{
-font-size: 24px; 
-font-weight: bold;
-color: #fff;
-line-height: 24px;
-text-align: center;  
-z-index: 9;
-padding-top:50%;
-}
 
 
 .program-title{
@@ -942,7 +930,6 @@ padding-top:50%;
   text-align: center;
   color: #102A43;
   opacity: 0.3;
- 
 }
 .land-num-txt{
   font-family: Lato;
@@ -1203,8 +1190,14 @@ padding-top:50%;
   border: 0 solid #EE603B !important;
 }
 .full-width-image {
-height: 782px;
-
+ height: 782px;
+<<<<<<< HEAD
+ position: relative;
+ left: 50%;  
+ margin-left: -50vw;
+ background-color: #121447;
+=======
+>>>>>>> 3878bc2198521b5eb996ff0179006b89b4188ab6
 }
 
 .btn1-shadow{

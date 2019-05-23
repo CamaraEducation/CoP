@@ -30,8 +30,8 @@
 <div class="col-md-5">
 <button class="land-btn land-btn-txt mt-4">
 
-<a href="register" style="color:#ffffff">	 BECOME A MEMBER </a>
-</button> 
+<a href="register" style="color:#ffffff"> BECOME A MEMBER </a>
+</button>
 <div class="row justify-content-center mt-2 pr-3">
 <a href="login" class="land-login">Login</a>
 </div>
@@ -39,7 +39,7 @@
 
 
 <div class="col-md-7 mt-4">
-<p class="land-num">600+ <span class="land-num-txt">Community of educators</span></p>			
+<p class="land-num">600+ <span class="land-num-txt">Community of educators</span></p>
 </div>
 </div>
 </div>
@@ -93,11 +93,16 @@
 </div>
 </div>
 
-<!-- FULL-WIDTH IMAGE --> 
-<div class="full-width-image mt-5" style="background-color:#121447;background-image: url(<?php echo get_template_directory_uri(); ?>/images/landingbluePattern.png)">
+<!-- FULL-WIDTH IMAGE -->
+<div class="full-width-image mt-5" style="background-color:#121447;">
+
+	<div class="container" style="height: 782px; background-image: url(<?php echo get_template_directory_uri(); ?>/images/landingbluePattern.png)">
+		<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/images/landingPageImage.png" alt="" style="margin-top: 77px;">
+		
+	</div>
 
 
-<img src="<?php echo get_template_directory_uri(); ?>/images/landingPageImage.png" alt="" style="height:782px;width:90%;margin-top:20px;margin-left: 134px;">
+
 
 
 </div>
@@ -105,7 +110,7 @@
 
 <div class="container" style="margin-top: 130px;">
 <div class="row">
-<div class="col-md-3 align-self-center">	
+<div class="col-md-3 align-self-center">
 <p class="landing-h1">Outcome Focused Resources</p>
 </div>
 <div class="col-md-9">
@@ -164,7 +169,7 @@
 
 <div class="container mt-5">
 <div class="row">
-<div class="col-md-3 align-self-center">	
+<div class="col-md-3 align-self-center">
 <p class="landing-h1">Specialist Support</p>
 </div>
 <div class="col-md-9">
@@ -212,7 +217,7 @@ Contact a TechSpace officer directly on the platform.
 
 <div class="container mt-5">
 <div class="row">
-<div class="col-md-3 align-self-center">	
+<div class="col-md-3 align-self-center">
 <p class="landing-h1">Peer Exchange & Sharing</p>
 </div>
 <div class="col-md-9">
@@ -264,7 +269,7 @@ Create or curate your own resource to share with the community.</p>
 <div class="container" style="margin-top: 80px;">
 <h1 class="landing-h1" align="center">Find Resources in Your Area of Interest</h1>
 
-<div class="row pt-3">
+<div class="row pt-3 pl-3">
 
 <div class="col-md-3 mt-3 landwidth">
 
@@ -316,7 +321,7 @@ Create or curate your own resource to share with the community.</p>
 </div>
 </div>
 
-<div class="row pt-3">
+<div class="row pt-3 pl-3">
 <div class="col-md-3 mt-3 landwidth">
 <div class="card land-card2 landheight">
 <div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
@@ -378,7 +383,7 @@ Sign up to the Online TechSpace Network</h1>
 <div class="row justify-content-center">
 <button class="land-btn land-btn-txt mt-4">
 
-<a href="register" style="color:#ffffff">	BECOME A MEMBER </a>
+<a href="register" style="color:#ffffff"> BECOME A MEMBER </a>
 </button>
 
 </div>
