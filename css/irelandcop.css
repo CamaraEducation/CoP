@@ -269,20 +269,20 @@ body hr {
 /*Tab Start*/
 .tab-text1{
   font-family: Lato;
+    color: #3ECCCB !important;
+
   font-size: 16px;
   line-height: 24px;
   text-align: center;
   text-transform: uppercase;
-  color: #3ECCCB !important;
   margin-top: 10px;
-  margin-bottom: 10px;
+ margin-bottom:0px;
+padding-bottom: 0px;
 }
 .tab-text1 .active{
   border-bottom: 2px solid #EE603B;
   color: #EE603B;
-  font-weight: bold;
-  font-size:16px;
-}
+  }
 
 /*End Tab*/
 
@@ -1342,7 +1342,7 @@ a, a:hover,a:visited, a:focus {
   color: #3E4C59;
 }
 .clearspan{
-  margin-left:45%;
+  margin-left:35%;
   font-weight:none;
   text-align: middle;
 }
