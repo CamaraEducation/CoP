@@ -95,16 +95,26 @@ foreach( $publicationType as $Ptype ):
 
             ?>        
             <div class="col-md-4" style="margin-bottom: 15px !important;">
-                <a href="<?php the_field('document_link'); ?>" class="download-card" target="new">
-                    <div class="card h-100 ppcard mb-3">
+                <a href="<?php the_field('document_link'); ?>"  target="new">
+
+                    
+
+                    <div class="card h-100 ppcard mb-3 download-card" >
                         <img class="card-img-top" src="<?php the_field('programme_cover'); ?>" alt="Card image cap" style="max-height:368px; min-height: 368px;">
 
                         <div class="card-body">
 
                             <p class="ppbig"><?php the_title() ?></p>
                             <p class="ppsmall">Download PDF +</p>
-                            <div class="badge card-badge1 mt-2" style="min-height: 30px;line-height:24px;"><?php echo $Ptype->name;?></div>
-                            <span class="badge badge-primary" style="min-height: 30px;line-height:24px;background-color:<?php echo $current_pathway_color;?>"> <?php echo $docPathway->name; ?></span>
+                            <div class="badge card-badge1 mt-2" style="min-height: 16px;line-height:16px;"><?php echo $Ptype->name;?></div>
+                           
+                           <?php  if ($docPathway->name != NULL) {
+?>
+
+                            <span class="badge badge-primary" style="min-height: 16px;line-height:16px;background-color:<?php echo $current_pathway_color;?>"> <?php echo $docPathway->name; ?>
+                                
+<?php } ?>
+                            </span>
                         </div>
 
                     </div>

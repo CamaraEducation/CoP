@@ -313,11 +313,11 @@ setup_postdata($users);
 								<span style="display:block;margin-bottom:14px;color:#7B8794">
 <img src="<?php echo get_template_directory_uri(); ?>/images/location.png"> <?php echo $current_community_user_location; ?>
 </span>
-							<span class="badge communityrole" style="vertical-align: middle;font-size:12px;line-height:24px;">
+							<span class="badge communityrole" style="vertical-align: middle;font-size:12px;line-height:16px;">
 							<?php echo $communityRole_name;?>
 							</span>
 
-								<span class="badge card-badge2" style="vertical-align: middle;line-height:24px;font-size:12px;background-color:<?php echo $current_pathway_color ;?>;border-color: <?php echo $current_pathway_color ;?>"><?php echo $current_user_pathway_name;?></span>
+								<span class="badge card-badge2" style="vertical-align: middle;line-height:16px;font-size:12px;background-color:<?php echo $current_pathway_color ;?>;border-color: <?php echo $current_pathway_color ;?>"><?php echo $current_user_pathway_name;?></span>
 
 							</div>
 						</div>

@@ -58,44 +58,48 @@
 
 <div class="container" style="margin-top: 48px;">
 <div class="card-deck">
-<div class="card home-box-shadow">
-<div class="col-md-3 mt-4">
 
-<img class="img-fluid landimg" src="<?php echo get_template_directory_uri(); ?>/images/outcome.png" alt="Card image cap">
 
-</div>
+<div class="card home-box-shadow" style="padding:0px 32px 32px 32px;">
+<img class="img-fluid landimg" src="<?php echo get_template_directory_uri(); ?>/images/outcome.png" alt="Card image cap" height="78" width="70">
 
-<div class="card-body">
 <h5 class="card-title land-h1">Outcome focused resources</h5>
 <p class="card-text land-title-page">An exclusive library of TechSpace created resources and curated content to suit your needs and the needs of the young people.</p>
-</div>
-</div>
-<div class="card home-box-shadow">
-<div class="col-md-3 mt-4">
-<img class="img-fluid landimg" src="<?php echo get_template_directory_uri(); ?>/images/subject.png" alt="Card image cap" width="67" height="67">
+
 </div>
 
-<div class="card-body">
+
+<div class="card home-box-shadow" style="padding:0px 32px 32px 32px;">
+<div class="col-md-3 mt-4">
+<img class="img-fluid landimg" src="<?php echo get_template_directory_uri(); ?>/images/subject.png" alt="Card image cap" height="78" width="70">
+</div>
+
+
 <h5 class="card-title land-h1">Subject specialist support</h5>
 <p class="card-text land-title-page">Master the knowledge & skills of digital youth work with support from national & regional experts including TechSpace Edcucation Officers, Cluster Coordinators, & Digital Creativity Specialists.</p>
-</div>
-</div>
-<div class="card home-box-shadow">
-<div class="col-md-3 mt-4">
-<img class="img-fluid landimg" src="<?php echo get_template_directory_uri(); ?>/images/learn1.png" alt="Card image cap" width="67" height="67">
+
 </div>
 
-<div class="card-body">
+<div class="card home-box-shadow" style="padding:0px 32px 32px 32px;">
+<div class="col-md-3 mt-4">
+<img class="img-fluid landimg" src="<?php echo get_template_directory_uri(); ?>/images/learn.png" alt="Card image cap" height="78" width="70">
+</div>
+
+
 <h5 class="card-title land-h1">Learn from your peers</h5>
 <p class="card-text land-title-page">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-</div>
+
 </div>
 </div>
 </div>
 
 <!-- FULL-WIDTH IMAGE --> 
-<div class="full-width-image mt-5">
-<img src="<?php echo get_template_directory_uri(); ?>/images/banner.png" alt="" style="height:782px;width:100%;margin-top:20px;">
+<div class="full-width-image mt-5" style="background-color:#121447;background-image: url(<?php echo get_template_directory_uri(); ?>/images/landingbluePattern.png)">
+
+
+<img src="<?php echo get_template_directory_uri(); ?>/images/landingPageImage.png" alt="" style="height:782px;width:90%;margin-top:20px;margin-left: 134px;">
+
+
 </div>
 
 
@@ -105,47 +109,53 @@
 <p class="landing-h1">Outcome Focused Resources</p>
 </div>
 <div class="col-md-9">
-<div class="card-deck">
-<div class="card land-card">
-<div class="col-md-3 mt-4">
+
+<div class="card-deck" style="padding:0px;">
+
+<div class="card land-card" style="padding:40px 32px 32px 32px;">
+
 <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/images/landcircle.png" alt="Card image cap" width="35" height="35">
-</div>
-<div class="card-body">
+
+<p>
 <h5 class="card-title act-txt">Activity Guide</h5>
-<ul>
-
-<li> Step-by-step activity guides </li>
-
+<ul style="padding-left:20px;">
+<li>Step-by-step activity guides </li>
 <li>Easily downloadable </li>
-
 <li>Accompanying images </li>
 </ul>
-</div>
-</div>
-<div class="card land-card">
-<div class="col-md-3 mt-4">
-<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/images/landcircle.png" alt="Card image cap" width="35" height="35">
+</p>
 </div>
 
-<div class="card-body">
+<div class="card land-card" style="padding:40px 32px 32px 32px;">
+<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/images/landcircle.png" alt="Card image cap" width="35" height="35">
+
+<p>
 <h5 class="card-title act-txt">Programme Planning</h5>
-<ul>
+
+<ul style="padding-left:20px;">
 <li>Downloadable templates </li>
 <li>Session plans </li>
 <li>Logic Models</li>
 
 </ul>
-</div>
-</div>
-<div class="card land-card">
-<div class="col-md-3 mt-4">
-<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/images/landcircle.png" alt="Card image cap" width="35" height="35">
+</p>
 </div>
 
-<div class="card-body">
+<div class="card land-card" style="padding:40px 32px 32px 32px;">
+
+<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/images/landcircle.png" alt="Card image cap" width="35" height="35">
+
+
+<p>
+
 <h5 class="card-title act-txt">Publictions</h5>
-<p class="card-text act-p">Policy & Research Youth outcomes 21st century skills.</p>
-</div>
+<ul style="padding-left:20px;">
+<li>Policy & Research </li>
+<li>Youth outcomes </li>
+<li>21st century skills </li>
+
+</p>
+
 </div>
 </div>
 </div>
@@ -159,34 +169,41 @@
 </div>
 <div class="col-md-9">
 <div class="card-deck">
-<div class="card land-card">
-<div class="col-md-3 mt-4">
+
+
+<div class="card land-card" style="padding:40px 32px 32px 32px;">
+
 <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/images/landcircleb.png" alt="Card image cap" width="35" height="35">
-</div>
-<div class="card-body">
+
+<p class="card-text act-p">
 <h5 class="card-title act-txt">Regional & National Support</h5>
-<p class="card-text act-p">Access to the TechSpace Network directory.</p>
-</div>
-</div>
-<div class="card land-card">
-<div class="col-md-3 mt-4">
-<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/images/landcircleb.png" alt="Card image cap" width="35" height="35">
-</div>
+Access to the TechSpace Network directory.
+</p>
 
-<div class="card-body">
+</div>
+<div class="card land-card" style="padding:40px 32px 32px 32px;">
+
+
+<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/images/landcircleb.png" alt="Card image cap" width="35" height="35">
+
+<p class="card-text act-p">
 <h5 class="card-title act-txt">TechSpace Network Directory</h5>
-<p class="card-text act-p">From cluster coordinators & digital creativity specialist.</p>
-</div>
-</div>
-<div class="card land-card">
-<div class="col-md-3 mt-4">
-<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/images/landcircleb.png" alt="Card image cap" width="35" height="35">
-</div>
+From cluster coordinators & digital creativity specialist.
 
-<div class="card-body">
-<h5 class="card-title act-txt">Support Chat</h5>
-<p class="card-text act-p">Contact a TechSpace officer directly on the platform.</p>
+</p>
+
 </div>
+<div class="card land-card" style="padding:40px 32px 32px 32px;">
+
+<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/images/landcircleb.png" alt="Card image cap" width="35" height="35">
+
+
+<p class="card-text act-p">
+<h5 class="card-title act-txt">Support Chat</h5>
+Contact a TechSpace officer directly on the platform.
+
+</p>
+
 </div>
 </div>
 </div>
@@ -200,34 +217,42 @@
 </div>
 <div class="col-md-9">
 <div class="card-deck">
-<div class="card land-card">
-<div class="col-md-3 mt-4">
+
+
+<div class="card land-card" style="padding:40px 32px 32px 32px;">
+
+
 <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/images/landcircleo.png" alt="Card image cap" width="35" height="35">
-</div>
-<div class="card-body">
+
+<p class="card-text act-p">
 <h5 class="card-title act-txt">Community Feedback</h5>
-<p class="card-text act-p">Rate activities & learn from your peers.</p>
-</div>
-</div>
-<div class="card land-card">
-<div class="col-md-3 mt-4">
-<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/images/landcircleo.png" alt="Card image cap" width="35" height="35">
+Rate activities & learn from your peers
+</p>
+
 </div>
 
-<div class="card-body">
+<div class="card land-card" style="padding:40px 32px 32px 32px;">
+
+
+<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/images/landcircleo.png" alt="Card image cap" width="35" height="35">
+
+<p class="card-text act-p">
 <h5 class="card-title act-txt">Tried & Tested</h5>
-<p class="card-text act-p">Find out what worked well from on other educators.</p>
-</div>
-</div>
-<div class="card land-card">
-<div class="col-md-3 mt-4">
-<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/images/landcircleo.png" alt="Card image cap" width="35" height="35">
-</div>
+Find out what worked well from on other educators.
 
-<div class="card-body">
-<h5 class="card-title act-txt">Community Contributor</h5>
-<p class="card-text act-p">Create or curate your own resource to share with the community.</p>
+</p>
+
+
 </div>
+<div class="card land-card" style="padding:40px 32px 32px 32px;">
+
+<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/images/landcircleo.png" alt="Card image cap" width="35" height="35">
+
+
+<p class="card-text act-p">
+<h5 class="card-title act-txt">Community Contributor</h5>
+Create or curate your own resource to share with the community.</p>
+
 </div>
 </div>
 </div>
@@ -237,14 +262,17 @@
 
 
 <div class="container" style="margin-top: 80px;">
-<h1 class="landing-h1">Find Resources in Your Area of Interest</h1>
+<h1 class="landing-h1" align="center">Find Resources in Your Area of Interest</h1>
+
 <div class="row pt-3">
+
 <div class="col-md-3 mt-3 landwidth">
+
 <div class="card land-card2 landheight">
 <div class="card-header border-0 py-3 d-flex align-items-center my-3 bg-white">
-<img src="<?php echo get_template_directory_uri(); ?>/images/actimage1.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
+<img src="<?php echo get_template_directory_uri(); ?>/images/icons/maker.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
 <div>
-<h4 class="intro-title mb-0" style="color:#9AA5B1;">STEAM</h4>
+<h4 class="intro-title-landing mb-0" style="color:#9AA5B1;">STEAM</h4>
 <h6 class="intro-steam">Maker</h6>
 </div>
 </div>
@@ -254,9 +282,9 @@
 <div class="col-md-3 mt-3 landwidth">
 <div class="card land-card2 landheight">
 <div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
-<img src="<?php echo get_template_directory_uri(); ?>/images/actimage1.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
+<img src="<?php echo get_template_directory_uri(); ?>/images/icons/computerscience.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
 <div>
-<h4 class="intro-title mb-0" style="color:#9AA5B1;">STEAM</h4>
+<h4 class="intro-title-landing mb-0" style="color:#9AA5B1;">STEAM</h4>
 <h6 class="intro-steam">Computer Science</h6>
 </div>
 </div>
@@ -266,9 +294,9 @@
 <div class="col-md-3 mt-3 landwidth">
 <div class="card land-card2 landheight">
 <div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
-<img src="<?php echo get_template_directory_uri(); ?>/images/actimage1.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
+<img src="<?php echo get_template_directory_uri(); ?>/images/icons/MOJO.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
 <div>
-<h4 class="intro-title mb-0" style="color:#9AA5B1;">DIGITAL CREATIVITY</h4>
+<h4 class="intro-title-landing mb-0" style="color:#9AA5B1;">DIGITAL CREATIVITY</h4>
 <h6 class="intro-steam">Mobile Journalism</h6>
 </div>
 </div>
@@ -278,9 +306,9 @@
 <div class="col-md-3 mt-3 landwidth">
 <div class="card land-card2 landheight">
 <div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
-<img src="<?php echo get_template_directory_uri(); ?>/images/actimage1.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
+<img src="<?php echo get_template_directory_uri(); ?>/images/icons/video.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
 <div>
-<h4 class="intro-title mb-0" style="color:#9AA5B1;">DIGITAL CREATIVITY</h4>
+<h4 class="intro-title-landing mb-0" style="color:#9AA5B1;">DIGITAL CREATIVITY</h4>
 <h6 class="intro-steam">Video Production</h6>
 </div>
 </div>
@@ -292,9 +320,9 @@
 <div class="col-md-3 mt-3 landwidth">
 <div class="card land-card2 landheight">
 <div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
-<img src="<?php echo get_template_directory_uri(); ?>/images/actimage1.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
+<img src="<?php echo get_template_directory_uri(); ?>/images/icons/photography.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
 <div>
-<h4 class="intro-title mb-0" style="color:#9AA5B1;">DIGITAL CREATIVITY</h4>
+<h4 class="intro-title-landing mb-0" style="color:#9AA5B1;">DIGITAL CREATIVITY</h4>
 <h6 class="intro-steam">Photography</h6>
 </div>
 </div>
@@ -304,9 +332,9 @@
 <div class="col-md-3 mt-3 landwidth">
 <div class="card land-card2 landheight">
 <div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
-<img src="<?php echo get_template_directory_uri(); ?>/images/actimage1.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
+<img src="<?php echo get_template_directory_uri(); ?>/images/icons/graphicDesign.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
 <div>
-<h4 class="intro-title mb-0" style="color:#9AA5B1;">DIGITAL CREATIVITY</h4>
+<h4 class="intro-title-landing mb-0" style="color:#9AA5B1;">DIGITAL CREATIVITY</h4>
 <h6 class="intro-steam">Graphic Design</h6>
 </div>
 </div>
@@ -316,9 +344,9 @@
 <div class="col-md-3 mt-3 landwidth">
 <div class="card land-card2 landheight">
 <div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
-<img src="<?php echo get_template_directory_uri(); ?>/images/actimage1.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
+<img src="<?php echo get_template_directory_uri(); ?>/images/icons/audio.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
 <div>
-<h4 class="intro-title mb-0" style="color:#9AA5B1;">DIGITAL CREATIVITY</h4>
+<h4 class="intro-title-landing mb-0" style="color:#9AA5B1;">DIGITAL CREATIVITY</h4>
 <h6 class="intro-steam">Audio Production</h6>
 </div>
 </div>
@@ -328,9 +356,9 @@
 <div class="col-md-3 mt-3 landwidth">
 <div class="card land-card2 landheight">
 <div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
-<img src="<?php echo get_template_directory_uri(); ?>/images/actimage1.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
+<img src="<?php echo get_template_directory_uri(); ?>/images/icons/animation.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
 <div>
-<h4 class="intro-title mb-0" style="color:#9AA5B1;">DIGITAL CREATIVITY</h4>
+<h4 class="intro-title-landing mb-0" style="color:#9AA5B1;">DIGITAL CREATIVITY</h4>
 <h6 class="intro-steam">Animation</h6>
 </div>
 </div>
