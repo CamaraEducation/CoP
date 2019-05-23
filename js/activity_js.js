@@ -1,5 +1,14 @@
 $(document).ready(function() {
 
+
+
+$('#downloadview').hover(function(){
+    $(this).css("visibility","visible");
+});
+
+
+
+
 $(".readMorelink").click(function(){
 
 $('.step-by-step-full').css("display","block");

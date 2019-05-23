@@ -11,7 +11,7 @@
 
 <section>
     <div class="container mt-5">
-        <a href="" class="filter-text">Filter by </a>
+        <a href="" class="filter-text">Jump to </a>
 
 
         <?php
@@ -99,14 +99,19 @@ foreach( $programmePlanningType as $Ptype ):
 
 
 
-                    <div class="card h-100 ppcard">
+               <div class="card h-100 ppcard mb-3">
+                        <div class="download-card" id="download-card" style="background-image: url(<?php the_field('programme_cover'); ?>);">
+                           
+                            <div id="downloadhover" class="downloadhover"> 
+<h2 class="downloadview" id="downloadview">
+View
+</h2>
 
-<div class="download-card">
-                        <img class="card-img-top" src="<?php the_field('programme_cover'); ?>" alt="Card image cap" style="max-height:368px; min-height: 368px;">
-
+                            </div>
 </div>
+
                         <div class="card-body">
-                            <p class="ppbig"><?php the_title() ?></p>
+                   <p class="ppbig"><?php the_title() ?></p>
                             <p class="ppsmall">Download PDF +</p>
                             <div class="badge card-badge1 mt-2" style="min-height: 16px; line-height:16px;"><?php echo $Ptype->name;?></div>
 

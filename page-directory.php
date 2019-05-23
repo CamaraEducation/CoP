@@ -85,6 +85,15 @@ $wp_user_query = new WP_User_Query($userSearchArray);
 return $wp_user_query->get_results();
 }
 
+//get taxnony value given an id and tax name
+function getbyid($id,$tax){
+
+$name = get_term( $id, $tax )->name;
+return $name;
+
+}
+
+
 
 ?>
 	<!--  Hero Section -->
@@ -104,7 +113,11 @@ return $wp_user_query->get_results();
              
               <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_org) ? 'rgba('.$r.','.$g.','.$b.',0.1)':'';?> ">
 
-                    Organization
+                    
+<?php
+echo ($search_org == NULL ? "Organization" : getbyid($search_org,'member_organization'));
+?>
+
                 </button>
                 <div class="dropdown-menu">
 				<?php
@@ -124,7 +137,10 @@ return $wp_user_query->get_results();
             <div class="btn-group ml-2">
                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_training) ? 'rgba('.$r.','.$g.','.$b.',0.1)':'';?> ">
 
-                    Training
+                    
+                    <?php
+echo ($search_training == NULL ? "Training" : getbyid($search_training,'pathway'));
+?>
                 </button>
                 <div class="dropdown-menu">
                     
@@ -148,7 +164,11 @@ return $wp_user_query->get_results();
             
              <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_communityRole) ? 'rgba('.$r.','.$g.','.$b.',0.1)':'';?> ">
 
-                    Community Role
+                    
+                                        <?php
+echo ($search_communityRole == NULL ? "Community Role" : getbyid($search_communityRole,'community_role'));
+?>
+     
                 </button>
                 <div class="dropdown-menu">
                     
@@ -172,7 +192,11 @@ return $wp_user_query->get_results();
                 
                   <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_location) ? 'rgba('.$r.','.$g.','.$b.',0.1)':'';?> ">
 
-                    Location
+                    
+                                                            <?php
+echo ($search_location == NULL ? "Location" : getbyid($search_location,'member_location'));
+?>
+     
                 </button>
                 <div class="dropdown-menu">
                     
@@ -276,6 +300,7 @@ setup_postdata($users);
 				//**GET COMMUNITY ROLE
 				$current_user_communityRole =get_user_meta( $current_user_id, 'member_community_role', true); 
 				$communityRole_name = get_term( $current_user_communityRole, 'community_role' )->name;
+
 
 				//echo $communityRole_name->name;
 
