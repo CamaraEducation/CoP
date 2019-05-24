@@ -419,7 +419,7 @@ body hr {
   margin-top: -35px;
   border: 1px solid #337ab7;
   background: #F8EBC3;
-  border-radius: 4px;
+  border-radius: 8px;
   height: 25px;
 }
 .toc-text{
@@ -766,26 +766,38 @@ body hr {
   font-size: 16px;
   line-height: 24px;
   color: #323F4B;
-}
-.download-card :hover{
 
-  color: #993C9F;
-  opacity: 0.8;
-  text-decoration:no-underline;
 }
+#downloadhover:hover{
+  background-color:#993C9F;
+  opacity: 0.8;
+}
+
+#downloadhover {
+   
+max-height:368px; 
+min-height: 368px;
+}
+
 
 .download-card{
-  font-family: Lato;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 16px;
-  text-align: left;
-  position: relative; 
-  z-index: 1;
-  
+max-height:368px; 
+min-height: 368px;
 }
 
+.downloadview{
+visibility: hidden;
+}
+
+.downloadhover h2{
+font-size: 24px; 
+font-weight: bold;
+color: #fff;
+line-height: 24px;
+text-align: center;  
+z-index: 9;
+padding-top:50%;
+}
 
 
 .program-title{
@@ -929,6 +941,7 @@ body hr {
   text-align: center;
   color: #102A43;
   opacity: 0.3;
+ 
 }
 .land-num-txt{
   font-family: Lato;

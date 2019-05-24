@@ -426,8 +426,15 @@ Activities  </a>
 <div class="card ccont">
 <div class="card-body">
 <h3 class="text-on-card toc-text">Community Contributor</h3>
+<<<<<<< HEAD
 <p class="cc-title">Create an activity guide</p>
 <p class="cc-text">Coming Soon!</p>	
+=======
+<p class="cc-title" style="font-weight: bold;">Create an activity guide</p>
+<p class="cc-text">Coming Soon!</p>
+
+
+>>>>>>> 60a3dfb0cf6643309a1f65208fde3df4dae2048d
 </div>
 </div>
 </div>

@@ -60,8 +60,9 @@
 <div class="card-deck">
 
 
-<div class="card home-box-shadow" style="padding:0px 32px 32px 32px;">
-<img class="img-fluid landimg" src="<?php echo get_template_directory_uri(); ?>/images/outcome.png" alt="Card image cap" style="height:78px;width: 70px;">
+<div class="card home-box-shadow" style="padding:40px 32px 32px 32px;">
+
+<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/images/outcome.png" alt="Card image cap" style="height:78px;width: 70px;margin-bottom: 24px;">
 
 <h5 class="card-title land-h1">Outcome focused resources</h5>
 <p class="card-text land-title-page">An exclusive library of TechSpace created resources and curated content to suit your needs and the needs of the young people.</p>
@@ -69,10 +70,9 @@
 </div>
 
 
-<div class="card home-box-shadow" style="padding:0px 32px 32px 32px;">
-<div class="col-md-3 mt-4">
-<img class="img-fluid landimg" src="<?php echo get_template_directory_uri(); ?>/images/subject.png" alt="Card image cap" style="height:67px;width: 67px;">
-</div>
+<div class="card home-box-shadow" style="padding:40px 32px 32px 32px;">
+
+<img class="img-fluid " src="<?php echo get_template_directory_uri(); ?>/images/subject.png" alt="Card image cap" style="height:67px;width: 67px;margin-bottom: 24px;">
 
 
 <h5 class="card-title land-h1">Subject specialist support</h5>
@@ -80,10 +80,10 @@
 
 </div>
 
-<div class="card home-box-shadow" style="padding:0px 32px 32px 32px;">
-<div class="col-md-3 mt-4">
-<img class="img-fluid landimg" src="<?php echo get_template_directory_uri(); ?>/images/learn.png" alt="Card image cap" style="height:65px;width:65px;">
-</div>
+<div class="card home-box-shadow" style="padding:40px 32px 32px 32px;">
+
+<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/images/learn.png" alt="Card image cap" style="height:65px;width:65px;margin-bottom: 24px;">
+
 
 
 <h5 class="card-title land-h1">Learn from your peers</h5>

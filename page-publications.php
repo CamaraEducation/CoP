@@ -11,7 +11,7 @@
 
 <section>
     <div class="container mt-5">
-        <a href="" class="filter-text">Filter by </a>
+        <a href="" class="filter-text">Jump to </a>
 
 
         <?php
@@ -94,13 +94,24 @@ foreach( $publicationType as $Ptype ):
             $docPathway = get_term_by( 'id', (int) $docPathway_id, 'pathway');
 
             ?>        
-            <div class="col-md-4" style="margin-bottom: 15px !important;">
+
+            <div class="col-md-4 " style="margin-bottom: 15px !important;" >
+
+
                 <a href="<?php the_field('document_link'); ?>"  target="new">
 
                     
 
-                    <div class="card h-100 ppcard mb-3 download-card" >
-                        <img class="card-img-top" src="<?php the_field('programme_cover'); ?>" alt="Card image cap" style="max-height:368px; min-height: 368px;">
+                    <div class="card h-100 ppcard mb-3">
+                        <div class="download-card" id="download-card" style="background-image: url(<?php the_field('programme_cover'); ?>);">
+                           
+                            <div id="downloadhover" class="downloadhover"> 
+<h2 class="downloadview" id="downloadview">
+View
+</h2>
+
+                            </div>
+</div>
 
                         <div class="card-body">
 
