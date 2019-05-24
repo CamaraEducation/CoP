@@ -56,7 +56,7 @@
 <p class="land-title-page" align="center">We support educators to help young people to unlock their potential by providing: </p>
 </div>
 
-<div class="container" style="margin-top: 48px;">
+<div class="container" style="margin-top: 48px;margin-bottom: 80px;">
 <div class="card-deck">
 
 
@@ -87,14 +87,16 @@
 
 
 <h5 class="card-title land-h1">Learn from your peers</h5>
-<p class="card-text land-title-page">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+<p class="card-text land-title-page">
+An online community built for peer exchange & sharing. Give & receive community feedback and learn from the experience of others.
+</p>
 
 </div>
 </div>
 </div>
 
 <!-- FULL-WIDTH IMAGE -->
-<div class="full-width-image mt-5" style="background-color:#121447;">
+<div class="full-width-image mt-5" style="background-color:#121447">
 
 	<div class="container" style="height: 782px; background-image: url(<?php echo get_template_directory_uri(); ?>/images/landingbluePattern.png)">
 		<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/images/landingPageImage.png" alt="" style="margin-top: 77px;">
@@ -275,7 +277,7 @@ Create or curate your own resource to share with the community.</p>
 
 <div class="card land-card2 landheight">
 <div class="card-header border-0 py-3 d-flex align-items-center my-3 bg-white">
-<img src="<?php echo get_template_directory_uri(); ?>/images/icons/maker.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
+<img src="<?php echo get_template_directory_uri(); ?>/images/icons/maker.png" class="align-self-start mr-3" width="42" height="42">
 <div>
 <h4 class="intro-title-landing mb-0" style="color:#9AA5B1;">STEAM</h4>
 <h6 class="intro-steam">Maker</h6>
@@ -287,7 +289,7 @@ Create or curate your own resource to share with the community.</p>
 <div class="col-md-3 mt-3 landwidth">
 <div class="card land-card2 landheight">
 <div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
-<img src="<?php echo get_template_directory_uri(); ?>/images/icons/computerscience.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
+<img src="<?php echo get_template_directory_uri(); ?>/images/icons/computerscience.png" class="align-self-start mr-3" width="42" height="42">
 <div>
 <h4 class="intro-title-landing mb-0" style="color:#9AA5B1;">STEAM</h4>
 <h6 class="intro-steam">Computer Science</h6>
@@ -299,7 +301,7 @@ Create or curate your own resource to share with the community.</p>
 <div class="col-md-3 mt-3 landwidth">
 <div class="card land-card2 landheight">
 <div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
-<img src="<?php echo get_template_directory_uri(); ?>/images/icons/MOJO.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
+<img src="<?php echo get_template_directory_uri(); ?>/images/icons/MOJO.png" class="align-self-start mr-3" width="42" height="42">
 <div>
 <h4 class="intro-title-landing mb-0" style="color:#9AA5B1;">DIGITAL CREATIVITY</h4>
 <h6 class="intro-steam">Mobile Journalism</h6>
@@ -311,7 +313,7 @@ Create or curate your own resource to share with the community.</p>
 <div class="col-md-3 mt-3 landwidth">
 <div class="card land-card2 landheight">
 <div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
-<img src="<?php echo get_template_directory_uri(); ?>/images/icons/video.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
+<img src="<?php echo get_template_directory_uri(); ?>/images/icons/video.png" class="align-self-start mr-3" width="42" height="42">
 <div>
 <h4 class="intro-title-landing mb-0" style="color:#9AA5B1;">DIGITAL CREATIVITY</h4>
 <h6 class="intro-steam">Video Production</h6>
@@ -325,7 +327,7 @@ Create or curate your own resource to share with the community.</p>
 <div class="col-md-3 mt-3 landwidth">
 <div class="card land-card2 landheight">
 <div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
-<img src="<?php echo get_template_directory_uri(); ?>/images/icons/photography.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
+<img src="<?php echo get_template_directory_uri(); ?>/images/icons/photography.png" class="align-self-start mr-3" width="42" height="42">
 <div>
 <h4 class="intro-title-landing mb-0" style="color:#9AA5B1;">DIGITAL CREATIVITY</h4>
 <h6 class="intro-steam">Photography</h6>
@@ -337,7 +339,7 @@ Create or curate your own resource to share with the community.</p>
 <div class="col-md-3 mt-3 landwidth">
 <div class="card land-card2 landheight">
 <div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
-<img src="<?php echo get_template_directory_uri(); ?>/images/icons/graphicDesign.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
+<img src="<?php echo get_template_directory_uri(); ?>/images/icons/graphicDesign.png" class="align-self-start mr-3" width="42" height="42">
 <div>
 <h4 class="intro-title-landing mb-0" style="color:#9AA5B1;">DIGITAL CREATIVITY</h4>
 <h6 class="intro-steam">Graphic Design</h6>
@@ -349,7 +351,7 @@ Create or curate your own resource to share with the community.</p>
 <div class="col-md-3 mt-3 landwidth">
 <div class="card land-card2 landheight">
 <div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
-<img src="<?php echo get_template_directory_uri(); ?>/images/icons/audio.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
+<img src="<?php echo get_template_directory_uri(); ?>/images/icons/audio.png" class="align-self-start mr-3" width="42" height="42">
 <div>
 <h4 class="intro-title-landing mb-0" style="color:#9AA5B1;">DIGITAL CREATIVITY</h4>
 <h6 class="intro-steam">Audio Production</h6>
@@ -359,9 +361,12 @@ Create or curate your own resource to share with the community.</p>
 </div>
 
 <div class="col-md-3 mt-3 landwidth">
+
 <div class="card land-card2 landheight">
+
 <div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
-<img src="<?php echo get_template_directory_uri(); ?>/images/icons/animation.png" class="rounded-circle align-self-start mr-3" width="50" height="50">
+
+<img src="<?php echo get_template_directory_uri(); ?>/images/icons/animation.png" class="align-self-start mr-3" width="42" height="42">
 <div>
 <h4 class="intro-title-landing mb-0" style="color:#9AA5B1;">DIGITAL CREATIVITY</h4>
 <h6 class="intro-steam">Animation</h6>
@@ -377,7 +382,9 @@ Create or curate your own resource to share with the community.</p>
 <div class="container" style="margin-top: 150px; height: 353px; background-image: url(<?php echo get_template_directory_uri(); ?>/images/dotback.png);">
 <div class="row justify-content-center">
 <div class="card act-card-st mt-5">
-<div class="card-body">
+
+<div class="card-body" style="box-shadow: 0px 4px 10px rgba(196, 196, 196, 0.52);
+border-radius: 8px;">
 <h1 class="landing-h1 pt-5" align="center">
 Sign up to the Online TechSpace Network</h1>
 <div class="row justify-content-center">
