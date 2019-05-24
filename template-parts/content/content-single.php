@@ -105,7 +105,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 				<div class="col-md-4">
 
 					<h2 class="aligntxtt">Align to Outcomes</h2>
-					<hr class="hrs">
+					<hr class="hrs" style="margin-bottom: 24px;">
 					<div class="card my-3 aligncards">
 						<H2 class="headtitle" style="font-size:14px;"> SKILLS & COMPETENCIES </H2> 
 
@@ -170,13 +170,6 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 			</section>
 
 			<section class="camaract">
-				<div class="container">
-					<h2 class="headtitle">Step-by-step guide</h2>
-					<hr class="hrs">
-
-				</div>
-
-
 				<?php 
 
 //$posts = get_field('instructor');
@@ -186,19 +179,21 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 				<div class="container">
 					<div class="row" >
 						<div class="col-md-8">
-							<div class="col-md-11 bg-white actcardw brs pt-3">
+							<h2 class="headtitle">Step-by-step guide</h2>
+							<hr class="hrs" style="margin-right: 4rem !important;">
+							<div class="col-md-11 bg-white actcardw brs carmarb">
 								<div class="card-header border-0 py-3 d-flex align-items-center my-3 bg-white">
 									<?php
 									$instructor = get_post_meta($post->ID, 'instructor_name', true);
 									$user = get_user_by( 'id', $instructor);
 									?>
 
-									<img src="<?php echo get_avatar_url($instructor); ?>" class="rounded-circle align-self-start mr-3" width="60" style="margin-top:0px;margin-left:0px;">
+									<img src="<?php echo get_avatar_url($instructor); ?>" class="rounded-circle align-self-start mr-3" width="60" style="margin-top:40px;margin-left:40px;">
 
 
 
 									<div>
-										<h4 class="intro-title mb-0" style="color:#9AA5B1;">
+										<h4 class="intro-title mb-0" style="color:#9AA5B1;margin-top:40px;">
 											<?php echo strtoupper(get_post_meta($post->ID, 'instructor', true)); ?> 
 										</h4>
 
@@ -221,14 +216,14 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 									<div class="activpar"><?php the_content(); ?></div>
 								</div>
 							</div>
-							<div class="col-md-11 bg-white actcardw brs pt-3">
+							<div class="col-md-11 bg-white actcardw brs carmarb">
 								<div class="container">
 									<p class="activtitle"><b>ACTIVITY LEARNING OUTCOMES </b></p>
 
 									<div class="activpar"><?php echo get_post_meta($post->ID, 'learning_outcomes', true); ?></div>
 								</div>
 							</div>
-							<div class="col-md-11 bg-white actcardw brs pt-3">
+							<div class="col-md-11 bg-white actcardw brs carmarb">
 								
 								<div class="container">
 
@@ -239,7 +234,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 								</div>
 							</div>
 
-							<div class="col-md-11 bg-white actcardw brs pt-3">
+							<div class="col-md-11 bg-white actcardw brs carmarb">
 								<div class="container">
 									<p class="activtitle"><b>STEP-BY-STEP INSTRUCTIONS </b><br></p>
 
@@ -270,7 +265,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 								</div>
 							</div>
 
-							<div class="col-md-11 bg-white actcardw brs pt-3">
+							<div class="col-md-11 bg-white actcardw brs carmarb">
 								<div class="container">
 									<p class="activtitle"><b>FURTHER RESOURCES & INSTRUCTIONS </b></p>
 
@@ -282,19 +277,20 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 
 							<!--- new sectin -->
 						</div>
-						<div class="col-md-4 my-2">
+
+						<div class="col-md-4">
 
 							<h2 class="headtitle">Support & Community</h2>
 							<hr class="hrs">
 
 							<p class="desc-text" style="font-size:14px;color:#52606D">A step-by-step PDF guide for your group to follow</p>
 							<a href="<?php the_field('step_by_step_guide_doc'); ?>">
-								<button type="button" class="btn btn-outline-warning my-2" dis  style="background: #EE603B;border: 2px solid #EE603B;box-sizing: border-box;box-shadow: 0px 5px 15px rgba(25, 70, 93, 0.05);border-radius: 100px;color:#FFFFFF">Download Guide</button>
+								<button type="button" class="btn btn-outline-warning downloadguide my-2">Download Guide</button>
 							</a>
 							<hr class="hrs">
 							<div class="card supportcard">
 								<div class="card-body">
-									<h6 class="box-text12 mb-2 text-muted" style="font-size:14px;">SUPPORT</h6>
+									<h6 class="box-text12 mb-2 sste">SUPPORT</h6>
 									<p class="box-text12">TechSpace project officers are here to help with all your queries with the activities. Have a question?No problem! Reach out and we will help you.</p>
 									<hr class="hrs">
 									<p class="box-text-link">
@@ -305,13 +301,13 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 							<hr class="hrs">
 							<div class="card supportcard">
 								<div class="card-header bg-white">
-									<b class="box-text12" style="font-weight:bold;text-transform:uppercase;"> Feedback for the Community</b>
+									<b class="sste"> Feedback for the Community</b>
 								</div>
 
 								<div class="feedcardb1">
 
 									<p class="feedtxt"><b>SATISFACTION</b></p>
-									<p class="feedtxt">How did you find this activity with the young people?</p>
+									<p class="feedtxttt">How did you find this activity with the young people?</p>
 
 
 									<?php
@@ -331,52 +327,54 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 										$happy = $wpdb->get_var( "SELECT sum(satsfaction = 2) FROM ".$wpdb->prefix."feedback WHERE post_id = $postid " );
 										$excited = $wpdb->get_var( "SELECT sum(satsfaction = 3) FROM ".$wpdb->prefix."feedback WHERE post_id = $postid " );
 										?>
-
-										<!-- if user sad post, style button differently -->
-										<i style="font-size: 2em; color: Red"<?php if (userDisliked($userid, $postid)): ?> class="fas fa-frown dislike-btn" <?php else: ?> 
-										class="far fa-frown dislike-btn"<?php endif ?> data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>"></i>
-										&nbsp;&nbsp;&nbsp;&nbsp;
-										<span class="dislikes"><?php 
-										$aa = getsatone($postid);
-
-										if($aa==NULL){
-
-											echo "0";
-										}else{echo $aa;}
-										?></span>
-
-										&nbsp;&nbsp;&nbsp;&nbsp;
-										<i style="font-size: 2em; color: Orange"<?php if (userLiked($userid, $postid)): ?>
-										class="fas fa-meh like-btn" 
+										
+										<i style="font-size: 20px; color: Green"<?php if (userExcited($userid, $postid)): ?>
+										class="fas fa-smile excite-btn"
 										<?php else: ?>
-											class="far fa-meh like-btn"
+											class="far fa-smile excite-btn"
 										<?php endif ?>
 										data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>"></i>
 										&nbsp;&nbsp;&nbsp;&nbsp;
-										<span class="likes">
-											<?php $bb = getsattwo($postid);
-											if($bb==NULL){
-												echo "0";
-											}else{echo $bb;} ?></span>
-											&nbsp;&nbsp;&nbsp;&nbsp;
 
-											<i style="font-size: 2em; color: Green"<?php if (userExcited($userid, $postid)): ?>
-											class="fas fa-smile excite-btn"
+										<span class="excites">
+											<?php $cc = getsatthr($postid);
+											if($cc==NULL){
+												echo "0";
+											}else{echo $cc;} ?></span>
+											<!-- if user sad post, style button differently -->
+
+
+											&nbsp;&nbsp;&nbsp;&nbsp;
+											<i style="font-size: 20px; color: Orange"<?php if (userLiked($userid, $postid)): ?>
+											class="fas fa-meh like-btn" 
 											<?php else: ?>
-												class="far fa-smile excite-btn"
+												class="far fa-meh like-btn"
 											<?php endif ?>
 											data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>"></i>
 											&nbsp;&nbsp;&nbsp;&nbsp;
-
-											<span class="excites">
-												<?php $cc = getsatthr($postid);
-												if($cc==NULL){
+											<span class="likes">
+												<?php $bb = getsattwo($postid);
+												if($bb==NULL){
 													echo "0";
-												}else{echo $cc;} ?></span>
+												}else{echo $bb;} ?></span>
+												&nbsp;&nbsp;&nbsp;&nbsp;
+
+												<i style="font-size: 20px; color: Red"<?php if (userDisliked($userid, $postid)): ?> class="fas fa-frown dislike-btn" <?php else: ?> 
+												class="far fa-frown dislike-btn"<?php endif ?> data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>"></i>
+												&nbsp;&nbsp;&nbsp;&nbsp;
+												<span class="dislikes"><?php 
+												$aa = getsatone($postid);
+
+												if($aa==NULL){
+
+													echo "0";
+												}else{echo $aa;}
+												?></span>
+
 											</div>
 											<hr class="hrs">
 											<p class="feedtxt"><b>LEVEL</b></p>
-											<p class="feedtxt">How would you rate the level of this activity?</p>
+											<p class="feedtxttt">How would you rate the level of this activity?</p>
 
 											<div class="btn-group">
 												<i<?php if (userBiggner($userid, $postid)): ?>	
@@ -424,7 +422,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 
 										<hr class="hrs">
 										<p class="feedtxt"><b>TIME</b></p>
-										<p class="feedtxt">How long did this activity take with your group?</p>
+										<p class="feedtxttt">How long did this activity take with your group?</p>
 										<div class="btn-group">
 											<i <?php if (userLessOne($userid, $postid)): ?>
 											class="btn btn-success lessone-btn btn-sm beginnertxt"
@@ -471,7 +469,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 
 										<hr class="hrs">
 										<p class="feedtxt"><b>AGE GROUP</b></p>
-										<p class="feedtxt">What age range group did you work with?</p>
+										<p class="feedtxttt">What age range group did you work with?</p>
 
 										<div class="btn-group">
 											<i<?php if (userBiggnerAge($userid, $postid)): ?>
@@ -565,7 +563,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 					<div class="container">
 						<div class="row">
 							<div class="col-md-8">
-								<div class="card" style="background: #FFFFFF;box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 10px;">
+								<div class="card commcard">
 									<div class="card-body">
 										<?php
 // If comments are open or we have at least one comment, load up the comment template.
