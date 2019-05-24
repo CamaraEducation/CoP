@@ -227,6 +227,8 @@ echo  sprintf("%02d", $num);
 </div>
 </div>
 </div>
+
+
 <div class="container">
 <div class="row">
 
@@ -235,7 +237,7 @@ echo  sprintf("%02d", $num);
 <div class="card secborder" style="">
 
 <div class="card-header border-0 py-3 d-flex align-items-center my-3 bg-white">
-<img src="<?php echo get_template_directory_uri(); ?>/images/knowledge.png" class="align-self-start mr-3">
+<img src="<?php echo get_template_directory_uri(); ?>/images/logicmodels.png" class="align-self-start mr-3" width=48px; height=48px;>
 
 <a href="programmeplanning/#Logic Models"> 
 <div>
@@ -253,7 +255,7 @@ echo  sprintf("%02d", $num);
 
 
 <div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color:#fff">
-<img src="<?php echo get_template_directory_uri(); ?>/images/SessionPlans.png" class="align-self-start mr-3">
+<img src="<?php echo get_template_directory_uri(); ?>/images/SessionPlans1.png" class="align-self-start mr-3" width=48px; height=48px;>
 
 <a href="programmeplanning/#Session Plans"> 
 <div>
@@ -272,7 +274,7 @@ echo  sprintf("%02d", $num);
 <div class="card border-0 secborder">
 
 <div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color:#fff">
-<img src="<?php echo get_template_directory_uri(); ?>/images/CodeofConduct.png" class="align-self-start mr-3">
+<img src="<?php echo get_template_directory_uri(); ?>/images/CodeofConduct1.png" class="align-self-start mr-3" width=48px; height=48px;>
 
 <a href="<?php echo get_template_directory_uri(); ?>/docs/CoPCodeofConduct.pdf" target="new"> 
 <div>
@@ -303,6 +305,7 @@ return $term_single->name; //do something here
 }
 ?>
 <div class="container">
+<div class="row" style="margin-left: 2px;">
 <div class="card-deck" style="margin-bottom: 80px !important;">
 <?php
 //show latest psots
@@ -314,7 +317,7 @@ if ( $latestActivities ) {
 foreach ( $latestActivities as $post ) :
 ?>
 <div class="col-md-4">
-<div class="card scard1" style="width: 23rem;"> 
+<div class="card scard1" style="margin-right: 0px !important; margin-left: 0px !important; width: 22rem;"> 
 <img class="card-img-top cardback" src="<?php the_field('featured_image'); ?>"  width="279px" height="251px" alt="Card image cap">
 
 
@@ -371,6 +374,7 @@ echo "Nothing to show for now - No Activities! ";
 </div>
 
 </div>
+</div>
 
 <section class="my-5">
 <div class="container">
@@ -422,10 +426,15 @@ Activities  </a>
 <div class="card ccont">
 <div class="card-body">
 <h3 class="text-on-card toc-text">Community Contributor</h3>
+<<<<<<< HEAD
+<p class="cc-title">Create an activity guide</p>
+<p class="cc-text">Coming Soon!</p>	
+=======
 <p class="cc-title" style="font-weight: bold;">Create an activity guide</p>
 <p class="cc-text">Coming Soon!</p>
 
 
+>>>>>>> 60a3dfb0cf6643309a1f65208fde3df4dae2048d
 </div>
 </div>
 </div>
