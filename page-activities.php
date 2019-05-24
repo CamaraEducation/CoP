@@ -170,7 +170,7 @@ function searchPosts($maxPosts,$search_topic,$search_level,$search_tools,$search
 
         <div class="btn-group ml-2">
 
-            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_topic) ? 'rgba('.$r.','.$g.','.$b.',0.1)':'';?> ">
+            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>;this.style.fontColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_topic) ? 'rgba('.$r.','.$g.','.$b.',0.1)':'';?> ">
                
 <?php
 echo ($search_topic == NULL ? "Topic" : $search_topic);

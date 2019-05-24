@@ -370,7 +370,7 @@ wp_reset_postdata();
 }else {
 echo "Nothing to show for now - No Activities! ";
 }
-?>				
+?>	
 </div>
 
 </div>
@@ -390,7 +390,7 @@ echo "Nothing to show for now - No Activities! ";
 
 <?php
 
-//			$tax_terms = get_terms( 'topic', 'orderby=id',array('number' => 2,'pathway' =>$currentPathway));
+//	$tax_terms = get_terms( 'topic', 'orderby=id',array('number' => 2,'pathway' =>$currentPathway));
 
 if(strcasecmp(strtoupper ($current_user_pathway_name), strtoupper ("Digital Creativity"))==0) {
 $topics = array("MOJO","Graphic Design","Video Production","Animation","Audio Production","Photography");
@@ -400,7 +400,7 @@ $topics = array("Maker","Computer Science");
 }
 
 $arrlength = count($topics);
-//		echo $arrlength;
+//	echo $arrlength;
 for($x = 0; $x < $arrlength; $x++) {
 
 ?>
@@ -427,8 +427,12 @@ Activities  </a>
 <div class="card ccont">
 <div class="card-body">
 <h3 class="text-on-card toc-text">Community Contributor</h3>
-<p class="cc-title">Create an activity guide</p>
-<p class="cc-text">Coming Soon!</p>	
+
+<p class="cc-title" style="font-weight: bold;">Create an activity guide</p>
+<p class="cc-text">Coming Soon!</p>
+
+
+
 </div>
 </div>
 </div>
