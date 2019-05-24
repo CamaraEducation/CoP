@@ -188,12 +188,12 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 									$user = get_user_by( 'id', $instructor);
 									?>
 
-									<img src="<?php echo get_avatar_url($instructor); ?>" class="rounded-circle align-self-start mr-3" width="60" style="margin-top:40px;margin-left:40px;">
+									<img src="<?php echo get_avatar_url($instructor); ?>" class="rounded-circle align-self-start mr-3" width="60">
 
 
 
 									<div>
-										<h4 class="intro-title mb-0" style="color:#9AA5B1;margin-top:40px;">
+										<h4 class="intro-title mb-0" style="color:#9AA5B1;">
 											<?php echo strtoupper(get_post_meta($post->ID, 'instructor', true)); ?> 
 										</h4>
 

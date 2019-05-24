@@ -375,6 +375,7 @@ echo "Nothing to show for now - No Activities! ";
 
 </div>
 </div>
+</section>
 
 <section class="my-5">
 <div class="container">
@@ -428,10 +429,6 @@ Activities  </a>
 <h3 class="text-on-card toc-text">Community Contributor</h3>
 <p class="cc-title">Create an activity guide</p>
 <p class="cc-text">Coming Soon!</p>	
-<p class="cc-title" style="font-weight: bold;">Create an activity guide</p>
-<p class="cc-text">Coming Soon!</p>
-
-
 </div>
 </div>
 </div>
