@@ -28,18 +28,18 @@
 <p class="landing-txt">Advance your digital youth work knowledge & skillset with the support of the TechSpace Online Network.</p>
 <div class="row">
 <div class="col-md-5">
-<button class="land-btn land-btn-txt mt-4">
 
-<a href="register" style="color:#ffffff"> BECOME A MEMBER </a>
-</button>
-<div class="row justify-content-center mt-2 pr-3">
+
+<a href="register" class="btn mt-4 downloadguide"> BECOME A MEMBER </a>
+
+<div class="row justify-content-center mt-2 mr-4">
 <a href="login" class="land-login">Login</a>
 </div>
 </div>
 
 
 <div class="col-md-7 mt-4">
-<p class="land-num">600+ <span class="land-num-txt">Community of educators</span></p>
+<p class="land-num mr-4">600+ <span class="land-num-txt">Community of educators</span></p>
 </div>
 </div>
 </div>
@@ -388,10 +388,7 @@ border-radius: 8px;">
 <h1 class="landing-h1 pt-5" align="center">
 Sign up to the Online TechSpace Network</h1>
 <div class="row justify-content-center">
-<button class="land-btn land-btn-txt mt-4">
-
-<a href="register" style="color:#ffffff"> BECOME A MEMBER </a>
-</button>
+<a href="register" class="btn mt-4 downloadguide"> BECOME A MEMBER </a>
 
 </div>
 
