@@ -407,7 +407,7 @@ for($x = 0; $x < $arrlength; $x++) {
 <div class="col-md-6 my-2">
 
 <div class="card-custom lastcc">
-<img src="<?php echo gettopicImage($topics[$x]); ?>" width="36" style="padding-left:40px;">
+<img src="<?php echo gettopicImage($topics[$x]); ?>" style="width:80px;padding-left:40px;">
 
 <span class="intro-steam" style="margin-left:16px;">
 <a class="lastcc-txt" href="activities/?ft=<?php echo $topics[$x] ;?>">
@@ -428,8 +428,8 @@ Activities  </a>
 <div class="card-body">
 <h3 class="text-on-card toc-text">Community Contributor</h3>
 
-<p class="cc-title" style="font-weight: bold;">Create an activity guide</p>
-<p class="cc-text">Coming Soon!</p>
+<span class="cc-title" style="font-weight: bold;">Create an activity guide</span>
+<p class="cc-text" style="margin-top:0px;">Coming Soon!</p>
 
 
 
