@@ -1,128 +1,75 @@
-<?php
-/**
- * The template for displaying comments
- *
- * This is the template that displays the area of the page that contains both the current comments
- * and the comment form.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package WordPress
- * @subpackage Twenty_Nineteen
- * @since 1.0.0
- */
 
-/*
- * If the current post is protected by a password and
- * the visitor has not yet entered the password we will
- * return early without loading the comments.
-*/
-if ( post_password_required() ) {
-	return;
-}
+<?php if(comments_open()) : ?>
+    <?php if(get_option('comment_registration') && !$user_ID) : ?>  
+        <p>You must be <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?redirect_to=<?php echo urlencode(get_permalink()); ?>">logged in</a> to post a comment.</p><?php else : ?>  
 
-$discussion = twentynineteen_get_discussion_data();
-?>
+        <form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">  
+            <?php if($user_ID) : ?>  
+                <!--
+                <p>Logged in as <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. 
 
-<div id="comments" class="<?php echo comments_open() ? 'comments-area' : 'comments-area comments-closed'; ?>">
-	<div class="<?php echo $discussion->responses > 0 ? 'comments-title-wrap' : 'comments-title-wrap no-responses'; ?>">
-		<h2 class="comments-title">
-		<?php
-		if ( comments_open() ) {
-			if ( have_comments() ) {
-				//_e( 'Join the Conversation', 'twentynineteen' );
-			} else {
-				//_e( 'Leave a comment', 'twentynineteen' );
-			}
-		} else {
-			if ( '1' == $discussion->responses ) {
-				/* translators: %s: post title */
-				printf( _x( 'One reply on &ldquo;%s&rdquo;', 'comments title', 'twentynineteen' ), get_the_title() );
-			} else {
-				printf(
-					/* translators: 1: number of comments, 2: post title */
-					_nx(
-						'%1$s reply on &ldquo;%2$s&rdquo;',
-						'%1$s replies on &ldquo;%2$s&rdquo;',
-						$discussion->responses,
-						'comments title',
-						'twentynineteen'
-					),
-					number_format_i18n( $discussion->responses ),
-					get_the_title()
-				);
-			}
-		}
-		?>
-		</h2><!-- .comments-title -->
-		<?php
-			// Only show discussion meta information when comments are open and available.
-		if ( have_comments() && comments_open() ) {
-			get_template_part( 'template-parts/post/discussion', 'meta' );
-		}
-		?>
-	</div><!-- .comments-title-flex -->
-	<?php
-	if ( have_comments() ) :
+                    <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?action=logout" title="Log out of this account">Log out &raquo;</a></p>  
+                -->
+            <?php else : ?>  
+                <p><input type="text" name="author" id="author" value="<?php echo $comment_author; ?>" size="22" tabindex="1" />  
+                <label for="author">Name <?php if($req) echo "(required)"; ?></label></p>  
+                <p><input type="text" name="email" id="email" value="<?php echo $comment_author_email; ?>" size="22" tabindex="2" />  
+                <label for="email">Email (will not be published<?php if($req) echo ", required"; ?>)</label></p>  
+                <p><input type="text" name="url" id="url" value="<?php echo $comment_author_url; ?>" size="22" tabindex="3" />  
+                <label for="url">Website</label></p>  
+            <?php endif; ?>  
 
-		// Show comment form at top if showing newest comments at the top.
-		if ( comments_open() ) {
-			twentynineteen_comment_form( 'desc' );
-		}
+<div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
 
-		?>
-		<ol class="comment-list">
-			<?php
-			wp_list_comments(
-				array(
-					'walker'      => new TwentyNineteen_Walker_Comment(),
-					'avatar_size' => twentynineteen_get_avatar_size(),
-					'short_ping'  => true,
-					'style'       => 'ol',
-				)
-			);
-			?>
-		</ol><!-- .comment-list -->
-		<?php
+    <img src="<?php echo get_avatar_url($current_user->ID); ?>" class="rounded-circle align-self-start mr-3" style="width:40px;">
+                                            
+   <div class="form-group green-border-focus">
+    <textarea name="comment" id="comment" class="form-control col-xs-12"   rows="7" cols="80" style="color:#7B8794" onfocus="this.value=''">
+   What went well or or did't go well for me with this activity was...
+    </textarea>
 
-		// Show comment navigation
-		if ( have_comments() ) :
-			$prev_icon     = twentynineteen_get_icon_svg( 'chevron_left', 22 );
-			$next_icon     = twentynineteen_get_icon_svg( 'chevron_right', 22 );
-			$comments_text = __( 'Comments', 'twentynineteen' );
-			the_comments_navigation(
-				array(
-					'prev_text' => sprintf( '%s <span class="nav-prev-text"><span class="primary-text">%s</span> <span class="secondary-text">%s</span></span>', $prev_icon, __( 'Previous', 'twentynineteen' ), __( 'Comments', 'twentynineteen' ) ),
-					'next_text' => sprintf( '<span class="nav-next-text"><span class="primary-text">%s</span> <span class="secondary-text">%s</span></span> %s', __( 'Next', 'twentynineteen' ), __( 'Comments', 'twentynineteen' ), $next_icon ),
-				)
-			);
-		endif;
+            <input type="hidden" name="comment_post_ID" value="<?php echo $id; ?>" />
 
-		// Show comment form at bottom if showing newest comments at the bottom.
-		if ( comments_open() && 'asc' === strtolower( get_option( 'comment_order', 'asc' ) ) ) :
-			?>
-			<div class="comment-form-flex">
-				<span class="screen-reader-text"><?php _e( 'Leave a comment', 'twentynineteen' ); ?></span>
-				<?php twentynineteen_comment_form( 'asc' ); ?>
-				<h2 class="comments-title" aria-hidden="true"><?php _e( 'Leave a comment', 'twentynineteen' ); ?></h2>
-			</div>
-			<?php
-		endif;
+                                                    <input type="submit" name="submit"  class="btn btn-outline-warning my-3" style="background: #EE603B;box-shadow: 0px 5px 15px rgba(25, 70, 93, 0.05);border-radius: 100px;font-family: Lato;font-style: normal;font-weight: bold font-size: 12px;line-height: 24px;color: #fff;" value="Add Comment" />
+                                                </div>
 
-		// If comments are closed and there are comments, let's leave a little note, shall we?
-		if ( ! comments_open() ) :
-			?>
-			<p class="no-comments">
-				<?php _e( 'Comments are closed.', 'twentynineteen' ); ?>
-			</p>
-			<?php
-		endif;
 
-	else :
+            <?php do_action('comment_form', $post->ID); ?>  
 
-		// Show comment form.
-		//twentynineteen_comment_form( true );
+</div>
 
-	endif; // if have_comments();
-	?>
-</div><!-- #comments -->
+        </form>  
+    <?php endif; ?>  
+<?php else : ?>  
+    <p>The comments are closed.</p>  
+<?php endif; ?>
+
+
+                        <h2 class="headtitle">Activity Discussions </h2>
+
+<hr>
+
+<div style="overflow-y: scroll; height:300px;">
+
+
+<a id="comments"></a>
+
+<?php if($comments) : ?>  
+    <ul class="comments" style="list-style-type: none;">  
+    <?php foreach($comments as $comment) : ?>  
+        <li id="comment-<?php comment_ID(); ?>" class="<?php if ($comment->user_id == 1) echo "authcomment";?>">  
+            <?php if ($comment->comment_approved == '0') : ?>  
+                <p>Your comment is awaiting approval</p>  
+            <?php endif; ?>  
+            
+
+    <img src="<?php echo get_avatar_url(get_comment_author_email()); ?>" class="rounded-circle align-self-start mr-3" style="width:40px;">
+
+            <cite><?php comment_author_link(); ?> on <small><?php comment_date(); ?></small></cite><br />
+            <?php comment_text(); ?>  
+        </li>  
+    <?php endforeach; ?>  
+    </ul>  
+<?php endif; ?> 
+
+</div>

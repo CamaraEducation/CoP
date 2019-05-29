@@ -79,7 +79,7 @@ if(count($_POST)){
 
 							<div class="form-check">
 								<input type="checkbox" class="form-check-input" id="user_18yearsold" name="user_18yearsold" value="YES">
-								By ticking this box you are confirming you are over 18 years of age and you have read and agree to the conditions <a href="" data-toggle="modal" data-target="#termagreementModalLong" style="color:#0000EE;font-weight: bold;">TechSpace Online Network Membership terms and conditions</a>.
+								By ticking this box you are confirming you are over 18 years of age and you have read the <a href="" data-toggle="modal" data-target="#termagreementModalLong" style="color:#0000EE;font-weight: bold;">TechSpace Online Network Membership terms and conditions</a>.
 
 								<label class="form-check-label tick-text" for="user_18yearsold"> </label>
 							</div>

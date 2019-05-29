@@ -51,6 +51,8 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 				<?php echo strtoupper(getPostTerms($post->ID,'topic')); ?></span>
 
 				<hr class="hrs">
+			
+
 			</div>
 
 			<div class="container mb-3">
@@ -104,12 +106,14 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 
 				<div class="col-md-4">
 
-					<h2 class="aligntxtt">Align to Outcomes</h2>
-					<hr class="hrs" style="margin-bottom: 24px;">
-					<div class="card my-3 aligncards">
-						<H2 class="headtitle" style="font-size:14px;"> SKILLS & COMPETENCIES </H2> 
+					<h2 class="aligntxtt"> Competencies </h2>
 
-						<ul style="list-style:none;">
+					<hr class="hrs" style="margin-bottom: 24px;">
+
+					<div class="card my-3 knowledgecards">
+						<H2 class="headtitle" style="font-size:14px;"> KNOWLEDGE & SKILLS </H2> 
+
+						<ul style="list-style:none;margin:0px;align-self:left;">
 							<?php
 							$term_list = wp_get_post_terms($post->ID, "skills_and_competencies",array("fields" => "all"));
 
@@ -122,7 +126,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 
 							foreach($term_list as $term_single) {
 								?>
-								<li style="float:left;margin-right:6px;">
+								<li style="float:left;margin-right:6px;margin-left: 0px;">
 									<span class="badge badge-pill badge-light" style="padding:5px;font-size:12px;background-color:rgba(<?php echo "$r,$g,$b"?>,0.1);box-sizing: border-box; border-radius: 8px;height: 24px;vertical-align: middle;"><?php echo  $term_single->name;?></span>
 								</li>
 								<?php
@@ -306,7 +310,8 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 
 								<div class="feedcardb1">
 
-									<p class="feedtxt"><b>SATISFACTION</b></p>
+									<p class="feedtxt"> <b>SATISFACTION </b> </p>
+
 									<p class="feedtxttt">How did you find this activity with the young people?</p>
 
 
@@ -320,7 +325,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 									?>
 
 
-									<div class="btn-group">
+									<div class="btn-group" style="margin-bottom: 0px;">
 										<?php
 										$valu = $wpdb->get_var( "SELECT satsfaction FROM ".$wpdb->prefix."feedback WHERE user_id = '".$userid."' && post_id = '".$postid."'" );
 										$sad = $wpdb->get_var( "SELECT sum(satsfaction = 1) FROM ".$wpdb->prefix."feedback WHERE post_id = $postid " );
@@ -372,8 +377,11 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 												?></span>
 
 											</div>
-											<hr class="hrs">
+
+										<hr style="margin-bottom:24px;margin-top:24px;">
+
 											<p class="feedtxt"><b>LEVEL</b></p>
+
 											<p class="feedtxttt">How would you rate the level of this activity?</p>
 
 											<div class="btn-group">
@@ -397,7 +405,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 											<?php else: ?>
 												class="btn btn-default inter-btn btn-sm beginnertxt"
 											<?php endif ?>
-											data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">intermidiate</i>
+											data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">intermediate</i>
 											<span class="inters btn alert-warning disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php
 											$dd = getInter($postid);
 											if($dd==NULL){
@@ -420,7 +428,9 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 											?></span>
 										</div>
 
-										<hr class="hrs">
+								
+																				<hr style="margin-bottom:24px;margin-top:24px;">
+
 										<p class="feedtxt"><b>TIME</b></p>
 										<p class="feedtxttt">How long did this activity take with your group?</p>
 										<div class="btn-group">
@@ -467,7 +477,8 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 											?></span>
 										</div> 
 
-										<hr class="hrs">
+										<hr style="margin-bottom:24px;margin-top:24px;">
+
 										<p class="feedtxt"><b>AGE GROUP</b></p>
 										<p class="feedtxttt">What age range group did you work with?</p>
 
@@ -569,23 +580,17 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 // If comments are open or we have at least one comment, load up the comment template.
 										if ( comments_open() || get_comments_number() ) {
 											?>
-											<div style="overflow-y: scroll; height:300px;">
+											
+
 												<?php comments_template(); ?>
-											</div>
-										<?php	} ?>
+											
+											
+										<?php	} else  { ?>
+<p style="text-align: center;"> Discussions are disabled for this acitivty. </p>
 
+<?php } ?>
 
-										<div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #ffffff;">
-											<img src="<?php echo get_avatar_url($current_user->ID); ?>" class="rounded-circle align-self-start mr-3" style="width:40px;">
-											<div>
-												<div class="form-group green-border-focus">
-													<textarea class="form-control col-xs-12" id="exampleFormControlTextarea5"  rows="7" cols="80" style="color:#7B8794">
-														What went well or or did't go well for me with this activity was...
-													</textarea>
-													<button type="button" class="btn btn-outline-warning my-3" style="background: #EE603B;box-shadow: 0px 5px 15px rgba(25, 70, 93, 0.05);border-radius: 100px;font-family: Lato;font-style: normal;font-weight: bold font-size: 12px;line-height: 24px;color: #fff;">Add Comment</button>
-												</div>
-											</div>
-										</div>
+										
 									</div>
 								</div>
 							</div>

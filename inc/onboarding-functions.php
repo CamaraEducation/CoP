@@ -115,7 +115,7 @@ if(!validate_username($user_username)) {
 
 if(empty($user_18yearsold)) {
       // invalid username
-  $errors = array('user_18yearsold'  => 'Please confirm your age.');
+  $errors = array('user_18yearsold'  => 'Please confirm you have read the terms and conditions and also that you are 18 years old.');
 }
 
 

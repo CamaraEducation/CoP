@@ -274,11 +274,13 @@ echo  sprintf("%02d", $num);
 <div class="card border-0 secborder">
 
 <div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color:#fff">
+
 <img src="<?php echo get_template_directory_uri(); ?>/images/CodeofConduct1.png" class="align-self-start mr-3" width=48px; height=48px;>
 
 <a href="<?php echo get_template_directory_uri(); ?>/docs/CoPCodeofConduct.pdf" target="new"> 
 <div>
-<h4 style="color:#9AA5B1;font-size:12px;">PROGRAMME PLANNING</h4>
+
+<h4 style="color:#9AA5B1;font-size:12px;">COMMUNITY GUIDELINES</h4>
 <h6 class="intro-steam" style="font-size:18px;font-weight:bold;">Code of Conduct</h6>
 </div>
 </a>
@@ -317,7 +319,9 @@ if ( $latestActivities ) {
 foreach ( $latestActivities as $post ) :
 ?>
 <div class="col-md-4">
+
 <div class="card scard1" style="margin-right: 0px !important; margin-left: 0px !important; width: 22rem;"> 
+
 <img class="card-img-top cardback" src="<?php the_field('featured_image'); ?>"  width="279px" height="251px" alt="Card image cap">
 
 
@@ -325,14 +329,14 @@ foreach ( $latestActivities as $post ) :
 
 <h6 class="card-small acttext"><?php echo getPostTerms($post->ID,'pathway'); ?> </h6>
 
-<h5 class="card-big act-head">
+<span class="card-big act-head">
 
 <a class="act-head" href="<?php the_permalink(); ?>">
-<?php the_title(); ?> </a></h5>
+<?php the_title(); ?> </a></span>
 
-<span class="badge badge-primary" style="background-color:<?php echo $current_pathway_color;?>"> <?php echo getPostTerms($post->ID,'topic'); ?></span>
+<span class="badge badge-primary" style="margin-top:0px; background-color:<?php echo $current_pathway_color;?>"> <?php echo getPostTerms($post->ID,'topic');?></span>
 
-<span class="badge badge-info" style="outline: 1px solid <?php echo $current_pathway_color;?>;color:<?php echo $current_pathway_color;?>;background-color:#ffffff"> <?php echo getPostTerms($post->ID,'tool'); ?></span>
+<span class="badge badge-primary" style="outline: 1px solid <?php echo $current_pathway_color;?>;color:<?php echo $current_pathway_color;?>;background-color:#ffffff"> <?php echo getPostTerms($post->ID,'tool'); ?></span>
 
 
 
@@ -360,6 +364,7 @@ if($s == "Easy"){?>
 </span>
 
 </div>
+
 </div>
 </div>
 

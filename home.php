@@ -379,9 +379,10 @@ Create or curate your own resource to share with the community.</p>
 </div>
 
 
-<div class="container" style="margin-top: 150px; height: 353px; background-image: url(<?php echo get_template_directory_uri(); ?>/images/dotback.png);">
+<div class="container" style="margin-top: 100px; height: 353px; background-image: url(<?php echo get_template_directory_uri(); ?>/images/dotback.png);">
+
 <div class="row justify-content-center">
-<div class="card act-card-st mt-5">
+<div class="card act-card-st mt-5" style="height:240px;">
 
 <div class="card-body" style="box-shadow: 0px 4px 10px rgba(196, 196, 196, 0.52);
 border-radius: 8px;">
@@ -398,6 +399,7 @@ Sign up to the Online TechSpace Network</h1>
 
 </div>
 </div>
+
 </div>
 </div>
 <div class="mt-5"></div>

@@ -80,9 +80,11 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 			<div class="container-fluid" style="background: #fff;">
 				<div class="container">
 					<ul class="nav mx-4">
+						<!---
 						<li class="nav-item mx-4 tab-text1">
 							<a href="<?php echo get_site_url();?>/profile" class="nav-link" style="text-transform:capitalize;">My profile</a>
 						</li>
+-->
 						<li class="nav-item mx-4 tab-text1">
 							
 								<a href="<?php echo get_site_url();?>/account" class="nav-link" style="text-transform:capitalize;color: #c71585; background: #F097C8;	border-radius: 100px;">Account Details </a>
