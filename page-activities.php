@@ -170,12 +170,13 @@ function searchPosts($maxPosts,$search_topic,$search_level,$search_tools,$search
 
         <div class="btn-group ml-2">
 
-            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>;this.style.fontColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_topic) ? 'rgba('.$r.','.$g.','.$b.',0.1)':'';?> ">
-               
+            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_topic) ? 'rgba('.$r.','.$g.','.$b.',0.1)':'';?> ">
+     
+     <span onMouseOver="this.style.color='<?php echo $current_pathway_color;?>'"  onMouseOut="this.style.color='#000000'">          
 <?php
 echo ($search_topic == NULL ? "Topic" : $search_topic);
 ?>
-
+</span>
 
             </button>
 
@@ -210,11 +211,12 @@ echo ($search_topic == NULL ? "Topic" : $search_topic);
         <div class="btn-group ml-2">
            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_level) ? 'rgba('.$r.','.$g.','.$b.',0.1)':'';?> ">
             
+     <span onMouseOver="this.style.color='<?php echo $current_pathway_color;?>'"  onMouseOut="this.style.color='#000000'">          
 
             <?php
 echo ($search_level == NULL ? "Level" : $search_level);
 ?>
-
+</span>
         </button>
         <div class="dropdown-menu">
                
@@ -239,10 +241,13 @@ echo ($search_level == NULL ? "Level" : $search_level);
     <div class="btn-group ml-2">
         <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_tool) ? 'rgba('.$r.','.$g.','.$b.',0.1)':'';?> ">
           
+     <span onMouseOver="this.style.color='<?php echo $current_pathway_color;?>'"  onMouseOut="this.style.color='#000000'">          
 
             <?php
 echo ($search_tool == NULL ? "Tools" : $search_tool);
 ?>
+
+</span>
 
       </button>
       <div class="dropdown-menu">
@@ -265,11 +270,13 @@ echo ($search_tool == NULL ? "Tools" : $search_tool);
 <div class="btn-group ml-2">
 
     <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_app) ? 'rgba('.$r.','.$g.','.$b.',0.1)':'';?> ">
-        
+      
+     <span onMouseOver="this.style.color='<?php echo $current_pathway_color;?>'"  onMouseOut="this.style.color='#000000'">          
+  
             <?php
 echo ($search_app == NULL ? "App" : $search_app);
 ?>
-
+</span>
     </button>
     <div class="dropdown-menu">
         <?php

@@ -169,11 +169,11 @@ if($name == $page) {
 				<li class="nav-item menu-text <?php echo showCurrentPage('programmeplanning');?>">
 					<a class="nav-link text-menu" href="<?php echo home_url(); ?>/programmeplanning">Programme Planning </a>
 				</li>
-
+<!--
 				<li class="nav-item menu-text <?php echo showCurrentPage('training');?>">
 				<a class="nav-link text-menu" href="<?php echo home_url(); ?>/training">Training </a>
 				</li>
-
+-->
 				<li class="nav-item menu-text <?php echo showCurrentPage('publications');?>">
 				<a class="nav-link text-menu" href="<?php echo home_url(); ?>/publications">Publications </a>
 				</li>
