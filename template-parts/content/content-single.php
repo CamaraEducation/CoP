@@ -113,6 +113,9 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 					<div class="card my-3 knowledgecards">
 						<H2 class="headtitle" style="font-size:14px;"> KNOWLEDGE & SKILLS </H2> 
 
+						<ul class="nav navbar-nav list-inline">
+
+
 						<ul style="list-style:none;margin:0px;align-self:left;">
 							<?php
 							$term_list = wp_get_post_terms($post->ID, "skills_and_competencies",array("fields" => "all"));
@@ -126,9 +129,9 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 
 							foreach($term_list as $term_single) {
 								?>
-								<li style="float:left;margin-right:6px;margin-left: 0px;">
-									<span class="badge badge-pill badge-light" style="padding:5px;font-size:12px;background-color:rgba(<?php echo "$r,$g,$b"?>,0.1);box-sizing: border-box; border-radius: 8px;height: 24px;vertical-align: middle;"><?php echo  $term_single->name;?></span>
-								</li>
+								  <li class="list-inline-item"><span class="badge badge-pill badge-light" style="padding:5px;font-size:12px;background-color:rgba(<?php echo "$r,$g,$b"?>,0.1);box-sizing: border-box; border-radius: 8px;height: 24px;vertical-align: middle;"><?php echo  $term_single->name;?></span></li>
+
+							
 								<?php
 							}
 							?>
@@ -142,7 +145,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 
 
 							<h7 class="headtitle" style="font-size:14px;">
-								<a href="<?php the_field('logic_model'); ?>" target="new">	
+								<a class="logicmodtxt" href="<?php the_field('logic_model'); ?>" target="new">	
 									<img src="<?php echo get_template_directory_uri(); ?>/images/logicModel.png" style="margin-right:12px;width:36px;"> Logic Model </a> 
 									<span class="float-right" style="margin-right:2px;"> > </span>
 								</h7>
@@ -156,7 +159,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 
 
 								<h7 class="headtitle" style="font-size:14px;">
-									<a href="<?php the_field('sample_session_plan'); ?>" target="new">
+									<a class="logicmodtxt" href="<?php the_field('sample_session_plan'); ?>" target="new">
 
 										<img src="<?php echo get_template_directory_uri(); ?>/images/sessionPlan.png"style="margin-right:12px;width:36px;">
 										Sample Session Plan

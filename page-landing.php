@@ -416,7 +416,7 @@ for($x = 0; $x < $arrlength; $x++) {
 
 <span class="intro-steam" style="margin-left:16px;">
 <a class="lastcc-txt" href="activities/?ft=<?php echo $topics[$x] ;?>">
-<?php echo $topics[$x]; ?>
+<?php echo $topics[$x]; ?> 
 Activities  </a>
 </span>
 </div>
@@ -429,7 +429,7 @@ Activities  </a>
 </div>
 
 <div class="col-md-4 my-2" style="margin-bottom: 48px !important;">
-<div class="card ccont">
+<div class="card ccont" style="height: 95px !important;">
 <div class="card-body">
 <h3 class="text-on-card toc-text">Community Contributor</h3>
 
