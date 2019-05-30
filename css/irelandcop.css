@@ -774,29 +774,29 @@ body hr {
 }
 
 #downloadhover {
-   
-max-height:368px; 
-min-height: 368px;
+ 
+  max-height:368px; 
+  min-height: 368px;
 }
 
 
 .download-card{
-max-height:368px; 
-min-height: 368px;
+  max-height:368px; 
+  min-height: 368px;
 }
 
 .downloadview{
-visibility: hidden;
+  visibility: hidden;
 }
 
 .downloadhover h2{
-font-size: 24px; 
-font-weight: bold;
-color: #fff;
-line-height: 24px;
-text-align: center;  
-z-index: 9;
-padding-top:50%;
+  font-size: 24px; 
+  font-weight: bold;
+  color: #fff;
+  line-height: 24px;
+  text-align: center;  
+  z-index: 9;
+  padding-top:50%;
 }
 
 
@@ -951,7 +951,7 @@ padding-top:50%;
   text-align: center;
   color: #102A43;
   opacity: 0.3;
- 
+  
 }
 .land-num-txt{
   font-family: Lato;
@@ -1291,7 +1291,7 @@ a, a:hover,a:visited, a:focus {
   height: 144px;
   padding-top:15px;
   border: 0px solid rgba(0, 0, 0, 0.125) !important;
-padding-left: 24px;
+  padding-left: 24px;
 }
 
 .scard1{
@@ -1327,7 +1327,7 @@ padding-left: 24px;
 }
 
 
-  margin-left:24px;
+margin-left:24px;
   /*margin-bottom:32px;
   min-height:140px;*/
   padding-left: 24px;
@@ -1430,8 +1430,8 @@ padding-left: 24px;
   /* or 200% */
   text-transform: uppercase;
   color: #3E4C59;
-margin-bottom: 8px;
-margin-top:0px;
+  margin-bottom: 8px;
+  margin-top:0px;
 }
 
 .feedtxttt{
@@ -1502,7 +1502,7 @@ margin-top:0px;
 .hrs{
   
   /*border: 1px solid #000000;*/
- /* transform: rotate(-0.12deg);*/
+  /* transform: rotate(-0.12deg);*/
 }
 .aligncards{
   background-color: #fff; 
@@ -1524,13 +1524,13 @@ margin-top:0px;
   border: 0px solid rgba(0, 0, 0, 0.125) !important;
 }
 .logicmodtxt{
-font-family: Lato;
-font-style: normal;
-font-weight: bold;
-font-size: 14px;
-line-height: 24px;
-/* identical to box height, or 171% */
-color: #243741;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 24px;
+  /* identical to box height, or 171% */
+  color: #243741;
 }
 .brs{
   /* Small drop shadow */
@@ -1542,6 +1542,24 @@ color: #243741;
   box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05) !important;
   border-radius: 8px !important;
   border: 0px solid rgba(0, 0, 0, 0.125) !important;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+
+  /* identical to box height, or 114% */
+  letter-spacing: 0.05em;
+
+  color: #243741;
+}
+.sppct{
+  padding:5px;font-size:12px !important;
+  box-sizing: border-box !important;
+  border-radius: 8px !important;
+  height: 24px !important;
+  vertical-align: middle !important;
+  font-weight: bold;
 }
 .feedcardb1{
   padding: 25px;
@@ -1671,19 +1689,19 @@ color: #243741;
   color: #323F4B;
 }
 .register-card{
-background: #FFFFFF !important;
-/* Small drop shadow */
-box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05) !important;
-border-radius: 8px !important;
-border: 0px !important;
-margin-top:15% !important;
-margin-left:15% !important;
+  background: #FFFFFF !important;
+  /* Small drop shadow */
+  box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05) !important;
+  border-radius: 8px !important;
+  border: 0px !important;
+  margin-top:15% !important;
+  margin-left:15% !important;
 }
 .register-cardsec{
-background: #FFFFFF !important;
-/* Small drop shadow */
-box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05) !important;
-border-radius: 8px !important;
-border: 0px !important;
-width: 521px !important;
+  background: #FFFFFF !important;
+  /* Small drop shadow */
+  box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05) !important;
+  border-radius: 8px !important;
+  border: 0px !important;
+  width: 521px !important;
 }

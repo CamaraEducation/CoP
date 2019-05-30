@@ -111,12 +111,9 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 					<hr class="hrs" style="margin-bottom: 24px;">
 
 					<div class="card my-3 knowledgecards">
+						<div class="card-body">
 						<H2 class="headtitle" style="font-size:14px;"> KNOWLEDGE & SKILLS </H2> 
 
-						<ul class="nav navbar-nav list-inline">
-
-
-						<ul style="list-style:none;margin:0px;align-self:left;">
 							<?php
 							$term_list = wp_get_post_terms($post->ID, "skills_and_competencies",array("fields" => "all"));
 
@@ -129,15 +126,18 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 
 							foreach($term_list as $term_single) {
 								?>
-								  <li class="list-inline-item"><span class="badge badge-pill badge-light" style="padding:5px;font-size:12px;background-color:rgba(<?php echo "$r,$g,$b"?>,0.1);box-sizing: border-box; border-radius: 8px;height: 24px;vertical-align: middle;"><?php echo  $term_single->name;?></span></li>
+								
+									<!-- <span class="text-nowrap badge badge-pill badge-light" style="padding:5px;font-size:12px;background-color:rgba(<?php echo "$r,$g,$b"?>,0.1);box-sizing: border-box; border-radius: 8px;height: 24px;vertical-align: middle;"><?php echo  $term_single->name;?></span> -->
+									    <span class="card-text sppct" style="background-color:rgba(<?php echo "$r,$g,$b"?>,0.1);
+"><?php echo  $term_single->name;?></span>
 
+									<!-- <a class="text-nowrap" style="padding:5px;font-size:12px;background-color:rgba(<?php echo "$r,$g,$b"?>,0.1);box-sizing: border-box; border-radius: 8px;height: 24px;vertical-align: middle;"><?php echo  $term_single->name;?></a> -->
 							
 								<?php
 							}
 							?>
-						</ul>
 
-					</div>
+					</div></div>
 
 					<?php if (get_field('logic_model') != "") { ?>
 
