@@ -54,15 +54,14 @@ return $lastposts;
 
 <!--  Hero Section -->
 <section id="hero">
-<div class="hero-container">
-
+<div class="hero-container" style="margin-left: 105px !important; margin-right: 105px !important; margin-top: 15px; height: 295px;background-image: url(<?php echo get_template_directory_uri(); ?>/images/dotback.png);">
 <?php
 if ( is_user_logged_in() ) {
 
 ?>
 
 <div class="col-xs-2 mx-2">
-<span><img src="<?php echo get_avatar_url($current_user->ID); ?>" class="img-responsive rounded-circle" width="125" height="125" alt="COP" style="margin-right:24px;"></span>
+<span><img src="<?php echo get_avatar_url($current_user->ID); ?>" class="img-responsive rounded-circle prof-pic" width="125" height="125" alt="COP"></span>
 </div>
 
 <div class="col-xs-6" style="align-content: left;">

@@ -32,11 +32,11 @@ body hr {
 
 
 .login-submit:hover{
-  background: #FFFFFF;
-  border: 1px solid #EE603B;
-  box-sizing: border-box;
-  border-radius: 100px;
-  color:#EE603B;
+  background: #FFFFFF !important;
+  border: 1px solid #EE603B !important;
+  box-sizing: border-box !important;
+  border-radius: 100px !important;
+  color:#EE603B !important;
 }
 
 .register-submit:hover{
@@ -774,7 +774,7 @@ body hr {
 }
 
 #downloadhover {
- 
+
   max-height:368px; 
   min-height: 368px;
 }
@@ -906,42 +906,49 @@ body hr {
   color: #102A43;
 }
 .landing-txt{
-  font-family: Lato;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 22px;
-  line-height: 36px;
-  color: #102A43;
+  font-family: Lato !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-size: 22px !important;
+  line-height: 36px !important;
+  color: #102A43 !important;
 }
 .land-btn-txt{
-  font-family: Lato;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 12px;
-  line-height: 14px;
-  letter-spacing: 0.03em;
-  color: #FFFFFF;
-  border-radius: 10px;
+  font-family: Lato !important;
+  font-style: normal !important;
+  font-weight: bold !important;
+  font-size: 12px !important;
+  line-height: 14px !important;
+  letter-spacing: 0.03em !important;
+  color: #FFFFFF !important;
+  border-radius: 10px !important;
 }
 .land-btn{
-  width: 184px;
-  height: 48px;
-  background: #EE603B;
-  border: 1px solid #EE603B;
-  box-sizing: border-box;
+  width: 184px !important;
+  height: 48px !important;
+  background: #EE603B !important;
+  border: 1px solid #EE603B !important;
+  box-sizing: border-box !important;
   /* Drop Shadow */
-  box-shadow: 0px 5px 15px rgba(25, 70, 93, 0.05);
-  border-radius: 100px;
+  box-shadow: 0px 5px 15px rgba(25, 70, 93, 0.05) !important;
+  border-radius: 100px !important;
 }
 .land-btn11{
-  width: 421px;
-  height: 48px;
-  background: #EE603B;
-  border: 1px solid #EE603B;
-  box-sizing: border-box;
+  width: 421px !important;
+  height: 48px !important;
+  background: #EE603B !important;
+  border: 1px solid #EE603B !important;
+  box-sizing: border-box !important;
   /* Drop Shadow */
-  box-shadow: 0px 5px 15px rgba(25, 70, 93, 0.05);
-  border-radius: 100px;
+  box-shadow: 0px 5px 15px rgba(25, 70, 93, 0.05) !important;
+  border-radius: 100px !important;
+}
+.land-btn11:hover{
+  background: #FFFFFF !important;
+  border: 1px solid #EE603B !important;
+  box-sizing: border-box !important;
+  border-radius: 100px !important;
+  color:#EE603B !important;
 }
 .land-num{
   font-family: Lato;
@@ -951,7 +958,7 @@ body hr {
   text-align: center;
   color: #102A43;
   opacity: 0.3;
-  
+
 }
 .land-num-txt{
   font-family: Lato;
@@ -1251,12 +1258,25 @@ a, a:hover,a:visited, a:focus {
   margin-bottom: 8px;
   text-align: left;
 }
+.prof-name:hover{
+  font-size:24px;
+  margin-bottom: 8px;
+  text-align: left;
+  color: #EE603B;
+}
 .prof-role{
   font-size:14px;
   font-weight: normal;
   color:#3E4C59;
   margin-bottom: 16px;
   text-align: left;
+}
+.prof-pic{
+  margin-right:24px;
+}
+.prof-pic:hover{
+  margin-right:24px;
+  color:#3E4C59;
 }
 .badgef{
   background: #3ECCCB;
@@ -1500,7 +1520,7 @@ margin-left:24px;
   color: #243741;
 }
 .hrs{
-  
+
   /*border: 1px solid #000000;*/
   /* transform: rotate(-0.12deg);*/
 }
@@ -1694,8 +1714,6 @@ margin-left:24px;
   box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05) !important;
   border-radius: 8px !important;
   border: 0px !important;
-  margin-top:15% !important;
-  margin-left:15% !important;
 }
 .register-cardsec{
   background: #FFFFFF !important;
