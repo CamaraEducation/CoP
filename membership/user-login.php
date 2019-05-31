@@ -42,60 +42,61 @@ if(count($_POST)){
 	
 	
 	<section>
-		
-		<div class="row">
-
+		<div class="container-fluid">
 			
-			<img src="<?php echo get_template_directory_uri(); ?>/images/stpic.png" class="img-fluid" alt="">
-			
-			<div class="col-md-4">
-				<a href="<?php echo get_site_url();?>">
-					<img src="<?php echo get_template_directory_uri(); ?>/images/clogo.svg" alt="" class="img-fluid">
-				</a>
+			<div class="row">
 
-				<div class="card register-card">
+				
+				<img src="<?php echo get_template_directory_uri(); ?>/images/stpic.png" class="img-fluid" alt="">
+				
+				<div class="col-md-4">
+					<a href="<?php echo get_site_url();?>">
+						<img src="<?php echo get_template_directory_uri(); ?>/images/clogo.svg" alt="" class="img-fluid">
+					</a>
 
-					
-					<div class="card-body">
-						<h5 class="signup-title-txt" style="margin-left:48px;margin-bottom:24px;">TechSpace Network Login</h5>
+					<div class="card register-card" style="width: 537px !important;margin-left: 70px; margin-top: 104px !important;">
+
 						
-						
-
-
-						<form id="member_login_form"  action="" method="post">
+						<div class="card-body" style="margin-left: 56px;margin-right: 56px;">
+							<h5 class="signup-title-txt" align="center" style="margin-top:48px; margin-bottom: 25px;">TechSpace Network Login</h5>
 							
-							<input type="hidden" id="member_login" name="member_login" value="YES">
+							
 
-							<fieldset>
 
+							<form id="member_login_form"  action="" method="post">
 								
-								<div class="form-groups">
-									<label for="login_member_username" class="signup-small-txt" style="display:inline">Username</label>
-									<input type="text" class="form-control" id="login_member_username" name="login_member_username">
-								</div>	
+								<input type="hidden" id="member_login" name="member_login" value="YES">
+
+								<fieldset>
+
+									
+									<div class="form-groups" style="margin-top: 24px;">
+										<label for="login_member_username" class="signup-small-txt" style="display:inline">Username</label>
+										<input type="text" class="form-control" id="login_member_username" name="login_member_username">
+									</div>	
 
 
-								<div class="form-groups">
-									<label for="login_member_password" class="signup-small-txt" style="display:inline">Password</label>
-									<input type="password" class="form-control" id="login_member_password" name="login_member_password">
-								</div>	
+									<div class="form-groups" style="margin-top: 24px;">
+										<label for="login_member_password" class="signup-small-txt" style="display:inline">Password</label>
+										<input type="password" class="form-control" id="login_member_password" name="login_member_password">
+									</div>	
 
 
-								<div class="text-center">
-									<span style="margin:14px;display:block;"> Did you forgot your username/password?  <a href="<?php echo get_site_url();?>/password-reset">Click here </a>to reset it or <a href="<?php echo get_site_url();?>/register"> create </a> a new account. </span>
-									<input type="submit" type="submit" name="login-submit" id="login-submit" class="land-btn land-btn-txt mt-4 login-submit" value="LOGIN">
+									<div class="text-center" style="margin-top: 24px;">
+										<span style="margin:14px;display:block;"> Did you forgot your username/password?  <a href="<?php echo get_site_url();?>/password-reset">Click here </a>to reset it or <a href="<?php echo get_site_url();?>/register"> create </a> a new account. </span>
+										<input type="submit" type="submit" name="login-submit" id="login-submit" class="btn land-btn land-btn-txt mt-4 login-submit" value="LOGIN">
 
-									<span style="margin:12px;"> </span>
-								</div>
-
-
-							</p>
-						</fieldset>
-					</form>
+										<span style="margin:12px;"> </span>
+									</div>
 
 
+								</p>
+							</fieldset>
+						</form>
+
+
+					</div>
 				</div>
-
 
 			</div>
 		</div> 

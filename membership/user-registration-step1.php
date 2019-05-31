@@ -14,18 +14,20 @@ if(count($_POST)){
 	
 	
 	<section>
-
+<div class="container-fluid">
 		<div class="row">
+
+
 			<img src="<?php echo get_template_directory_uri(); ?>/images/stpic.png" class="img-fluid" alt="">
 
 			<div class="col-md-5">
 				<a href="<?php echo get_site_url();?>">
 					<img src="<?php echo get_template_directory_uri(); ?>/images/clogo.svg" alt="" class="img-fluid">
 				</a>
-				<div class="container" style="margin-left: 140px !important;">
-					<div class="card register-card" style="margin-top: 104px !important; margin-left: 48px; margin-right: 48px;">
+				<div class="container">
+					<div class="card register-card" style="width: 537px !important;margin-left: 70px; margin-top: 104px !important;">
 
-						<div class="card-body" style="margin-left: 56px; margin-right: 56px;">
+						<div class="card-body" style="margin-left: 56px;margin-right: 56px;">
 							<h5 class="signup-title-txt" align="center" style="margin-top:48px; margin-bottom: 45px;">Sign Up to the Online TechSpace Network</h5>
 
 							<form id="onboardingformstep" method="POST" name="onboardingformstep" action='<?php the_permalink(); ?>'>
@@ -85,7 +87,7 @@ if(count($_POST)){
 								</div>
 
 								<div class="text-center" style="margin-bottom: 74px;margin-top: 24px;">
-									<input type="submit" class="land-btn11 land-btn-txt mt-4 register-submit" value="SIGN UP ">
+									<input type="submit" class="btn land-btn11 land-btn-txt mt-4" value="SIGN UP ">
 								</div>
 							</form>
 						</div>
@@ -94,6 +96,7 @@ if(count($_POST)){
 
 
 			</div>
+		</div>
 		</div>
 
 
