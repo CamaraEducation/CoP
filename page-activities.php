@@ -118,8 +118,8 @@ function searchPosts($maxPosts,$search_topic,$search_level,$search_tools,$search
 ?>
 
 <!--  Hero Section -->
-<section id="hero">
-    <div class="hero-container" style="background: <?php echo $current_pathway_color?> ;height:295px;">
+<section id="hero" style="background-color:#000 !important;">
+    <div class="hero-container" style="height:295px;">
         <div class="col-xs-6 col-centered">
             <p class="directory-hero-text"><?php echo $currentPathway; ?> Activities</p>
         </div>
