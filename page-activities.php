@@ -270,7 +270,7 @@ echo ($search_tool == NULL ? "Tools" : $search_tool);
 
 <div class="btn-group ml-2">
 
-    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_app) ? '#CAD7DE':'';?> ">
+    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_app) ? '#CAD7DE':'';?>;border:<?php echo !empty($search_app) ? '':'1px solid #000000';?>"
       
      <span onMouseOver="this.style.color='<?php echo $current_pathway_color;?>'"  onMouseOut="this.style.color='#000000'">          
   
@@ -297,11 +297,11 @@ echo ($search_app == NULL ? "App" : $search_app);
     </div>
 </div>
 
-<span class="clearspan">
+<div class="clearspan">
   <a class="clearfilter" href="<?php echo get_permalink();?>">Clear All Filters
       <img src="<?php echo get_template_directory_uri();  ?>/images/filterClear.png" style="width:15px;">
   </a>  
-</span>
+</div>
 
 </div>
 </div>
