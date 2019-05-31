@@ -82,14 +82,14 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 				<li class="nav-item leveltx" style="margin-right:64px;">
 
 					<!--DURATION -->
-					<img src="<?php echo get_template_directory_uri();  ?>/images/duration.png" class="img-responsive" with="10px"  alt="COP">
+					<img src="<?php echo get_template_directory_uri();  ?>/images/duration.png" class="img-responsive" width="26px"  alt="COP">
 					<?php echo get_post_meta($post->ID, 'duration', true); ?>
 
 				</li>
 
 				<li class="nav-item leveltx" style="margin-right:64px;">
 					<!--AGE GROUP -->
-					<img src="<?php echo get_template_directory_uri();  ?>/images/age_range.png" class="img-responsive" with="10px"  alt="COP">
+					<img src="<?php echo get_template_directory_uri();  ?>/images/age_range.png" class="img-responsive" width="30px"  alt="COP">
 					<?php echo getPostTerms($post->ID,'age_range'); ?>
 
 				</li>
