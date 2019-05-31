@@ -298,10 +298,10 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 							<div class="card supportcard">
 								<div class="card-body">
 									<h6 class="box-text12 mb-2 sste">SUPPORT</h6>
-									<p class="box-text12">TechSpace project officers are here to help with all your queries with the activities. Have a question?No problem! Reach out and we will help you.</p>
+									<p class="box-text12">TechSpace Education officers are here to help with all your queries with the activities. Have a question?No problem! Reach out and we will help you.</p>
 									<hr class="hrs">
 									<p class="box-text-link">
-										Ask an Expert (Start a Chat Session) <img src="<?php echo get_template_directory_uri();  ?>/images/askExpert.png" class="rounded-circle z-depth-0 md-avatar" alt="Start a Chat Session">
+										Ask an Expert (Start a Chat Session) <img src="<?php echo get_template_directory_uri();  ?>/images/askExpert.png" class="rounded-circle z-depth-0 md-avatar" alt="Start a Email Session">
 									</p>
 								</div>
 							</div>
