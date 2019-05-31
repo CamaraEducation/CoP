@@ -1,9 +1,13 @@
-html,body, form, fieldset, tr, td, img {
+nav-item menu-text nav-item menu-text html,body, form, fieldset, tr, td, img {
  font-family: Lato;
  font-style: normal;
  font-weight: normal;
  font-size: 16px;
  line-height: 24px;
+}
+
+body{
+  font-family: Lato !important;
 }
 
 body a:hover{
@@ -1072,8 +1076,8 @@ body hr {
   font-family: Lato;
   font-style: normal;
   font-weight: bold;
-  font-size: 18px;
-  line-height: 26px;
+  font-size: 32px;
+  line-height: 45px;
   color: #000000;
 }
 .signup-small-txt{

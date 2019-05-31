@@ -37,7 +37,7 @@ if(count($_POST)){
 
 								<div class="form-group" style="margin-top: 24px;">
 									<label for="user_username" class="signup-small-txt">Username</label>
-									<input type="email" class="form-control" id="user_username" name="user_username">
+									<input type="text" class="form-control" id="user_username" name="user_username">
 								</div>
 
 								<div class="row" style="margin-top: 24px;">

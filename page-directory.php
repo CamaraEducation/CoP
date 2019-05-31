@@ -111,10 +111,10 @@ function getbyid($id,$tax){
 		<a href="" class="filter-text">Filter by </a>
 		<div class="btn-group ml-2">
 
-			<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"  onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_org) ? 'rgba('.$r.','.$g.','.$b.',0.1)':'';?> ">
+			<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='#993C9F'"  onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_org) ? '#CAD7DE':'';?> ">
 
 
-				<span onMouseOver="this.style.color='<?php echo $current_pathway_color;?>'"  onMouseOut="this.style.color='#000000'">          
+				<span onMouseOver="this.style.color='#993C9F'"  onMouseOut="this.style.color='#000000'">          
 
 					<?php
 					echo ($search_org == NULL ? "Organization" : getbyid($search_org,'member_organization'));
@@ -138,9 +138,9 @@ function getbyid($id,$tax){
 			</div>
 		</div>
 		<div class="btn-group ml-2">
-			<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_training) ? 'rgba('.$r.','.$g.','.$b.',0.1)':'';?> ">
+			<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='#993C9F'"   onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_training) ? '#CAD7DE':'';?> ">
 
-				<span onMouseOver="this.style.color='<?php echo $current_pathway_color;?>'"  onMouseOut="this.style.color='#000000'">          
+				<span onMouseOver="this.style.color='#993C9F'"  onMouseOut="this.style.color='#000000'">          
 
 					<?php
 					echo ($search_training == NULL ? "Training" : getbyid($search_training,'pathway'));
@@ -167,9 +167,9 @@ function getbyid($id,$tax){
 			</div>
 			<div class="btn-group ml-2">
 
-				<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_communityRole) ? 'rgba('.$r.','.$g.','.$b.',0.1)':'';?> ">
+				<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='#993C9F'"   onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_communityRole) ? '#CAD7DE':'';?> ">
 
-					<span onMouseOver="this.style.color='<?php echo $current_pathway_color;?>'"  onMouseOut="this.style.color='#000000'">          
+					<span onMouseOver="this.style.color='#993C9F'"  onMouseOut="this.style.color='#000000'">          
 
 						<?php
 						echo ($search_communityRole == NULL ? "Community Role" : getbyid($search_communityRole,'community_role'));
@@ -196,9 +196,9 @@ function getbyid($id,$tax){
 			</div>
 			<div class="btn-group ml-2">
 
-				<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_location) ? 'rgba('.$r.','.$g.','.$b.',0.1)':'';?> ">
+				<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='#993C9F'"   onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_location) ? '#CAD7DE':'';?> ">
 
-					<span onMouseOver="this.style.color='<?php echo $current_pathway_color;?>'"  onMouseOut="this.style.color='#000000'">          
+					<span onMouseOver="this.style.color='#993C9F'"  onMouseOut="this.style.color='#000000'">          
 
 						<?php
 						echo ($search_location == NULL ? "Location" : getbyid($search_location,'member_location'));
