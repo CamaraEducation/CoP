@@ -54,7 +54,7 @@ return $lastposts;
 
 <!--  Hero Section -->
 <section id="hero">
-<div class="hero-container" style="margin-left: 105px !important; margin-right: 105px !important; margin-top: 15px; height: 295px;background-image: url(<?php echo get_template_directory_uri(); ?>/images/dotback.png);">
+<div class="hero-container" style="margin-left: 105px !important; margin-right: 105px !important; margin-top: 15px; height: 295px;background-image: url(<?php echo get_template_directory_uri();  ?>/images/dotback.png);">
 <?php
 if ( is_user_logged_in() ) {
 

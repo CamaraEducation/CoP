@@ -1,14 +1,19 @@
 <?php get_header();?>
-
 <!--  Hero Section -->
 <section id="hero">
-    <div class="hero-container" style="background: #399ACA; height: 295px;">
-        <div class="col-xs-6 col-centered">
-            <p class="directory-hero-text">Training</p>
+    <div class="hero-container" style="background: #399ACA; height: 295px;opacity: 0.8">
+        <div class="container" style="height:255px; background-image: url(<?php echo get_template_directory_uri();  ?>/images/dotback.png);">
+
+            <div class="row h-100 w-100">
+               <div class="col-sm-12 my-auto">
+                <p class="directory-hero-text">Training</p>
+            </div>
         </div>
     </div>
-</section>
+</div>
+</section> 
 <!-- #hero -->
+
 
 <section class="my-5">
     <div class="container">

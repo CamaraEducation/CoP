@@ -87,7 +87,7 @@ if(count($_POST)){
 								</div>
 
 								<div class="text-center" style="margin-bottom: 74px;margin-top: 24px;">
-									<input type="submit" class="btn land-btn11 land-btn-txt mt-4" value="SIGN UP ">
+									<input type="submit" class="btn land-btn11 land-btn-txt mt-4 register-submit" value="SIGN UP">
 								</div>
 							</form>
 						</div>
