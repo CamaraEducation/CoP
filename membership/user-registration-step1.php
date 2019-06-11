@@ -80,6 +80,7 @@ if(count($_POST)){
 								</div>
 
 								<div class="form-check" style="margin-top: 24px;">
+
 									<input type="checkbox" class="form-check-input" id="user_18yearsold" name="user_18yearsold" value="YES">
 									By ticking this box you are confirming you are over 18 years of age and you have read the <a href="" data-toggle="modal" data-target="#termagreementModalLong" style="color:#0000EE;font-weight: bold;">TechSpace Online Network Membership terms and conditions</a>.
 
@@ -87,7 +88,10 @@ if(count($_POST)){
 								</div>
 
 								<div class="text-center" style="margin-bottom: 74px;margin-top: 24px;">
-									<input type="submit" class="btn land-btn11 land-btn-txt mt-4" value="SIGN UP ">
+
+									<input type="submit" class="btn land-btn11 land-btn-txt mt-4 register-submit" value="SIGN UP ">
+
+
 								</div>
 							</form>
 						</div>
