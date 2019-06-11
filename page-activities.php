@@ -120,12 +120,21 @@ function searchPosts($maxPosts,$search_topic,$search_level,$search_tools,$search
 
 <!--  Hero Section -->
 <section id="hero">
-    <div class="hero-container" style="background: <?php echo $current_pathway_color?> ;height:295px;">
-        <div class="col-xs-6 col-centered">
-            <p class="directory-hero-text"><?php echo $currentPathway; ?> Activities</p>
+    <div class="hero-container" style="background: <?php echo $current_pathway_color?> ;height:295px;opacity: 0.8"
+        >
+        <div class="container" style="height:255px; background-image: url(<?php echo get_template_directory_uri();  ?>/images/dotback.png);">
+
+            <div class="row h-100 w-100">
+             <div class="col-sm-12 my-auto">
+                <p class="directory-hero-text" style=" margin: 16px;"><?php echo $currentPathway; ?> Activities</p>    </div>
+            </div>
+            
+
+            
         </div>
     </div>
-</section>
+</section>   
+
 <!-- #hero -->
 
 
@@ -155,129 +164,126 @@ function searchPosts($maxPosts,$search_topic,$search_level,$search_tools,$search
 
 <section>
     <div class="container mt-5">
-        <a href="" class="filter-text">Filter by </a>
+        <div class="row">
+            <div class="col-md-10">
+                <a href="" class="filter-text">Filter by </a>
 
+                <?php
 
-        <?php
-
-        $pageURL = get_permalink() . "?".$_SERVER["QUERY_STRING"];
+                $pageURL = get_permalink() . "?".$_SERVER["QUERY_STRING"];
 
 //echo $pageURL;
 
+                ?>
+                <div class="btn-group ml-2">
 
-        ?>
+                    <button type="button" class="btn dropdown-filter dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="background-color:<?php echo !empty($search_topic) ? '#CAD7DE':'';?> ">
+
+                     <span onMouseOver="this.style.color='<?php echo $current_pathway_color;?>'"  onMouseOut="this.style.color='#000000'">          
+                        <?php
+                        echo ($search_topic == NULL ? "Topic" : $search_topic);
+                        ?>
+                    </span>
+
+                </button>
+
+                <div class="dropdown-menu">
+
+                    <?php
+
+
+                    $pathway_topics = get_terms( 'topic', 'orderby=id');
+//var_dump($tax_terms);
+                    foreach ( $pathway_topics as $topic ) {
+                        $topicURL = $pageURL . "&ft=" .$topic->name;
+
+//if(topic_pathway)
+                        $topicPathway_id= get_field('topic_pathway', $topic->taxonomy.'_'.$topic->term_id);
+   // echo $current_user_pathway_id;
+                        if($current_pathway_id == $topicPathway_id) {
+   //if get
+                            ?>
 
 
 
-        <div class="btn-group ml-2">
+                            <a class="dropdown-item" href="<?php echo $topicURL ?>"><?php  echo $topic->name; ?></a>
 
-            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_topic) ? '#CAD7DE':'';?> ">
-     
-     <span onMouseOver="this.style.color='<?php echo $current_pathway_color;?>'"  onMouseOut="this.style.color='#000000'">          
-<?php
-echo ($search_topic == NULL ? "Topic" : $search_topic);
-?>
-</span>
 
+                            <?php
+                        }
+                    } ?>
+                </div>
+            </div>
+
+            <div class="btn-group ml-2">
+                <button type="button" class="btn dropdown-filter dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="background-color:<?php echo !empty($search_level) ? '#CAD7DE':'';?> ">
+
+                 <span onMouseOver="this.style.color='<?php echo $current_pathway_color;?>'"  onMouseOut="this.style.color='#000000'">          
+
+                    <?php
+                    echo ($search_level == NULL ? "Level" : $search_level);
+                    ?>
+                </span>
             </button>
-
             <div class="dropdown-menu">
+
 
                 <?php
 
 
-                $pathway_topics = get_terms( 'topic', 'orderby=id');
+                $pathway_levels = get_terms( 'level', 'orderby=id');
 //var_dump($tax_terms);
-                foreach ( $pathway_topics as $topic ) {
-                    $topicURL = $pageURL . "&ft=" .$topic->name;
+                foreach ( $pathway_levels as $level ) {
+                    $levelURL = $pageURL . "&fl=" .$level->name;
+                    ?>
 
-//if(topic_pathway)
-                    $topicPathway_id= get_field('topic_pathway', $topic->taxonomy.'_'.$topic->term_id);
-   // echo $current_user_pathway_id;
-                    if($current_pathway_id == $topicPathway_id) {
-   //if get
-                        ?>
+                    <a class="dropdown-item" href="<?php echo $levelURL ?>"><?php  echo $level->name; ?></a>
 
 
+                <?php } ?>
 
-                        <a class="dropdown-item" href="<?php echo $topicURL ?>"><?php  echo $topic->name; ?></a>
-
-
-                        <?php
-                    }
-                } ?>
             </div>
         </div>
 
         <div class="btn-group ml-2">
-           <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_level) ? '#CAD7DE':'';?> ">
-            
-     <span onMouseOver="this.style.color='<?php echo $current_pathway_color;?>'"  onMouseOut="this.style.color='#000000'">          
+            <button type="button" class="btn dropdown-filter dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="background-color:<?php echo !empty($search_tool) ? '#CAD7DE':'';?> ">
 
-            <?php
-echo ($search_level == NULL ? "Level" : $search_level);
-?>
-</span>
-        </button>
-        <div class="dropdown-menu">
-               
+             <span onMouseOver="this.style.color='<?php echo $current_pathway_color;?>'"  onMouseOut="this.style.color='#000000'">          
 
-            <?php
-
-
-            $pathway_levels = get_terms( 'level', 'orderby=id');
-//var_dump($tax_terms);
-            foreach ( $pathway_levels as $level ) {
-                $levelURL = $pageURL . "&fl=" .$level->name;
+                <?php
+                echo ($search_tool == NULL ? "Tools" : $search_tool);
                 ?>
 
-                <a class="dropdown-item" href="<?php echo $levelURL ?>"><?php  echo $level->name; ?></a>
+            </span>
+
+        </button>
+        <div class="dropdown-menu">
+            <?php
+
+
+            $pathway_tools = get_terms( 'tool', 'orderby=id');
+//var_dump($tax_terms);
+            foreach ( $pathway_tools as $tool ) {
+                $toolsURL = $pageURL . "&ftl=" .$tool->name;
+                ?>
+
+                <a class="dropdown-item" href="<?php echo $toolsURL ?>"><?php  echo $tool->name; ?></a>
 
 
             <?php } ?>
-
         </div>
     </div>
 
     <div class="btn-group ml-2">
-        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_tool) ? '#CAD7DE':'';?> ">
-          
-     <span onMouseOver="this.style.color='<?php echo $current_pathway_color;?>'"  onMouseOut="this.style.color='#000000'">          
+
+        <button type="button" class="btn dropdown-filter dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="background-color:<?php echo !empty($search_app) ? '#CAD7DE':'';?>;border:<?php echo !empty($search_app) ? '':'1px solid #000000';?>">
+
+         <span onMouseOver="this.style.color='<?php echo $current_pathway_color;?>'"  onMouseOut="this.style.color='#000000'">          
 
             <?php
-echo ($search_tool == NULL ? "Tools" : $search_tool);
-?>
-
-</span>
-
-      </button>
-      <div class="dropdown-menu">
-        <?php
-
-
-        $pathway_tools = get_terms( 'tool', 'orderby=id');
-//var_dump($tax_terms);
-        foreach ( $pathway_tools as $tool ) {
-            $toolsURL = $pageURL . "&ftl=" .$tool->name;
+            echo ($search_app == NULL ? "App" : $search_app);
             ?>
-
-            <a class="dropdown-item" href="<?php echo $toolsURL ?>"><?php  echo $tool->name; ?></a>
-
-
-        <?php } ?>
-    </div>
-</div>
-
-<div class="btn-group ml-2">
-
-    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_app) ? '#CAD7DE':'';?>;border:<?php echo !empty($search_app) ? '':'1px solid #000000';?>"
-      
-     <span onMouseOver="this.style.color='<?php echo $current_pathway_color;?>'"  onMouseOut="this.style.color='#000000'">          
-  
-            <?php
-echo ($search_app == NULL ? "App" : $search_app);
-?>
-</span>
+        </span>
     </button>
     <div class="dropdown-menu">
         <?php
@@ -295,17 +301,18 @@ echo ($search_app == NULL ? "App" : $search_app);
         <?php } ?>
 
     </div>
-</div>
-
-<div class="clearspan">
-  <a class="clearfilter" href="<?php echo get_permalink();?>">Clear All Filters
-      <img src="<?php echo get_template_directory_uri();  ?>/images/filterClear.png" style="width:15px;">
-  </a>  
-</div>
 
 </div>
 </div>
 
+<div class="col-md-2">
+    <span>
+        <a class="clearfilter" href="<?php echo get_permalink(); ?>">Clear All Filters
+            <img class="returnpic" src="<?php echo get_template_directory_uri();  ?>/images/filterclear.png">
+        </a>  
+    </span>
+</div>
+</div>
 </section>
 
 

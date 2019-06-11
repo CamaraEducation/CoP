@@ -98,140 +98,152 @@ function getbyid($id,$tax){
 ?>
 <!--  Hero Section -->
 <section id="hero">
-	<div class="hero-container" style="background: #993C9F; height: 295px;">
-		<div class="col-xs-6 col-centered">
-			<p class="directory-hero-text">TechSpace Directory</p>
-		</div>
-	</div>
-</section>
+    <div class="hero-container" style="background: #993C9F; height: 295px;opacity: 0.8">
+        <div class="container" style="height:255px; background-image: url(<?php echo get_template_directory_uri();  ?>/images/dotback.png);">
+
+            <div class="row h-100 w-100">
+               <div class="col-sm-12 my-auto">
+                <p class="directory-hero-text">TechSpace Directory</p>
+            </div>
+        </div>
+    </div>
+</div>
+</section> 
 <!-- #hero -->
 
 <section>
 	<div class="container mt-5">
-		<a href="" class="filter-text">Filter by </a>
-		<div class="btn-group ml-2">
+		<div class="row">
+			<div class="col-md-10">
+				<a href="" class="filter-text">Filter by </a>
+				<div class="btn-group ml-2">
 
-			<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='#993C9F'"  onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_org) ? '#CAD7DE':'';?> ">
-
-
-				<span onMouseOver="this.style.color='#993C9F'"  onMouseOut="this.style.color='#000000'">          
-
-					<?php
-					echo ($search_org == NULL ? "Organization" : getbyid($search_org,'member_organization'));
-					?>
-
-				</span>
-			</button>
-			<div class="dropdown-menu">
-				<?php
-
-				$pathway_organizations = get_terms( 'member_organization', array( 'hide_empty' => false,'orderby'=>'id'));
-				//var_dump($tax_terms);
-				foreach ( $pathway_organizations as $organization ) {
-					$organizationURL = $pageURL . "&forg=" .$organization->term_id;
-					?>
-
-					<a class="dropdown-item" href="<?php echo $organizationURL ?>"><?php  echo $organization->name; ?></a>
+					<button type="button" class="btn dropdown-filter dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='#993C9F'"  onMouseOut="this.style.borderColor='#000000'" style="background-color:<?php echo !empty($search_org) ? '#CAD7DE':'';?> ">
 
 
-				<?php } ?>
-			</div>
-		</div>
-		<div class="btn-group ml-2">
-			<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='#993C9F'"   onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_training) ? '#CAD7DE':'';?> ">
+						<span onMouseOver="this.style.color='#993C9F'"  onMouseOut="this.style.color='#000000'">          
 
-				<span onMouseOver="this.style.color='#993C9F'"  onMouseOut="this.style.color='#000000'">          
+							<?php
+							echo ($search_org == NULL ? "Organization" : getbyid($search_org,'member_organization'));
+							?>
 
-					<?php
-					echo ($search_training == NULL ? "Training" : getbyid($search_training,'pathway'));
-					?>
-
-				</span>                </button>
-				<div class="dropdown-menu">
-
-					<?php
-
-
-					$pathway_training = get_terms( 'pathway', array( 'hide_empty' => false,'orderby'=>'id'));
-				//var_dump($tax_terms);
-					foreach ( $pathway_training as $training ) {
-						$trainingURL = $pageURL . "&ftrn=" .$training->term_id;
-						?>
-
-						<a class="dropdown-item" href="<?php echo $trainingURL; ?>"><?php  echo $training->name; ?></a>
-
-
-					<?php } ?>
-
-				</div>
-			</div>
-			<div class="btn-group ml-2">
-
-				<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='#993C9F'"   onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_communityRole) ? '#CAD7DE':'';?> ">
-
-					<span onMouseOver="this.style.color='#993C9F'"  onMouseOut="this.style.color='#000000'">          
-
+						</span>
+					</button>
+					<div class="dropdown-menu">
 						<?php
-						echo ($search_communityRole == NULL ? "Community Role" : getbyid($search_communityRole,'community_role'));
-						?>
-					</span>     
-				</button>
-				<div class="dropdown-menu">
 
-					<?php
-
-
-					$communityRole = get_terms( 'community_role', array( 'hide_empty' => false,'orderby'=>'id'));
+						$pathway_organizations = get_terms( 'member_organization', array( 'hide_empty' => false,'orderby'=>'id'));
 				//var_dump($tax_terms);
-					foreach ( $communityRole as $community ) {
-						$communityURL = $pageURL . "&fcrl=" .$community->term_id;
-						?>
+						foreach ( $pathway_organizations as $organization ) {
+							$organizationURL = $pageURL . "&forg=" .$organization->term_id;
+							?>
 
-						<a class="dropdown-item" href="<?php echo $communityURL; ?>"><?php  echo $community->name; ?></a>
+							<a class="dropdown-item" href="<?php echo $organizationURL ?>"><?php  echo $organization->name; ?></a>
 
 
-					<?php } ?>
-
+						<?php } ?>
+					</div>
 				</div>
-			</div>
-			<div class="btn-group ml-2">
+				<div class="btn-group ml-2">
+					<button type="button" class="btn dropdown-filter dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='#993C9F'"   onMouseOut="this.style.borderColor='#000000'" style="background-color:<?php echo !empty($search_training) ? '#CAD7DE':'';?> ">
 
-				<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='#993C9F'"   onMouseOut="this.style.borderColor='#000000'" style="border: 1px solid #000000;box-sizing: border-box;border-radius: 100px;background-color:<?php echo !empty($search_location) ? '#CAD7DE':'';?> ">
+						<span onMouseOver="this.style.color='#993C9F'"  onMouseOut="this.style.color='#000000'">          
 
-					<span onMouseOver="this.style.color='#993C9F'"  onMouseOut="this.style.color='#000000'">          
+							<?php
+							echo ($search_training == NULL ? "Training" : getbyid($search_training,'pathway'));
+							?>
 
-						<?php
-						echo ($search_location == NULL ? "Location" : getbyid($search_location,'member_location'));
-						?>
+						</span>                </button>
+						<div class="dropdown-menu">
 
+							<?php
+
+
+							$pathway_training = get_terms( 'pathway', array( 'hide_empty' => false,'orderby'=>'id'));
+				//var_dump($tax_terms);
+							foreach ( $pathway_training as $training ) {
+								$trainingURL = $pageURL . "&ftrn=" .$training->term_id;
+								?>
+
+								<a class="dropdown-item" href="<?php echo $trainingURL; ?>"><?php  echo $training->name; ?></a>
+
+
+							<?php } ?>
+
+						</div>
+					</div>
+					<div class="btn-group ml-2">
+
+						<button type="button" class="btn dropdown-filter dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='#993C9F'"   onMouseOut="this.style.borderColor='#000000'" style="background-color:<?php echo !empty($search_communityRole) ? '#CAD7DE':'';?> ">
+
+							<span onMouseOver="this.style.color='#993C9F'"  onMouseOut="this.style.color='#000000'">          
+
+								<?php
+								echo ($search_communityRole == NULL ? "Community Role" : getbyid($search_communityRole,'community_role'));
+								?>
+							</span>     
+						</button>
+						<div class="dropdown-menu">
+
+							<?php
+
+
+							$communityRole = get_terms( 'community_role', array( 'hide_empty' => false,'orderby'=>'id'));
+				//var_dump($tax_terms);
+							foreach ( $communityRole as $community ) {
+								$communityURL = $pageURL . "&fcrl=" .$community->term_id;
+								?>
+
+								<a class="dropdown-item" href="<?php echo $communityURL; ?>"><?php  echo $community->name; ?></a>
+
+
+							<?php } ?>
+
+						</div>
+					</div>
+					<div class="btn-group ml-2">
+
+						<button type="button" class="btn dropdown-filter dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='#993C9F'"   onMouseOut="this.style.borderColor='#000000'" style="background-color:<?php echo !empty($search_location) ? '#CAD7DE':'';?> ">
+
+							<span onMouseOver="this.style.color='#993C9F'"  onMouseOut="this.style.color='#000000'">          
+
+								<?php
+								echo ($search_location == NULL ? "Location" : getbyid($search_location,'member_location'));
+								?>
+
+							</span>
+
+						</button>
+						<div class="dropdown-menu">
+
+							<?php
+
+
+							$pathway_location = get_terms( 'member_location', array( 'hide_empty' => false,'orderby'=>'id'));
+				//var_dump($tax_terms);
+							foreach ( $pathway_location as $location ) {
+								$locationURL = $pageURL . "&floc=" .$location->term_id;
+								?>
+
+								<a class="dropdown-item" href="<?php echo $locationURL; ?>"><?php  echo $location->name; ?></a>
+
+
+							<?php } ?>
+
+
+						</div>
+
+					</div>
+				</div>
+
+				<div class="col-md-2">
+					<span>
+						<a class="clearfilter" href="<?php echo get_permalink(); ?>">Clear All Filters
+							<img class="returnpic" src="<?php echo get_template_directory_uri();  ?>/images/filterclear.png">
+						</a>  
 					</span>
-
-				</button>
-				<div class="dropdown-menu">
-
-					<?php
-
-
-					$pathway_location = get_terms( 'member_location', array( 'hide_empty' => false,'orderby'=>'id'));
-				//var_dump($tax_terms);
-					foreach ( $pathway_location as $location ) {
-						$locationURL = $pageURL . "&floc=" .$location->term_id;
-						?>
-
-						<a class="dropdown-item" href="<?php echo $locationURL; ?>"><?php  echo $location->name; ?></a>
-
-
-					<?php } ?>
-
-
 				</div>
-
 			</div>
-			<span style="margin-left:25%;font-weight:none;text-align: middle;">
-				<a href="<?php echo get_permalink(); ?>" style="color:black;">Clear All Filters
-					<img src="<?php echo get_template_directory_uri();  ?>/images/filterClear.png" style="width:20px;">
-				</a>  
-			</span>
 		</section>
 
 

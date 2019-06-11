@@ -1,12 +1,17 @@
 <?php get_header();?>
 <!--  Hero Section -->
 <section id="hero">
-    <div class="hero-container" style="background: #993C9F; height: 295px;">
-        <div class="col-xs-6 col-centered">
-            <p class="directory-hero-text">Programme Planning</p>
+    <div class="hero-container" style="background: #993C9F; height: 295px;opacity: 0.8">
+        <div class="container" style="height:255px; background-image: url(<?php echo get_template_directory_uri();  ?>/images/dotback.png);">
+
+            <div class="row h-100 w-100">
+             <div class="col-sm-12 my-auto">
+                <p class="directory-hero-text">Programme Planning</p>
+            </div>
         </div>
     </div>
-</section>
+</div>
+</section> 
 <!-- #hero -->
 
 <section>
@@ -24,7 +29,7 @@
 
             <div class="btn-group ml-2">
               <a href="#<?php echo  $term->name; ?>">        
-                <button type="button" class="btn ppfilter" style="border: 1px solid #3E4C59;box-sizing: border-box;border-radius: 100px;">
+                <button type="button" class="btn dropdown-filter">
                     <?php echo $term->name; ?>
                 </button>
                 
@@ -92,45 +97,47 @@ foreach( $programmePlanningType as $Ptype ):
             $docPathway = get_term_by( 'id', (int) $docPathway_id, 'pathway');
 
 
-            ?>        
-            
-            <div class="col-md-4" style="margin-bottom: 15px !important;">
+            ?>       
+
+            <div class="col-md-4" style="margin-bottom:30px;">
                 <a href="<?php the_field('document_link'); ?>"  target="new">
 
+                    <div class="card h-100 ppcard" style="width: 280px;"> 
 
 
-               <div class="card h-100 ppcard mb-3">
+
                         <div class="download-card" id="download-card" style="background-image: url(<?php the_field('programme_cover'); ?>);">
-                           
+
                             <div id="downloadhover" class="downloadhover"> 
-<h2 class="downloadview" id="downloadview">
-View
-</h2>
+                                <h2 class="downloadview" id="downloadview">
+                                    View
+                                </h2>
 
                             </div>
-</div>
+                        </div>
 
                         <div class="card-body">
-                   <p class="ppbig"><?php the_title() ?></p>
-                            <p class="ppsmall">Download PDF +</p>
-                            <div class="badge card-badge1 mt-2" style="min-height: 16px; line-height:16px;"><?php echo $Ptype->name;?></div>
+                           <p class="ppbig"><?php the_title() ?></p>
+                           <p class="ppsmall">Download PDF +</p>
+                           <div class="badge card-badge1 mt-2" style="min-height: 16px; line-height:16px;"><?php echo $Ptype->name;?></div>
 
                            <?php  if ($docPathway->name != NULL) {
-?>
+                            ?>
 
                             <span class="badge badge-primary" style="min-height: 16px; line-height:16px;background-color:<?php echo $current_pathway_color;?>"> <?php echo $docPathway->name; ?></span>
 
-                            <?php }
-                                ?>
-                        </div>
-
+                        <?php }
+                        ?>
                     </div>
-                </a>
-            </div>
 
-        <?php endforeach; ?>
-    </div>
+                </div>
+            </a>
+        </div>
+
+    <?php endforeach; ?>
+</div>
 </div>          
+</div>
 </div>
 </div>
 </div>
