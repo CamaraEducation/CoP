@@ -755,6 +755,15 @@ body hr {
   line-height: 54px;
   color: #FFFFFF;
 }
+.directory-hero-text1{
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 54px;
+  line-height: 36px;
+  /* identical to box height, or 67% */
+  color: #323F4B;
+}
 .filter-text{
   font-family: Lato;
   font-style: normal;
