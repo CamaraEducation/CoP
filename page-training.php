@@ -1,16 +1,15 @@
 <?php get_header();?>
 <!--  Hero Section -->
 <section id="hero">
-    <div class="hero-container" style="background: #399ACA; height: 295px;opacity: 0.8">
-        <div class="container" style="height:255px; background-image: url(<?php echo get_template_directory_uri();  ?>/images/dotback.png);">
-
-            <div class="row h-100 w-100">
-               <div class="col-sm-12 my-auto">
-                <p class="directory-hero-text">Training</p>
+    <div class="hero-container" style="background: #F0F2F5; height: 295px;opacity: 0.8">
+     <div class="circle">
+       <div class="row h-100 w-100" style="margin-left: 1px !important;">
+             <div class="col-sm-12 my-auto">
+                <p class="directory-hero-text1">Training Courses</p>
             </div>
         </div>
-    </div>
-</div>
+     </div>
+ </div>
 </section> 
 <!-- #hero -->
 
@@ -38,7 +37,9 @@
                         <li class="box-text121 mb-2"><i class="fas fa-check-circle facol"></i> Course Materials</li>
                         <li class="box-text121 mb-2"><i class="fas fa-check-circle facol"></i> TechSpace Certificate</li>
 
+                        <button type="button" class="btn btn-outline-warning downloadguide my-2">Download Full Brochure</button>
                     </div>
+
                 </div>
             </div>
             <div class="col-md-8">
@@ -46,7 +47,7 @@
 
 
                     <div class="col-md-6 mb-4">
-                        <div class="card card-inverse text-center traincard" style="width: 23rem;">
+                        <div class="card card-inverse text-center traincard1" style="width: 22rem;">
                             <!-- Image -->
                             <img class="card-img-top img-back" src="<?php echo get_template_directory_uri();  ?>/images/duotone.png" alt="Photo of sunset">
                             <!-- Text Overlay -->
@@ -61,7 +62,7 @@
                     </div>
 
                     <div class="col-md-6 mb-4">
-                        <div class="card card-inverse text-center traincard" style="width: 23rem;">
+                        <div class="card card-inverse text-center traincard1" style="width: 22rem;">
                             <!-- Image -->
                             <img class="card-img-top img-back" src="<?php echo get_template_directory_uri();  ?>/images/duotone.png" alt="Photo of sunset">
                             <!-- Text Overlay -->
@@ -77,7 +78,7 @@
 
 
                     <div class="col-md-6 mb-4">
-                        <div class="card card-inverse text-center traincard" style="width: 23rem;">
+                        <div class="card card-inverse text-center traincard1" style="width: 22rem;">
                             <!-- Image -->
                             <img class="card-img-top img-back" src="<?php echo get_template_directory_uri();  ?>/images/duotone.png" alt="Photo of sunset">
                             <!-- Text Overlay -->
@@ -97,8 +98,8 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6 mb-2">
-                        <div class="card card-back-des" style="width: 23rem;">
+                    <div class="col-md-6 mb-4">
+                        <div class="card card-back-des" style="width: 22rem;">
                             <div class="card-body">
                                 <div class="card-header border-0 py-3 d-flex align-items-center my-3 colma">
                                     <img src="<?php echo get_template_directory_uri();  ?>/images/collaboration.png" class="rounded-circle align-self-start mr-3" width="64" height="64">
@@ -110,8 +111,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-2">
-                        <div class="card card-back-des" style="width: 23rem;">
+
+                    <div class="col-md-6 mb-4">
+                        <div class="card card-back-des" style="width: 22rem;">
                             <div class="card-body">
                                 <div class="card-header border-0 py-3 d-flex align-items-center my-3 colma">
                                     <img src="<?php echo get_template_directory_uri();  ?>/images/practical.png" class="rounded-circle align-self-start mr-3" width="64" height="64">
@@ -124,8 +126,8 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2">
-                        <div class="card card-back-des" style="width: 23rem;">
+                    <div class="col-md-6 mb-4">
+                        <div class="card card-back-des" style="width: 22rem;">
                             <div class="card-body">
                                 <div class="card-header border-0 py-3 d-flex align-items-center my-3 colma">
                                     <img src="<?php echo get_template_directory_uri();  ?>/images/knowledge.png" class="rounded-circle align-self-start mr-3" width="64" height="64">
@@ -137,11 +139,12 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-md-6">
-                        <div class="card card-back-des" style="width: 23rem;">
+                        <div class="card card-back-des" style="width: 22rem;">
                             <div class="card-body">
                                 <div class="card-header border-0 py-3 d-flex align-items-center my-3 colma">
-                                    <img src="<?php echo get_template_directory_uri();  ?>/images/realworld.png" class="rounded-circle align-self-start mr-1" width="64" height="64">
+                                    <img src="<?php echo get_template_directory_uri();?>/images/realworld.png" class="rounded-circle align-self-start mr-1" width="64" height="64">
                                     <div>
                                         <h4 class="card-title mb-0 card-back-txt">Real World Practice</h4>
                                         <h6 class="intro-steam">Put What yo have learnt into practice with a 1 hour session with young people.</h6>
@@ -149,13 +152,12 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>  
+
                 </div>
             </div>
         </div>
     </div>
-
-
 </div>
 </div>
 </div>
@@ -184,6 +186,8 @@
                         <li class="box-text121 mb-2"><i class="fas fa-check-circle facol"></i> Course Materials</li>
                         <li class="box-text121 mb-2"><i class="fas fa-check-circle facol"></i> TechSpace Certificate</li>
 
+                        <button type="button" class="btn btn-outline-warning downloadguide my-2">Download Full Brochure</button>
+
                     </div>
                 </div>
             </div>
@@ -192,8 +196,8 @@
                 <div class="row">
 
 
-                    <div class="col-md-6 mb-2">
-                        <div class="card card-inverse text-center traincard" style="width: 23rem;">
+                    <div class="col-md-6 mb-4">
+                        <div class="card card-inverse text-center traincard1" style="width: 22rem;">
                             <!-- Image -->
                             <img class="card-img-top img-back" src="<?php echo get_template_directory_uri();  ?>/images/duotone.png" alt="Photo of sunset">
                             <!-- Text Overlay -->
@@ -207,8 +211,8 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2">
-                        <div class="card card-inverse text-center traincard" style="width: 23rem;">
+                    <div class="col-md-6 mb-4">
+                        <div class="card card-inverse text-center traincard1" style="width: 22rem;">
                             <!-- Image -->
                             <img class="card-img-top img-back" src="<?php echo get_template_directory_uri();  ?>/images/duotone.png" alt="Photo of sunset">
                             <!-- Text Overlay -->
@@ -223,8 +227,8 @@
                     </div>
 
 
-                    <div class="col-md-6 mb-2">
-                        <div class="card card-inverse text-center traincard" style="width: 23rem;">
+                    <div class="col-md-6 mb-4">
+                        <div class="card card-inverse text-center traincard1" style="width: 22rem;">
                             <!-- Image -->
                             <img class="card-img-top img-back" src="<?php echo get_template_directory_uri();  ?>/images/duotone.png" alt="Photo of sunset">
                             <!-- Text Overlay -->
@@ -238,8 +242,8 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2">
-                        <div class="card card-inverse text-center traincard" style="width: 23rem;">
+                    <div class="col-md-6 mb-4">
+                        <div class="card card-inverse text-center traincard1" style="width: 22rem;">
                             <!-- Image -->
                             <img class="card-img-top img-back" src="<?php echo get_template_directory_uri();  ?>/images/duotone.png" alt="Photo of sunset">
                             <!-- Text Overlay -->
@@ -253,8 +257,8 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2">
-                        <div class="card card-inverse text-center traincard" style="width: 23rem;">
+                    <div class="col-md-6 mb-4">
+                        <div class="card card-inverse text-center traincard1" style="width: 22rem;">
                             <!-- Image -->
                             <img class="card-img-top img-back" src="<?php echo get_template_directory_uri();  ?>/images/duotone.png" alt="Photo of sunset">
                             <!-- Text Overlay -->
@@ -268,8 +272,8 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-2">
-                        <div class="card card-inverse text-center traincard" style="width: 23rem;">
+                    <div class="col-md-6 mb-4">
+                        <div class="card card-inverse text-center traincard1" style="width: 22rem;">
                             <!-- Image -->
                             <img class="card-img-top img-back" src="<?php echo get_template_directory_uri();  ?>/images/duotone.png" alt="Photo of sunset">
                             <!-- Text Overlay -->
@@ -296,15 +300,16 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-4 mb-2">
+            <div class="col-md-4 mb-4">
                 <div class="card traincard">
                     <div class="card-body">
                         <h6 class="box-text12 mb-2 text-muted">Details</h6>
                         <p class="box-text12">A blended learning format of in person, online, group, and individual self-directed learning.</p>
                         <div class="pl-3">
-                        <li class="box-text12"><b>100 hrs of learning</b></li>
-                        <li class="box-text12 mb-2">Level 8-20 ECTS</li>
-                    </div>
+                            <li class="box-text12"><b>100 hrs of learning</b></li>
+                            <li class="box-text12 mb-2">Level 8-20 ECTS</li>
+                            <button type="button" class="btn btn-outline-warning downloadguide my-2">Discover More</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -312,7 +317,7 @@
             <div class="col-md-8">
                 <div class="container">
                     <div class="row">
-                        <div class="card mb-3 traincard">
+                        <div class="card mb-4 traincard2">
                             <img class="card-img-top" src="<?php echo get_template_directory_uri();  ?>/images/duotonestudent.png" alt="Card image cap">
                             <div class="card-img-overlay">
                                 <h4 class="card-title img-back-txt">Level 8 Higher Diploma</h4>
@@ -323,107 +328,107 @@
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="row">
-                        <div class="col-md-6 mb-2">
-                            <div class="card card-back-des" style="width: 23rem;">
-                                <div class="card-body">
-                                    <div class="card-header border-0 py-1 d-flex align-items-center my-1 colma">
-                                        <div>
-                                            <h4 class="card-title mb-2 card-color-text">01.</h4>
-                                            <h6 class="intro-steam">1 hour group online webinar activity with specialist course tutor.</h6>
-                                        </div>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card card-back-des" style="width: 22rem;">
+                            <div class="card-body">
+                                <div class="card-header border-0 py-1 d-flex align-items-center my-1 colma">
+                                    <div>
+                                        <h4 class="card-title mb-2 card-color-text">01.</h4>
+                                        <h6 class="intro-steam">1 hour group online webinar activity with specialist course tutor.</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="col-md-6 mb-2">
-                            <div class="card card-back-des" style="width: 23rem;">
-                                <div class="card-body">
-                                    <div class="card-header border-0 py-1 d-flex align-items-center my-1 colma">
-                                        <div>
-                                            <h4 class="card-title mb-2 card-color-text">02.</h4>
-                                            <h6 class="intro-steam">1 hour group online webinar activity with specialist course tutor.</h6>
-                                        </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card card-back-des" style="width: 22rem;">
+                            <div class="card-body">
+                                <div class="card-header border-0 py-1 d-flex align-items-center my-1 colma">
+                                    <div>
+                                        <h4 class="card-title mb-2 card-color-text">02.</h4>
+                                        <h6 class="intro-steam">1 hour group online webinar activity with specialist course tutor.</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="col-md-6 mb-2">
-                            <div class="card card-back-des" style="width: 23rem;">
-                                <div class="card-body">
-                                    <div class="card-header border-0 py-1 d-flex align-items-center my-1 colma">
-                                        <div>
-                                            <h4 class="card-title mb-2 card-color-text">03.</h4>
-                                            <h6 class="intro-steam">1 hour group online webinar activity with specialist course tutor.</h6>
-                                        </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card card-back-des" style="width: 22rem;">
+                            <div class="card-body">
+                                <div class="card-header border-0 py-1 d-flex align-items-center my-1 colma">
+                                    <div>
+                                        <h4 class="card-title mb-2 card-color-text">03.</h4>
+                                        <h6 class="intro-steam">1 hour group online webinar activity with specialist course tutor.</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="col-md-6 mb-2">
-                            <div class="card card-back-des" style="width: 23rem;">
-                                <div class="card-body">
-                                    <div class="card-header border-0 py-1 d-flex align-items-center my-1 colma">
-                                        <div>
-                                            <h4 class="card-title mb-2 card-color-text">04.</h4>
-                                            <h6 class="intro-steam">1 hour group online webinar activity with specialist course tutor.</h6>
-                                        </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card card-back-des" style="width: 22rem;">
+                            <div class="card-body">
+                                <div class="card-header border-0 py-1 d-flex align-items-center my-1 colma">
+                                    <div>
+                                        <h4 class="card-title mb-2 card-color-text">04.</h4>
+                                        <h6 class="intro-steam">1 hour group online webinar activity with specialist course tutor.</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="col-md-6 mb-2">
-                            <div class="card card-back-des" style="width: 23rem;">
-                                <div class="card-body">
-                                    <div class="card-header border-0 py-1 d-flex align-items-center my-1 colma">
-                                        <div>
-                                            <h4 class="card-title mb-2 card-color-text">05.</h4>
-                                            <h6 class="intro-steam">1 hour group online webinar activity with specialist course tutor.</h6>
-                                        </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card card-back-des" style="width: 22rem;">
+                            <div class="card-body">
+                                <div class="card-header border-0 py-1 d-flex align-items-center my-1 colma">
+                                    <div>
+                                        <h4 class="card-title mb-2 card-color-text">05.</h4>
+                                        <h6 class="intro-steam">1 hour group online webinar activity with specialist course tutor.</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="col-md-6 mb-2">
-                            <div class="card card-back-des" style="width: 23rem;">
-                                <div class="card-body">
-                                    <div class="card-header border-0 py-1 d-flex align-items-center my-1 colma">
-                                        <div>
-                                            <h4 class="card-title mb-2 card-color-text">06.</h4>
-                                            <h6 class="intro-steam">1 hour group online webinar activity with specialist course tutor.</h6>
-                                        </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card card-back-des" style="width: 22rem;">
+                            <div class="card-body">
+                                <div class="card-header border-0 py-1 d-flex align-items-center my-1 colma">
+                                    <div>
+                                        <h4 class="card-title mb-2 card-color-text">06.</h4>
+                                        <h6 class="intro-steam">1 hour group online webinar activity with specialist course tutor.</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="col-md-6 mb-2">
-                            <div class="card card-back-des" style="width: 23rem;">
-                                <div class="card-body">
-                                    <div class="card-header border-0 py-1 d-flex align-items-center my-1 colma">
-                                        <div>
-                                            <h4 class="card-title mb-2 card-color-text">07.</h4>
-                                            <h6 class="intro-steam">1 hour group online webinar activity with specialist course tutor.</h6>
-                                        </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card card-back-des" style="width: 22rem;">
+                            <div class="card-body">
+                                <div class="card-header border-0 py-1 d-flex align-items-center my-1 colma">
+                                    <div>
+                                        <h4 class="card-title mb-2 card-color-text">07.</h4>
+                                        <h6 class="intro-steam">1 hour group online webinar activity with specialist course tutor.</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="col-md-6 mb-2">
-                            <div class="card card-back-des" style="width: 23rem;">
-                                <div class="card-body">
-                                    <div class="card-header border-0 py-1 d-flex align-items-center my-0 colma">
-                                        <img src="<?php echo get_template_directory_uri();  ?>/images/graduate.png" class="rounded-circle align-self-start mr-1" width="64" height="62">
-                                        <div>
-                                            <h6 class="intro-steam">Graduate as a Digital Creativity Specialist in Youth Setting!</h6>
-                                        </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card card-back-des bg-white" style="width: 22rem;">
+                            <div class="card-body">
+                                <div class="card-header border-0 py-1 d-flex align-items-center my-0 colma bg-white">
+                                    <img src="<?php echo get_template_directory_uri();  ?>/images/graduate.png" class="rounded-circle align-self-start mr-1" width="64" height="62">
+                                    <div>
+                                        <h6 class="intro-steam">Graduate as a Digital Creativity Specialist in Youth Setting!</h6>
                                     </div>
                                 </div>
                             </div>
@@ -433,10 +438,7 @@
             </div>
         </div>
     </div>
+</div>
 </section>
-
-
-
-
 
 <?php get_footer();?>

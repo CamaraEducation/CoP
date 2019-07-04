@@ -40,9 +40,8 @@
 						<ul class="list-unstyled quick-links">
 							<li class="footer-small-texts"><a href="<?php echo get_site_url(); ?>/programmeplanning">Programme Planning </a></li>
 							<li class="footer-small-texts"><a href="<?php echo get_site_url(); ?>/publications">Publications </a></li>
-						<!--
 							<li class="footer-small-texts"><a href="<?php echo get_site_url(); ?>/training">Training </a></li>
-						-->
+
 						
 						</ul>
 					</div>
