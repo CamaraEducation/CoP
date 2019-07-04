@@ -25,10 +25,10 @@ if(count($_POST)){
 					<img src="<?php echo get_template_directory_uri(); ?>/images/clogo.svg" alt="" class="img-fluid">
 				</a>
 				<div class="container">
-					<div class="card register-card" style="width: 537px !important;margin-left: 70px; margin-top: 104px !important;">
+					<div class="card register-card" style="width: 537px !important;margin-left: 120px; margin-top: 26px !important;">
 
-						<div class="card-body" style="margin-left: 56px;margin-right: 56px;">
-							<h5 class="signup-title-txt" align="center" style="margin-top:48px; margin-bottom: 45px;">Sign Up to the Online TechSpace Network</h5>
+						<div class="card-body" style="margin-left: 40px;margin-right: 40px;">
+							<h5 class="signup-title-txt" align="center" style="margin-top:40px; margin-bottom: 45px;">Sign Up to the Online TechSpace Network</h5>
 
 							<form id="onboardingformstep" method="POST" name="onboardingformstep" action='<?php the_permalink(); ?>'>
 
@@ -36,8 +36,8 @@ if(count($_POST)){
 
 
 								<div class="form-group" style="margin-top: 24px;">
-									<label for="user_username" class="signup-small-txt">Username</label>
-									<input type="text" class="form-control" id="user_username" name="user_username">
+									<label for="user_usernameEmail" class="signup-small-txt">Email</label>
+									<input type="email" class="form-control" id="user_usernameEmail" name="user_usernameEmail">
 								</div>
 
 								<div class="row" style="margin-top: 24px;">
@@ -57,12 +57,15 @@ if(count($_POST)){
 									</div>
 								</div>
 
+
+<!---
 								<div class="form-group">
 									<label for="exampleInputEmail" class="signup-small-txt">Email</label>
 									<input type="email" class="form-control" id="user_email" name="user_email">
 								</div>
 
-								<div class="row" style="margin-top: 24px;">
+-->
+								<div class="row" style="margin-top: 12px;">
 									<div class="col-md-6">
 										<div class="form-group">
 											<label for="exampleInputPassword1" class="signup-small-txt">Password</label>
@@ -79,15 +82,16 @@ if(count($_POST)){
 									</div>
 								</div>
 
-								<div class="form-check" style="margin-top: 24px;">
+								<div class="form-check" style="margin-top: 12px;">
 
 									<input type="checkbox" class="form-check-input" id="user_18yearsold" name="user_18yearsold" value="YES">
+									<span style="font-size:12px;color:#3E4C59">
 									By ticking this box you are confirming you are over 18 years of age and you have read the <a href="" data-toggle="modal" data-target="#termagreementModalLong" style="color:#0000EE;font-weight: bold;">TechSpace Online Network Membership terms and conditions</a>.
-
+</span>
 									<label class="form-check-label tick-text" for="user_18yearsold"> </label>
 								</div>
 
-								<div class="text-center" style="margin-bottom: 74px;margin-top: 24px;">
+								<div class="text-center" style="margin-bottom: 40px;margin-top: 8px;">
 
 
 									<input type="submit" class="btn land-btn11 land-btn-txt mt-4 register-submit" value="SIGN UP ">
@@ -119,7 +123,9 @@ if(count($_POST)){
 						</button>
 					</div>
 					<div class="modal-body">
+						<div style="padding: 32px;">
 						<?php cn_include_content(343); ?>
+					</div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

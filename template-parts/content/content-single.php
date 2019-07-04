@@ -47,7 +47,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 			</h1>
 
 
-			<span class="badge badge-info" style="width: 91px; padding-left:10px;padding-right:10px;padding-top:5px;padding-bottom:5px;border-radius: 24px!important;margin-left: 20px;font-size:34;border: 1px solid <?php echo $current_pathway_color;?>;color:<?php echo $current_pathway_color;?>;background-color:#ffffff"> 
+			<span class="badge badge-info" style="min-width: 91px; padding-left:10px;padding-right:10px;padding-top:5px;padding-bottom:5px;border-radius: 24px!important;margin-left: 20px;font-size:34;color:#ffffff;background-color:<?php echo $current_pathway_color;?>"> 
 				<?php echo strtoupper(getPostTerms($post->ID,'topic')); ?></span>
 
 				<hr class="hrs">
@@ -83,6 +83,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 
 					<!--DURATION -->
 					<img src="<?php echo get_template_directory_uri();  ?>/images/duration.png" class="img-responsive" width="26px"  alt="COP">
+	&nbsp;
 					<?php echo get_post_meta($post->ID, 'duration', true); ?>
 
 				</li>
@@ -90,6 +91,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 				<li class="nav-item leveltx" style="margin-right:64px;">
 					<!--AGE GROUP -->
 					<img src="<?php echo get_template_directory_uri();  ?>/images/age_range.png" class="img-responsive" width="30px"  alt="COP">
+						&nbsp;
 					<?php echo getPostTerms($post->ID,'age_range'); ?>
 
 				</li>
@@ -98,7 +100,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 		</div>
 
 
-		<div class="container">
+		<div class="container" style="margin-top:32px;">
 			<div class="row">
 				<div class="col-md-8">
 					<img src="<?php the_field('featured_image'); ?>" alt="" class="img-fluid" style="width:691px;height:440px;margin-bottom:72px;">
@@ -111,8 +113,8 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 					<hr class="hrs" style="margin-bottom: 24px;">
 
 					<div class="card my-3 knowledgecards">
-						<div class="card-body">
-						<H2 class="headtitle" style="font-size:14px;"> KNOWLEDGE & SKILLS </H2> 
+						<div class="carssd-ssbody">
+						<H2 class="headtitle" style="font-size:14px;margin-bottom: 12px;"> KNOWLEDGE & SKILLS </H2> 
 
 							<?php
 							$term_list = wp_get_post_terms($post->ID, "skills_and_competencies",array("fields" => "all"));
@@ -128,8 +130,11 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 								?>
 								
 									<!-- <span class="text-nowrap badge badge-pill badge-light" style="padding:5px;font-size:12px;background-color:rgba(<?php echo "$r,$g,$b"?>,0.1);box-sizing: border-box; border-radius: 8px;height: 24px;vertical-align: middle;"><?php echo  $term_single->name;?></span> -->
-									    <span class="card-text sppct" style="background-color:rgba(<?php echo "$r,$g,$b"?>,0.1);
-"><?php echo  $term_single->name;?></span>
+<span class="sppct" style="color:#ffffff;background-color:<?php echo $current_pathway_color;?>;">
+	<span style="margin:4px;font-size:12px;line-height: 24px;">
+<?php echo  $term_single->name;?>
+	</span>
+</span>
 
 									<!-- <a class="text-nowrap" style="padding:5px;font-size:12px;background-color:rgba(<?php echo "$r,$g,$b"?>,0.1);box-sizing: border-box; border-radius: 8px;height: 24px;vertical-align: middle;"><?php echo  $term_single->name;?></a> -->
 							
@@ -186,16 +191,17 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 				<div class="container">
 					<div class="row" >
 						<div class="col-md-8">
-							<h2 class="headtitle">Step-by-step guide</h2>
+							<h2 class="headtitle">Step-by-Step Guide</h2>
 							<hr class="hrs" style="margin-right: 4rem !important;">
 							<div class="col-md-11 bg-white actcardw brs carmarb">
-								<div class="card-header border-0 py-3 d-flex align-items-center my-3 bg-white">
+
+								<div class="card-header border-0 pyss-3 d-flex align-items-center my-3 bg-white" style="padding-top:0px;">
 									<?php
 									$instructor = get_post_meta($post->ID, 'instructor_name', true);
 									$user = get_user_by( 'id', $instructor);
 									?>
 
-									<img src="<?php echo get_avatar_url($instructor); ?>" class="rounded-circle align-self-start mr-3" width="60">
+					<img src="<?php echo get_avatar_url($instructor); ?>" class="rounded-circle align-self-start mr-3" width="60">
 
 
 
@@ -254,7 +260,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 
 										<span class="step-by-step-excerpt" style="visibility:visible;display:block;">
 											<?php echo custom_field_excerpt($stepbystep); ?>
-											<button type="button" class="btn btn-link readMorelink" style="color: #EE603B;font-size:16px;font-weight: bold;">Expand more instructions + </button>
+											<button type="button" class="btn btn-link readMorelink" style="margin-left:-10px;color: #EE603B;font-size:16px;font-weight: bold;">Expand more instructions + </button>
 										</span>
 
 
@@ -265,7 +271,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 
 										<span class="step-by-step-close" style="visibility:hidden;display:none;">
 
-											<button type="button" class="btn btn-link closeMorelink" style="color: #EE603B;font-size:16px;font-weight: bold;">Close Step-by-step  </button>
+											<button type="button" class="btn btn-link closeMorelink" style="margin-left:-10px;color: #EE603B;font-size:16px;font-weight: bold;">Close Step-by-step  </button>
 										</span>
 									</div>
 
@@ -291,14 +297,14 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 							<hr class="hrs">
 
 							<p class="desc-text" style="font-size:14px;color:#52606D">A step-by-step PDF guide for your group to follow</p>
-							<a href="<?php the_field('step_by_step_guide_doc'); ?>">
-								<button type="button" class="btn btn-outline-warning downloadguide my-2">Download Guide</button>
+							<a href="<?php the_field('step_by_step_guide_doc'); ?>" target="new">
+								<button type="button" class="btn btn-outline-warning downloadguide-activity my-2">Download Guide</button>
 							</a>
 							<hr class="hrs">
 							<div class="card supportcard">
 								<div class="card-body">
 									<h6 class="box-text12 mb-2 sste">SUPPORT</h6>
-									<p class="box-text12">TechSpace Education officers are here to help with all your queries with the activities. Have a question?No problem! Reach out and we will help you.</p>
+									<p class="box-text12">TechSpace Education Officers are here to help with all your queries with the activities. Have a question? No problem! Reach out and we will help you.</p>
 									<hr class="hrs">
 									<p class="box-text-link">
 										Ask an Expert (Start a Chat Session) <img src="<?php echo get_template_directory_uri();  ?>/images/askExpert.png" class="rounded-circle z-depth-0 md-avatar" alt="Start a Email Session">
@@ -307,6 +313,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 							</div>
 							<hr class="hrs">
 							<div class="card supportcard">
+							<div class="card-body">
 								<div class="card-header bg-white">
 									<b class="sste"> Feedback for the Community</b>
 								</div>
@@ -393,12 +400,12 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 												<?php else: ?>
 													class="btn btn-default biggner-btn btn-sm beginnertxt"
 												<?php endif ?>
-												data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">
+												data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;background-color:#DABFDF ">
 											beginner</i>
-											<span class="biggners btn alert-success disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php 
+											<span class="biggners btn alert-success disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px; background-color:#F5ECF6;color:#323F4B;"><?php 
 											$cc = getBiggner($postid);
 											if($cc==NULL){
-												echo "0";
+												echo "0";   
 											}else{echo $cc;}
 											?></span>
 
@@ -409,7 +416,9 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 												class="btn btn-default inter-btn btn-sm beginnertxt"
 											<?php endif ?>
 											data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">intermediate</i>
-											<span class="inters btn alert-warning disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php
+											<span class="inters btn alert-warning disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px; background-color:#F5ECF6;color:#323F4B;">
+
+												<?php
 											$dd = getInter($postid);
 											if($dd==NULL){
 												echo "0";
@@ -423,7 +432,9 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 												class="btn btn-default advance-btn btn-sm beginnertxt"
 											<?php endif ?>
 											data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">advanced</i>
-											<span class="advances btn alert-danger disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php   
+											<span class="advances btn alert-danger disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px; background-color:#F5ECF6;color:#323F4B;">
+
+												<?php   
 											$ee = getAdvance($postid);
 											if($ee==NULL){
 												echo "0";
@@ -444,7 +455,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 											<?php endif ?>
 											data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">
 											< 1 hour</i>
-											<span class="lessone btn alert-success disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php  
+											<span class="lessone btn alert-success disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;background-color:#F5ECF6;color:#323F4B;"><?php  
 											$ff = getLessOne($postid); 
 											if($ff==NULL){
 												echo "0";
@@ -458,7 +469,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 												class="btn btn-default onetotwo-btn btn-sm beginnertxt"
 											<?php endif ?>
 											data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">1 - 2 hours</i>
-											<span class="onetotwo btn alert-warning disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php 
+											<span class="onetotwo btn alert-warning disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;background-color:#F5ECF6;color:#323F4B;"><?php 
 											$gg = getOneToTwo($postid); 
 											if($gg==NULL){
 												echo "0";
@@ -471,7 +482,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 											<?php else: ?>
 												class="btn btn-default moretwo-btn btn-sm beginnertxt"
 											<?php endif ?>
-											data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"> >2 hours</i>
+											data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;background-color:#F5ECF6;color:#323F4B;"> >2 hours</i>
 											<span class="moretwo btn alert-danger disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php 
 											$hh = getMoreTwo($postid);
 											if($hh==NULL){
@@ -491,7 +502,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 											<?php else: ?>
 												class="btn btn-default agebignner-btn btn-sm beginnertxt"
 											<?php endif ?>
-											data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">Beginner</i>
+											data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;background-color:#F5ECF6;color:#323F4B;">Beginner</i>
 											<span class="agebiggner btn alert-success disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php
 											$jj = getBiggnerAge($postid);
 
@@ -505,7 +516,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 											<?php else: ?>
 												class="btn btn-default ageinter-btn btn-sm beginnertxt"
 											<?php endif ?>
-											data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;">Intermediate</i>
+											data-userid="<?php echo $userid ?>" data-postid="<?php echo $postid ?>" style="font-size:12px;border:1px;padding:5px;margin-top:5px;background-color:#F5ECF6;color:#323F4B;">Intermediate</i>
 											<span class="ageinter btn alert-warning disabled" style="font-size:12px;border:1px;padding:5px;margin-top:5px;"><?php
 
 											$kk = getInterAge($postid); 
@@ -517,7 +528,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 
 											&nbsp;&nbsp;&nbsp;
 											<i<?php if (userAdvanceAge($userid, $postid)): ?>
-											class="btn  btn-danger ageadvance-btn btn-sm beginnertxt"
+											class="btn  btn-danger ageadvance-btn btn-sm beginnertxt button-selected"
 											<?php else: ?>
 												class="btn btn-default ageadvance-btn btn-sm beginnertxt"
 											<?php endif ?>
@@ -535,8 +546,7 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 
 									</div>
 
-
-
+</div>
 								</div>
 
 
@@ -548,17 +558,23 @@ $current_pathway_color = get_field('main_color', $term->taxonomy . '_' . $term->
 
 								if (!empty( $next_post )): ?>
 
-									<hr class="hrs">
-									<div class="card-header border-0 py-3 d-flex align-items-center my-3">
+									<hr style="margin-bottom:16px;">
 
-										<img src="<?php echo get_field('featured_image', $next_post->ID); ?> " style="width:64px;" class="align-self-start mr-3">
-										<div>
-											<h4 class="intro-title mb-0" style="color:#9AA5B1;">Next activity</h4>
+									<div class="card-header border-0 py-3 d-flex align-items-center my-3" style="background-color: #f0f2f5;">
+
+										<img src="<?php echo get_field('featured_image', $next_post->ID); ?> " style="width:64px;height: 64px;" class="align-self-start mr-3">
+
+										<div style="margin-top:0px;">
+											<h4 class="intro-title mb-0" style="margin-top:0px;color:#9AA5B1;font-size:12px;text-transform: uppercase;vertical-align: text-top;">
+											Next activity</h4>
 											<h6 class="intro-steam"></h6>
 
 
+											<a href="<?php echo esc_url( get_permalink( $next_post->ID ) ); ?>" style="font-weight:bold;font-size:16px;color:#323f46">
 
-											<a href="<?php echo esc_url( get_permalink( $next_post->ID ) ); ?>"><?php echo esc_attr( $next_post->post_title ); ?></a>
+												<?php echo esc_attr( $next_post->post_title ); ?>
+												
+											</a>
 
 										</h6>			</div>
 									<?php endif; ?>

@@ -141,9 +141,10 @@ function searchPosts($maxPosts,$search_topic,$search_level,$search_tools,$search
 
 <!-- Start Tab -->
 <section>
-    <div class="container-fluid bg-white navsty">
+    <div class="container-fluid bg-white navsty" style="box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);">
         <div class="container">
-            <ul class="nav mx-4" id="myTab">
+
+            <ul class="nav" id="myTab" style="margin-left:0px;">
 
                 <?php
                 $tax_terms = get_terms( 'pathway', 'orderby=id');
@@ -174,18 +175,25 @@ function searchPosts($maxPosts,$search_topic,$search_level,$search_tools,$search
 
 //echo $pageURL;
 
+
+
+
                 ?>
                 <div class="btn-group ml-2">
 
-                    <button type="button" class="btn dropdown-filter dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="background-color:<?php echo !empty($search_topic) ? '#CAD7DE':'';?> ">
+     
 
-                     <span onMouseOver="this.style.color='<?php echo $current_pathway_color;?>'"  onMouseOut="this.style.color='#000000'">          
-                        <?php
-                        echo ($search_topic == NULL ? "Topic" : $search_topic);
-                        ?>
-                    </span>
 
-                </button>
+ <button type="button" class="btn dropdown-filter dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="background-color:<?php echo !empty($search_topic) ? '#CAD7DE':'';?>;border:<?php echo !empty($search_topic) ? '':'1px solid #000000';?>">
+
+         <span onMouseOver="this.style.color='<?php echo $current_pathway_color;?>'"  onMouseOut="this.style.color='#000000'">          
+
+            <?php
+            echo ($search_topic == NULL ? "Topic" : $search_topic);
+            ?>
+        </span>
+    </button>
+
 
                 <div class="dropdown-menu">
 
@@ -216,15 +224,20 @@ function searchPosts($maxPosts,$search_topic,$search_level,$search_tools,$search
             </div>
 
             <div class="btn-group ml-2">
-                <button type="button" class="btn dropdown-filter dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="background-color:<?php echo !empty($search_level) ? '#CAD7DE':'';?> ">
 
-                 <span onMouseOver="this.style.color='<?php echo $current_pathway_color;?>'"  onMouseOut="this.style.color='#000000'">          
+ <button type="button" class="btn dropdown-filter dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="background-color:<?php echo !empty($search_level) ? '#CAD7DE':'';?>;border:<?php echo !empty($search_level) ? '':'1px solid #000000';?>">
 
-                    <?php
-                    echo ($search_level == NULL ? "Level" : $search_level);
-                    ?>
-                </span>
-            </button>
+         <span onMouseOver="this.style.color='<?php echo $current_pathway_color;?>'"  onMouseOut="this.style.color='#000000'">          
+
+            <?php
+            echo ($search_level == NULL ? "Level" : $search_level);
+            ?>
+        </span>
+    </button>
+
+
+
+              
             <div class="dropdown-menu">
 
 
@@ -246,17 +259,19 @@ function searchPosts($maxPosts,$search_topic,$search_level,$search_tools,$search
         </div>
 
         <div class="btn-group ml-2">
-            <button type="button" class="btn dropdown-filter dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="background-color:<?php echo !empty($search_tool) ? '#CAD7DE':'';?> ">
+   
 
-             <span onMouseOver="this.style.color='<?php echo $current_pathway_color;?>'"  onMouseOut="this.style.color='#000000'">          
+ <button type="button" class="btn dropdown-filter dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onMouseOver="this.style.borderColor='<?php echo $current_pathway_color;?>'"   onMouseOut="this.style.borderColor='#000000'" style="background-color:<?php echo !empty($search_tool) ? '#CAD7DE':'';?>;border:<?php echo !empty($search_tool) ? '':'1px solid #000000';?>">
 
-                <?php
-                echo ($search_tool == NULL ? "Tools" : $search_tool);
-                ?>
+         <span onMouseOver="this.style.color='<?php echo $current_pathway_color;?>'"  onMouseOut="this.style.color='#000000'">          
 
-            </span>
+            <?php
+            echo ($search_tool == NULL ? "Tools" : $search_tool);
+            ?>
+        </span>
+    </button>
 
-        </button>
+
         <div class="dropdown-menu">
             <?php
 
@@ -307,7 +322,9 @@ function searchPosts($maxPosts,$search_topic,$search_level,$search_tools,$search
 
 <div class="col-md-2">
     <span>
-        <a class="clearfilter" href="<?php echo get_permalink(); ?>">Clear All Filters
+
+
+        <a class="clearfilter" href="<?php echo get_permalink(); ?>?a=<?php echo $_GET['a']; ?> ">Clear All Filters
             <img class="returnpic" src="<?php echo get_template_directory_uri();  ?>/images/filterclear.png">
         </a>  
     </span>
@@ -355,15 +372,20 @@ foreach($Searchposts as $post): // begin cycle through posts of this taxonmy
 setup_postdata($post); //set up post data for use in the loop (enables the_title(), etc without specifying a post ID)
 ?>        
 
-<div class="col-md-4">
+<div class="col-md-4 row-eq-height">
 
     <div class="card border-0" style="margin-bottom:30px;box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05); width: 22rem;">   
+
+         <a class="cardbigtxt" href="<?php the_permalink(); ?>">
+                    <!---make the hold card a link" -->
         <img class="card-img-top cardback" src="<?php the_field('featured_image'); ?>"  width="279px" height="251px" alt="Card image cap">
 
 
+        </a> <!---make the hold card a link" -->
+
         <div class="card-body cbody">
 
-            <h6 class="card-small cardsmalltxt"><?php echo getPostTerms($post->ID,'pathway'); ?> </h6>
+            <h6 class="card-small cardsmalltxt" style="text-transform: uppercase;font-size:12px;"><?php echo getPostTerms($post->ID,'pathway'); ?> </h6>
 
             <h5 class="card-big cardbigtxt">
 
@@ -371,13 +393,22 @@ setup_postdata($post); //set up post data for use in the loop (enables the_title
                     <!---make the hold card a link" -->
                     <?php the_title(); ?>
 
-                </a> <!---make the hold card a link" -->
+           
+        </a> <!---make the hold card a link" -->
+
             </h5>
+
+
             <span class="badge badge-primary" style="background-color:<?php echo $current_pathway_color;?>"> <?php echo getPostTerms($post->ID,'topic'); ?></span>
+<!--
+            <span class="badge badge-info" style="outline: 1px solid <?php //echo $current_pathway_color;?>;color:<?php //echo $current_pathway_color;?>;background-color:#ffffff"> <?php //echo getPostTerms($post->ID,'tool'); ?></span>
+-->
+     <span class="badge badge-primary" style="margin-left:8px;background-color:<?php echo $current_pathway_color;?>">
 
-            <span class="badge badge-info" style="outline: 1px solid <?php echo $current_pathway_color;?>;color:<?php echo $current_pathway_color;?>;background-color:#ffffff"> <?php echo getPostTerms($post->ID,'tool'); ?></span>
 
+           <?php echo getPostTerms($post->ID,'tool'); ?>
 
+      </span>
 
             <span class="float-right"> 
                 <!--LEVEL -->

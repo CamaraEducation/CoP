@@ -4,16 +4,23 @@ nav-item menu-text nav-item menu-text html,body, form, fieldset, tr, td, img {
  font-weight: normal;
  font-size: 16px;
  line-height: 24px;
+
+}
+
+.menu-text {
+margin-right:4px;
 }
 
 body{
   font-family: Lato !important;
 }
 
-body a:hover{
-  underline:none;
 
+
+a:hover {
+  color:#EE603B !important;
 }
+
 
 .returnpic{
   width:20px;
@@ -40,6 +47,14 @@ body hr {
   margin-top: 24px;
 }
 
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+    flex-direction: column;
+}
 
 .login-submit:hover{
   background: #FFFFFF !important;
@@ -94,7 +109,7 @@ body hr {
   }
 
   .dropdown-filter{
-    border: 1px solid #3E4C59 !important;
+   border: 1px solid #3E4C59;
     box-sizing: border-box !important;
     border-radius: 100px !important;
     font-family: Lato !important;
@@ -105,7 +120,7 @@ body hr {
     color: #3E4C59 !important;
   }
   .dropdown-filter:hover{
-    border: 1px solid #993C9F !important;
+   /* border: 1px solid #993C9F !important; */
     box-sizing: border-box !important;
     border-radius: 100px !important;
     font-family: Lato !important;
@@ -331,6 +346,9 @@ body hr {
   width: 30px;
   height: 30px;
 }
+
+
+
 .md-avatar.size-1 {
   width: 40px;
   height: 40px;
@@ -458,7 +476,7 @@ body hr {
   padding: 3px 5px;
   position: absolute;
   margin-top: -35px;
-  border: 1px solid #337ab7;
+  border: 1px solid #CCA62C;
   background: #F8EBC3;
   border-radius: 8px;
   height: 25px;
@@ -587,6 +605,8 @@ body hr {
   text-align: left;
   color: #FFFFFF;
   opacity: 0.6;
+  margin-top: 0px;
+
 }
 
 .intro-title-landing{
@@ -761,6 +781,12 @@ body hr {
   text-align: center;
   color: #323F4B;
 }
+
+.custom-card-title:hover{
+ color: #323F4B;
+}
+
+
 .cutsom-card-body{
   font-family: Lato;
   font-style: normal;
@@ -1115,7 +1141,7 @@ body hr {
   font-weight: bold;
   font-size: 32px;
   line-height: 45px;
-  color: #000000;
+  color: #243741;
 }
 .signup-small-txt{
   font-family: Lato;
@@ -1191,8 +1217,8 @@ body hr {
   line-height: 26px;
   display: block;
   font-size: 12px;
-  color: #333;
-  background: white;
+  color: #993C9F /*#333 */;
+  background: #e3d2e8;
   border-radius: 25px;
   margin: 0 auto 10px auto;
 }
@@ -1201,8 +1227,8 @@ body hr {
 #progressbar li:after {
   content: '';
   width: 100%;
-  height: 2px;
-  background: white;
+  height: 1px;
+  background: #993C9F;
   position: absolute;
   left: -50%;
   top: 9px;
@@ -1219,6 +1245,11 @@ body hr {
 #progressbar li.active:before, #progressbar li.active:after {
   background: #993C9F;
   color: white;
+}
+
+.user_pathway-training {
+color:#243741;
+text-decoration: none;
 }
 
 
@@ -1270,6 +1301,12 @@ body hr {
   box-shadow: 0px 5px 15px rgba(25, 70, 93, 0.05) !important;
   border-radius: 100px !important;
 }
+
+.btn1-shadow:hover{
+  background-color:#EE603B !important;
+  text-decoration-color: #FFFFFF !important;
+}
+
 .btn1-text{
   font-family: Lato;
   font-style: normal;
@@ -1281,12 +1318,20 @@ body hr {
   color: #EE603B;
   border-radius: 10px;
 }
+
+.btn1-text:hover{
+  color: #FFFFFF !important;
+}
+
+
 a, a:hover,a:visited, a:focus {
   text-decoration:none !important;
 }
+
 .menu-back{
-  max-height: 88px;
-  box-shadow: 0px 4px 10px rgba(196, 196, 196, 0.52)
+max-height: 88px;
+box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);
+
 }
 .menu-color-shadow{
   border-bottom: 2px solid #EE603B;
@@ -1299,12 +1344,7 @@ a, a:hover,a:visited, a:focus {
   margin-bottom: 8px;
   text-align: left;
 }
-.prof-name:hover{
-  font-size:24px;
-  margin-bottom: 8px;
-  text-align: left;
-  color: #EE603B;
-}
+
 .prof-role{
   font-size:14px;
   font-weight: normal;
@@ -1499,7 +1539,7 @@ margin-left:24px;
   font-style: normal;
   font-size: 14px;
   line-height: 24px;
-
+font-weight: normal;
   /* or 200% */
   text-transform: none;
   color: #3E4C59;
@@ -1522,6 +1562,14 @@ margin-left:24px;
   text-align: center;
   text-transform: lowercase;
 }
+
+
+
+.button-selected {
+  background-color: #DABFDF;
+}
+
+
 .activtitle{
   font-family: Lato;
   font-style: normal;
@@ -1568,7 +1616,7 @@ margin-left:24px;
   background-color: #fff; 
   min-height:80px;
   height: 80PX;
-  padding:30px;
+  padding:20px 30px 30px 30px;
   box-shadow: 0px 3px 5px rgba(25, 70, 94, 0.05) !important;
   border-radius: 10px !important;
   border: 0px solid rgba(0, 0, 0, 0.125) !important;
@@ -1578,7 +1626,7 @@ margin-left:24px;
 .knowledgecards{
   background-color: #fff; 
   min-height:138px;
-  padding:30px;
+  padding:32px 32px 40px 32px;
   box-shadow: 0px 3px 5px rgba(25, 70, 94, 0.05) !important;
   border-radius: 10px !important;
   border: 0px solid rgba(0, 0, 0, 0.125) !important;
@@ -1614,13 +1662,13 @@ margin-left:24px;
   color: #243741;
 }
 .sppct{
-  padding:5px;font-size:12px !important;
-  box-sizing: border-box !important;
-  border-radius: 8px !important;
-  height: 24px !important;
-  vertical-align: middle !important;
-  font-weight: bold;
+border-radius: 8px !important;
+font-weight: bold;
+margin-right:8px; 
+font-size:12px;
 }
+
+
 .feedcardb1{
   padding: 25px;
   padding: 25px;
@@ -1718,6 +1766,7 @@ margin-left:24px;
   min-width: 161px;
   text-transform: uppercase !important;
 }
+
 .downloadguide:hover {
   background: #FFFFFF !important;
   border: 2px solid #EE603B !important;
@@ -1734,6 +1783,93 @@ margin-left:24px;
   min-width: 161px;
   text-transform: uppercase !important;
 }
+
+
+.downloadguide-activity{
+  background: #EE603B !important;
+  border: 2px solid #EE603B !important;
+  box-sizing: border-box !important;
+  box-shadow: 0px 5px 15px rgba(25, 70, 93, 0.05) !important;
+  border-radius: 100px !important;
+  color:#FFFFFF !important;
+  font-family: Lato !important;
+  font-style: normal !important;
+  font-weight: bold !important;
+  font-size: 12px !important;
+  line-height: 24px !important;
+  min-width: 161px;
+  text-transform: uppercase !important;
+}
+
+.downloadguide-activity:hover {
+  background: #F0F2F5 !important;
+  border: 2px solid #EE603B !important;
+  box-sizing: border-box !important;
+  box-shadow: 0px 5px 15px rgba(25, 70, 93, 0.05) !important;
+  border-radius: 100px !important;
+  font-family: Lato !important;
+  font-style: normal !important;
+  font-weight: bold !important;
+  font-size: 12px !important;
+  line-height: 24px !important;
+  /* identical to box height, or 200% */
+  color: #EE603B !important;
+  min-width: 161px;
+  text-transform: uppercase !important;
+}
+
+
+.button-hover:hover {
+background: #EE603B !important;
+color: #FFFFFF !important;
+}
+
+.button-hover2:hover {
+background: #FFFFFF !important;
+color: #EE603B !important;
+}
+
+.hoverdiv:hover {
+  color: #EE603B !important;
+}
+
+
+
+.login_button{
+  background: #FFFFFF !important;
+  border: 2px solid #EE603B !important;
+  box-sizing: border-box !important;
+  box-shadow: 0px 5px 15px rgba(25, 70, 93, 0.05) !important;
+  border-radius: 100px !important;
+  color:#EE603B !important;
+  font-family: Lato !important;
+  font-style: normal !important;
+  font-weight: bold !important;
+  font-size: 12px !important;
+  line-height: 24px !important;
+  min-width: 80px;
+  text-transform: uppercase !important;
+}
+.login_button:hover {
+  
+   background: #EE603B !important;
+  border: 2px solid #EE603B !important;
+  box-sizing: border-box !important;
+  box-shadow: 0px 5px 15px rgba(25, 70, 93, 0.05) !important;
+  border-radius: 100px !important;
+  font-family: Lato !important;
+  font-style: normal !important;
+  font-weight: bold !important;
+  font-size: 12px !important;
+  line-height: 24px !important;
+  /* identical to box height, or 200% */
+  color: #FFFFFF !important;
+  min-width: 80px;
+  text-transform: uppercase !important;
+}
+
+
+
 .carmarb{
   margin-bottom: 24px !important;
 }

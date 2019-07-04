@@ -45,7 +45,7 @@ $_SESSION[$term->name] =  $thecolor;
 
   <script src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 
 	<?php wp_head(); ?>
 

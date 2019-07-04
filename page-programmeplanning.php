@@ -29,7 +29,7 @@
 
             <div class="btn-group ml-2">
               <a href="#<?php echo  $term->name; ?>">        
-                <button type="button" class="btn dropdown-filter">
+                <button type="button" class="btn dropdown-filter" style="border:<?php echo !empty($search_level) ? '':'1px solid #000000';?>" onMouseOver="this.style.borderColor='#993C9F'"  onMouseOut="this.style.borderColor='#000000'">
                     <?php echo $term->name; ?>
                 </button>
                 
@@ -97,6 +97,9 @@ foreach( $programmePlanningType as $Ptype ):
             $docPathway = get_term_by( 'id', (int) $docPathway_id, 'pathway');
 
 
+// load thumbnail for this taxonomy term
+$pathwayColor = get_field('main_color', $docPathway->taxonomy . '_' . $docPathway->term_id);
+
             ?>       
 
             <div class="col-md-4" style="margin-bottom:30px;">
@@ -106,7 +109,8 @@ foreach( $programmePlanningType as $Ptype ):
 
 
 
-                        <div class="download-card" id="download-card" style="background-image: url(<?php the_field('programme_cover'); ?>);">
+                        <div class="download-card" id="download-card" style="background-image: url(<?php the_field('programme_cover');?>);
+                        background-size:280px 368px;">
 
                             <div id="downloadhover" class="downloadhover"> 
                                 <h2 class="downloadview" id="downloadview">
@@ -124,7 +128,9 @@ foreach( $programmePlanningType as $Ptype ):
                            <?php  if ($docPathway->name != NULL) {
                             ?>
 
-                            <span class="badge badge-primary" style="min-height: 16px; line-height:16px;background-color:<?php echo $current_pathway_color;?>"> <?php echo $docPathway->name; ?></span>
+                            <span class="badge badge-primary" style="min-height: 16px; line-height:16px;background-color:<?php echo $pathwayColor;?>"> <?php  echo $docPathway->name ?></span>
+
+
 
                         <?php }
                         ?>

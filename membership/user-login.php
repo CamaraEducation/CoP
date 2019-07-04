@@ -71,7 +71,7 @@ if(count($_POST)){
 
 									
 									<div class="form-groups" style="margin-top: 24px;">
-										<label for="login_member_username" class="signup-small-txt" style="display:inline">Username</label>
+										<label for="login_member_username" class="signup-small-txt" style="display:inline">Email</label>
 										<input type="text" class="form-control" id="login_member_username" name="login_member_username">
 									</div>	
 
@@ -84,6 +84,7 @@ if(count($_POST)){
 
 									<div class="text-center" style="margin-top: 24px;">
 										<span style="margin:14px;display:block;"> Did you forgot your username/password?  <a href="<?php echo get_site_url();?>/password-reset">Click here </a>to reset it or <a href="<?php echo get_site_url();?>/register"> create </a> a new account. </span>
+										
 										<input type="submit" type="submit" name="login-submit" id="login-submit" class="btn land-btn land-btn-txt mt-4 login-submit" value="LOGIN">
 
 										<span style="margin:12px;"> </span>

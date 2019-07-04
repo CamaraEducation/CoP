@@ -24,8 +24,10 @@ if(isset($_POST)){
 
 
 
-$user_username   = $_POST["user_username"];  
-$user_email   = $_POST["user_email"];
+$user_usernameEmail   = $_POST["user_usernameEmail"];  
+
+//$user_email   = $_POST["user_email"];
+
 $user_fname   = $_POST["user_fname"];
 $user_lname    = $_POST["user_lname"];
 $user_password    = $_POST["user_password"];
@@ -52,11 +54,36 @@ $errors=[];
 
 
 
+
+
+
+if(empty($user_18yearsold)) {
+      // invalid username
+  $errors = array('user_18yearsold'  => 'Please confirm you have read the terms and conditions and also that you are 18 years old.');
+}
+
+
+// Validate password strength
+$uppercase = preg_match('@[A-Z]@', $user_password);
+$lowercase = preg_match('@[a-z]@', $user_password);
+$number    = preg_match('@[0-9]@', $user_password);
+$specialChars = preg_match('@[^\w]@', $user_password);
+    
+
+
+if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($user_password) < 8) {
+
+      // password is empoity
+          $errors = array('user_password'  => 'Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.');
+    }
+
     ////////////////////PASSWORD
 if($user_password == '') {
       // password is empoity
           $errors = array('user_password'  => 'Please enter a password');
     }
+
+
     
 if($user_password != $user_password_confirm) {
       // passwords do not match
@@ -64,19 +91,6 @@ $errors = array('user_password_confirm'  => 'Passwords do not match.');
 }
     
 
-
-///////////////////////EMAIL 
-if(!is_email($user_email)) {
-      //invalid email
-  $errors = array('user_email'  => 'Invalid email.');
-  }
-  
-if(email_exists($user_email)) {
-      //Email address already registered
-  $errors = array('user_email'  => 'Email is already registered.');
-}
-
- 
 
 
         ////////////////////PASSWORD
@@ -90,33 +104,42 @@ if($user_fname == '') {
       // password is empoity
           $errors = array('user_fname'  => 'Please enter your first name.');
     }
-    
 
+
+
+///////////////////////EMAIL 
+if(!is_email($user_usernameEmail)) {
+      //invalid email
+  $errors = array('user_usernameEmail'  => 'Invalid email. Please provide a valid email address.');
+  }
+  
+
+if(email_exists($user_usernameEmail)) {
+      //Email address already registered
+  $errors = array('user_usernameEmail'  => 'Email is already registered.');
+}
+
+     
 
 
 ////////////////USER NAME
-if (empty($user_username)) {
+if (empty($user_usernameEmail)) {
   //username is empity 
-  $errors = array('user_username'  => 'Please enter a username.');
+  $errors = array('user_usernameEmail'  => 'Please enter a username. ');
 }
 
-if(username_exists($user_username)) {
+
+if(username_exists($user_usernameEmail)) {
       // Username already registered
-  $errors = array('user_username'  => 'Username is already taken.');
+  $errors = array('user_usernameEmail'  => 'Username is already taken.');
 }
 
 
-if(!validate_username($user_username)) {
+if(!validate_username($user_usernameEmail)) {
       // invalid username
-  $errors = array('user_username'  => 'Invalid username.');
+  $errors = array('user_usernameEmail'  => 'Invalid username. Please provide a valid email address.');
 }
 
-
-
-if(empty($user_18yearsold)) {
-      // invalid username
-  $errors = array('user_18yearsold'  => 'Please confirm you have read the terms and conditions and also that you are 18 years old.');
-}
 
 
 

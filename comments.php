@@ -30,8 +30,9 @@
 
             <input type="hidden" name="comment_post_ID" value="<?php echo $id; ?>" />
 
-                                                    <input type="submit" name="submit"  class="btn btn-outline-warning my-3" style="background: #EE603B;box-shadow: 0px 5px 15px rgba(25, 70, 93, 0.05);border-radius: 100px;font-family: Lato;font-style: normal;font-weight: bold font-size: 12px;line-height: 24px;color: #fff;" value="Add Comment" />
+                                                    <input type="submit" name="submit" nid="login-submit" class="btn land-btn land-btn-txt mt-4 login-submit" value="ADD COMMENT" style="font-size:12px;">
                                                 </div>
+
 
 
             <?php do_action('comment_form', $post->ID); ?>  

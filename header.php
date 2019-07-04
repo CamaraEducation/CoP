@@ -1,15 +1,20 @@
 <?php
 
 global $current_user_name;
+global $member_display_name;
+
 global $org_name;
 global $current_user_communityRole ;
 global $communityRole_name;
 global $memberJobRole_name;
+global $member_org_name;
+
 global $memberlocation;
 global $member_projectgroup;
 global $current_user_pathway_name;
 global $current_pathway_color;
 global $current_user_pathway_id;
+
 
 
 $url= get_site_url() . '/login/';
@@ -23,6 +28,8 @@ exit;
 
 $current_user = wp_get_current_user();
 $current_user_name= $current_user->display_name;
+$member_display_name= $current_user->display_name;
+
 $current_user_id = $current_user->ID;
 
 
@@ -31,6 +38,14 @@ $current_user_org =get_user_meta( $current_user_id, 'member_organization', true)
 $org_name = get_term( $current_user_org, 'member_organization' )->name;
 
 //echo $org_name->name;
+
+
+$current_user_org =get_user_meta( $current_user_id, 'member_organization', true); 
+
+$member_org_name = get_term( $current_user_org, 'member_organization' )->name;
+
+$member_org_id = get_term( $current_user_org, 'member_organization' )->term_id;
+
 
 //**GET COMMUNITY ROLE
 $current_user_communityRole =get_user_meta( $current_user_id, 'member_community_role', true); 
@@ -120,7 +135,8 @@ return $imagePath;
 
 	<script src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-	<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 
 
 
@@ -148,18 +164,15 @@ if($name == $page) {
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white menu-back">
 
-<a class="navbar-brand" href="#"><img src="<?php echo get_template_directory_uri();  ?>/images/techspacelogo.png" class="img-responsive md-avatar size-2" alt="COP"></a>
+<a class="navbar-brand" href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri();  ?>/images/techspacelogo.png" class="img-responsive md-avatar size-2" alt="COP"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item menu-text <?php echo showCurrentPage('landing');?>">
-					<a class="nav-link" href="landing">Home
-
-
-
-					
+					<a class="nav-link" href="<?php echo home_url(); ?>/landing">Home
+			
 					</a>
 
 				</li>
@@ -177,11 +190,21 @@ if($name == $page) {
 				<li class="nav-item menu-text <?php echo showCurrentPage('publications');?>">
 				<a class="nav-link text-menu" href="<?php echo home_url(); ?>/publications">Publications </a>
 				</li>
+
+		<li class="nav-item menu-text <?php echo showCurrentPage('directory');?>">
+				<a class="nav-link text-menu" href="<?php echo home_url(); ?>/directory"> Directory </a>
+				</li>
+
+
 			</ul>
+
 
 							
 
 <?php
+
+
+
 if ( is_user_logged_in() ) {
 					   
 					global $current_user;
@@ -195,6 +218,7 @@ if ( is_user_logged_in() ) {
 						<img src="<?php echo get_avatar_url($current_user->ID); ?>" class="rounded-circle z-depth-0 md-avatar" alt="avatar image">
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-5">
+						<a class="dropdown-item" href="<?php echo home_url(); ?>/profile">My Profile</a>
 						<a class="dropdown-item" href="<?php echo home_url(); ?>/account">Account</a>
 						<a class="dropdown-item" href="<?php echo wp_logout_url(home_url());?>">Logout </a>
 

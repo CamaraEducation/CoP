@@ -1,4 +1,4 @@
-var data = {};
+
 $(document).ready(function() {
 
 
@@ -145,9 +145,12 @@ return false;
 
 
 
+//CHANGEING PASSWORD
+
+
 $("#passwordreset-change-submit").click(function(){
 	
-	//alert("ZIMB ARAS");
+	//alert("asdfasdfasdfasdfas");
 
 		
 resetErrors();
@@ -218,10 +221,106 @@ return false;
 	});
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$("#update-password").click(function(){
+	
+	
+		
+resetErrors();
+//alert("login submit email");
+
+
+var formData = {'action':'login_ajax_request'};
+var x = $('#update-password-form').serializeArray();
+
+
+jQuery.each(x, function(i, field){
+    formData[field.name]=  field.value;
+//alert(field.name + " --" +field.value);
+  });
+
+
+
+$.ajax({
+url: login_ajax_obj.ajaxurl, // or example_ajax_obj.ajaxurl if using on frontend
+type: 'POST',
+cache: false,
+dataType: 'JSON',
+data: formData,
+
+success: function(resp) {
+
+
+
+if (Object.keys(resp).length ==0) {
+//	alert("am here here?");
+//successful validation
+
+
+//$('form').submit();
+
+
+//return false;
+
+$('.confirm-password').css("display","block");
+  $(".confirm-password").css("visibility", "visible");
+
+
+
+} else {
+
+$.each(resp, function(i, v) {
+console.log(i + " => " + v); // view in console for error messages
+var msg = '<label class="error" for="'+i+'">'+v+'</label>';
+$('input[name="' + i + '"], select[name="' + i + '"]').addClass('inputTxtError').after(msg);
+});
+
+var keys = Object.keys(resp);
+$('input[name="'+keys[0]+'"]').focus();
+}
+return false;
+},
+error: function(data, errorThrown) {
+	alert('request failed :'+errorThrown);
+console.log('there was a problem checking the fields');
+}
+});
+return false;
+
+
+
+	});
+
+
+
+
 $("#update-email").click(function(){
 	
 	
-alert("Update email");
+//alert("Update email");
 		
 resetErrors();
 //alert("login submit email");

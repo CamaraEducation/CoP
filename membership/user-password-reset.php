@@ -1,15 +1,17 @@
 
-<section>
 
-<div class="row">
+	<section>
+		<div class="container-fluid">
+			
+			<div class="row">
 
-
-<img src="<?php echo get_template_directory_uri(); ?>/images/login_image.png" class="img-fluid" alt="" width="500" height="600">
-
-<div class="col-md-5">
-	<a href="<?php echo get_site_url();?>">
-<img src="<?php echo get_template_directory_uri(); ?>/images/clogo.svg" alt="" class="img-fluid">
-</a>
+				
+				<img src="<?php echo get_template_directory_uri(); ?>/images/stpic.png" class="img-fluid" alt="">
+				
+				<div class="col-md-4">
+					<a href="<?php echo get_site_url();?>">
+						<img src="<?php echo get_template_directory_uri(); ?>/images/clogo.svg" alt="" class="img-fluid">
+					</a>
 
 <div class="card" style="background: #FFFFFF;box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 8px;margin-top:15%;margin-left:15%;">
 
@@ -41,9 +43,9 @@ There is an error processing your request. The link is expired or URL is invalid
 
 <p> Please try to <a href="<?php echo get_site_url();?>/password-reset">rest </a>your password again.
 </p>
-<div class="text-center">	
+<div class="text-center ">	
 <a href="<?php echo get_home_url();?>">
-<button type="button"  class="land-btn land-btn-txt mt-2" style="background-color:#fff;color:#EE603B;margin-top:24px;">
+<button type="button"  class="button-hover2 land-btn land-btn-txt mt-2 button-hover2" style="background-color:#fff;color:#EE603B;margin-top:24px;">
 GO BACK
 </button>
 </a>
@@ -61,7 +63,7 @@ GO BACK
 <span class="password-change-form">
 
 <div class="text-left" style="padding-bottom: 12px;"> 
-Please enter a new password. 
+Please enter a new password. Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.
 </div>
 
 <form id="reset_password_form_changepassword" name="reset_password_form_changepassword"   method="post">
@@ -82,7 +84,7 @@ Please enter a new password.
 </div>	
 
 <div class="text-center">
-<input type="submit" name="passwordreset-change-submit" id="passwordreset-change-submit" class="land-btn land-btn-txt mt-4 passwordreset-change-submit" value="SUBMIT">
+<input type="submit" name="passwordreset-change-submit" id="passwordreset-change-submit" class="land-btn land-btn-txt mt-4 passwordreset-change-submit button-hover2" value="CHANGE PASSWORD">
 <span style="margin:12px;"> </span>
 </div>
 
@@ -124,7 +126,7 @@ LOGIN
 <span class="username-capture-form">
 
 <div class="text-left" style="padding-bottom: 12px;"> 
-Please enter your email address or username. You will receive a link to create a new password via email. 
+Please enter your email address. You will receive a link to create a new password via email. 
 </div>
 
 <form id="reset_password_form_verifyuser"   method="post">
@@ -133,14 +135,14 @@ Please enter your email address or username. You will receive a link to create a
 
 
 <div class="form-groups">
-<label for="reset_member_username" class="signup-small-txt" style="display:inline">Username</label>
+<label for="reset_member_username" class="signup-small-txt" style="display:inline">Email</label>
 <input type="text" class="form-control" id="reset_member_username" name="reset_member_username">
 </div>	
 
 
 <div class="text-center">
 
-<input type="submit" name="passwordreset-submit" id="passwordreset-submit" class="land-btn land-btn-txt mt-4 passwordreset-submit" value="RESET PASSWORD">
+<input type="submit" name="passwordreset-submit" id="passwordreset-submit" class="land-btn land-btn-txt mt-4 passwordreset-submit button-hover2" value="RESET PASSWORD">
 
 <span style="margin:12px;"> </span>
 </div>
@@ -157,7 +159,7 @@ An email is sent to your email address with a link to reset your password.
 
 <div class="text-center">	
 <a href="<?php echo get_home_url();?>">
-<button type="button"  class="land-btn land-btn-txt mt-2" style="background-color:#fff;color:#EE603B;margin-top:24px;">
+<button type="button"  class=" button-hover2 land-btn land-btn-txt mt-2" style="background-color:#fff;color:#EE603B;margin-top:24px;">
 GO BACK
 </button>
 </a>
@@ -175,8 +177,9 @@ GO BACK
 </div>
 
 
-</div>
-</div> 
-</div>
-
+			</div>
+		</div> 
+	</div>
+	
 </section>
+

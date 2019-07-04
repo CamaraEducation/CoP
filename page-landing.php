@@ -54,33 +54,15 @@ return $lastposts;
 
 <!--  Hero Section -->
 <section id="hero">
-	<div class="hero-container" style="height:295px;opacity: 0.8"
-	>
-	<div class="container" style="height:255px; background-image: url(<?php echo get_template_directory_uri();  ?>/images/univ.png);">
 
-		 <div class="row h-100 w-100">
-             <div class="col-md-12 d-flex justify-content-center align-items-center">
-               <div class="row">
-               	<div class="col-xs-6 my-auto">
-				<span><img src="<?php echo get_avatar_url($current_user->ID); ?>" class="img-responsive rounded-circle prof-pic" width="125" height="125" alt="COP"></span>
-			</div>
-			<div class="col-xs-6 my-auto">
-				<h3 class="prof-name"> <?php echo $current_user_name; ?> </h3>
 
-				<h4 class="prof-role"><?php  echo $memberJobRole_name . ' @ ' . $org_name; ?> </h4>
 
-				<span class="badge badge-light float-left" style="line-height:16px;background-color: <?php echo $current_pathway_color;?>;color:#FFFFFF;">
-					<?php echo $current_user_pathway_name  ?></span>
+<?php
+     
+        include ('membership/profile_topHeader.php');
 
-					<span class="badge float-left mr-2 communityrole" style="line-height:16px;margin-left: 15px;font-size:14px;">
-						<?php echo $communityRole_name; ?></span> 
-					</div>
-               </div>  
-                 </div>
-            </div>
+?>
 
-			</div>
-		</div>
 	</section>   
 
 	<!-- #hero -->
@@ -91,10 +73,10 @@ return $lastposts;
 
 	<!-- Start Tab -->
 	<section>
-		<div class="container-fluid bg-white navsty">
+		<div class="container-fluid bg-white navsty" style="box-shadow: 0px 3px 5px rgba(25, 70, 93, 0.05);">
 			<div class="container">
 
-				<ul class="nav" id="myTab" role="tablist">
+				<ul class="nav" id="myTab">
 
 					<?php
 
@@ -106,11 +88,10 @@ return $lastposts;
 
 							?>
 
-							<li class="nav-item mx-4 tab-text1">
-								<a class="nav-link menu-color-shadow <?php echo ($currentPathway == $term->name ? "active" : "")?>" id="<?php echo $term->slug; ?>-tab" data-toggle="tab" href="#<?php echo $term->slug; ?>" role="tab" aria-controls="<?php echo $term->slug;?>" aria-selected="<?php echo ($currentPathway == $term->name ? "true" : "false")?>"> <?php echo $term->name; ?>  
-							</a>
 
-						</li>
+						 <li class="nav-item mx-4 tab-text1">
+                        <a class="nav-link alink <?php echo ($currentPathway == $term->name  ? active : none); ?>" id="home-tab" href="activities/?a=<?php echo $term->name; ?>" role="tab"><?php echo $term->name; ?></a>
+                    </li>
 
 						<?php
 }//end comparison if
@@ -141,11 +122,31 @@ return $lastposts;
 								<div class="card vid-shadow">
 
 
-									<div class="card-header border-0 py-3 d-flex align-items-center my-3 bg-white">
+									<div class="card-header border-0 py-3 d-flex align-items-center my-3 bg-white" style="padding-left: 45px;">
 
 
 
-										<iframe class="vids" width="620" height="268" src="https://www.youtube.com/embed/eO4vh9QOquw?controls=0&amp;start=11" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+<?php
+if(strcasecmp(strtoupper ($current_user_pathway_name), strtoupper ("STEAM"))==0) {
+	?>
+
+
+<iframe src="https://player.vimeo.com/video/342925561?autoplay=0&loop=0"  width="640" height="400" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<?php
+}else {
+	?>
+
+<iframe src="https://player.vimeo.com/video/341791197?autoplay=0&loop=0"  width="640" height="400" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+	<?php 
+}
+?>
+
+
+
+
 
 									</div>
 								</div>
@@ -289,7 +290,14 @@ array(
 		</div>
 	</div>
 </br>
-<p class="text-ask">Have you trained in the NYCISTEAM in Youth Work Maker Project? <a href="https://www.steminyouthwork.com" target="new" class="text-ask-link">Access further Resources Here </a></p>
+
+<?php
+if(strcasecmp(strtoupper ($current_user_pathway_name), strtoupper ("STEAM"))==0) {
+	?>
+<p class="text-ask">Have you trained in the NYCI STEAM in Youth Work Maker Project? <a href="https://www.steminyouthwork.com" target="new" class="text-ask-link">Access further Resources Here </a></p>
+
+<?php } ?>
+
 </div>
 </section>
 
@@ -318,12 +326,13 @@ return $term_single->name; //do something here
 
 				foreach ( $latestActivities as $post ) :
 					?>
-					<div class="col-md-4">
+					<div class="col-md-4 row-eq-height">
 
 						<div class="card scard1" style="margin-right: 0px !important; margin-left: 0px !important; width: 22rem;"> 
+	<a class="act-head" href="<?php the_permalink(); ?>">
 
 							<img class="card-img-top cardback" src="<?php the_field('featured_image'); ?>"  width="279px" height="251px" alt="Card image cap">
-
+</a>
 
 							<div class="card-body cbody">
 

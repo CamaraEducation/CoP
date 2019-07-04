@@ -44,20 +44,33 @@ function login_ajax_request() {
 			$errors = array('login_member_username'  => 'Username does not exist. Please enter a correct username.');
 		}
 
+
+$user_Account_Status =get_user_meta($user->ID, 'account_status', true);
+
+
+		if($user_Account_Status !="approved") {
+// Username already registered
+			$errors = array('login_member_username'  => 'The account you entered is not an active member account. It may be awaiting approval or you can create an account below.');
+		}
+
+
+
+
 }//end of issets 
 //================================END OF LOGIN ===================
 
 
-if(isset($_POST['change_password'])){
+
+
+if(isset($_POST['update_password'])){
+
+
 	$current_user = wp_get_current_user();
 	$user_current_password   = $_POST["user_current_password"];  
 	$login_member_password_new   = $_POST["user_new_password"];  
 	$login_member_password_new_confirm   = $_POST["user_new_password_confirm"];  
 
-	if(!wp_check_password($user_current_password, $current_user->user_pass, $current_user->ID)) {
-// if the password is incorrect for the specified user
-		$errors = array('user_current_password'  => 'Invalid password. Please enter your correct password.');
-	}
+
 
 
 
@@ -71,19 +84,68 @@ if(isset($_POST['change_password'])){
 		$errors = array('user_new_password_confirm'  => 'You new password cannot be the same as the current password.');
 	}
 
+// Validate password strength
+$uppercase = preg_match('@[A-Z]@', $login_member_password_new);
+$lowercase = preg_match('@[a-z]@', $login_member_password_new);
+$number    = preg_match('@[0-9]@', $login_member_password_new);
+$specialChars = preg_match('@[^\w]@', $login_member_password_new);
+    
+
+
+if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($login_member_password_new) < 8) {
+
+      // password is empoity
+          $errors = array('login_member_password_new'  => 'Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.');
+    }
+
+
+	if(empty($login_member_password_new)) {
+// passwords do not match
+		$errors = array('user_new_password'  => 'Please enter a new password.');
+	}
+
+
+
+	if(!wp_check_password($user_current_password, $current_user->user_pass, $current_user->ID)) {
+// if the password is incorrect for the specified user
+		$errors = array('user_current_password'  => 'Invalid password. Please enter your correct password.');
+	}
+
+
+	if(empty($user_current_password)) {
+// passwords do not match
+		$errors = array('user_current_password'  => 'Please enter your current  password.');
+	}
+
+
+
+
+	if(empty($errors)){
+
+		$new_pass= $login_member_password_new;
+
+		do_action('password_reset', $current_user, $new_pass);
+		wp_set_password($new_pass, $current_user->ID );
+		$updated = update_usermeta($current_user->ID, 'default_password_nag', false);
+
+
+
+	}
+
+
 
 }//end of change passworld 
+
+
+
 
 //update email
 if(isset($_POST['update_email'])){
 
+$current_user = wp_get_current_user();
 
 	$user_email_new   = $_POST["user_email_new"];  
 
-	if($user_email_new == '') {
-// passwords do not match
-		$errors = array('user_email_new'  => 'Please enter a valid email address.');
-	}
 
 	if(email_exists($user_email_new)) {
 //Email address already registered
@@ -91,66 +153,114 @@ if(isset($_POST['update_email'])){
 	}
 
 
+if(!is_email($user_email_new)) {
+      //invalid email
+  $errors = array('user_email_new'  => 'Invalid email. Please provide a valid email address.');
+  }
+  
+	if($user_email_new == '') {
+// passwords do not match
+		$errors = array('user_email_new'  => 'Please enter a valid email address.');
+	}
+
+
+if(empty($errors)){
+		$user_id = wp_update_user( array( 'ID' => $current_user->ID, 'user_email' => $user_email_new ) );
+	$user_id = wp_update_user( array( 'ID' => $current_user->ID, 'user_login' => $user_email_new ) );
+			
+	}
+
 }//end of update email
 
 
+
+/************************************************************************************************
+PASSWORD RESET - STEP 1 
+********************************************************/
+
 if(isset($_POST['reset_password_form_verifyuser'])){
 
-	$useraccountinput= $_POST['reset_member_username'];
-
-	if(empty($useraccountinput)){
-		$errors = array('reset_member_username'  => 'Please enter a username or email address');
-	}
-
-	if (filter_var($useraccountinput, FILTER_VALIDATE_EMAIL)){ 
-		$member_email= trim($useraccountinput);
-//$member_account=get_user_by('email',$member_email);
-		if(!email_exists($member_email)) {
-			$errors = array('reset_member_username'  => 'The email address you entered does not exists.');
-		} 
-
-} else {//endise
-	$member_username= trim($useraccountinput);
-
-
-	if(!username_exists($member_username)) {
-		$errors = array('reset_member_username'  => 'The username you entered does not exists.');
-	} 
+$useraccountinput= $_POST['reset_member_username'];
 
 
 
-}//outside
+if(!email_exists(trim($useraccountinput))) {
+$errors = array('reset_member_username'  => 'The email  you entered is not linked to any membership account.');
+} 
 
 
-}//end of member password veriy 
+if (!filter_var($useraccountinput, FILTER_VALIDATE_EMAIL)){ 
+$errors = array('reset_member_username'  => 'Please enter a alid email address. ');
+} 
 
+
+if(empty($useraccountinput)){
+$errors = array('reset_member_username'  => 'Please enter an email address.');
+}
+
+//SEND THE EMAIL IF THERE ARE NO ERRORS 
+if(empty($errors)) {
+resetPasswordemail($_POST['reset_member_username']);
+}
+
+
+
+}
+/*****
+end of verify user name 
+*/
+
+/***************************************************\\
+
+step 2 
+*/
 
 // now lets change if the user putting correct passwords
 if(isset($_POST['member_passwordreset_changepassword'])){
 
 	$reset_new_password= $_POST['reset_new_password'];
 	$reset_new_password_confirm= $_POST['reset_new_password_confirm'];
-
 	$user_login= $_POST['reset_for_user'];
+
 	$member_account=get_user_by('login',$user_login);
 
-////////////////USER NAME
-	if (empty($reset_new_password)) {
-//username is empity 
-		$errors = array('reset_new_password'  => 'Please enter a password.');
-	}
 
-////////////////USER NAME
-	if (empty($reset_new_password_confirm)) {
-//username is empity
-		$errors = array('reset_new_password_confirm'  => 'Please confirm your password.');
-	}
+
 
 	if ($reset_new_password_confirm != $reset_new_password) {
 		$errors = array('reset_new_password_confirm'  => 'Your new passwords do not match.');
 	}
 
-}//end of big eff
+
+// Validate password strength
+$uppercase = preg_match('@[A-Z]@', $reset_new_password);
+$lowercase = preg_match('@[a-z]@', $reset_new_password);
+$number    = preg_match('@[0-9]@', $reset_new_password);
+$specialChars = preg_match('@[^\w]@', $reset_new_password);
+    
+
+if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($reset_new_password) < 8) {
+
+      // password is empoity
+          $errors = array('reset_new_password'  => 'Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.');
+    }
+
+
+////////////////USER NAME
+	if (empty($reset_new_password)) {
+//username is empity 
+		$errors = array('reset_new_password'  => 'Please enter a new password.');
+	}
+
+
+	if(empty($errors)){
+		do_action('password_reset', $member_account, $reset_new_password);
+		wp_set_password($reset_new_password, $member_account->ID );
+		$updated = update_usermeta($member_account->ID, 'default_password_nag', false);
+	}
+
+
+} //end if step2 
 
 
 
@@ -164,49 +274,10 @@ if(count($errors) > 0){
 	echo json_encode($errors);
 	exit;
 
-}else {
+}
 
+//no error 
 
-	if(isset($_POST['change_password'])){
-
-//wp_set_password($_POST["user_new_password"],$current_user->ID);
-
-		$new_pass= $login_member_password_new;
-
-
-		do_action('password_reset', $current_user, $new_pass);
-		wp_set_password($new_pass, $current_user->ID );
-		$updated = update_usermeta($current_user->ID, 'default_password_nag', false);
-
-	}
-
-	
-	if(isset($_POST['change_email'])){
-		$user_id = wp_update_user( array( 'ID' => $user_id, 'user_url' => $website ) );
-	}
-
-//when there is no error 
-	if(isset($_POST['reset_password_form_verifyuser'])){
-//call the function to generate an email and send it to the user
-		resetPasswordemail($_POST['reset_member_username']);
-
-	}
-
-	if(isset($_POST['reset_password_form_changepassword'])){
-
-
-		$new_pass= $reset_new_password;
-//change password
-
-		do_action('password_reset', $member_account, $new_pass);
-		wp_set_password($new_pass, $member_account->ID );
-		$updated = update_usermeta($member_account->ID, 'default_password_nag', false);
-
-	}
-
-//no errors; 
-}//else
-//}//if issets
 
 } //function 
 
@@ -230,10 +301,19 @@ $user_email = $member_account->user_email;
 
 $adt_rp_key = get_password_reset_key( $member_account );
 
+//echo $adt_rp_key;
 
 $rp_link =network_site_url("password-reset/?action=rp&key=$adt_rp_key&login=" . rawurlencode($user_login), 'login') ;
 
+//echo $adt_rp_key;
 
+/**
+
+// error message to be logged 
+$error_message = $rp_link;
+$log_file = get_template_directory() . "/my-errors.log"; 
+error_log($error_message, 3, $log_file); 
+*/
 
 //$_SESSION['drere_url']= $rp_link +$member_account->login ;
 

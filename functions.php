@@ -8,6 +8,9 @@
 require_once ('inc/activity-functions.php');
 require_once ('inc/login-functions.php');
 require_once ('inc/onboarding-functions.php');
+require_once ('inc/contact-functions.php');
+require_once ('inc/profile-update-functions.php');
+require_once ('inc/uploadavator-functions.php');
 
 
 /** Feedback */
@@ -15,6 +18,7 @@ require_once('inc/feedback-satsfaction.php');
 require_once('inc/feedback-level.php');
 require_once('inc/feedback-time.php');
 require_once('inc/feedback-agegroup.php');
+
 
 /** END OF INCLUDE/REQUIRE */
 
@@ -42,6 +46,7 @@ function irelandcop_script_enqueue() {
 
 //css styles
 wp_enqueue_style('customstyle',get_template_directory_uri().'/css/irelandcop.css',array(),'1.0.0','all');
+
 wp_enqueue_style('custombootstrap',get_template_directory_uri().'/css/bootstrap.css',array(),'1.0.0','all');    
 wp_enqueue_style('fontcss',get_template_directory_uri().'/css/font-awesome/css/font-awesome.min.css',array(),'1.0.0','all');
 

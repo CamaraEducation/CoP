@@ -1,3 +1,4 @@
+
 <?php get_header('home');?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white menu-back">
@@ -13,10 +14,10 @@
 
 <ul class="nav navbar-nav mr-5">
 <li class="nav-item">
-<button type="button" class="btn btn-outline-warning btn1-shadow">
-<a href="login" class="btn1-text">LOG IN</a>
-<br>
-<span class="float-left"></span></button></li>
+<a href="login" class="btn mt-4 login_button"> LOGIN </a>
+
+</li>
+
 </ul>
 </div>
 </nav>
@@ -384,8 +385,7 @@ Create or curate your own resource to share with the community.</p>
 <div class="row justify-content-center">
 <div class="card act-card-st mt-5" style="height:240px;">
 
-<div class="card-body" style="box-shadow: 0px 4px 10px rgba(196, 196, 196, 0.52);
-border-radius: 8px;">
+<div class="card-body" style="box-shadow:0px 3px 5px rgba(25, 70, 93, 0.05);border-radius: 8px;">
 <h1 class="landing-h1 pt-5" align="center">
 Sign up to the Online TechSpace Network</h1>
 <div class="row justify-content-center">
